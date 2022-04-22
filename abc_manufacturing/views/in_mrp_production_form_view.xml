@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <record model="ir.actions.act_window" id="btn_action_cost_analysis">
+        <field name="name">Provisiones</field>
+        <field name="res_model">mrp.production</field>
+        <field name="view_mode">form</field>
+    </record> -->
+
+    <!-- <record id="my_test_view" model="ir.ui.view">
+        <field name="name">Provisiones</field>
+        <field name="model">mrp.production</field>
+        <field name="arch" type="xml">
+            <templates>
+                <t t-name="example">
+                    <div>
+                        <h1>Hello World</h1>
+                    </div>
+                </t>
+            </templates>
+        </field>
+    </record> -->
+
+    
+    <record id="in_mrp_production_form_view" model="ir.ui.view">
+        <field name="name">production.form.inherit.production.form</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button name="%(btn_action_cost_analysis)d" class="oe_stat_button" string="Cost Analysis" type="action" icon="fa-money" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

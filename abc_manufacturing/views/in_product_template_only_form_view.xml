@@ -10,6 +10,11 @@
                 <field name="product_type"/>
             </xpath>
 
+            <!-- Add Mesurement field -->
+            <xpath expr="//field[@name='product_type']" position="after">
+                <field name="measurement_uom_id" string='Measurement'/>
+            </xpath>
+
             <!-- Remove 'Internal Notes' and 'description' field "Remove child and parent" -->
             <xpath expr="//field[@name='description']/parent::*" position="replace" />
 

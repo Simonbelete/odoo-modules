@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- <template id="report_production_products">
+        <t t-foreach="docs" t-as="property">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>
+                            <span t-field="mrp.production.name"/>
+                        </h2>
+                        <div>
+                            <strong>Expected Price: </strong>
+                            <span t-field="mrp.production.date_planned_start"/>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               <tr>abc</tr>
+                            </tbody>
+                        </table>
+        'report/production_report_views.xml',
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template> -->
+        <template id="report_production_products">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>Report title</h2>
+                            <p>This object's name is <span t-field="o.name"/></p>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+</odoo>
