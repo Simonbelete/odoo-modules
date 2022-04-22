@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <!-- Add Product Type Field -->
             <xpath expr="//field[@name='categ_id']" position="after">
-                    <field name="product_type"/>
+                <field name="product_type"/>
             </xpath>
 
             <!-- Remove 'Internal Notes' and 'description' field "Remove child and parent" -->
@@ -43,9 +43,9 @@
             <!-- <xpath expr="//label[@for='list_price']" position="replace" /> -->
 
             <!-- Rename  -->
-            <!-- <field name="standard_price" position="attributes">
+            <field name="standard_price" position="attributes">
                 <attribute name="string">Price</attribute>
-            </field> -->
+            </field>
 
             <!-- Hide Options 'can be sold...' -->
             <!-- <xpath expr="field[@name='sale_ok']" position="replace" /> -->
