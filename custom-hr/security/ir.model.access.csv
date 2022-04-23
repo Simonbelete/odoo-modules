@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_custom-hr_custom-hr,custom-hr.custom-hr,model_custom-hr_custom-hr,base.group_user,1,1,1,1
