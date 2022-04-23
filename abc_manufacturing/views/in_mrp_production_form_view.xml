@@ -11,7 +11,7 @@
         <field name="model">mrp.production</field>
         <field name="arch" type="xml">
             <templates>
-                <t t-name="example">
+                <t t-name="example">1.00
                     <div>
                         <h1>Hello World</h1>
                     </div>
@@ -29,6 +29,16 @@
             <xpath expr="//div[@class='oe_button_box']" position="inside">
                 <button name="%(btn_action_cost_analysis)d" class="oe_stat_button" string="Cost Analysis" type="action" icon="fa-money" />
             </xpath>
+
+            <xpath expr="//button[@name='action_show_details']" position="before">
+                <field name="cost_history" string="Cost"/>
+             </xpath>
+             <xpath expr="//button[@name='action_show_details']" position="before">
+                <field name="total_cost" string="Total Cost"/>
+             </xpath>
+            <!-- <xpath expr="//field[@name='product_uom']" position="after">
+                <field name="bom_id.bom_line_ids.total_cost" string="Total Cost"/>
+            </xpath> -->
         </field>
     </record>
 </odoo>
