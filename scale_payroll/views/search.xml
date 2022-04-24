@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_mrp_production_filter_inherited" model="ir.ui.view">
+        <field name="name">mrp.production.select.inherited</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.view_mrp_production_filter"/>
+        <field name="arch" type="xml">
+            <filter name="waiting" position="before">
+                <filter string="For next use" name="product_type"
+                        domain="[('product_type', '=', ('product_type', 'for next use'))]"/>
+
+            </filter>
+            <filter name="product_type" position="before">
+                <filter string="Final Product" name="product_type"
+                        domain="[('product_type', '=', ('product_type', 'final product'))]"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
