@@ -18,8 +18,13 @@
                         <h3 t-field="data.product_id.name" />
                         <p><span t-field="data.product_qty"/> (<span t-field="data.product_uom_id.name"/>) from 1 manufacturing order.</p>
                     </div>
-                    <h5>Cost Structure</h5>
-                    <table class="table table-sm" style="font-size: 14px" t-if="data.move_raw_ids">
+                    <h5 style="margin-top:20px">Cost Structure</h5>
+                    <!-- <span t-filed="data.product_id.categ_id" />
+                    <t t-if="'PART ' in data.product_id.categ_id">
+                        abc <sapn t-field="data.product_id.categ_id"/>
+                    </t>  -->
+
+                    <table class="table table-sm" style="font-size: 14px;" t-if="data.move_raw_ids">
                         <thead>
                             <tr style="border-width: 4px;
                                        border-top-style: groove;
@@ -35,6 +40,11 @@
                         <tbody>
                             <!-- Total Raw Cost -->
                             <t t-set="raw_material_total_cost" t-value="0" />
+                            <t t-set="unit_raw_material_total_cost" t-value="0" />
+                            <t t-set="n_raw_material_total_cost" t-value="0"/>
+                            <t t-set="n_unit_raw_material_total_cost" t-value="0"/>
+                            <t t-set="have_nested" t-value="False" />
+
                             <tr>
                                 <td><span style="font-weight: bold;" t-field="data.product_id"/></td>
                                 <td><span t-field="data.product_id"/></td>
@@ -44,6 +54,21 @@
                             </tr>
                             <t t-foreach="data.move_raw_ids" t-as="raw_line">
                                 <t t-set="raw_material_total_cost" t-value="raw_material_total_cost + raw_line.total_cost"/>
+                                <t t-set="unit_raw_material_total_cost" t-value="unit_raw_material_total_cost + raw_line.cost_history"/>
+
+                                <!-- Calculate global first -->
+                                <t t-set="nested_bom_line_cost" t-value="0" />
+                                <t t-set="nested_bom_line_total_cost" t-value="0" />
+
+                                <t t-foreach="raw_line.product_id.bom_ids" t-as="nested_bom">
+                                    <t t-foreach="nested_bom.bom_line_ids" t-as="nested_bom_line">
+                                        <t t-set="nested_bom_line_cost" t-value="nested_bom_line_cost + nested_bom_line.cost" />
+                                        <t t-set="nested_bom_line_total_cost" t-value="nested_bom_line_total_cost + nested_bom_line.total_cost * raw_line.product_qty" />
+                                    </t>
+                                </t>
+                                <t t-set="n_raw_material_total_cost" t-value="n_raw_material_total_cost + nested_bom_line_total_cost"/>
+                                <t t-set="n_unit_raw_material_total_cost" t-value="n_unit_raw_material_total_cost + nested_bom_line_cost"/>
+
                                 <tr>
                                     <td colspan="2">
                                         <span style="margin-left: 20px">
@@ -58,18 +83,126 @@
                                     </td>
                                     <td><span t-field="raw_line.product_qty" /></td>
                                     <!-- <td><span t-field="raw_line.bom_line_id.product_qty" /></td> -->
-                                    <td><span t-field="raw_line.cost_history" /></td>
-                                    <td><span t-field="raw_line.total_cost" /></td>
+                                    <t t-if="not raw_line.product_id.bom_ids">
+                                        <td><span t-field="raw_line.cost_history" /></td>
+                                        <td><span t-field="raw_line.total_cost" /></td>
+                                    </t>
+                                    <t t-if="raw_line.product_id.bom_ids">
+                                        <td><t t-esc="nested_bom_line_cost" /></td>
+                                        <td><t t-esc="nested_bom_line_total_cost" /></td>
+                                    </t>
                                 </tr>
+                                <t t-foreach="raw_line.product_id.bom_ids" t-as="nested_bom">
+                                    <t t-set="have_nested" t-value="True" />
+                                    <t t-foreach="nested_bom.bom_line_ids" t-as="nested_bom_line">
+                                        <tr>
+                                            <td colspan="2">
+                                                <span style="margin-left: 40px" t-field="nested_bom_line.product_id"/>
+                                                <span>
+                                                    -
+                                                    <span t-field="nested_bom_line.product_id.product_type"/>
+                                                    /
+                                                    <span t-field="nested_bom_line.product_id.measurement_uom_id"/>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <t t-set="nested_bom_line_qty_l" t-value="nested_bom_line.product_qty * raw_line.product_qty" />
+                                                <!-- <t t-set="nested_bom_line_qty" t-value="nested_bom_line_qty + nested_bom_line_qty_l" /> -->
+                                                <t t-esc="nested_bom_line_qty_l" />
+                                            </td>
+                                            <td><span t-field="nested_bom_line.cost" /></td>
+                                            <td>
+                                                <t t-set="nested_bom_line_total_cost_l" t-value="nested_bom_line.total_cost * raw_line.product_qty" />
+                                                <!-- <t t-set="nested_bom_line_total_cost" t-value="nested_bom_line_total_cost + nested_bom_line_total_cost_l" /> -->
+                                                <t t-esc="nested_bom_line_total_cost_l" />
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
                             </t>
                             <tr>
                                 <td></td>
                                 <td></td>
                                 <td><b>Total Cost of Raw Materials</b></td>
-                                <td><span><t t-esc="raw_material_total_cost" /></span></td>
-                                <td></td>
+                                <t t-if="not have_nested">
+                                    <td><span><t t-esc="unit_raw_material_total_cost" /></span></td>
+                                    <td><span><t t-esc="raw_material_total_cost" /></span></td>
+                                </t>
+                                <t t-if="have_nested">
+                                    <td><span><t t-esc="n_unit_raw_material_total_cost" /></span></td>
+                                    <td><span><t t-esc="n_raw_material_total_cost" /></span></td>
+                                </t>
+                                
                             </tr>
                         </tbody>
+                    </table>
+
+                    <h5 style="margin-top:50px">Operation Cost</h5>
+                    <table class="table table-sm" style="font-size: 14px" t-if="data.move_raw_ids">
+                        <thead>
+                            <tr style="border-width: 4px;
+                                       border-top-style: groove;
+                                       border-bottom-style: groove;
+                                       padding: 1px">
+                                <th>Operator</th>
+                                <th>Operation</th>
+                                <th>Working Time</th>
+                                <th>Cost (Per Unit)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span t-field="data.user_id"/></td>
+                                <td></td>
+                                <td></td>
+                                <td><span t-field="data.cost_of_operation"/></td>
+                            </tr>
+                           
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><b>Total Cost of Operations</b></td>
+                                <td>
+                                    <t t-set="total_cost_of_operation" t-value="data.cost_of_operation * data.product_qty" />
+                                    <span t-esc="total_cost_of_operation"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-sm" style="float: right; width: 500px; margin-top:40px">
+                        <thead>
+                            <tr>
+                                <th>Cost for <span t-field="data.product_qty"/> Units With Salary</th>
+                                <!-- <th>
+                                    <t t-set="total_unit_price" t-value="raw_material_total_cost + total_cost_of_operation"/>
+                                    <t t-esc="total_unit_price" />    
+                                </th> -->
+                                <th>
+                                    <t t-if="not have_nested">
+                                        <t t-set="total_unit_price" t-value="raw_material_total_cost + total_cost_of_operation"/>
+                                        <t t-esc="total_unit_price" />    
+                                    </t>
+                                    <t t-if="have_nested">
+                                        <t t-set="n_total_unit_price" t-value="n_raw_material_total_cost + total_cost_of_operation"/>
+                                        <t t-esc="n_total_unit_price" />    
+                                    </t>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Unit Cost with Salary</th>
+                                <th>
+                                    <t t-if="not have_nested">
+                                        <t t-set="unit_cost_with_salary" t-value="data.cost_of_operation + unit_raw_material_total_cost" />
+                                        <t t-esc="unit_cost_with_salary" />
+                                    </t>
+                                    <t t-if="have_nested">
+                                        <t t-set="n_unit_cost_with_salary" t-value="data.cost_of_operation + n_unit_raw_material_total_cost" />
+                                        <t t-esc="n_unit_cost_with_salary" />
+                                    </t>
+                                </th>
+                            </tr>
+                    </thead>
                     </table>
                 </div>
             </t>

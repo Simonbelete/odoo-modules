@@ -36,6 +36,9 @@
              <xpath expr="//button[@name='action_show_details']" position="before">
                 <field name="total_cost" string="Total Cost"/>
              </xpath>
+             <xpath expr="//field[@name='user_id']" position="before">
+                <field name="cost_of_operation" string="Cost of Operation" />
+             </xpath>
             <!-- <xpath expr="//field[@name='product_uom']" position="after">
                 <field name="bom_id.bom_line_ids.total_cost" string="Total Cost"/>
             </xpath> -->
