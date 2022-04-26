@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+            id="report_Employee_summary_example_ID"
+            string="Employee Summary Information"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            name="employee_ms.summary_Detail"
+            file="employee_ms.summary_Detail"
+
+    />
+</odoo>
+
+

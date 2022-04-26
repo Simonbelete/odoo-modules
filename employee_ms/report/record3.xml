@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+            id="report_Employee_short_report_ID"
+            string="Employee List"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            name="employee_ms.Compact"
+            file="employee_ms.Compact"
+    />
+    <report
+            id="report_Employee_short_report_Experience"
+            string="Experience"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            name="employee_ms.Experience"
+            file="employee_ms.Experience"
+    />
+
+    <report
+            id="report_Employee_short_report_45_days_probation"
+            string="45 days probation"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            name="employee_ms.45_days_probation"
+            file="employee_ms.45_days_probation"
+    />
+    <!--        <report-->
+    <!--            id="report_Employee_short_report_Experience"-->
+    <!--            string="Experience"-->
+    <!--            model="hr.employee"-->
+    <!--            report_type="qweb-pdf"-->
+    <!--            name="employee_ms.Experience"-->
+    <!--            file="employee_ms.Experience"-->
+    <!--    />-->
+
+
+    <!--    <menuitem id="menu_hr_Experience" name="Experience"-->
+    <!--              parent="hr.menu_hr_root"-->
+    <!--              action="report_Employee_short_report_Experience"/>-->
+</odoo>
+
+
