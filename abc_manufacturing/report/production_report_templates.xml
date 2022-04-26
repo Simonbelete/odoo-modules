@@ -74,12 +74,12 @@
                                         <span style="margin-left: 20px">
                                             <span t-field="raw_line.product_id" />
                                         </span>
-                                        <span>
+                                        <!-- <span>
                                             -
                                             <span t-field="raw_line.product_id.product_type"/>
                                             /
                                             <span t-field="raw_line.product_id.measurement_uom_id"/>
-                                        </span>
+                                        </span> -->
                                     </td>
                                     <td><span t-field="raw_line.product_qty" /></td>
                                     <!-- <td><span t-field="raw_line.bom_line_id.product_qty" /></td> -->
@@ -98,12 +98,12 @@
                                         <tr>
                                             <td colspan="2">
                                                 <span style="margin-left: 40px" t-field="nested_bom_line.product_id"/>
-                                                <span>
+                                                <!-- <span>
                                                     -
                                                     <span t-field="nested_bom_line.product_id.product_type"/>
                                                     /
                                                     <span t-field="nested_bom_line.product_id.measurement_uom_id"/>
-                                                </span>
+                                                </span> -->
                                             </td>
                                             <td>
                                                 <t t-set="nested_bom_line_qty_l" t-value="nested_bom_line.product_qty * raw_line.product_qty" />
