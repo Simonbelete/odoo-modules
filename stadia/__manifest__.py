@@ -3,9 +3,11 @@
     'version': '0.1.0',
     'category': 'Human Resources',
     'description': 'Stadia Engineering Works Consultant PLC',
-    'depends': ['hr'],
+    'depends': ['base', 'hr'],
+    'author': "Author Name",
     'data': [
-        'views/appraisal_views.xml',
+        'security/ir.model.access.csv',
+        'views/appraisal_sub_trait_views.xml',
         'views/appraisal_menus.xml'
     ]
 }

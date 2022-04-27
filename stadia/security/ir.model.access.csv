@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_stadia_appraisal_trait,access_stadia_appraisal_trait,model_stadia_appraisal_trait,base.group_user,1,1,1,1
+access_stadia_appraisal_sub_trait,access_stadia_appraisal_sub_trait,model_stadia_appraisal_sub_trait,base.group_user,1,1,1,1
