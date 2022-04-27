@@ -3,7 +3,16 @@
     
     <!-- MAIN MENU -->
     <menuitem name="Appraisal"
-        id="appraisal_main_menu"
-        action="appraisal_action"/>
+        id="appraisal_main_menu" >
+
+        <menuitem id="appraisal_dashboard"
+            name="Dashboard" 
+            action="appraisal_action" />
+
+        <menuitem id="appraisal_appraisal_menu" 
+            name="Appraisal" 
+            action="appraisal_view"/>
+
+    </menuitem>
 
 </odoo>

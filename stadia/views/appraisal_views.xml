@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <odoo>
 
-    <record id="appraisal_view_form" model="ir.actions.act_window">
-        <field name="name">Example</field>
-        <field name="res_model">property.tag.model</field>
+    <record id="appraisal_view" model="ir.actions.act_window">
+        <field name="name">Appraisals</field>
+        <field name="res_model">stadia.appraisal.appraisal</field>
         <field name="view_mode">tree,form</field>
     </record>
 

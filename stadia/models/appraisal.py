@@ -9,7 +9,7 @@ class Appraisal(models.Model):
     job_location = fields.Char()
     date = fields.Date()
     last_evaluation = fields.Date()
-    appraisal_score_ids = fields.One2many('stadia.appraisal.score', '')
+    appraisal_score_ids = fields.One2many('stadia.appraisal.score', 'appraisal_id')
     strengths = fields.Text() # Comment on principal strengths:
     suggestion = fields.Text() # Comment on principal weaknesses and suggestions for improvement
     is_discussed_with_employee = fields.Boolean(required = True)
