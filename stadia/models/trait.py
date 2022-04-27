@@ -5,4 +5,4 @@ class Trait(models.Model):
 
     name = fields.Char(required = True)
     definition = fields.Text()
-    sub_traits_ids = fields.One2Many('stadia.appraisal.sub.traits', 'trait_id')
+    sub_traits_ids = fields.One2many('stadia.appraisal.sub.trait', 'trait_id')

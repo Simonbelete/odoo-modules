@@ -1,1 +1,2 @@
-from . import traits
+from . import trait
+from . import sub_trait
