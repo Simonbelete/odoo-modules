@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--                            -->
+    <!-- Actions -->
+    <!--                            -->
+    <record id="appraisal_action" model="ir.actions.act_window">
+        <field name="name">Appraisals</field>
+        <field name="res_model">stadia.appraisal.sub.trait</field>
+        <field name="view_mode">kanban,form</field>
+    </record>
+
+    <record id="appraisal_kanban_view" model="ir.ui.view">
+        <field name="name">Appraisals</field>
+        <field name="model">stadia.appraisal.sub.trait</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <field name="definition"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+</odoo>

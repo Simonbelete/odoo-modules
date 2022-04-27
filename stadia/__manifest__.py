@@ -7,6 +7,7 @@
     'author': "Author Name",
     'data': [
         'security/ir.model.access.csv',
+        'views/appraisal_kanban_view.xml',
         'views/appraisal_sub_trait_views.xml',
         'views/appraisal_menus.xml'
     ]

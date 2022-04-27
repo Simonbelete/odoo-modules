@@ -4,6 +4,6 @@
     <!-- MAIN MENU -->
     <menuitem name="Appraisal"
         id="appraisal_main_menu"
-        action="appraisal_sub_trait_view"/>
+        action="appraisal_action"/>
 
 </odoo>
