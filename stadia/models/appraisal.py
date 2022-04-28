@@ -81,7 +81,7 @@ class Appraisal(models.Model):
     last_evaluation = fields.Date()
     strengths = fields.Text() # Comment on principal strengths:
     suggestion = fields.Text() # Comment on principal weaknesses and suggestions for improvement
-    is_discussed_with_employee = fields.Boolean(required = True)
+    # is_discussed_with_employee = fields.Boolean(required = True)
     recommendation = fields.Text() # Your recommendation for present and future job classification
 
     # Signatures
