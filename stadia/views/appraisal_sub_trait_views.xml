@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--                            -->
+    <!-- Actions -->
+    <!--                            -->
+
+    <!-- Subtraits create and view  -->
+    <record id="appraisal_sub_trait_view" model="ir.actions.act_window">
+        <field name="name">Appraisal Traits</field>
+        <field name="res_model">stadia.appraisal.sub.trait</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- List Views -->
+    <record id="appraisal_sub_trait_tree_view" model="ir.ui.view">
+        <field name="name">Appraisal Traits</field>
+        <field name="model">stadia.appraisal.sub.trait</field>
+        <field name="arch" type="xml">
+            <tree string="Tree View">
+                <field name="trait_id" widget="many2one_partners" />
+                <field name="definition" />
+            </tree>
+        </field>
+    </record>
+
+
+</odoo>
