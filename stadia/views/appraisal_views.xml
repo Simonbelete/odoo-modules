@@ -26,9 +26,9 @@
                     </group>
                     <!-- <group>
                         <group string="KNOWLEDGE">
-                            <field name="kn_1" widget="radio" options="{'horizontal': true}" string="Employee's educational backgrounds related to job" />
-                            <field name="kn_2" widget="radio" options="{'horizontal': true}" string="Employee's skills related to job" />
-                            <field name="kn_3" widget="radio" options="{'horizontal': true}" string="Employee's experience related to job" />
+                            <field name="kn_1" widget="radio" options="{'horizontal': false}" string="Employee's educational backgrounds related to job" />
+                            <field name="kn_2" widget="radio" options="{'horizontal': false}" string="Employee's skills related to job" />
+                            <field name="kn_3" widget="radio" options="{'horizontal': false}" string="Employee's experience related to job" />
                         </group>
                         <group string="KNOWLEDGE AVERAGE RATING (1 TO 5)">
                             <field name="kn_avg" />
@@ -53,12 +53,12 @@
                             <tr>
                                 <td>2</td>
                                 <td>Employee's skills related to job</td>
-                                <td><field name="kn_2" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="kn_2" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Employee's experience related to job</td>
-                                <td><field name="kn_3" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="kn_3" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                         </tbody>
                         <tfoot style="color: #7c7bad; font-weight: bold; font-size:16px">
@@ -83,17 +83,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Ability  to accomplishing given jobs within acceptable time</td>
-                                <td><field name="qu_1" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="qu_1" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Ability to accomplish exit review of jobs before issuance</td>
-                                <td><field name="qu_2" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="qu_2" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Ability to timely take corrective action when error is detected </td>
-                                <td><field name="qu_3" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="qu_3" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                         </tbody>
                         <tfoot style="color: #7c7bad; font-weight: bold; font-size:16px">
@@ -118,17 +118,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Ability to accomplish given jobs with due diligence and accuracy</td>
-                                <td><field name="ac_1" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="ac_1" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Ability to accomplish exit review of jobs before issuance</td>
-                                <td><field name="ac_2" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="ac_2" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Ability to timely take corrective action when error is detected </td>
-                                <td><field name="ac_3" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="ac_3" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                         </tbody>
                         <tfoot style="color: #7c7bad; font-weight: bold; font-size:16px">
@@ -153,17 +153,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Capacity to make rational judgment </td>
-                                <td><field name="ju_1" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="ju_1" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Capacity to forecast risks and give timely advise </td>
-                                <td><field name="ju_2" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="ju_2" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Ability to give timely quality decision</td>
-                                <td><field name="ju_3" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="ju_3" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                         </tbody>
                         <tfoot style="color: #7c7bad; font-weight: bold; font-size:16px">
@@ -188,17 +188,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Ability to adapt new approaches that will improve organizational objectives i.e. quality, cost, time</td>
-                                <td><field name="in_1" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="in_1" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Desire and consistency of effort to adopt latest practices </td>
-                                <td><field name="in_2" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="in_2" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Initiation to introduce new approaches &amp; latest practices </td>
-                                <td><field name="in_3" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="in_3" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                         </tbody>
                         <tfoot style="color: #7c7bad; font-weight: bold; font-size:16px">
@@ -223,17 +223,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Ability to diversify own profession </td>
-                                <td><field name="flx_1" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="flx_1" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Ability to accommodate team members positively and flexibility </td>
-                                <td><field name="flx_2" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="flx_2" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Interest to develop synergetical integration of multiple disciplines </td>
-                                <td><field name="flx_3" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="flx_3" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                         </tbody>
                         <tfoot style="color: #7c7bad; font-weight: bold; font-size:16px">
@@ -258,17 +258,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Willingness and commitment to work in team</td>
-                                <td><field name="coo_1" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="coo_1" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Ability to find a position that fully satisfies his and other members concerns</td>
-                                <td><field name="coo_2" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="coo_2" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Level of being team player</td>
-                                <td><field name="coo_3" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="coo_3" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                         </tbody>
                         <tfoot style="color: #7c7bad; font-weight: bold; font-size:16px">
@@ -293,17 +293,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Take initiative to contribute to organizations  success</td>
-                                <td><field name="init_1" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="init_1" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>commitment to show high voluntary initiative for an assignment </td>
-                                <td><field name="init_2" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="init_2" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Willingness to take the initiative, even when it’s outside the normal job requirements, to satisfy a customer’s needs</td>
-                                <td><field name="init_3" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="init_3" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                         </tbody>
                         <tfoot style="color: #7c7bad; font-weight: bold; font-size:16px">
@@ -328,17 +328,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Ability to carry out responsibilities with highest quality and in time </td>
-                                <td><field name="reli_1" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="reli_1" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Ability to accomplish jobs independently </td>
-                                <td><field name="reli_2" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="reli_2" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Showing high consistency in delivering required service</td>
-                                <td><field name="reli_3" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="reli_3" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                         </tbody>
                         <tfoot style="color: #7c7bad; font-weight: bold; font-size:16px">
@@ -363,17 +363,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Being available to undertake responsibilities at working hours</td>
-                                <td><field name="atd_1" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="atd_1" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Showing affective commitment towards organizational tasks</td>
-                                <td><field name="atd_2" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="atd_2" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Showing good attendance tending towards becoming good performer</td>
-                                <td><field name="atd_3" widget="radio" options="{'horizontal': true}"/></td>
+                                <td><field name="atd_3" widget="radio" options="{'horizontal': false}"/></td>
                             </tr>
                         </tbody>
                         <tfoot style="color: #7c7bad; font-weight: bold; font-size:16px">
