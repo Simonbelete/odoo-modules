@@ -1,5 +1,26 @@
 from odoo import models, fields, api
 
+knowledge = fields.Selection([
+        ('A-1', '1 - Severely lacking in knowledge',), 
+        ('B-2', '2 - Noticeable deficiencies in job knowledge',), 
+        ('C-3', '3 - Understanding job routine. Some knowledge still to be acquired',), 
+        ('D-4', '4 - Completely understands all aspects of the job',), 
+        ('E-5', '5 - Understands why all job functions are performed and inter-relationship with other jobs. An expert',)])
+
+quantity = fields.Selection([
+    ('A-1', '1',), 
+    ('B-2', '2',), 
+    ('C-3', '3',), 
+    ('D-4', '4',), 
+    ('E-5', '5',)])
+
+quantity = fields.Selection([
+    ('A-1', '1 - Usually below acceptable standard',), 
+    ('B-2', '2 - Barely acceptable level of output. A slow worker',), 
+    ('C-3', '3 - Satisfactory. Meets expectations of average output',), 
+    ('D-4', '4 - Usually exceeds the norm. A fast worker',), 
+    ('E-5', '5 - Exceptional producer. Generates maximal output',)])
+
 class Appraisal(models.Model):
     _name = 'stadia.appraisal.appraisal'
 
@@ -21,14 +42,14 @@ class Appraisal(models.Model):
     ## Scores
     ## TODO: use reference with appraisal traits
     # appraisal_score_ids = fields.One2many('stadia.appraisal.score', 'appraisal_id')
-    kn_1 = fields.Selection([('A-1', '1',), ('B-2', '2',), ('C-3', '3',), ('D-4', '4',), ('E-5', '5',)])
-    kn_2 = fields.Selection([('A-1', '1',), ('B-2', '2',), ('C-3', '3',), ('D-4', '4',), ('E-5', '5',)])
-    kn_3 = fields.Selection([('A-1', '1',), ('B-2', '2',), ('C-3', '3',), ('D-4', '4',), ('E-5', '5',)])
+    kn_1 = knowledge 
+    kn_2 = knowledge
+    kn_3 = knowledge
     kn_avg = fields.Float(compute="_compute_kn_avg")
 
-    qu_1 = fields.Selection([('A-1', '1',), ('B-2', '2',), ('C-3', '3',), ('D-4', '4',), ('E-5', '5',)])
-    qu_2 = fields.Selection([('A-1', '1',), ('B-2', '2',), ('C-3', '3',), ('D-4', '4',), ('E-5', '5',)])
-    qu_3 = fields.Selection([('A-1', '1',), ('B-2', '2',), ('C-3', '3',), ('D-4', '4',), ('E-5', '5',)])
+    qu_1 = quantity
+    qu_2 = quantity
+    qu_3 = quantity
     qu_avg = fields.Float(compute="_compute_qu_avg")
 
     ac_1 = fields.Selection([('A-1', '1',), ('B-2', '2',), ('C-3', '3',), ('D-4', '4',), ('E-5', '5',)])
@@ -89,7 +110,7 @@ class Appraisal(models.Model):
     @api.depends('kn_1', 'kn_2', 'kn_3')
     def _compute_kn_avg(self):
         for record in self:
-            record.kn_avg = (self.convert_to_score(record.kn_1) + self.convert_to_score(record.kn_2) + self.convert_to_score(record.kn_3)) / 3
+            record.kn_avg = (self.convert_to_score(record.kn_1) + self.convert_to_score(record.kn_2) + self.convert_to_score(record.kn_3)) /3
 
     @api.depends('qu_1', 'qu_2', 'qu_3')
     def _compute_qu_avg(self):
