@@ -3,9 +3,9 @@ from odoo import models, fields, api
 class Appraisal(models.Model):
     _name = 'stadia.appraisal.appraisal'
 
-    employee_id = fields.Many2one('res.users', string = 'Employee')
-    rated_by_id = fields.Many2one('res.users', string = 'Rated by')
-    approved_by_id = fields.Many2one('res.users', string = 'Approved by')
+    employee_id = fields.Many2one('hr.employee', string = 'Employee')
+    rated_by_id = fields.Many2one('hr.employee', string = 'Rated by')
+    approved_by_id = fields.Many2one('hr.employee', string = 'Approved by')
     job_location = fields.Char()
     date = fields.Date()
     last_evaluation = fields.Date()
