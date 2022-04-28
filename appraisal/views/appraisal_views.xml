@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="appraisal_view" model="ir.actions.act_window">
+        <field name="name">Appraisals</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

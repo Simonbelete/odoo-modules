@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- MAIN MENU -->
+    <menuitem id="appraisal_main_menu" name="Appraisal">
+
+        <menuitem id="appraisal_kanban_menu" name="Appraisal" action="appraisal_kanban_action"/>
+
+    </menuitem>
+
+</odoo>
