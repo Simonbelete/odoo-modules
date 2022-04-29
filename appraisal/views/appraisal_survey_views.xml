@@ -5,7 +5,6 @@
         <field name="name">Appraisal Survey</field>
         <field name="res_model">appraisal.survey</field>
         <field name="view_mode">tree,form</field>
-        <field name="search_view_id" ref="appraisal_configure_survey_question_search"/>
     </record>
 
     <!-- Forms -->
