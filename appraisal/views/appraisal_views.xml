@@ -27,8 +27,8 @@
                     </group>
                     <notebook>
                         <page string="Appraisal Scores">
-                            <field name="appraisal_score_ids" widget="one2many_offers">
-                                <tree>
+                            <field name="appraisal_score_ids" widget="one2many">
+                                <tree create="0">
                                     <field name="survey_question_id" />
                                     <field name="score"/>
                                 </tree>
