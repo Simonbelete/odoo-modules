@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="appraisal_score_action" model="ir.actions.act_window">
+        <field name="name">Appraisal Score</field>
+        <field name="res_model">appraisal.appraisal.score</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Form -->
+    <record id="appraisal_score_view_form" model="ir.ui.view">
+        <field name="name">Appraisal Score</field>
+        <field name="model">appraisal.appraisal.score</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="score" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

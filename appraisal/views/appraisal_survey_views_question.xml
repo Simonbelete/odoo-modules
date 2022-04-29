@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="appraisal_configure_survey_question" model="ir.actions.act_window">
+        <field name="name">Appraisal Survey Questions</field>
+        <field name="res_model">appraisal.survey.question</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_trait_id': 1}</field>
+    </record>
+
+    <!-- Search -->
+    <record id="appraisal_configure_survey_question_search" model="ir.ui.view">
+        <field name="name">ppraisal.appraisal.survey.question</field>
+        <field name="model">appraisal.survey.question</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter name="trait_id" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by': 'trait_id'}" help="Category"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Tree -->
+    <record id="appraisal_configure_survey_question_tree" model="ir.ui.view">
+        <field name="name">appraisal.appraisal.survey.question</field>
+        <field name="model">appraisal.survey.question</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="trait_id" />
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Form -->
+    <record id="appraisal_configure_survey_question_form" model="ir.ui.view">
+        <field name="name">Appraisal Survey Questions</field>
+        <field name="model">appraisal.survey.question</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="trait_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

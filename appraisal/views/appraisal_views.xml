@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="appraisal_view" model="ir.actions.act_window">
+        <field name="name">Appraisals</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Form -->
+    <record id="appraisal_view_form" model="ir.ui.view">
+        <field name="name">Appraisal Form</field>
+        <field name="model">appraisal.appraisal</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button style="color: white; background: #00a09d;" name="button_confirm_appraisal" type="object" string="Confirm"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" />
+                        </group>
+                        <group>
+                            <field name="survey_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Appraisal Scores">
+                            <field name="appraisal_score_ids" widget="one2many">
+                                <tree create="0">
+                                    <field name="survey_question_id" />
+                                    <field name="score"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>    
+
+</odoo>
