@@ -17,7 +17,7 @@
                     <group>
                         <field name="name" />
                         <field name="survey_question_ids" widget="many2many">
-                            <tree>
+                            <tree editable="bottom">
                                 <field name="name" />
                                 <field name="trait_id" />
                             </tree>
