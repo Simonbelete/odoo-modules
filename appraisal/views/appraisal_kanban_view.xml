@@ -15,8 +15,7 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
-                            <!-- <field name="" /> -->
-                            abcd
+                            <field name="employee_id" />
                         </div>
                     </t>
                 </templates>
