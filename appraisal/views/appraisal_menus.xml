@@ -6,7 +6,8 @@
 
         <menuitem id="appraisal_kanban_menu" name="Appraisal" action="appraisal_kanban_action"/>
         <menuitem id="appraisal_configure_menu" name="Configuration">
-            <menuitem id="appraisal_configure_survey" name="Survey" action="appraisal_configure_survey" />
+            <menuitem id="appraisal_configure_survey_menu" name="Survey" action="appraisal_configure_survey" />
+            <menuitem id="appraisal_configure_survey_question_menu" name="Survey Questions" action="appraisal_configure_survey_question" />
         </menuitem>
 
     </menuitem>

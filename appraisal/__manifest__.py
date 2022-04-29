@@ -11,6 +11,7 @@
         'views/appraisal_kanban_view.xml',
         'views/appraisal_views.xml',
         'views/appraisal_survey_views.xml',
+        'views/appraisal_survey_views_question.xml',
         'views/appraisal_menus.xml'
     ]
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="appraisal_configure_survey_question" model="ir.actions.act_window">
+        <field name="name">Appraisal Survey Questions</field>
+        <field name="res_model">appraisal.survey.question</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
