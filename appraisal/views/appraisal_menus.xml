@@ -8,6 +8,7 @@
         <menuitem id="appraisal_configure_menu" name="Configuration">
             <menuitem id="appraisal_configure_survey_menu" name="Survey" action="appraisal_configure_survey" />
             <menuitem id="appraisal_configure_survey_question_menu" name="Survey Questions" action="appraisal_configure_survey_question" />
+            <menuitem id="appraisal_configure_trait_menu" name="Category" action="appraisal_configure_trait"/>
         </menuitem>
 
     </menuitem>
