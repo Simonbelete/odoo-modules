@@ -5,6 +5,28 @@
         <field name="name">Appraisal Survey</field>
         <field name="res_model">appraisal.survey</field>
         <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="appraisal_configure_survey_question_search"/>
+    </record>
+
+    <!-- Forms -->
+    <record id="appraisal_configure_survey_form" model="ir.ui.view">
+        <field name="name">Appraisal Survey</field>
+        <field name="model">appraisal.survey</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="survey_question_ids" widget="many2many">
+                            <tree>
+                                <field name="name" />
+                                <field name="trait_id" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
 
 </odoo>
