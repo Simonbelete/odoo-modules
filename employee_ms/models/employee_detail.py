@@ -72,10 +72,12 @@ class EmployeeDetail(models.Model):
     birthday1 = fields.Date(string="Date of Birth")
     age_com = fields.Char(string="Age", compute="_calculate_age")
 
-    @api.model
-    def create(self, vals):
-        vals['work_phone'] = "test"
-        return super(EmployeeDetail, self).create(vals)
+    # @api.model
+    # def create(self, vals):
+    #     vals['work_phone'] = "test"
+    #     return super(EmployeeDetail, self).create(vals)
+
+    asset_assignment = fields.Many2one('account.asset.asset', related='asset_assignment.name')
 
     def write(self, vals):
         if 'work_phone' in vals:

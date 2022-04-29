@@ -1,10 +1,10 @@
- <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="1">
         <record id="Number_one_id" model="ir.sequence">
-          <field name="name">Number One</field>
-          <field name="padding">0</field>
-          <field name="code">One</field>
+            <field name="name">Number One</field>
+            <field name="padding">0</field>
+            <field name="code">One</field>
         </record>
     </data>
 </openerp>

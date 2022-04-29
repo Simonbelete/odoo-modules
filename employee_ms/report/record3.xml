@@ -17,6 +17,15 @@
             file="employee_ms.Experience"
     />
 
+     <report
+            id="report_Employee_short_report_TOTAL_Experience"
+            string="Total Experience"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            name="employee_ms.Total_Experience"
+            file="employee_ms.Total_Experience"
+    />
+
     <report
             id="report_Employee_short_report_45_days_probation"
             string="45 days probation"

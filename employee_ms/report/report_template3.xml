@@ -209,6 +209,66 @@
                         is a permanent employee of Adarash Technologies PLC since
                         her date of employment February 24,2020 in the following capacities;
                     </p>
+                    <table class="table styled-table" border="1">
+                        <tr>
+
+                            <th width="30%">Job Title</th>
+                            <th width="30%">Department</th>
+                            <th width="20%">From</th>
+                            <th width="40%">To</th>
+                        </tr>
+                        <tr>
+
+                            <td width="30%">
+                                <t t-esc="o.job_title"/>
+                            </td>
+                            <td width="30%">
+                                <t t-esc="o.department_id.name"/>
+                            </td>
+                            <td width="20%">
+                                <p t-foreach="o.contract_employee_id"
+                                   t-as="rent">
+                                    <t t-esc="rent.date_start"/>
+                                </p>
+                            </td>
+                            <td width="20%">
+                                <t t-esc="datetime.date.today()"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>Currently, she is drawing a monthly gross salary of Birr
+                        <t t-esc="o.contract_employee_id.wage"/>
+                        This certificate is issued upon her request and does not serve as a release.
+                    </p>
+                    <p align="center">Sincerely yours,
+                        <br/>
+                        <t t-esc="o.parent_id.name"/>
+                        <br/>
+                        General Manager
+                    </p>
+
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!--    TOTAL YEARS OF Experience-->
+
+    <template id="Total_Experience">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <h4 style="text-align: center;decoration: underline;">
+                        To whom it may concern.
+                    </h4>
+                    <p>Our staff member w/t
+                        <span t-field="o.name"/>
+                        has requested us to write her a letter of confirmation concerning her work experience.
+                        Pursuant to her request, we hereby certify that
+                        <span t-field="o.name"/>
+                        is a permanent employee of Adarash Technologies PLC since
+                        her date of employment February 24,2020 in the following capacities;
+                    </p>
                     <t t-foreach="o.resume_line_ids.employee_id" t-as="line">
                         <table class="table styled-table" border="1">
                             <tr>
@@ -259,6 +319,7 @@
             </t>
         </t>
     </template>
+
     <template id="45_days_probation">
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
