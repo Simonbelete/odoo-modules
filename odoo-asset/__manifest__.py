@@ -30,6 +30,7 @@
         'views/templates.xml',
         'views/asset_view.xml',
         'views/filter_opition.xml',
+        'views/asset_tree_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
