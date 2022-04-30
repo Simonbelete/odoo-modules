@@ -7,6 +7,7 @@
         <field name="view_mode">kanban,form</field>
     </record>
 
+    <!-- Kanban -->
     <record id="appraisal_kanban_view" model="ir.ui.view">
         <field name="name">appraisal.appraisal.kanban</field>
         <field name="model">appraisal.appraisal</field>
@@ -22,5 +23,25 @@
             </kanban>
         </field>
     </record>
+
+    <!-- Form -->
+    <record id="appraisal_view_form" model="ir.ui.view">
+        <field name="name">Appraisal Form</field>
+        <field name="model">appraisal.appraisal</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start_survery" type="object" string="Start Assement"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="employee_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
 
 </odoo>

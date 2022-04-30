@@ -14,3 +14,18 @@ class Appraisal(models.Model):
     # uuid for url parameter
     # instead of using id as a url parament we use generated uuid
     token = fields.Char('Token', default=lambda self: self._get_default_token(), copy=False)
+    survey_id = fields.Many2one('appraisal.survey')
+    state = fields.Selection(string="Status", required=True, readonly=True, copy=False, tracking=True, selection=[
+        ('draft', 'To Confirm'),
+        ('confirmed', 'Confirmed'),
+        ('done', 'Done')
+    ], default="draft",
+    help="The current state of the appraisal:"
+         "- To Confirm: Newly created appraisal")
+
+    # ------------------------------------------------------------
+    # ACTIONS
+    # ------------------------------------------------------------
+
+    def action_start_survery(self):
+        """ Open the website page with the survey form """
