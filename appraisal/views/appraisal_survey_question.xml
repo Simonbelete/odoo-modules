@@ -21,4 +21,17 @@
         </field>
     </record>
 
+    <!-- Tree -->
+    <record id="appraisal_survey_question_search_tree" model="ir.ui.view">
+        <field name="name">appraisal.appraisal.survey.question</field>
+        <field name="model">appraisal.survey.question</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title" />
+                <field name="category_id" />
+                <field name="sequence"/>
+            </tree>
+        </field>
+    </record>
+
 </odoo>
