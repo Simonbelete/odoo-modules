@@ -5,8 +5,12 @@
     <menuitem id="appraisal_main_menu" name="Appraisal">
 
         <!-- <menuitem id="appraisal_kanban_menu" name="Appraisal" action="appraisal_kanban_action"/> -->
+        <menuitem id="appraisal_survery_menu" name="Survery">
+            <menuitem id="appraisal_survey_menu" name="Survey Forms" action="appraisal_survery_action" />
+            <menuitem id="appraisal_survey_question_menu" name="Survey Questions" action="appraisal_survey_question_action" />
+        </menuitem>
+
         <menuitem id="appraisal_configure_menu" name="Configuration">
-            <menuitem id="appraisal_configure_survery_menu" name="Survery" action="appraisal_survery_action"/>
             <menuitem id="appraisal_configure_category_menu" name="Category" action="appraisal_category_action"/>
         </menuitem>
 

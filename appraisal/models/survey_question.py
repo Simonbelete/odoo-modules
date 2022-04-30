@@ -12,3 +12,4 @@ class SurveyQuestion(models.Model):
         help="Use this field to add additional explanations about your question"
     )
     sequence = fields.Integer('Sequence', default=10)
+    category_id = fields.Many2one('appraisal.category')
