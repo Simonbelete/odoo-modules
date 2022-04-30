@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
+    <!-- Main layout -->
+    <template id="appraisal.layout" inherit_id="web.frontend_layout" primary="True" />
+
     <template id="appraisal_page_index">
-        <t t-set="web.basic_layout">
-            <t t-foreach="docs" t-as="data">
-                <h5>Hello World</h5>
+        <t t-call="appraisal.layout">
+            <!-- Retrive all sets of category from questions -->
+            <t t-set="categories" t-value="[]" />
+            <t t-foreach="questions" t-as="q">
+                <t t-set="categories" t-value="categories+[q.category_id]"/>
+            </t>
+            <t t-foreach="set(categories)" t-as="category">
+                <div><strong t-esc="category.name"></strong></div>
+                <div>
+                    <t t-foreach="questions" t-as="question">
+                        <t t-if="category.id==question.category_id.id">
+                            <div><span t-field="question.title"/></div>
+                        </t>
+                    </t>
+                </div>
             </t>
         </t>
     </template>
