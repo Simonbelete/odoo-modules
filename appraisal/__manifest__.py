@@ -6,6 +6,9 @@
     'depends': ['base', 'hr'],
     'author': 'Simon Belete',
     'data': [
-        'data/category_data.xml'
+        'security/ir.model.access.csv',
+        'data/category_data.xml',
+        'views/appraisal_category_views.xml',
+        'views/appraisal_menus.xml'
     ]
 }

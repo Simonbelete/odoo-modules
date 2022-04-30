@@ -6,3 +6,4 @@ class Category(models.Model):
 
     name = fields.Char(required = True)
     definition = fields.Text()
+    sequence = fields.Integer('Sequence', default=10)
