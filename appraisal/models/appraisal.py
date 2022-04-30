@@ -29,3 +29,10 @@ class Appraisal(models.Model):
 
     def action_start_survery(self):
         """ Open the website page with the survey form """
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_url',
+            'name': 'Start Appraisal',
+            'target': 'self',
+            'url': '/appraisal/%s' % str(self.token)
+        }
