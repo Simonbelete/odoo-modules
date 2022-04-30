@@ -6,8 +6,9 @@
 
         <menuitem id="appraisal_kanban_menu" name="Appraisal" action="appraisal_kanban_action" sequence="1"/>
         <menuitem id="appraisal_survery_menu" name="Survery" sequence="2">
-            <menuitem id="appraisal_survey_menu" name="Survey Forms" action="appraisal_survery_action" sequence="1"/>
-            <menuitem id="appraisal_survey_question_menu" name="Survey Questions" action="appraisal_survey_question_action" sequence="2" />
+            <menuitem id="appraisal_survey_menu" name="Survey" action="appraisal_survery_action" sequence="1"/>
+            <menuitem id="appraisal_survey_question_menu" name="Questions" action="appraisal_survey_question_action" sequence="2" />
+            <menuitem id="appraisal_score_selection_menu" name="Scoring" action="appraisal_score_selection_action" sequence="3" />
         </menuitem>
 
         <menuitem id="appraisal_configure_menu" name="Configuration" sequence="3">

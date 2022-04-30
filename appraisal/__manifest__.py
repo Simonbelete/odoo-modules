@@ -12,6 +12,7 @@
         'views/appraisal_survey_views.xml',
         'views/appraisal_survey_question.xml',
         'views/appraisal_appraisal_views.xml',
+        'views/appraisal_score_selection_views.xml',
         'views/appraisal_menus.xml'
     ]
 }
