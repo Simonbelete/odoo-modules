@@ -4,5 +4,8 @@
     'category': 'Human Resources',
     'description': 'Appraisal Manager',
     'depends': ['base', 'hr'],
-    'author': 'Simon Belete'
+    'author': 'Simon Belete',
+    'data': [
+        'data/category_data.xml'
+    ]
 }
