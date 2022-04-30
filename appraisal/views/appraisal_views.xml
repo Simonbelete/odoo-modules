@@ -15,6 +15,7 @@
             <form>
                 <header>
                     <button style="color: white; background: #00a09d;" name="button_confirm_appraisal" type="object" string="Confirm"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done" />
                 </header>
                 <sheet>
                     <group>
