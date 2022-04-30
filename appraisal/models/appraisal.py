@@ -15,6 +15,8 @@ class Appraisal(models.Model):
     help="The current state of the appraisal:"
          "- To Confirm: Newly created appraisal")
 
+    # TODO: change using nested
+
     def button_confirm_appraisal(self):
         questions = self.env['appraisal.survey.question'].search([('survey_ids', 'in', self.survey_id.id )])
         for q in questions:
@@ -24,8 +26,19 @@ class Appraisal(models.Model):
                 'score': 0
             })
 
+    def action_start_survery(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_url',
+            'name': 'Start Appraisal',
+            'target': 'self',
+            'url': '/appraisal/test/%s' % str(self.id)
+        }
+
     # TODO: Add date
     @api.depends('employee_id')
     def _generate_name_for_appraisal(self):
         for record in self:
             record.name = record.employee_id.name
+
+    

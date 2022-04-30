@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <!-- Main layout -->
+    <template id="appraisal.layout" inherit_id="web.frontend_layout" primary="True">
+
+    </template>
+
+    <template id="appraisal_survery_page" name="Appraisal form page">
+        <t t-call="appraisal.layout">
+            <div>
+                <t t-call="appraisal.fill_form" />
+            </div>
+        </t>
+    </template>
+
+    <template id="fill_form">
+        <!-- <t t-set="form_readonly" t-value="answer.state == 'done'" /> -->
+        <form role="form" method="post">
+            <t t-foreach="teachers" t-as="teacher">
+                <p><t t-esc="teacher"/></p>
+            </t>
+            <t t-foreach="questions" t-as="question">
+                <input t-att-value="question.name" />
+            </t>
+            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            <button type="submit" value="start" class="btn btn-primary btn-lg">
+                
+                    Start Survey
+            </button>
+        </form>
+    </template>
+
+</data>
+</odoo>
