@@ -10,4 +10,4 @@ class Survey(models.Model):
         "Description", sanitize=False,
         help="This message will be displayed on the top of appraisal"
     )
-    question_ids = fields.Many2many('appraisal.survery.question', string="Questions",)
+    question_ids = fields.Many2many('appraisal.survey.question', string="Questions")
