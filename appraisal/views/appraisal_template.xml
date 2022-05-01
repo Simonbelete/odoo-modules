@@ -6,10 +6,49 @@
 
     <template id="appraisal_page_index">
         <t t-call="appraisal.layout">
-            <!-- Retrive all sets of category from questions -->
-            <t t-foreach="questions" t-as="q">
-                <!-- <div><span t-field="q.title" /></div> -->
-            </t>
+            <div style="height: 100vh; 
+                        display: flex;
+                        flex-direction: column;
+                        gap: 100px;
+                        align-items: center;
+                        justify-content: center;">
+
+                <t t-foreach="categories" t-as="category">
+                    <table class="table table-sm" border="1" style="width: 600px; border-color: #dee2e6;">
+                        <thead style="border: 30px">
+                            <tr>
+                                <th colspan="3" style="border: 2px solid #dee2e6; background: #dee2e6">
+                                    <h4 style="text-align:center; font-weight: bold; margin: 2px" t-field="category.name" />
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="border: 2px solid #dee2e6">
+                                    #
+                                </th>
+                                <th style="border: 2px solid #dee2e6">
+                                   <p style="text-align:center; margin: 0;">Key Indicators</p>
+                                </th>
+                                <th style="border: 2px solid #dee2e6">
+                                    Score
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="questions" t-as="question">
+                                <t t-if="category.id==question.category_id.id">
+                                    <tr>
+                                        <td><span t-field="question.sequence" /></td>
+                                        <td><span t-field="question.title" /></td>
+                                        <td></td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+
+            </div>
+            
             <!-- <t t-set="categories" t-value="[]" />
             <t t-foreach="questions" t-as="q">
                 <t t-set="categories" t-value="categories+[q.category_id]"/>
