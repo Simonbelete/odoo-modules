@@ -1,12 +1,20 @@
-from odoo import models, fields, api
+import uuid
+from odoo import fields, api, models
 
 class Appraisal(models.Model):
+    """ Appraisal for each employee yearly or 6 moths. """
     _name = 'appraisal.appraisal'
+    _description = 'Appraisal'
+    _rec_name = 'employee_id'
 
-    name = fields.Text(compute="_generate_name_for_appraisal")
+    def _get_default_token(self):
+        return str(uuid.uuid4())
+
     employee_id = fields.Many2one('hr.employee', string = 'Employee')
-    survey_id = fields.Many2one('appraisal.survey')
-    appraisal_score_ids = fields.One2many('appraisal.appraisal.score', 'appraisal_id')
+    # uuid for url parameter
+    # instead of using id as a url parament we use generated uuid
+    token = fields.Char('Token', default=lambda self: self._get_default_token(), copy=False)
+    survey_id = fields.Many2one('appraisal.survey', required=True)
     state = fields.Selection(string="Status", required=True, readonly=True, copy=False, tracking=True, selection=[
         ('draft', 'To Confirm'),
         ('confirmed', 'Confirmed'),
@@ -15,30 +23,16 @@ class Appraisal(models.Model):
     help="The current state of the appraisal:"
          "- To Confirm: Newly created appraisal")
 
-    # TODO: change using nested
-
-    def button_confirm_appraisal(self):
-        questions = self.env['appraisal.survey.question'].search([('survey_ids', 'in', self.survey_id.id )])
-        for q in questions:
-            record = self.env['appraisal.appraisal.score'].create({
-                'appraisal_id': self.id,
-                'survey_question_id': q.id,
-                'score': 0
-            })
+    # ------------------------------------------------------------
+    # ACTIONS
+    # ------------------------------------------------------------
 
     def action_start_survery(self):
+        """ Open the website page with the survey form """
         self.ensure_one()
         return {
             'type': 'ir.actions.act_url',
             'name': 'Start Appraisal',
             'target': 'self',
-            'url': '/appraisal/test/%s' % str(self.id)
+            'url': '/appraisal/%s' % str(self.token)
         }
-
-    # TODO: Add date
-    @api.depends('employee_id')
-    def _generate_name_for_appraisal(self):
-        for record in self:
-            record.name = record.employee_id.name
-
-    

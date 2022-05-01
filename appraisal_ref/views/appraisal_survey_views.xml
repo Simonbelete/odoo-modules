@@ -1,26 +1,25 @@
 <?xml version="1.0"?>
 <odoo>
 
-    <record id="appraisal_survery_action" model="ir.actions.act_window">
-        <field name="name">Appraisal Survery</field>
+    <record id="appraisal_configure_survey" model="ir.actions.act_window">
+        <field name="name">Appraisal Survey</field>
         <field name="res_model">appraisal.survey</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- Form -->
-    <record id="appraisal_survery_form" model="ir.ui.view">
+    <!-- Forms -->
+    <record id="appraisal_configure_survey_form" model="ir.ui.view">
         <field name="name">Appraisal Survey</field>
         <field name="model">appraisal.survey</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
                     <group>
-                        <field name="title" />
-                        <field name="description" />
-                        <field name="question_ids" widget="many2many">
+                        <field name="name" />
+                        <field name="survey_question_ids" widget="many2many">
                             <tree editable="bottom">
-                                <field name="title" />
-                                <field name="category_id" />
+                                <field name="name" />
+                                <field name="trait_id" />
                             </tree>
                         </field>
                     </group>

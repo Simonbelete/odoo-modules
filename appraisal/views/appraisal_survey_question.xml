@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="appraisal_survey_question_action" model="ir.actions.act_window">
+        <field name="name">Appraisal Survey Questions</field>
+        <field name="res_model">appraisal.survey.question</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_category_id': 1}</field>
+    </record>
+
+    <!-- Search -->
+    <record id="appraisal_survey_question_search" model="ir.ui.view">
+        <field name="name">apraisal.appraisal.survey.question</field>
+        <field name="model">appraisal.survey.question</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter name="category_id" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by': 'category_id'}" help="Category"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Tree -->
+    <record id="appraisal_survey_question_search_tree" model="ir.ui.view">
+        <field name="name">appraisal.appraisal.survey.question</field>
+        <field name="model">appraisal.survey.question</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="title" />
+                <field name="category_id" />
+                <field name="sequence"/>
+            </tree>
+        </field>
+    </record>
+
+     <!-- Form -->
+     <record id="appraisal_survey_question_search_form" model="ir.ui.view">
+        <field name="name">Appraisal Survey Questions</field>
+        <field name="model">appraisal.survey.question</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="title" />
+                        <field name="sequence" />
+                        <field name="category_id" />
+                        <field name="description" />
+                    </group>
+                  <notebook>
+                      <page string="Scoring Methods">
+                          <group>
+                              <field name="score_method"/>
+                              <field name="score_selection_ids" attrs="{'invisible': [('score_method', '!=', 'selection')]}"/>
+                              <field name="score_min" attrs="{'invisible': [('score_method', '!=', 'range')]}"/>
+                              <field name="score_max" attrs="{'invisible': [('score_method', '!=', 'range')]}"/>
+                          </group>
+                      </page>
+                  </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

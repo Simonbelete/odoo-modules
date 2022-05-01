@@ -1,16 +1,66 @@
+import json
 from odoo import fields, http
 
 class Appraisal(http.Controller):
 
-    @http.route('/appraisal/test/<string:appraisal_id>', type="http", website=True)
-    def appraisal_test(self, appraisal_id, **kwargs):
-        SurveyQuestion = http.request.env['appraisal.survey.question']
-        questions = SurveyQuestion.search([]) #search([('survey_ids', 'in', appraisal_id )])
-        return http.request.render('appraisal.appraisal_survery_page', {
-            'teachers': ["Diana Padilla", "Jody Caroll", "Lester Vaughn"],
-            'questions': questions
-        })
+    def _query(self, question_ids):
+        return """
+            SELECT appraisal_survey_question.id AS question_id,
+                    appraisal_survey_question.title AS title,
+                    appraisal_survey_question.description AS description,
+                    appraisal_survey_question.sequence AS question_sequence,
+                    appraisal_appraisal_score.id AS score_id
+                FROM appraisal_survey_question
+                LEFT JOIN appraisal_appraisal_score
+                    ON appraisal_survey_question.id = appraisal_appraisal_score.question_id
+                WHERE appraisal_survey_question.id IN (%s)
+                ORDER BY appraisal_survey_question.category_id ASC,
+                    appraisal_survey_question.sequence ASC
+        """ % (','.join(map(str, question_ids)))
 
-    @http.route('/appraisal/test/start', type="json", website=True)
-    def appraisal_test_start(self, **kwargs):
-        return {'a':'b'}
+
+        # SELECT appraisal_appraisal.survey_id,
+        #             appraisal_survey.title,
+        #             appraisal_survey_question.title
+        #         FROM appraisal_appraisal
+        #         INNER JOIN appraisal_survey
+        #             ON appraisal_appraisal.survey_id = appraisal_survey.id
+        #         INNER JOIN appraisal_survey_question
+        #             ON  appraisal_survey.question_ids = appraisal_survey_question.id
+
+        #  INNER JOIN appraisal_survey
+        #         INNER JOIN appraisal_survey_question
+        #         INNER JOIN appraisal_appraisal_score
+        #         WHERE appraisal_appraisal.survey_id = appraisal_survey.id
+        #             AND appraisal_survey_question.id in appraisal_survey
+        #             AND appraisal_appraisal_score.id = appraisal_survey_question.id
+
+    @http.route('/appraisal/<string:token>', type="http", website=True)
+    def appraisal_display_page(self, token, **kw):
+        Appraisal = http.request.env['appraisal.appraisal']
+        AppraisalScore = http.request.env['appraisal.appraisal.score']
+        SurveyQuestion = http.request.env['appraisal.survey.question']
+        SurveyScore = http.request.env['appraisal.appraisal.score']
+        # Get current appraisal
+        appraisal = Appraisal.search([('token', '=', token)])
+        # Get appraisals survey questions
+        # question_ids = appraisal.survey_id.question_ids.ids
+        # http.request.cr.execute(self._query(question_ids))
+        # question_with_answers = http.request.cr.dictfetchall()
+        # print("0000000000000000000000000000000000000000000000")
+        # print(json.dumps(question_with_answers, indent=4, sort_keys=True, default=str))
+
+        question_ids = appraisal.survey_id.question_ids.ids
+        questions = SurveyQuestion.search([('id', 'in', question_ids)])
+        answers = SurveyScore.search([('question_id', 'in', question_ids)])
+        categories = []
+        for question in questions:
+            categories.append(question.category_id)
+        categories = set(categories)
+
+        return http.request.render('appraisal.appraisal_page_index',
+        {
+            'questions': questions,
+            'answers': answers,
+            'categories': categories
+        })

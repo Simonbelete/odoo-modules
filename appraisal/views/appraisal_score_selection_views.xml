@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="appraisal_score_selection_action" model="ir.actions.act_window">
+        <field name="name">Appraisal Survey Category</field>
+        <field name="res_model">appraisal.score.selection</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Tree -->
+    <record id="appraisal_score_selection_tree" model="ir.ui.view">
+        <field name="name">Scoring</field>
+        <field name="model">appraisal.score.selection</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="description" />
+                <field name="value" />
+                <field name="weight"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

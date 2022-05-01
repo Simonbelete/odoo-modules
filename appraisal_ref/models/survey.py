@@ -1,7 +1,6 @@
 from odoo import models, fields
 
 class Survey(models.Model):
-    """ Stores Appraisal forms"""
     _name = 'appraisal.survey'
     _rec_name = 'title'
 
@@ -10,4 +9,7 @@ class Survey(models.Model):
         "Description", sanitize=False,
         help="This message will be displayed on the top of appraisal"
     )
-    question_ids = fields.Many2many('appraisal.survey.question', string="Questions")
+    survey_question_ids = fields.Many2many('appraisal.survey.question', copy=True)
+
+    # TODO: remove it
+    name = fields.Text(string = 'Title', required = True)
