@@ -6,13 +6,13 @@
 
     <template id="appraisal_page_index">
         <t t-call="appraisal.layout">
-            <div style="height: 100vh; 
+            <form action="/appraisal/submit" method="post" role="form" style="height: 100vh; 
                         display: flex;
                         flex-direction: column;
                         gap: 100px;
                         align-items: center;
                         justify-content: center;">
-
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                 <t t-foreach="categories" t-as="category">
                     <table class="table table-sm" border="1" style="width: 80%; border-color: #dee2e6;">
                         <thead style="border: 30px">
@@ -35,17 +35,29 @@
                         </thead>
                         <tbody>
                             <t t-foreach="questions" t-as="question">
+                                <!-- Get answer for the current question -->
+                                <t t-set="answer_score" t-value="0" />
+                                <t t-foreach="answers" t-as="answer">
+                                    <t t-if="answer.question_id.id == question.id">
+                                        <t t-set="answer_score" t-value="answer.score" />
+                                    </t>
+                                </t>
+                                
+                                <input type="hidden" name="appraisal_id" t-att-value="appraisal_id"/>
+                                <input type="hidden" name="appraisal_token" t-att-value="appraisal_token"/>
                                 <t t-if="category.id==question.category_id.id">
                                     <tr>
                                         <td><span t-field="question.sequence" /></td>
                                         <td style="width: 40%"><span t-field="question.title" /></td>
                                         <td>
-                                            <t t-fi="question.score_method=='selection'">
+                                            <t t-if="question.score_method=='selection'">
                                                 <t t-foreach="question.score_selection_ids" t-as="selection">
                                                     <div>
                                                         <label>
-                                                            
-                                                            <input type="radio" t-att-name="question.id" />
+                                                            <input type="radio" 
+                                                                t-att-name="question.id" 
+                                                                t-att-value="selection.value"
+                                                                t-att-checked="str(selection.value)==str(answer_score)" />
                                                             <span t-field="selection.value" />
                                                             -
                                                             <span t-field="selection.description" />
@@ -54,8 +66,11 @@
                                                 </t>
                                             </t>
                                             <t t-if="question.score_method=='range'">
-                                                <input type="number" t-att-min="question.score_min"
-                                                    t-att-max="question.score_max" />
+                                                <input type="number" 
+                                                    t-att-name="question.id" 
+                                                    t-att-min="question.score_min"
+                                                    t-att-max="question.score_max" 
+                                                    t-att-value="answer_score"/>
                                                 <small style="color: gray;">
                                                     <div>Minimum - <span t-field="question.score_min"/></div>
                                                     <div>Maximum - <span t-field="question.score_max"/></div>
@@ -68,8 +83,9 @@
                         </tbody>
                     </table>
                 </t>
-
-            </div>
+                <button type="submit" value="submit" class="btn btn-primary">
+                    Submit</button>
+            </form>
             
             <!-- <t t-set="categories" t-value="[]" />
             <t t-foreach="questions" t-as="q">
@@ -89,9 +105,9 @@
     </template>
 
     <!-- Question Widget -->
-    <template id="question_container">
+    <!-- <template id="question_container">
         <input type="number" step="any" class="form-control o_survey_question_numerical_box bg-transparent text-dark rounded-0 p-0"
             t-att-value="question"/>
-    </template>
+    </template> -->
 
 </odoo>
