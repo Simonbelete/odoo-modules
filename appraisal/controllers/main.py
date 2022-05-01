@@ -58,8 +58,6 @@ class Appraisal(http.Controller):
             categories.append(question.category_id)
         categories = set(categories)
 
-        print("0000000000000000000000000000000000000000000000")
-        print(json.dumps(question, indent=4, sort_keys=True, default=str))
         return http.request.render('appraisal.appraisal_page_index',
         {
             'questions': questions,

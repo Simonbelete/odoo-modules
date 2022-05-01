@@ -14,7 +14,7 @@
                         justify-content: center;">
 
                 <t t-foreach="categories" t-as="category">
-                    <table class="table table-sm" border="1" style="width: 600px; border-color: #dee2e6;">
+                    <table class="table table-sm" border="1" style="width: 80%; border-color: #dee2e6;">
                         <thead style="border: 30px">
                             <tr>
                                 <th colspan="3" style="border: 2px solid #dee2e6; background: #dee2e6">
@@ -38,8 +38,30 @@
                                 <t t-if="category.id==question.category_id.id">
                                     <tr>
                                         <td><span t-field="question.sequence" /></td>
-                                        <td><span t-field="question.title" /></td>
-                                        <td></td>
+                                        <td style="width: 40%"><span t-field="question.title" /></td>
+                                        <td>
+                                            <t t-fi="question.score_method=='selection'">
+                                                <t t-foreach="question.score_selection_ids" t-as="selection">
+                                                    <div>
+                                                        <label>
+                                                            
+                                                            <input type="radio" t-att-name="question.id" />
+                                                            <span t-field="selection.value" />
+                                                            -
+                                                            <span t-field="selection.description" />
+                                                        </label>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                            <t t-if="question.score_method=='range'">
+                                                <input type="number" t-att-min="question.score_min"
+                                                    t-att-max="question.score_max" />
+                                                <small style="color: gray;">
+                                                    <div>Minimum - <span t-field="question.score_min"/></div>
+                                                    <div>Maximum - <span t-field="question.score_max"/></div>
+                                                </small>
+                                            </t>
+                                        </td>
                                     </tr>
                                 </t>
                             </t>
