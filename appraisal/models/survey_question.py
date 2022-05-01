@@ -32,3 +32,6 @@ class SurveyQuestion(models.Model):
     score_selection_ids = fields.Many2many('appraisal.score.selection')
     score_min = fields.Integer()
     score_max = fields.Integer()
+
+    # reference field
+    survey_ids = fields.Many2many('appraisal.survey')

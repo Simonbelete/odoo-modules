@@ -7,7 +7,10 @@
     <template id="appraisal_page_index">
         <t t-call="appraisal.layout">
             <!-- Retrive all sets of category from questions -->
-            <t t-set="categories" t-value="[]" />
+            <t t-foreach="questions" t-as="q">
+                <!-- <div><span t-field="q.title" /></div> -->
+            </t>
+            <!-- <t t-set="categories" t-value="[]" />
             <t t-foreach="questions" t-as="q">
                 <t t-set="categories" t-value="categories+[q.category_id]"/>
             </t>
@@ -20,8 +23,14 @@
                         </t>
                     </t>
                 </div>
-            </t>
+            </t> -->
         </t>
+    </template>
+
+    <!-- Question Widget -->
+    <template id="question_container">
+        <input type="number" step="any" class="form-control o_survey_question_numerical_box bg-transparent text-dark rounded-0 p-0"
+            t-att-value="question"/>
     </template>
 
 </odoo>

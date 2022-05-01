@@ -14,7 +14,7 @@ class Appraisal(models.Model):
     # uuid for url parameter
     # instead of using id as a url parament we use generated uuid
     token = fields.Char('Token', default=lambda self: self._get_default_token(), copy=False)
-    survey_id = fields.Many2one('appraisal.survey')
+    survey_id = fields.Many2one('appraisal.survey', required=True)
     state = fields.Selection(string="Status", required=True, readonly=True, copy=False, tracking=True, selection=[
         ('draft', 'To Confirm'),
         ('confirmed', 'Confirmed'),

@@ -37,6 +37,7 @@
                 <sheet>
                     <group>
                         <field name="employee_id" />
+                        <field name="survey_id" />
                     </group>
                 </sheet>
             </form>
