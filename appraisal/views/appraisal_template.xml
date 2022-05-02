@@ -14,6 +14,11 @@
                         justify-content: center;">
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                 <t t-foreach="categories" t-as="category">
+                    <!-- Average and total scores per category -->
+                    <t t-set="total_score" t-value="0" />
+                    <t t-set="question_count" t-value="0" />
+                    <t t-set="answer_score" t-value="0" />
+
                     <table class="table table-sm" border="1" style="width: 80%; border-color: #dee2e6;">
                         <thead style="border: 30px">
                             <tr>
@@ -46,6 +51,8 @@
                                 <input type="hidden" name="appraisal_id" t-att-value="appraisal_id"/>
                                 <input type="hidden" name="appraisal_token" t-att-value="appraisal_token"/>
                                 <t t-if="category.id==question.category_id.id">
+                                    <t t-set="total_score" t-value="total_score + answer_score"/>
+                                    <t t-set="question_count" t-value="question_count+1" />
                                     <tr>
                                         <td><span t-field="question.sequence" /></td>
                                         <td style="width: 40%"><span t-field="question.title" /></td>
@@ -81,6 +88,21 @@
                                 </t>
                             </t>
                         </tbody>
+                        <tfoot style="font-weight: bold; font-size: 15px">
+                            <tr>
+                                <td></td>
+                                <td><span>Total Score</span></td>
+                                <td><span><t t-esc="total_score" /></span></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span>Average Score</span></td>
+                                <td><span>
+                                    <t t-set="avg_score" t-value="total_score/question_count" />
+                                    <t t-esc="avg_score" />
+                                </span></td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </t>
                 <button type="submit" value="submit" class="btn btn-primary">
