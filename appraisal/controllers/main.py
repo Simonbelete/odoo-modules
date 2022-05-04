@@ -60,7 +60,39 @@ class Appraisal(http.Controller):
 
         return http.request.render('appraisal.appraisal_page_index',
         {
+            'appraisal_id': appraisal.id,
+            'appraisal_token': token,
             'questions': questions,
             'answers': answers,
             'categories': categories
         })
+
+    @http.route('/appraisal/submit', type='http', website=True)
+    def appraisal_submit(self, **kw):
+        # Format of post data
+        # { 'question_id': 'score'}
+        SurveyScore = http.request.env['appraisal.appraisal.score']
+        SurveyQuestion = http.request.env['appraisal.survey.question']
+        data = kw
+        # clean data 
+        # get only question_id dict
+        del data['appraisal_id']
+        del data['appraisal_token']
+
+        for question_id in data:
+            # Check if score exists if so update, if not create
+            survey = SurveyScore.search_count([
+                ('appraisal_id', '=', kw.get('appraisal_id')),
+                ('question_id', '=', question_id)
+            ])
+            score_dict = {
+                'appraisal_id': kw.get('appraisal_id'),
+                'question_id': question_id,
+                'score': data[question_id]
+            }
+
+            if survey == 0:
+                SurveyScore.create(score_dict)
+            elif survey > 1:
+                SurveyScore.write(score_dict)
+        print(kw)

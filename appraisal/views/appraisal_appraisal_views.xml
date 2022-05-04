@@ -12,7 +12,7 @@
         <field name="name">appraisal.appraisal.kanban</field>
         <field name="model">appraisal.appraisal</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban default_group_by="state">
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
@@ -36,13 +36,18 @@
                 </header>
                 <sheet>
                     <group>
+                    <group>
                         <field name="employee_id" />
                         <field name="survey_id" />
                     </group>
+                    <group>
+                        <field name="evaluation_date" />
+                        <field name="last_evaluation" />
+                    </group>
+                </group>
                 </sheet>
             </form>
         </field>
     </record>
-
 
 </odoo>

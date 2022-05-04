@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="abc" model="ir.actions.act_window">
+        <field name="name">Notification</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="context">{'search_default_appraisal_status': 1}</field> -->
+    </record>
+
+     <!-- Search -->
+     <!-- <record id="abc_search" model="ir.ui.view">
+        <field name="name">apraisal.appraisal.notification</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="0" string="Group By">
+                    <filter name="appraisal_status" icon="terp-gtk-jump-to-rtl" domain="[]" context="{'group_by': 'appraisal_status'}" help="Category"/>
+                </group>
+            </search>
+        </field>
+    </record> -->
+
+    <!-- <record id="in_appraisal_employee_view" model="ir.ui.view">
+        <field name="name">appraisal.appraisal.employee</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="default_group_by">appraisal_status</attribute>
+            </xpath>
+            <xpath expr="//search[@name='group_by']" position="replace">
+                <filter name="appraisal_status" string="Any string" 
+                    domain=""
+                    context="{'group_by': 'appraisal_status'}"/>
+            </xpath>
+            <xpath expr="//div[@class='o_kanban_record_headings']" position="inside">
+                <div>
+                    <field name="appraisal_status"/>
+                </div>
+            </xpath>
+        </field>
+    </record> -->
+</odoo>

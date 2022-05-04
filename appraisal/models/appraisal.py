@@ -1,5 +1,6 @@
 import uuid
 from odoo import fields, api, models
+from datetime import date
 
 class Appraisal(models.Model):
     """ Appraisal for each employee yearly or 6 moths. """
@@ -22,6 +23,10 @@ class Appraisal(models.Model):
     ], default="draft",
     help="The current state of the appraisal:"
          "- To Confirm: Newly created appraisal")
+    evaluation_date = fields.Date(default=date.today())
+
+    # Computed fields
+    last_evaluation = fields.Date(compute="_compute_last_evaluation")
 
     # ------------------------------------------------------------
     # ACTIONS
@@ -36,3 +41,22 @@ class Appraisal(models.Model):
             'target': 'self',
             'url': '/appraisal/%s' % str(self.token)
         }
+
+    # ------------------------------------------------------------
+    # Computed Fields
+    # ------------------------------------------------------------
+    def _compute_last_evaluation(self):
+        for record in self:
+            employee_appraisals = self.env['appraisal.appraisal'].search([
+                ('employee_id', '=', record.employee_id.id)
+            ])
+
+            # Get appraisl dates as array
+            employee_appraisal_dates = []
+            for a in employee_appraisals:
+                employee_appraisal_dates.append(a.evaluation_date)
+
+            # Calculate the closest date from the list
+            last_appraisal_date = min(employee_appraisal_dates, key=lambda sub: abs(sub - date.today()))
+
+            record.last_evaluation = last_appraisal_date
