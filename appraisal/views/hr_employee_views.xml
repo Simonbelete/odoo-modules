@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <odoo>
 
-    <record id="abc" model="ir.actions.act_window">
+    <!-- <record id="abc" model="ir.actions.act_window">
         <field name="name">Notification</field>
         <field name="res_model">hr.employee</field>
         <field name="view_mode">tree,form</field>
-        <!-- <field name="context">{'search_default_appraisal_status': 1}</field> -->
-    </record>
+        field name="context">{'search_default_appraisal_status': 1}</field>
+    </record> -->
 
      <!-- Search -->
      <!-- <record id="abc_search" model="ir.ui.view">
@@ -21,24 +21,27 @@
         </field>
     </record> -->
 
-    <!-- <record id="in_appraisal_employee_view" model="ir.ui.view">
+    <record id="in_appraisal_employee_view" model="ir.ui.view">
         <field name="name">appraisal.appraisal.employee</field>
         <field name="model">hr.employee</field>
-        <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//kanban" position="attributes">
+            <!-- <xpath expr="//kanban" position="attributes">
                 <attribute name="default_group_by">appraisal_status</attribute>
             </xpath>
             <xpath expr="//search[@name='group_by']" position="replace">
                 <filter name="appraisal_status" string="Any string" 
                     domain=""
                     context="{'group_by': 'appraisal_status'}"/>
+            </xpath> -->
+            <xpath expr="//field[@name='work_email']" position="after">
+                    <field name="hired_date" string="Hired Date"/>
             </xpath>
-            <xpath expr="//div[@class='o_kanban_record_headings']" position="inside">
-                <div>
-                    <field name="appraisal_status"/>
-                </div>
-            </xpath>
+            <xpath expr="//page[@name='hr_settings']" position="after">
+                <page string="Appraisals">
+                    <field name="appraisal_ids"/>
+                </page>
+        </xpath>
         </field>
-    </record> -->
+    </record>
 </odoo>

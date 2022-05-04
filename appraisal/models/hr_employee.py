@@ -8,6 +8,8 @@ class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     appraisal_ids = fields.One2many('appraisal.appraisal', 'employee_id')
+    # last_appraisal_date = fields.Date(compute="_compute_last_appraisal_date", store=True)
+    hired_date = fields.Date(default=date.today(), required=True)
     appraisal_status = fields.Selection([
         ('new', 'New'),
         ('to start', 'To Start'),
@@ -16,7 +18,9 @@ class HrEmployee(models.Model):
     ], default='new', compute="_compute_appraisal_status")
     # last_appraisal_date = fields.Date()
     
-    @api.depends('appraisal_ids')
+    # def _compute_last_appraisal_date(self):
+
+    # @api.depends('last_appraisal_date')
     def _compute_appraisal_status(self):
         for record in self:
             if(not record.appraisal_ids):
