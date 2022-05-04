@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Stadia HR",
+    'name': "stadia",
     'sequence': 1,
 
     'summary': """
@@ -8,7 +8,7 @@
         subtitle on modules listing or apps.openerp.com""",
 
     'description': """
-        Long description of module's purpose
+        Stadia Engineering Works Consultant PLC
     """,
 
     'author': "My Company",
@@ -61,5 +61,4 @@
     'installable': True,
     'application': True,
     'auto_install': False,
-
 }

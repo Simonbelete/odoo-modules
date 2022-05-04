@@ -1,5 +1,5 @@
 {
-    'name': 'stadia',
+    'name': 'stadia_ref',
     'version': '0.1.0',
     'category': 'Human Resources',
     'description': 'Stadia Engineering Works Consultant PLC',
