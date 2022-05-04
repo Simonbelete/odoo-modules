@@ -91,6 +91,26 @@ class EmployeeDetail(models.Model):
                 vals['mobile_phone'] = '+251' + vals['mobile_phone'][1:]
             else:
                 vals['mobile_phone'] = '+251' + vals['mobile_phone']
+        # overriding create method for house phone number
+
+        if 'tell' in vals:
+            if vals['tell'].startswith("0"):
+                vals['tell'] = '+251' + vals['tell'][1:]
+            else:
+                vals['tell'] = '+251' + vals['tell']
+        # overriding create method for private mobile number
+        if 'mobile_phone_two' in vals:
+            if vals['mobile_phone_two'].startswith("0"):
+                vals['mobile_phone_two'] = '+251' + vals['mobile_phone_two'][1:]
+            else:
+                vals['mobile_phone_two'] = '+251' + vals['mobile_phone_two']
+
+        # overriding create method for mother phone number
+        if 'm_phone' in vals:
+            if vals['m_phone'].startswith("0"):
+                vals['m_phone'] = '+251' + vals['m_phone'][1:]
+            else:
+                vals['m_phone'] = '+251' + vals['m_phone']
 
         return super(EmployeeDetail, self).write(vals)
 
@@ -302,8 +322,8 @@ class FamilyInformation(models.Model):
     child_phone = fields.Char(string='Phone Number')
     document_for_brith_certificate = fields.Binary()
     # auto-increament
-#     number_one = fields.Char(string='Number', required=True, copy=False, readonly=True,
-#                              index=True, default=lambda self: _('New'))
+    #     number_one = fields.Char(string='Number', required=True, copy=False, readonly=True,
+    #                              index=True, default=lambda self: _('New'))
     # SPOUSE SIBLING INFORMATION
     spouse_sibling_id = fields.Many2one('hr.employee')
     spouse_sibling_full_name = fields.Char(string='Full Name')
