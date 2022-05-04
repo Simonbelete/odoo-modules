@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_employee_inherited_page_other_asset" model="ir.ui.view">
+            <field name="name">hr.employee.inherited.asset</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='hr_settings']" style='' position="after">
+                    <page string="Responsibility">
+                        <group string="Employee asset">
+                            <field name="asset_assignment"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_employee_inherited_page_contract_information" model="ir.ui.view">
+            <field name="name">hr.employee.inherited.notebook_page</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='information']" style='' position="after">
+                    <page string="Contract Certificate">
+                        <group string="Contract Certificate">
+                            <group>
+                                <field name="forensic_certificate" filename="forensic_docname"/>
+                                <field name="forensic_docname" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="medical_certificate" filename="medical_docname"/>
+                                <field name="medical_docname" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="warranty_certificate" filename="warranty_docname"/>
+                                <field name="warranty_docname" invisible="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
