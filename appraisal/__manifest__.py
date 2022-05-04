@@ -9,6 +9,7 @@
         'security/ir.model.access.csv',
         'data/category_data.xml',
         'data/cron.xml',
+        'views/res_config_settings_views.xml',
         'views/appraisal_template.xml',
         'views/hr_employee_views.xml',
         'views/appraisal_category_views.xml',

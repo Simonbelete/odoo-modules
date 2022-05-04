@@ -4,3 +4,4 @@ from . import survey
 from . import survey_question
 from . import appraisal_score
 from . import hr_employee
+from . import res_config_settings

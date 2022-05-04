@@ -5,7 +5,7 @@
     <menuitem id="appraisal_main_menu" name="Appraisal">
 
         <menuitem id="appraisal_kanban_menu" name="Appraisal" action="appraisal_kanban_action" sequence="1"/>
-        <!-- <menuitem id="appraisal_kanban_menu_abc" name="Notification" action="abc"/> -->
+        <menuitem id="appraisal_kanban_menu_abc" name="Notification" action="abc"/>
         <menuitem id="appraisal_survery_menu" name="Survery" sequence="2">
             <menuitem id="appraisal_survey_menu" name="Survey" action="appraisal_survery_action" sequence="1"/>
             <menuitem id="appraisal_survey_question_menu" name="Questions" action="appraisal_survey_question_action" sequence="2" />
