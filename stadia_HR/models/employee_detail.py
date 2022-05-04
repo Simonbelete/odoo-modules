@@ -302,8 +302,8 @@ class FamilyInformation(models.Model):
     child_phone = fields.Char(string='Phone Number')
     document_for_brith_certificate = fields.Binary()
     # auto-increament
-    number_one = fields.Char(string='Number', required=True, copy=False, readonly=True,
-                             index=True, default=lambda self: _('New'))
+#     number_one = fields.Char(string='Number', required=True, copy=False, readonly=True,
+#                              index=True, default=lambda self: _('New'))
     # SPOUSE SIBLING INFORMATION
     spouse_sibling_id = fields.Many2one('hr.employee')
     spouse_sibling_full_name = fields.Char(string='Full Name')
