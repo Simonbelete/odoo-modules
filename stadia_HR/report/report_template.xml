@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="employee_Detail">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.internal_layout">
+                    <div class="oe_structure"/>
+                    <link rel="stylesheet" href="/stadia_HR/static/src/css/style.css"/>
+                    <div class="container-fluid bg bg-danger ">
+                        <h4 style="text-align: center;decoration: underline;">
+                            EMPLOYEE LIFE HISTORY
+                        </h4>
+                    </div>
+                    <span class="text text-danger text-center">Employee Profile</span>
+                    <div class="Row">
+                        <table class="table table-sm styled-table" border="1">
+                            <tr>
+                                <th>Full Name</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <t t-esc="o.name"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <table class="table styled-table">
+                        <tr>
+                            <th width="40%">Date of Birth</th>
+                            <th width="40%">Gender</th>
+                            <th width="40%">Marital Status</th>
+                        </tr>
+                        <tr>
+                            <td width="40%">
+                                <t t-esc="o.birthday1"/>
+                            </td>
+                            <td width="40%">
+                                <t t-esc="o.gender"/>
+                            </td>
+                            <td width="40%">
+                                <t t-esc="o.marital"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table styled-table">
+                        <tr>
+                            <th width="40%">Nationality</th>
+                            <th width="40%">Date Employed</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td width="40%">
+                                <t t-esc="o.country_id.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.Hiring_day"/>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table class="table styled-table">
+                        <tr>
+                            <th width="40%">Pension Number</th>
+                            <th width="40%">Tin Number</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td width="40%">
+                                <t t-esc="o.pension_number"/>
+                            </td>
+                            <td width="40%">
+                                <t t-esc="o.tin_number"/>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table class="table styled-table">
+                        <tr>
+                            <th width="40%">Department</th>
+                            <th width="40%">Job Title</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td width="40%">
+                                <t t-esc="o.department_id.name"/>
+                            </td>
+                            <td width="40%">
+                                <t t-esc="o.job_title"/>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+
+                    <table class="table styled-table">
+                        <tr>
+                            <td>Responsibility</td>
+                        </tr>
+                        <tr>
+                            <th>Property Name</th>
+                            <th>Property Type</th>
+                            <th>Tag Number</th>
+                            <th>Money</th>
+                            <th>Amount</th>
+                            <th>Employee Supervision</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <t t-esc="o.responsibility_ids.property_name"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.responsibility_ids.property_type"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.responsibility_ids.tag_number"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.responsibility_ids.money"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.responsibility_ids.amount"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.responsibility_ids.employee_supervision"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.responsibility_ids.number"/>
+                            </td>
+
+                        </tr>
+                    </table>
+
+                    <table class="table styled-table" border="1">
+                        <tr>
+                            <th>Current Salary</th>
+                            <th>Transport Allowance</th>
+                            <td>Incentive Allowance</td>
+                            <th>Telephone Allowance</th>
+                            <th>Pays Cost Sharing</th>
+                            <td>Tip From Manufacturing</td>
+                            <td>Total Allowance</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p t-foreach="o.contract_employee_id"
+                                   t-as="rent">
+                                    <t t-esc="'{0:,.2f}'.format(rent.wage)"/>
+                                </p>
+                            </td>
+                            <td>
+                                <p t-foreach="o.contract_employee_id"
+                                   t-as="rent">
+                                    <t t-esc="rent.transport"/>
+                                </p>
+                            </td>
+                            <td>
+                                <p t-foreach="o.contract_employee_id"
+                                   t-as="rent">
+                                    <t t-esc="rent.incentive"/>
+                                </p>
+                            </td>
+                            <td>
+                                <p t-foreach="o.contract_employee_id"
+                                   t-as="rent">
+                                    <t t-esc="rent.phone_payroll"/>
+                                </p>
+                            </td>
+                            <td>
+                                <p t-foreach="o.contract_employee_id"
+                                   t-as="rent">
+                                    <t t-esc="rent.phone_payroll"/>
+                                </p>
+                            </td>
+                            <td>not set</td>
+                            <td>
+                                <p t-foreach="o.contract_employee_id"
+                                   t-as="rent">
+                                    <t t-esc="rent.tip_confirmation"/>
+                                </p>
+                            </td>
+                            <td>
+                                <p t-foreach="o.contract_employee_id"
+                                   t-as="rent">
+                                    <t t-esc="rent.total_allowance"/>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <span class="text text-danger text-center">Current Address</span>
+                    <table class="table styled-table" border="1">
+                        <tr>
+                            <th width="20%">City</th>
+                            <th width="20%">Sub City</th>
+                            <th width="20%">Woreda</th>
+                            <th width="20%">House Number</th>
+                            <th width="20%">Mobile/house No.</th>
+                        </tr>
+                        <tr>
+                            <td width="20%">
+                                <t t-esc="o.city.name"/>
+                            </td>
+                            <td width="20%">
+                                <t t-esc="o.sub_city.name"/>
+                            </td>
+                            <td width="20%">
+                                <t t-esc="o.woreda"/>
+                            </td>
+                            <td class="text text-center" width="20%">
+                                <t t-esc="o.house_number"/>
+                            </td>
+                            <td width="20%">
+                                <t t-esc="o.tell"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <t t-foreach="o.employe_education_ids.employee_name_education_id" t-as="line">
+                        <span class="text text-danger">Higher Education Provision</span>
+                        <table class="table styled-table" border="1" width="100%">
+                            <tr>
+                                <th width="10%">No.</th>
+                                <th width="30%">Name of University</th>
+                                <th width="40%">Fields of Study</th>
+                                <th width="40%">Year of GC</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.employe_education_ids" t-as="UNi"
+                               t-if="line == UNi.employee_name_education_id">
+                                <tr>
+                                    <td width="10%">
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td width="30%">
+                                        <t t-esc="UNi.institute_id.name"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="UNi.Employe_full_name"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="UNi.end_date"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                    </t>
+                    <t t-foreach="o.hs_info_ids.hs_info_id" t-as="line">
+                        <span class="text text-danger">High School</span>
+                        <table class="table styled-table" border="1" width="100%">
+                            <tr>
+                                <th width="10%">No.</th>
+                                <th width="30%">Name School</th>
+                                <th width="40%">Year</th>
+                                <th width="40%">Grade</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.hs_info_ids" t-as="hs"
+                               t-if="line == hs.hs_info_id">
+                                <tr>
+                                    <td width="10%">
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td width="30%">
+                                        <t t-esc="hs.name_school_id.name"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="hs.year"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="hs.grade"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                    </t>
+                    <t t-foreach="o.ps_info_ids.ps_info_id" t-as="line">
+                        <span class="text text-danger">Primary School</span>
+                        <table class="table styled-table" border="1" width="100%">
+                            <tr>
+                                <th width="10%">No.</th>
+                                <th width="30%">Name School</th>
+                                <th width="40%">Year</th>
+                                <th width="40%">Grade</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.ps_info_ids" t-as="ps"
+                               t-if="line == ps.ps_info_id">
+                                <tr>
+                                    <td width="10%">
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td width="30%">
+                                        <t t-esc="ps.name_school_p_id.name"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="ps.year_p"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="ps.grade_p"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                    </t>
+
+                    <t t-foreach="o.training_name_ids.training_name_inverse_id" t-as="line">
+                        <span class="text text-danger">Training</span>
+                        <table class="table styled-table" border="1">
+                            <tr>
+                                <th>No.</th>
+                                <th width="30%">Type of Training</th>
+                                <th width="30%">Name of Institution</th>
+                                <th width="30%">Award</th>
+
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.training_name_ids" t-as="education"
+                               t-if="line == education.training_name_inverse_id">
+                                <tr>
+                                    <td>
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td width="30%">
+                                        <t t-esc="education.type_of_training"/>
+                                    </td>
+                                    <td width="30%">
+                                        <t t-esc="education.name_of_institution_id.name"/>
+                                    </td>
+                                    <td width="30%">
+                                        <t t-esc="education.reward"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                    </t>
+                    <t t-foreach="o.resume_line_ids.employee_id" t-as="line">
+                        <span class="text text-danger">Internal Work Experience</span>
+                        <table class="table styled-table" border="1">
+                            <tr>
+                                <th>No.</th>
+                                <th width="30%">Job Title</th>
+                                <th width="30%">Department</th>
+                                <th width="20%">From</th>
+                                <th width="40%">To</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.resume_line_ids" t-as="expérience"
+                               t-if="line == expérience.employee_id">
+                                <t t-if="not expérience.name_of_org_id.name and expérience.job_title_in">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="index"/>
+                                        </td>
+                                        <td width="30%">
+                                            <t t-esc="expérience.job_title_in"/>
+                                        </td>
+                                        <td width="30%">
+                                            <t t-esc="expérience.department_in.name"/>
+                                        </td>
+                                        <td width="20%">
+                                            <t t-esc="expérience.from_ex"/>
+                                        </td>
+                                        <td width="20%">
+                                            <t t-esc="expérience.to_ex"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="index" t-value="index+1"/>
+                                </t>
+                            </t>
+                        </table>
+                    </t>
+                    <t t-foreach="o.resume_line_ids.employee_id" t-as="ex">
+                        <span class="text text-danger">External Work Experience</span>
+                        <table class="table styled-table" border="1">
+                            <tr>
+                                <th>No.</th>
+                                <th width="20">Job Title</th>
+                                <th width="20%">Department</th>
+                                <th width="20%">From</th>
+                                <th width="20%">To</th>
+                                <th width="40%">Organization</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.resume_line_ids" t-as="expérience"
+                               t-if="ex == expérience.employee_id">
+                                <t t-if="expérience.name_of_org_id.name">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="index"/>
+                                        </td>
+                                        <td width="20%">
+                                            <t t-esc="expérience.job_title_ex"/>
+                                        </td>
+                                        <td width="20%">
+                                            <t t-esc="expérience.department_ex.name"/>
+                                        </td>
+                                        <td width="20%">
+                                            <t t-esc="expérience.date_start"/>
+                                        </td>
+                                        <td width="20%">
+                                            <t t-esc="expérience.date_end"/>
+                                        </td>
+                                        <td width="40%">
+                                            <t t-esc="expérience.name_of_org_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="index" t-value="index+1"/>
+                                </t>
+                            </t>
+                        </table>
+                    </t>
+                    <span class="text text-danger">Spouse Information</span>
+                    <table class="table styled-table" border="1">
+                        <tr>
+                            <th width="40%">Full Name</th>
+                            <th width="40%">Phone Number</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td width="40%">
+                                <t t-esc="o.spouse_full_name"/>
+                            </td>
+                            <td width="40%">
+                                <t t-esc="o.phone_spouse"/>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <span class="text text-danger">Employee's Mother</span>
+                    <table class="table styled-table">
+                        <tr>
+                            <th width="40%">Full Name</th>
+                            <th width="40%">Phone Number</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td width="40%">
+                                <t t-esc="o.relativ_two"/>
+                            </td>
+                            <td width="40%">
+                                <t t-esc="o.m_phone"/>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <t t-foreach="o.child_info_ids.child_info_id" t-as="line">
+                        <span class="text text-danger">Children's Name</span>
+                        <table class="table styled-table" border="1">
+                            <tr>
+                                <th width="40%">No.</th>
+                                <th width="40%">Full Name</th>
+                                <th width="40%">Phone Number</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.child_info_ids" t-as="CHILD"
+                               t-if="line == CHILD.child_info_id">
+                                <tr>
+                                    <td width="40%">
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="CHILD.child_full_name"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="CHILD.child_phone"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                    </t>
+                    <t t-foreach="o.employee_emergency_ids.em_full_name_id" t-as="line">
+                        <span class="text text-danger">Emergency Contact</span>
+                        <table class="table styled-table" border="1">
+                            <tr>
+                                <th>No.</th>
+                                <th width="20%">Full Name</th>
+                                <th width="20%">City</th>
+                                <th width="15%">sub city</th>
+                                <th width="5%">woreda</th>
+                                <th width="15%">House No.</th>
+                                <th width="40">Mobile Phone No.</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.employee_emergency_ids" t-as="emergency"
+                               t-if="line == emergency.em_full_name_id">
+                                <tr>
+                                    <td>
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td width="20%">
+                                        <t t-esc="emergency.em_full_name_id_relation.name"/>
+                                    </td>
+                                    <td width="20%">
+                                        <t t-esc="emergency.em_city.name"/>
+                                    </td>
+                                    <td width="15%">
+                                        <t t-esc="emergency.em_sub_city.name"/>
+                                    </td>
+                                    <td width="5%">
+                                        <t t-esc="emergency.em_woreda"/>
+                                    </td>
+                                    <td width="15%">
+                                        <t t-esc="emergency.em_house"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="emergency.em_phone"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                    </t>
+                    <t t-foreach="o.employee_sibling_info_ids.sibling_info_id" t-as="line">
+                        <span class="text text-danger">Sibling Information</span>
+                        <table class="table styled-table" border="1">
+                            <tr>
+                                <th width="40%">No.</th>
+                                <th width="40%">Name</th>
+                                <th width="40%">Phone Number</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.employee_sibling_info_ids" t-as="sibling"
+                               t-if="line == sibling.sibling_info_id">
+                                <tr>
+                                    <td width="40%">
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="sibling.em_sibling_full_name"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="sibling.sibling_phone"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                    </t>
+                    <span class="text text-danger">Spouse's Mother</span>
+                    <table class="table styled-table" border="1">
+                        <tr>
+                            <th width="30%">Full Name</th>
+                            <th width="40%">Phone Number</th>
+                        </tr>
+                        <tr>
+                            <td width="30%">
+                                <t t-esc="o.spouse_mother_full_name"/>
+                            </td>
+                            <td width="40%">
+                                <t t-esc="o.spouse_mother_phone"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <t t-foreach="o.spouse_sibling_info_ids.spouse_sibling_id" t-as="line">
+                        <span class="text text-danger">Spouse Sibling</span>
+                        <table class="table styled-table" border="1">
+                            <tr>
+                                <th>No.</th>
+                                <th width="40%">Full Name</th>
+                                <th width="40%">Phone Number</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.spouse_sibling_info_ids" t-as="Spouse_sibling"
+                               t-if="line == Spouse_sibling.spouse_sibling_id">
+                                <tr>
+                                    <td>
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="Spouse_sibling.spouse_sibling_full_name"/>
+                                    </td>
+                                    <td width="40%">
+                                        <t t-esc="Spouse_sibling.spouse_sibling_phone"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                    </t>
+                    <!--                    DECLARATION -->
+                    <P class="lead" style="">
+                        <span class="text text-danger">Declaration:-</span>
+                        I hereby declare That The Details Furnished Above are true and correct to the best of my
+                        Knowledge and
+                        belief and under take to inform you of any change there in, immediately. in case any of
+                        the above information is found to be False or
+                        untrue or misleading or misrepresenting, I am aware That may be held liable for it.
+                    </P>
+                    <p class="lead">የሰጠሁት መርጃ ትክክለኛና እውነት ያለው መሆኑን አርጋግጣለሁ። ቀጣይ ለውጦች በጊዜው የማሳወቅ የሆናል ነገር ግን
+                        የስጠሁት መርጃ
+                        ሃሰትና እውነተኛ ካልሆነ ሃላፊነቱን የምወስድ መሆኑን በፊርማየ አረጋግጣለሁ።
+                    </p>
+                    <table class="table styled-table" border="1">
+                        <tr>
+                            <th colspan="6">Full Name</th>
+                            <th colspan="6">Signature</th>
+                        </tr>
+                    </table>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
