@@ -5,7 +5,7 @@
         <field name="name">Notification</field>
         <field name="res_model">hr.employee</field>
         <field name="view_mode">kanban</field>
-        <field name="view_id" ref="appraisal.abc_kanaban"/>
+        <!-- <field name="view_id" ref="appraisal.abc_kanaban"/> -->
     </record>
 
     <record id="abc_kanaban" model="ir.ui.view">
