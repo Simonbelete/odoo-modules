@@ -32,8 +32,12 @@
             <field name="body_html" type="html">
 <div>
     <p>
-        Approve <b>${object.name}</b> appraisal 
+        Approve <b>${object.employee_id}</b> appraisal 
     </p>
+    <p>
+        date <b>${object.evaluation_date}</b>
+    </p>
+    <a href="http://localhost:8069/appraisal/employee/approve/${object.token}?db=apprisal_demo">Approve Appraisal</a>
 </div>
 
             </field>

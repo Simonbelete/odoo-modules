@@ -96,3 +96,10 @@ class Appraisal(http.Controller):
             elif survey > 1:
                 SurveyScore.write(score_dict)
         print(kw)
+
+    @http.route('/appraisal/employee/approve/<string:token>',  auth='public', type='http', website=True)
+    def appraisal_employee_approve(self, token, **kw):
+        Appraisal = http.request.env['appraisal.appraisal']
+        appraisal = Appraisal.search([('token', '=', token)])
+        if(appraisal):
+            appraisal.write({'employee_signature': True})

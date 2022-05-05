@@ -25,6 +25,9 @@ class Appraisal(models.Model):
          "- To Confirm: Newly created appraisal")
     evaluation_date = fields.Date(default=date.today())
 
+    # Signature
+    employee_signature = fields.Boolean(default = False)
+
     # Reference field
     appraisal_score_ids = fields.One2many('appraisal.appraisal.score', 'appraisal_id')
 
