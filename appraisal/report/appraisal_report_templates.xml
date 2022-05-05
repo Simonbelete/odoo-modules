@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="appraisal_report">
-        <t t-set="data_report_landscape" t-value="True" />
+        <t t-set="data_report_landscape" t-value="False" />
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
@@ -17,108 +17,101 @@
                             <span style="font-weight: bold">Name:</span>
                             <span t-esc="o.employee_id.name"/>
                         </div>
-                        <div>
-                               <table border="1">
-                                   <thead>
-                                       <tr>
-                                           <th colspan="2">PERSONAL TRAITS</th>
-                                           <th>UNSATISFACTORY</th>
-                                           <th>SOME DEFICIENCIES EVIDENT</th>
-                                           <th>SATISFACTORY</th>
-                                           <th>EXCEPTIONAL</th>
-                                           <th>CLEARLY OUTSTANDING</th>
-                                           <th>INSERT NUMERICAL RATING
-                                            (1 THROUGH 5)</th>
-                                       </tr>
-                                       <tr>
-                                           <th style="width: 10%"></th>
-                                           <th style="width: 15%"></th>
-                                           <th>1</th>
-                                           <th>2</th>
-                                           <th>3</th>
-                                           <th>4</th>
-                                           <th>5</th>
-                                           <th style="width: 5%"></th>
-                                       </tr>
-                                   </thead>
-                                   <tbody>
-                                    <t t-foreach="categories" t-as="category">
-                                       <tr>
-                                           <t t-set="rowspan_cat" t-value="0" />
-                                            <td  style="vertical-align : middle;text-align:center;"><span t-field="category.name" /></td>
-                                            <td style="font-size: 13px"><b>Definition:</b> <span t-field="category.definition" /></td>
-                                            <!-- Question  question.score_selection_ids -->
-                                            <td>b</td>
-                                            <td>c</td>
-                                            <td>d</td>
-                                            <td>e</td>
-                                            <td>f</td>
-                                            <td  style="vertical-align : middle;text-align:center;">5.0</td>
-                                       </tr>
-                                       <tr>
-                                        <td></td>
-                                        <td style="font-size: 13px"><b>Key Indicators:</b></td>
-                                        <!-- Question  question.score_selection_ids -->
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                     </tr>
+                        <div style="margin-top:50px; margin-bottom:50px">
+                            <t t-foreach="categories" t-as="category">
+                                <!-- Average and total scores per category -->
+                                <t t-set="total_score" t-value="0" />
+                                <t t-set="question_count" t-value="0" />
+                                <t t-set="answer_score" t-value="0" />
+            
+                                <table class="table" border="1">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">
+                                                <h4 style="text-align:center; font-weight: bold; margin: 2px" t-field="category.name" />
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th >
+                                                #
+                                            </th>
+                                            <th >
+                                               <p>Key Indicators</p>
+                                            </th>
+                                            <th>
+                                                Score
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="questions" t-as="question">
+                                            <!-- Get answer for the current question -->
+                                            <t t-set="answer_score" t-value="0" />
+                                            <t t-foreach="answers" t-as="answer">
+                                                <t t-if="answer.question_id.id == question.id">
+                                                    <t t-set="answer_score" t-value="answer.score" />
+                                                </t>
+                                            </t>
 
-                                     <t t-foreach="questions" t-as="question">
-                                        <t t-if="category.id==question.category_id.id">
-                                            <tr>
-                                                <td></td>
-                                                <td><span t-field="question.title"/></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>5</td>
-                                                <td></td>
-                                            </tr>
+                                            <t t-if="category.id==question.category_id.id">
+                                                <t t-set="total_score" t-value="total_score + answer_score"/>
+                                                <t t-set="question_count" t-value="question_count+1" />
+                                                <tr>
+                                                    <td><span t-field="question.sequence" /></td>
+                                                    <td style="width: 40%"><span t-field="question.title" /></td>
+                                                    <td>
+                                                        <t t-if="question.score_method=='selection'">
+                                                            <t t-foreach="question.score_selection_ids" t-as="selection">
+                                                                <div>
+                                                                    <label>
+                                                                        <input type="radio" 
+                                                                            t-att-name="question.id" 
+                                                                            t-att-value="selection.value"
+                                                                            t-att-checked="str(selection.value)==str(answer_score)" />
+                                                                        <span t-field="selection.value" />
+                                                                        -
+                                                                        <span t-field="selection.description" />
+                                                                    </label>
+                                                                </div>
+                                                            </t>
+                                                        </t>
+                                                        <t t-if="question.score_method=='range'">
+                                                            <input type="number" 
+                                                                t-att-name="question.id" 
+                                                                t-att-min="question.score_min"
+                                                                t-att-max="question.score_max" 
+                                                                t-att-value="answer_score"/>
+                                                            <small style="color: gray;">
+                                                                <div>Minimum - <span t-field="question.score_min"/></div>
+                                                                <div>Maximum - <span t-field="question.score_max"/></div>
+                                                            </small>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </t>
                                         </t>
-                                    </t>
-                                        <!-- <tr>
+                                    </tbody>
+                                    <tfoot style="font-weight: bold; font-size: 15px">
+                                        <tr>
                                             <td></td>
-                                            <td>skill</td>
+                                            <td><span>Total Score</span></td>
+                                            <td><span><t t-esc="total_score" /></span></td>
+                                        </tr>
+                                        <tr>
                                             <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>5</td>
-                                            <td></td>
-                                        </tr> -->
-                                </t>
-
-                                   </tbody>
-                               </table>
-
+                                            <td><span>Average Score</span></td>
+                                            <td><span>
+                                                <t t-set="avg_score" t-value="total_score/question_count" />
+                                                <t t-esc="avg_score" />
+                                            </span></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </t>
                         </div>
                     </div>
                 </t>
             </t>
         </t>
-        <!-- <t t-call="web.basic_layout"> -->
-            <!-- <h1>Hello World</h1>
-            <h1>Hello World</h1>
-            <h1>Hello World</h1>
-            <h1>Hello World</h1>
-            <h1 t-esc="da" /> -->
-            <!-- <t t-foreach="lines" t-as="data">
-                <h1>Hello World</h1>
-                <t t-set="categories" t-value="[]" />
-                <h1 t-field="da.name" />
-            </t> -->
-            <!-- <t t-call="web.external_layout">
-                <div style="margin-top:50px; margin-bottom:50px">
-                    <t t-foreach="categories" t-as="category">
-                        <h1 t-field="category.name" />
-                    </t>
-                </div>
-            </t> -->
-        <!-- </t> -->
     </template>
 </odoo>
