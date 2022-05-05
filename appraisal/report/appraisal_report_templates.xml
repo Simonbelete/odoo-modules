@@ -1,18 +1,124 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="appraisal_report">
-        <t t-set="data_report_landscape" t-value="False" />
-        <t t-call="web.basic_layout">
+        <t t-set="data_report_landscape" t-value="True" />
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <style>
+                        table, th, td {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                          }
+                    </style>
+                    <div class="page" style="margin-top:50px; margin-bottom:50px">
+                        <h2>STAFF PERFORMANCE APPRAISAL</h2>
+                        <div>
+                            <span style="font-weight: bold">Name:</span>
+                            <span t-esc="o.employee_id.name"/>
+                        </div>
+                        <div>
+                               <table border="1">
+                                   <thead>
+                                       <tr>
+                                           <th colspan="2">PERSONAL TRAITS</th>
+                                           <th>UNSATISFACTORY</th>
+                                           <th>SOME DEFICIENCIES EVIDENT</th>
+                                           <th>SATISFACTORY</th>
+                                           <th>EXCEPTIONAL</th>
+                                           <th>CLEARLY OUTSTANDING</th>
+                                           <th>INSERT NUMERICAL RATING
+                                            (1 THROUGH 5)</th>
+                                       </tr>
+                                       <tr>
+                                           <th style="width: 10%"></th>
+                                           <th style="width: 15%"></th>
+                                           <th>1</th>
+                                           <th>2</th>
+                                           <th>3</th>
+                                           <th>4</th>
+                                           <th>5</th>
+                                           <th style="width: 5%"></th>
+                                       </tr>
+                                   </thead>
+                                   <tbody>
+                                    <t t-foreach="categories" t-as="category">
+                                       <tr>
+                                           <t t-set="rowspan_cat" t-value="0" />
+                                            <td  style="vertical-align : middle;text-align:center;"><span t-field="category.name" /></td>
+                                            <td style="font-size: 13px"><b>Definition:</b> <span t-field="category.definition" /></td>
+                                            <!-- Question  question.score_selection_ids -->
+                                            <td>b</td>
+                                            <td>c</td>
+                                            <td>d</td>
+                                            <td>e</td>
+                                            <td>f</td>
+                                            <td  style="vertical-align : middle;text-align:center;">5.0</td>
+                                       </tr>
+                                       <tr>
+                                        <td></td>
+                                        <td style="font-size: 13px"><b>Key Indicators:</b></td>
+                                        <!-- Question  question.score_selection_ids -->
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                     </tr>
+
+                                     <t t-foreach="questions" t-as="question">
+                                        <t t-if="category.id==question.category_id.id">
+                                            <tr>
+                                                <td></td>
+                                                <td><span t-field="question.title"/></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td>5</td>
+                                                <td></td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                        <!-- <tr>
+                                            <td></td>
+                                            <td>skill</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>5</td>
+                                            <td></td>
+                                        </tr> -->
+                                </t>
+
+                                   </tbody>
+                               </table>
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+        <!-- <t t-call="web.basic_layout"> -->
+            <!-- <h1>Hello World</h1>
             <h1>Hello World</h1>
             <h1>Hello World</h1>
             <h1>Hello World</h1>
-            <h1>Hello World</h1>
-            <h1 t-esc="da" />
+            <h1 t-esc="da" /> -->
             <!-- <t t-foreach="lines" t-as="data">
                 <h1>Hello World</h1>
                 <t t-set="categories" t-value="[]" />
                 <h1 t-field="da.name" />
             </t> -->
-        </t>
+            <!-- <t t-call="web.external_layout">
+                <div style="margin-top:50px; margin-bottom:50px">
+                    <t t-foreach="categories" t-as="category">
+                        <h1 t-field="category.name" />
+                    </t>
+                </div>
+            </t> -->
+        <!-- </t> -->
     </template>
 </odoo>
