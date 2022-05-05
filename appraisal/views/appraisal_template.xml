@@ -6,12 +6,14 @@
 
     <template id="appraisal_page_index">
         <t t-call="appraisal.layout">
-            <form action="/appraisal/submit" method="post" role="form" style="height: 100vh; 
+            <form action="/appraisal/submit" method="post" role="form" style="
                         display: flex;
                         flex-direction: column;
                         gap: 100px;
                         align-items: center;
-                        justify-content: center;">
+                        justify-content: center;
+                        margin-top: 100px;
+                        maring-bottom: 100px">
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                 <t t-foreach="categories" t-as="category">
                     <!-- Average and total scores per category -->
