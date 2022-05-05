@@ -8,13 +8,13 @@
         <record id="eamil_appraisla_notify" model="mail.template">
             <field name="name">Appraisal Notify</field>
             <field name="model_id" ref="model_hr_employee"/>
-            <field name="email_from">adminuser@localhost.com</field>
+            <field name="email_from">manager@localhost.com</field>
             <field name="email_to">${object.work_email}</field>
-            <field name="subject">Subject Notify</field>
+            <field name="subject">Appraisal Notification</field>
             <field name="body_html" type="html">
 <div>
     <p>
-        TEst email Addresspartner_to
+        Notification for <b>${object.name}</b> employee appraisal 
     </p>
 </div>
 

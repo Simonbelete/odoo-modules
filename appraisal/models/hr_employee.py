@@ -51,37 +51,25 @@ class HrEmployee(models.Model):
     def diff_days(self, d1, d2):
         return abs((d2 - d1).days)
 
-    def send_email(self):
-        return True
+    def send_email(self, emp_id):
+        mail_template = self.env.ref('appraisal.eamil_appraisla_notify')
+        mail_template.send_mail(emp_id, force_send=True)
 
     def notify_and_upate_appraisal_status(self):
         settings_appraisal_first_recuritment = int(self.env['ir.config_parameter'].sudo().get_param('appraisal.appraisal_first_recuritment'))
         settings_appraisal_every = int(self.env['ir.config_parameter'].sudo().get_param('appraisal.appraisal_every'))
         employees = self.env['hr.employee'].search([('work_email', '=', 'emptwo@localhost.com')])
         for employee in employees:
-            print("jjjj")
-            # Send Email EXample
-            # mail_template = self.env['mail.template'].browse(self.env.ref('eamil_appraisla_notify').id)
-            mail_template = self.env.ref('appraisal.eamil_appraisla_notify')
-            print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-            print(employee.work_email)
-            mail_template.send_mail(employee.id, force_send=True)
-
             # Check if appraisal using hired_date
-            # no_days = self.diff_days(employee.hired_date, date.today())
-            # no_months = self.diff_month(employee.hired_date, date.today())
-            # print('0000000000000000000000000000000000000000000000000000000000000')
-            # print(no_days)
-            # print(no_months)
-            # if(no_months == settings_appraisal_first_recuritment):
-            #     # Temp Employee
-            #     self.send_email()
-            #     employee.write({'appraisal_status': 'to start'})
-            # elif(no_months > settings_appraisal_first_recuritment and (no_months % settings_appraisal_every == 0)):
-            #     self.send_email()
-            #     employee.write({'appraisal_status': 'to start'})
-
-        # print('11111111111111111111111111111111111111111111111111')
-        # print(appraisals)
-        # print(settings_appraisal_first_recuritment)
-        # print(settings_appraisal_every)
+            no_days = self.diff_days(employee.hired_date, date.today())
+            no_months = self.diff_month(employee.hired_date, date.today())
+            print('0000000000000000000000000000000000000000000000000000000000000')
+            print(no_days)
+            print(no_months)
+            if(no_months == settings_appraisal_first_recuritment):
+                # Temp Employee
+                self.send_email(employee.id)
+                employee.write({'appraisal_status': 'to start'})
+            elif(no_months > settings_appraisal_first_recuritment and (no_months % settings_appraisal_every == 0)):
+                self.send_email(employee.id)
+                employee.write({'appraisal_status': 'to start'})
