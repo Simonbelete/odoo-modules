@@ -32,6 +32,7 @@
             <form>
                 <header>
                     <button name="action_start_survery" type="object" string="Start Assement"/>
+                    <button name="send_report" type="object" string="Send Email"/>
                     <!-- <button name="%(btn_action_print_appraisal)d" string="Print" type="action" /> -->
                     <!-- <button name="action_print_report" string="Print" type="object" /> -->
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done" />

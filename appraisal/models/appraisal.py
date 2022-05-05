@@ -45,6 +45,11 @@ class Appraisal(models.Model):
             'url': '/appraisal/%s' % str(self.token)
         }
 
+    def send_report(self):
+        for record in self:
+            mail_template = self.env.ref('appraisal.eamil_appraisla_with_report')
+            mail_template.send_mail(record.id, force_send=True)
+
     # def action_print_report(self):
     #     data = {
     #         'ab': {

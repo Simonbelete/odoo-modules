@@ -20,5 +20,23 @@
 
             </field>
         </record>
+
+        <!--Email template -->
+        <record id="eamil_appraisla_with_report" model="mail.template">
+            <field name="name">Appraisal report Notify</field>
+            <field name="model_id" ref="model_appraisal_appraisal"/>
+            <field name="email_from">manager@localhost.com</field>
+            <field name="email_to">${object.employee_id.work_email}</field>
+            <field name="subject">Appraisal Notification</field>
+            <field name="report_template" ref="btn_action_print_appraisal"/>
+            <field name="body_html" type="html">
+<div>
+    <p>
+        Approve <b>${object.name}</b> appraisal 
+    </p>
+</div>
+
+            </field>
+        </record>
     </data>
 </odoo>
