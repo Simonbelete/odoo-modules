@@ -30,6 +30,7 @@
             </xpath> -->
             <xpath expr="//field[@name='work_email']" position="after">
                 <field name="hired_date" string="Hired Date"/>
+                <field name="appraisal_status" string="DEV"/>
             </xpath>
             <xpath expr="//page[@name='hr_settings']" position="after">
                 <page string="Appraisals">

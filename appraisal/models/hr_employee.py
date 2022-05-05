@@ -59,19 +59,25 @@ class HrEmployee(models.Model):
         settings_appraisal_every = int(self.env['ir.config_parameter'].sudo().get_param('appraisal.appraisal_every'))
         employees = self.env['hr.employee'].search([('work_email', '=', 'simonbelete.dev.1@gmail.com')])
         for employee in employees:
+            print("jjjj")
+            # Send Email EXample
+            # mail_template = self.env['mail.template'].browse(self.env.ref('eamil_appraisla_notify').id)
+            mail_template = self.env.ref('appraisal.eamil_appraisla_notify')
+            mail_template.send_mail(self.id, force_send=True)
+
             # Check if appraisal using hired_date
-            no_days = self.diff_days(employee.hired_date, date.today())
-            no_months = self.diff_month(employee.hired_date, date.today())
-            print('0000000000000000000000000000000000000000000000000000000000000')
-            print(no_days)
-            print(no_months)
-            if(no_months == settings_appraisal_first_recuritment):
-                # Temp Employee
-                self.send_email()
-                employee.write({'appraisal_status': 'to start'})
-            elif(no_months > settings_appraisal_first_recuritment and (no_months % settings_appraisal_every == 0)):
-                self.send_email()
-                employee.write({'appraisal_status': 'to start'})
+            # no_days = self.diff_days(employee.hired_date, date.today())
+            # no_months = self.diff_month(employee.hired_date, date.today())
+            # print('0000000000000000000000000000000000000000000000000000000000000')
+            # print(no_days)
+            # print(no_months)
+            # if(no_months == settings_appraisal_first_recuritment):
+            #     # Temp Employee
+            #     self.send_email()
+            #     employee.write({'appraisal_status': 'to start'})
+            # elif(no_months > settings_appraisal_first_recuritment and (no_months % settings_appraisal_every == 0)):
+            #     self.send_email()
+            #     employee.write({'appraisal_status': 'to start'})
 
         # print('11111111111111111111111111111111111111111111111111')
         # print(appraisals)
