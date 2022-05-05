@@ -7,6 +7,8 @@
     'author': 'Simon Belete',
     'data': [
         'security/ir.model.access.csv',
+        'report/appraisal_report_templates.xml',
+        'report/appraisal_report_views.xml',
         'data/category_data.xml',
         'data/cron.xml',
         'data/mail_template.xml',

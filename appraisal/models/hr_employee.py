@@ -63,9 +63,6 @@ class HrEmployee(models.Model):
             # Check if appraisal using hired_date
             no_days = self.diff_days(employee.hired_date, date.today())
             no_months = self.diff_month(employee.hired_date, date.today())
-            print('0000000000000000000000000000000000000000000000000000000000000')
-            print(no_days)
-            print(no_months)
             if(no_months == settings_appraisal_first_recuritment):
                 # Temp Employee
                 self.send_email(employee.id)

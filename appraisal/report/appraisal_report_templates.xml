@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="appraisal_report">
+        <t t-set="data_report_landscape" t-value="False" />
+        <t t-call="web.basic_layout">
+            <h1>Hello World</h1>
+            <h1>Hello World</h1>
+            <h1>Hello World</h1>
+            <h1>Hello World</h1>
+            <h1 t-esc="da" />
+            <!-- <t t-foreach="lines" t-as="data">
+                <h1>Hello World</h1>
+                <t t-set="categories" t-value="[]" />
+                <h1 t-field="da.name" />
+            </t> -->
+        </t>
+    </template>
+</odoo>

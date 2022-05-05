@@ -25,9 +25,12 @@ class Appraisal(models.Model):
          "- To Confirm: Newly created appraisal")
     evaluation_date = fields.Date(default=date.today())
 
+    # Reference field
+    appraisal_score_ids = fields.One2many('appraisal.appraisal.score', 'appraisal_id')
+
     # Computed fields
     last_evaluation = fields.Date(compute="_compute_last_evaluation")
-
+    
     # ------------------------------------------------------------
     # ACTIONS
     # ------------------------------------------------------------
@@ -41,6 +44,14 @@ class Appraisal(models.Model):
             'target': 'self',
             'url': '/appraisal/%s' % str(self.token)
         }
+
+    # def action_print_report(self):
+    #     data = {
+    #         'ab': {
+    #             'name': 'example name'
+    #         }
+    #     }
+    #     return self.env.ref['btn_action_print_appraisal'].report_action(None, data=data)
 
     # ------------------------------------------------------------
     # Computed Fields
