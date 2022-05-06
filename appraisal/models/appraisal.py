@@ -19,10 +19,18 @@ class Appraisal(models.Model):
     state = fields.Selection(string="Status", required=True, readonly=True, copy=False, tracking=True, selection=[
         ('draft', 'To Confirm'),
         ('confirmed', 'Confirmed'),
-        ('done', 'Done')
+        ('started', 'Started'),
+        ('reviewed', 'Reviewed'),
+        ('approved', 'Approved'),
+        ('done', 'Done'),
+        ('cancelled', 'Cancelled')
     ], default="draft",
     help="The current state of the appraisal:"
-         "- To Confirm: Newly created appraisal")
+         "- To Confirm: Newly created appraisal"
+         "- Confirmed: After confirmed button clicked"
+         "- Started: At least one question is answered"
+         "- Reviewed: Employee has seen it and approved it"
+         "- Approved: Approved by Manager")
     evaluation_date = fields.Date(default=date.today())
 
     # Signature
