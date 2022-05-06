@@ -61,6 +61,10 @@ class Appraisal(models.Model):
             mail_template = self.env.ref('appraisal.eamil_appraisla_with_report')
             mail_template.send_mail(record.id, force_send=True)
 
+    def action_confirm(self):
+        for record in self:
+            record.write({'state': 'confirmed'})
+
     # def action_print_report(self):
     #     data = {
     #         'ab': {

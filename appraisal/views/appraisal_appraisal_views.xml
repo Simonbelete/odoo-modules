@@ -16,7 +16,13 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
-                            <field name="employee_id" />
+                            <div>
+                                <p style="font-weight: bold; margin-bottom: 1px">
+                                    <field name="employee_id" />
+                                </p>
+                                <p style="margin-bottom: 1px"><field name="survey_id" /></p>
+                                <p style="font-size: 13px; margin-bottom: 1px"><span>Date:</span><field name="evaluation_date" /></p>
+                            </div>
                         </div>
                     </t>
                 </templates>
@@ -31,8 +37,17 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="action_start_survery" type="object" string="Start Assement"/>
-                    <button name="send_report" type="object" string="Send Email"/>
+                    <button name="action_confirm" 
+                            type="object"
+                            string="Confirm"
+                            style="background: #00a09d; color: white"
+                            attrs="{'invisible': [('state', '!=', 'draft')] }"/>
+                    <button name="action_start_survery" 
+                            type="object" 
+                            string="Start Assement"/>
+                    <button name="send_report" 
+                            type="object" 
+                            string="Send Email"/>
                     <!-- <button name="%(btn_action_print_appraisal)d" string="Print" type="action" /> -->
                     <!-- <button name="action_print_report" string="Print" type="object" /> -->
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done" />
