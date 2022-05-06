@@ -46,6 +46,10 @@
                             type="object" 
                             string="Start Assement"
                             attrs="{'invisible': [('state', '!=', 'confirmed')] }"/>
+                    <button name="action_start_survery" 
+                            type="object" 
+                            string="Edit Assement"
+                            attrs="{'invisible': [('state', '!=', 'started')] }"/>
                     <button name="send_report" 
                             type="object" 
                             string="Send Email"

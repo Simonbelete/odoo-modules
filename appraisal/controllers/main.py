@@ -1,5 +1,6 @@
 import json
 from odoo import fields, http
+import werkzeug
 
 class Appraisal(http.Controller):
 
@@ -76,7 +77,8 @@ class Appraisal(http.Controller):
         Appraisal = http.request.env['appraisal.appraisal']
         data = kw
 
-        appraisal = Appraisal.search([('token', '=', data['appraisal_token'])])
+        token = data['appraisal_token']
+        appraisal = Appraisal.search([('token', '=', token)])
 
         # clean data 
         # get only question_id dict
@@ -101,7 +103,7 @@ class Appraisal(http.Controller):
             elif survey > 1:
                 SurveyScore.write(score_dict)
                 appraisal.write({'state': 'started'})
-        print(kw)
+        return werkzeug.utils.redirect('/appraisal/%s?%s' % (token, 'sucess=true'))
 
     @http.route('/appraisal/employee/approve/<string:token>',  auth='public', type='http', website=True)
     def appraisal_employee_approve(self, token, **kw):
