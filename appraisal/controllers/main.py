@@ -73,7 +73,11 @@ class Appraisal(http.Controller):
         # { 'question_id': 'score'}
         SurveyScore = http.request.env['appraisal.appraisal.score']
         SurveyQuestion = http.request.env['appraisal.survey.question']
+        Appraisal = http.request.env['appraisal.appraisal']
         data = kw
+
+        appraisal = Appraisal.search([('token', '=', data['appraisal_token'])])
+
         # clean data 
         # get only question_id dict
         del data['appraisal_id']
@@ -93,8 +97,10 @@ class Appraisal(http.Controller):
 
             if survey == 0:
                 SurveyScore.create(score_dict)
+                appraisal.write({'state': 'started'})
             elif survey > 1:
                 SurveyScore.write(score_dict)
+                appraisal.write({'state': 'started'})
         print(kw)
 
     @http.route('/appraisal/employee/approve/<string:token>',  auth='public', type='http', website=True)
