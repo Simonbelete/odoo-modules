@@ -65,13 +65,6 @@ class Appraisal(models.Model):
         for record in self:
             record.write({'state': 'confirmed'})
 
-    # def action_print_report(self):
-    #     data = {
-    #         'ab': {
-    #             'name': 'example name'
-    #         }
-    #     }
-    #     return self.env.ref['btn_action_print_appraisal'].report_action(None, data=data)
 
     # ------------------------------------------------------------
     # Computed Fields

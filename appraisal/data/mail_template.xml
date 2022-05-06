@@ -8,7 +8,7 @@
         <record id="eamil_appraisla_notify" model="mail.template">
             <field name="name">Appraisal Notify</field>
             <field name="model_id" ref="model_hr_employee"/>
-            <field name="email_from">manager@localhost.com</field>
+            <field name="email_from">system@localhost.com</field>
             <field name="email_to">${object.work_email}</field>
             <field name="subject">Appraisal Notification</field>
             <field name="body_html" type="html">
@@ -23,21 +23,41 @@
 
         <!--Email template -->
         <record id="eamil_appraisla_with_report" model="mail.template">
-            <field name="name">Appraisal report Notify</field>
+            <field name="name">Appraisal Appraisal Report</field>
             <field name="model_id" ref="model_appraisal_appraisal"/>
-            <field name="email_from">manager@localhost.com</field>
+            <field name="email_from">hr@localhost.com</field>
             <field name="email_to">${object.employee_id.work_email}</field>
-            <field name="subject">Appraisal Notification</field>
+            <field name="subject">Welcome to Your appraisal</field>
             <field name="report_template" ref="btn_action_print_appraisal"/>
             <field name="body_html" type="html">
-<div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+    <p>Hi <b>${object.employee_id.name}</b></p>
+
     <p>
-        Approve <b>${object.employee_id}</b> appraisal 
+    Congrats, your <b>${object.survey_id.title}</b> appraisal socre is now ready. 
+    You see your objectives, give/get feedback, 
+    record your development plans and see your alignment with company goals and vision.
     </p>
-    <p>
-        date <b>${object.evaluation_date}</b>
-    </p>
-    <a href="http://localhost:8069/appraisal/employee/approve/${object.token}?db=apprisal_demo">Approve Appraisal</a>
+
+    Your appraisal report is attached at the end of this email.
+
+    Your Account Details:
+    <p>Name: ${object.employee_id.name}</p>
+    <p>Date: ${object.evaluation_date}</p>
+    <p>Last Appraisal Date: ${object.last_evaluation}</p>
+
+    <p>kind regards,</p>
+
+    <p>Human resource management department.</p>
+
+    <p>When done review click the below Reviewed button, if you have any comment or complient
+        please contact your Human resource management department </p>
+    
+    <a href="http://localhost:8069/appraisal/employee/approve/${object.token}?db=apprisal_demo">
+        <button style="background: #00a09d; color: white; padding: 5px 10px">
+            Reviewed
+        </button>
+    </a>
 </div>
 
             </field>
