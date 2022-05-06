@@ -60,4 +60,18 @@
         </field>
     </record>
 
+    <!-- Tree View -->
+    <record id="appraisal_tree_view" model="ir.ui.view">
+        <field name="name">appraisal.tree.view</field>
+        <field name="model">appraisal.appraisal</field>
+        <field name="arch" type="xml">
+            <tree string="Tests">
+                <field name="employee_id" />
+                <field name="survey_id" />
+                <field name="evaluation_date" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
 </odoo>

@@ -58,11 +58,14 @@ class HrEmployee(models.Model):
     def notify_and_upate_appraisal_status(self):
         settings_appraisal_first_recuritment = int(self.env['ir.config_parameter'].sudo().get_param('appraisal.appraisal_first_recuritment'))
         settings_appraisal_every = int(self.env['ir.config_parameter'].sudo().get_param('appraisal.appraisal_every'))
-        employees = self.env['hr.employee'].search([('work_email', '=', 'emptwo@localhost.com')])
+        employees = self.env['hr.employee'].search([('work_email', '=', 'empone@localhost.com')])
         for employee in employees:
             # Check if appraisal using hired_date
             no_days = self.diff_days(employee.hired_date, date.today())
             no_months = self.diff_month(employee.hired_date, date.today())
+            print('0000000000000000000000000000000000000000')
+            print(no_months)
+            print(settings_appraisal_first_recuritment)
             if(no_months == settings_appraisal_first_recuritment):
                 # Temp Employee
                 self.send_email(employee.id)
