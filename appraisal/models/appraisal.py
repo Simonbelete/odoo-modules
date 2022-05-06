@@ -65,6 +65,14 @@ class Appraisal(models.Model):
         for record in self:
             record.write({'state': 'confirmed'})
 
+    def action_approved(self):
+        for record in self:
+            record.write({'state': 'approved'})
+
+    def action_done(self):
+        for record in self:
+            record.write({'state': 'done'})
+
 
     # ------------------------------------------------------------
     # Computed Fields

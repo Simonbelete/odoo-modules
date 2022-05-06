@@ -110,4 +110,4 @@ class Appraisal(http.Controller):
         Appraisal = http.request.env['appraisal.appraisal']
         appraisal = Appraisal.search([('token', '=', token)])
         if(appraisal):
-            appraisal.write({'employee_signature': True})
+            appraisal.write({'employee_signature': True, 'state': 'reviewed'})
