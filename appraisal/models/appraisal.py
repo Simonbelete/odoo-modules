@@ -32,9 +32,14 @@ class Appraisal(models.Model):
          "- Reviewed: Employee has seen it and approved it"
          "- Approved: Approved by Manager")
     evaluation_date = fields.Date(default=date.today())
+    strengths = fields.Text(string="Comment on principal strengths")
+    weaknesses = fields.Text(string="Comment on principal weaknesses and suggestions for improvement")
+    is_discussed = fields.Boolean(string="Has this evaluation been discussed with the employee")
+    recommendation = fields.Text(string="Your recommendation for present and future job classification")
 
     # Signature
     employee_signature = fields.Boolean(default = False)
+    employee_reviewed_date = fields.Date()
 
     # Reference field
     appraisal_score_ids = fields.One2many('appraisal.appraisal.score', 'appraisal_id')

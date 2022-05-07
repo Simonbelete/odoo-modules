@@ -76,14 +76,17 @@
                         <group>
                             <field name="evaluation_date" />
                             <field name="last_evaluation" />
+                            <field name="employee_reviewed_date" />
                         </group>
-                        <notebook>
-                            <page string="Signatiures">
-                                <group>
-                                    <field name="employee_signature" string="Employee Signature" />
-                                </group>
-                            </page>
-                        </notebook>
+                    </group>
+                    <group>
+                        <field name="is_discussed" widget="checkbox" />
+                        <hr />
+                        <field name="strengths" />
+                        <hr />
+                        <field name="weaknesses" />
+                        <hr />
+                        <field name="recommendation" />
                     </group>
                 </sheet>
             </form>
