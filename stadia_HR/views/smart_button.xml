@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<!--    <record id="Action_Manufacturing_count" model="ir.actions.act_window">-->
+<!--        <field name="name">Manufacture</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">mrp.production</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--        <field name="domain">[('emp_id', '=', active_id)]</field>-->
+<!--        <field name="context">{}</field>-->
+<!--        <field name="help" type="html">-->
+<!--            <p class="o_view_nocontent_smiling_face">-->
+<!--                Create a new contract-->
+<!--            </p>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="employee_modified_smart_button_inherited" model="ir.ui.view">-->
+<!--        <field name="name">employee.smart.button.inherited</field>-->
+<!--        <field name="model">hr.employee</field>-->
+<!--        <field name="inherit_id" ref="hr.view_employee_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <div name="button_box" class="oe_button_box">-->
+<!--                <button name="%(stadia_HR.Action_Manufacturing_count)d" type="action"-->
+<!--                        class="oe_stat_button" icon="fa-calendar">-->
+<!--                    <div class="o_stat_info">-->
+<!--                        <field name="manufacturing_count" class="o_stat_value"/>-->
+<!--                        <span class="o_stat_text">-->
+<!--                            Manufacture Count-->
+<!--                        </span>-->
+<!--                    </div>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--        </field>-->
+<!--    </record>-->
+</odoo>

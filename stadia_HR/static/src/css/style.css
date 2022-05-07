@@ -1,0 +1,46 @@
+.styled-table {
+    border-collapse: collapse;
+    margin: 0px !important;
+    font-size: 0.9em;
+    font-family: sans-serif;
+
+}
+  img {
+        width: 350px;
+        height: auto;
+        border-radius: 10%;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-style: dashed;
+        background-color: #eee;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+      }
+.styled-table thead tr {
+    text-align: left;
+
+}
+.styled-table th,
+.styled-table tr td  {
+    padding: 5px 8px;
+    margin: 0
+    text-align: left;
+
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 1px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+}
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}

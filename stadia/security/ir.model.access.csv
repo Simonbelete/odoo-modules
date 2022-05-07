@@ -1,6 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-employee_contact_id,employee_contact_name,model_hr_employee_contact,,1,1,1,1
-employee_education_id,employee_education_name,model_hr_education_list,,1,1,1,1
-employee_family_id,employee_family_name,model_hr_family_info,,1,1,1,1
-employee_branch_id,employee_branch_name,model_hr_branch,,1,1,1,1
-employee_responsibility_id,employee_responsibility_name,model_hr_responsibility,,1,1,1,1

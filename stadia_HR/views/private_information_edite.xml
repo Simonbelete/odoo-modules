@@ -1,0 +1,268 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="hr_employee_inherited_view_private_info">
+            <field name="name">hr.employee.inherited.private_info</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='birthday']" position="replace">
+                    <hr/>
+                    <field name="birthday1"/>
+                    <hr/>
+                    <field name="age_com"/>
+                    <hr/>
+                    <field name="pension_number"/>
+                    <hr/>
+                    <field name="tin_number"/>
+                    <hr/>
+                </xpath>
+                <xpath expr="//page[@name='public']/div/div/group[@name='managers']" position="replace">
+                    <hr/>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']/group/group[2]/field[1]" position="before">
+                    <hr/>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']/group/group[2]/field[1]" position="after">
+                    <hr/>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']/group/group[2]/field[2]" position="after">
+                    <hr/>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']/group/group[2]/field[3]" position="after">
+                    <hr/>
+                </xpath>
+                <!--                <xpath expr="//page[@name='personal_information']/group/group[2]/field[4]" position="after">-->
+                <!--                    <hr/>-->
+                <!--                </xpath>-->
+                <xpath expr="//page[@name='personal_information']/group/group[2]/field[@name='place_of_birth']"
+                       position="after">
+                    <hr/>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']/group/group[2]/field[@name='country_of_birth']"
+                       position="after">
+                    <hr/>
+                </xpath>
+            </field>
+        </record>
+        <!--        SPOUSE EDITED-->
+        <record model="ir.ui.view" id="hr_employee_inherited_view_spouse_info">
+            <field name="name">hr.employee.inherited.spouse_info</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority" eval="9"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='spouse_birthdate']" position="replace">
+                    <field name="current_address_f"
+                           attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"/>
+                    <hr/>
+                    <field name="spouse_mother_full_name"
+                           attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"/>
+                    <hr/>
+                    <field name="spouse_mother_phone"
+                           attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"/>
+                    <hr/>
+                    <field name="spouse_father_full_name"
+                           attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"/>
+                    <hr/>
+                    <field name="work" attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"/>
+                    <hr/>
+                    <field name="phone_spouse"
+                           attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"/>
+                    <hr/>
+                    <field name="spouse_date_of_birth"
+                           attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"/>
+                </xpath>
+                <xpath expr="//field[@name='spouse_complete_name']" position="replace">
+                    <field name="spouse_full_name"
+                           attrs="{'invisible': [('marital', 'not in', ['married', 'cohabitant'])]}"/>
+                </xpath>
+            </field>
+        </record>
+        <!--        -->
+        <record model="ir.ui.view" id="hr_employee_inherited_view_private_info_two">
+            <field name="name">hr.employee.inherited.private_info_Two</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='address_home_id']" position="before">
+                    <hr/>
+                    <field name="woreda"/>
+                    <hr/>
+                    <field name="city"/>
+                    <hr/>
+                    <field name="sub_city"/>
+                    <hr/>
+                    <!--                    <field name="kebe"/>-->
+                    <field name="house_number"/>
+                    <hr/>
+                    <field name="tell"/>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']/group/group[1]/field[@name='address_home_id']"
+                       position="after">
+                    <hr/>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']/group/group/field[@name='marital']"
+                       position="after">
+                    <hr/>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']/group/group/field[@name='spouse_full_name']"
+                       position="after">
+                    <hr/>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']/group/group[1]/field[@name='private_email']"
+                       position="replace">
+                    <field name="pr_email"/>
+                    <hr/>
+                </xpath>
+                <xpath expr="//page[@name='personal_information']/group/group[1]/field[@name='phone']"
+                       position="replace">
+                    <field name="mobile_phone_two"/>
+                    <hr/>
+                </xpath>
+            </field>
+        </record>
+        <!--        #family information-->
+        <record model="ir.ui.view" id="hr_employee_inherited_view_family_info">
+            <field name="name">hr.employee.inherited.private_info_Family_info</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='personal_information']/group/group[4]"
+                       position="replace">
+                    <group string="Family Information">
+                        <hr/>
+                        <field name="relative"/>
+                        <hr/>
+                        <field name="relativ_two"/>
+                        <hr/>
+                        <field name="m_phone"/>
+                        <hr/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        <!--        <record model="ir.ui.view" id="hr_employee_inherited_view_training_info">-->
+        <!--            <field name="name">hr.employee.inherited.training_info</field>-->
+        <!--            <field name="model">hr.employee</field>-->
+        <!--            <field name="inherit_id" ref="hr.view_employee_form"/>-->
+        <!--            <field name="priority" eval="11"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <xpath expr="//field[@name='emergency_phone']" position="after">-->
+        <!--                        <field name="training_name_ids">-->
+        <!--                            <tree editable="bottom">-->
+        <!--                                <field name="type_of_training"/>-->
+        <!--                                <field name="name_of_institution"/>-->
+        <!--                                <field name="reward"/>-->
+        <!--                            </tree>-->
+        <!--                        </field>-->
+        <!--                </xpath>-->
+        <!--            </field>-->
+        <!--        </record>-->
+        <record id="field_add_example_training_info" model="ir.ui.view">
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority" eval="14"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='personal_information']" position="inside">
+                    <sheet>
+                        <group string="Training Detail Information">
+                            <field name="training_name_ids">
+                                <tree editable="bottom" class="custom_class">
+                                    <field name="type_of_training"/>
+                                    <field name="name_of_institution_id"/>
+                                    <field name="reward"/>
+                                    <field name="document_for_training"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </xpath>
+            </field>
+        </record>
+        <!--        EMPLOYEE CHILD INFORMATIONS -->
+        <record id="field_add_example_child_info" model="ir.ui.view">
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='personal_information']" position="inside">
+                    <sheet>
+                        <group string="Child Information">
+                            <field name="child_info_ids">
+                                <tree editable="bottom" class="custom_class">
+                                    <field name="child_full_name"/>
+                                    <field name="child_gender" string="Gender"/>
+                                    <field name="child_current"/>
+                                    <field name="child_phone"/>
+                                    <field name="document_for_brith_certificate"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </xpath>
+            </field>
+        </record>
+        <!--        END OF EMPLOYEE INFORMATION-->
+
+        <!--        EMPLOYEE SIBLING INFORMATION -->
+
+        <record id="field_add_example_sibling_info" model="ir.ui.view">
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority" eval="17"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='personal_information']" position="inside">
+                    <sheet>
+                        <group string="Sibling Information">
+                            <field name="employee_sibling_info_ids">
+                                <tree editable="bottom" class="custom_class">
+                                    <field name="em_sibling_full_name"/>
+                                    <field name="sibling_gender" string="Gender"/>
+                                    <field name="sibling_current"/>
+                                    <field name="sibling_phone"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </xpath>
+            </field>
+        </record>
+
+<!--        <record id="field_add_example_branch" model="ir.ui.view">-->
+<!--            <field name="model">hr.employee</field>-->
+<!--            <field name="inherit_id" ref="hr.view_employee_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//page[@name='public']/div/div/div/group/field[2]" position="after">-->
+<!--                    <sheet>-->
+<!--                        <field name="branch_name"/>-->
+<!--                    </sheet>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <!--        END OF SIBLING INFORMATION-->
+
+        <!--        SPOUSE SIBLING INFORMATION-->
+        <record id="field_add_example_spouse_sibling_info" model="ir.ui.view">
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority" eval="18"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='personal_information']" position="inside">
+                    <sheet>
+                        <group string="Spouse Sibling Information">
+                            <field name="spouse_sibling_info_ids">
+                                <tree editable="bottom" class="custom_class">
+                                    <field name="spouse_sibling_full_name"/>
+                                    <field name="spouse_sibling_gender" string="Gender"/>
+                                    <field name="spouse_sibling_current"/>
+                                    <field name="spouse_sibling_phone"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

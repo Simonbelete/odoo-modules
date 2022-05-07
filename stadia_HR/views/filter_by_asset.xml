@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_asset_employee_filter" model="ir.ui.view">
+        <field name="name">asset.employee.filter</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <filter name="inactive" position="after">
+                <filter string="Not Assigned to Asset" name="asset_assignment"
+                        domain="[('asset_assignment', '=', False)]"/>
+            </filter>
+        </field>
+    </record>
+</odoo>

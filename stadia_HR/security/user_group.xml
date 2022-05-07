@@ -1,0 +1,9 @@
+<odoo>
+    <record id="resources_employees" model="ir.module.category">
+        <field name="name">Internal user</field>
+        <field name="description">Internal user</field>
+    </record>
+    <record id="group_employee_ms_training" model="res.groups">
+        <field name="name">employee_training</field>
+    </record>
+</odoo>
