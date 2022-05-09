@@ -53,6 +53,7 @@
         'views/employee_manufacture_order.xml',
         'views/template_css.xml',
         'views/filter_by_asset.xml',
+        'views/interview_stage.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

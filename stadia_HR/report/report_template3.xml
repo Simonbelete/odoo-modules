@@ -202,6 +202,52 @@
                     <t t-foreach="o.resume_line_ids.employee_id" t-as="line">
                         <table class="table styled-table" border="1">
                             <tr>
+                                <th colspan="6" style="text-align:center; background-color:powderblue;">External
+                                    Experience
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>No.</th>
+                                <th width="30%">Job Title</th>
+                                <th width="30%">Department</th>
+                                <th width="20%">From</th>
+                                <th width="40%">To</th>
+                                <th>Organization</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.resume_line_ids" t-as="expérience"
+                               t-if="line == expérience.employee_id">
+                                <tr>
+                                    <td>
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td width="30%">
+                                        <t t-esc="expérience.job_title_ex"/>
+                                    </td>
+                                    <td width="30%">
+                                        <t t-esc="expérience.department_ex.name"/>
+                                    </td>
+                                    <td width="20%">
+                                        <t t-esc="expérience.date_start"/>
+                                    </td>
+                                    <td width="20%">
+                                        <t t-esc="expérience.date_end"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="expérience.name_of_org_id.name"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                        <!--                        INTERNAL EXPERIENCE-->
+                        <table class="table styled-table" border="1">
+                            <tr>
+                                <th colspan="5" style="text-align:center; background-color:powderblue;">Internal
+                                    Experience
+                                </th>
+                            </tr>
+                            <tr>
                                 <th>No.</th>
                                 <th width="30%">Job Title</th>
                                 <th width="30%">Department</th>
@@ -211,55 +257,27 @@
                             <t t-set="index" t-value="1"/>
                             <t t-foreach="o.resume_line_ids" t-as="expérience"
                                t-if="line == expérience.employee_id">
-                                <t t-if="not expérience.name_of_org_id.name and expérience.job_title_in">
-                                    <tr>
-                                        <td>
-                                            <t t-esc="index"/>
-                                        </td>
-                                        <td width="30%">
-                                            <t t-esc="expérience.job_title_in"/>
-                                        </td>
-                                        <td width="30%">
-                                            <t t-esc="expérience.department_in.name"/>
-                                        </td>
-                                        <td width="20%">
-                                            <t t-esc="expérience.from_ex"/>
-                                        </td>
-                                        <td width="20%">
-                                            <t t-esc="expérience.to_ex"/>
-                                        </td>
-                                    </tr>
-                                    <t t-set="index" t-value="index+1"/>
-                                </t>
+                                <tr t-if="expérience.job_title_in">
+                                    <td>
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td width="30%">
+                                        <t t-esc="expérience.job_title_in"/>
+                                    </td>
+                                    <td width="30%">
+                                        <t t-esc="expérience.department_in.name"/>
+                                    </td>
+                                    <td width="20%">
+                                        <t t-esc="expérience.from_ex"/>
+                                    </td>
+                                    <td width="20%">
+                                        <t t-esc="expérience.to_ex"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
                             </t>
-                            <table class="table styled-table" border="1">
-                                <tr>
-
-                                    <th width="30%">Job Title</th>
-                                    <th width="30%">Department</th>
-                                    <th width="20%">From</th>
-                                    <th width="40%">To</th>
-                                </tr>
-                                <tr>
-
-                                    <td width="30%">
-                                        <t t-esc="o.job_title"/>
-                                    </td>
-                                    <td width="30%">
-                                        <t t-esc="o.department_id.name"/>
-                                    </td>
-                                    <td width="20%">
-                                        <p t-foreach="o.contract_employee_id"
-                                           t-as="rent">
-                                            <t t-esc="rent.date_start"/>
-                                        </p>
-                                    </td>
-                                    <td width="20%">
-                                        <t t-esc="datetime.date.today()"/>
-                                    </td>
-                                </tr>
-                            </table>
                         </table>
+
                     </t>
                     <p>Currently, she is drawing a monthly gross salary of Birr
                         <t t-esc="o.contract_employee_id.wage"/>
