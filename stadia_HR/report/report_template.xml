@@ -174,7 +174,7 @@
                             <td>
                                 <p t-foreach="o.contract_employee_id"
                                    t-as="rent">
-                                    <t t-esc="rent.tip_confirmation"/>
+<!--                                    <t t-esc="rent.tip_confirmation"/>-->
                                 </p>
                             </td>
                             <td>
