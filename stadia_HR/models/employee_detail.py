@@ -74,8 +74,8 @@ class EmployeeDetail(models.Model):
     # def create(self, vals):
     #     vals['work_phone'] = "test"
     #     return super(EmployeeDetail, self).create(vals)
-
-    asset_assignment = fields.Many2one('account.asset.asset')
+    asset_assignment = fields.Char()
+    asset_assignment_ids = fields.Many2many('account.asset.asset', 'responsible_id')
 
     # PHONE NUMBER PRiFIX
     def write(self, vals):

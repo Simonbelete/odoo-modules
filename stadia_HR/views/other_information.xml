@@ -9,7 +9,7 @@
                 <xpath expr="//page[@name='hr_settings']" style='' position="after">
                     <page string="Responsibility">
                         <group string="Employee asset">
-                            <field name="asset_assignment"/>
+                            <field name="asset_assignment_ids" widget="many2many_tags"/>
                         </group>
                     </page>
                 </xpath>
