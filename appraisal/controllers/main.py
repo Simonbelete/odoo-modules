@@ -53,7 +53,7 @@ class Appraisal(http.Controller):
 
         question_ids = appraisal.survey_id.question_ids.ids
         questions = SurveyQuestion.search([('id', 'in', question_ids)])
-        answers = SurveyScore.search([('question_id', 'in', question_ids)])
+        answers = SurveyScore.search([('question_id', 'in', question_ids), ('appraisal_id', '=', appraisal.id)])
         categories = []
         for question in questions:
             categories.append(question.category_id)
@@ -78,6 +78,7 @@ class Appraisal(http.Controller):
         data = kw
 
         token = data['appraisal_token']
+        appraisal_id = data['appraisal_id']
         appraisal = Appraisal.search([('token', '=', token)])
 
         # clean data 
@@ -88,11 +89,11 @@ class Appraisal(http.Controller):
         for question_id in data:
             # Check if score exists if so update, if not create
             survey = SurveyScore.search_count([
-                ('appraisal_id', '=', kw.get('appraisal_id')),
+                ('appraisal_id', '=', appraisal_id),
                 ('question_id', '=', question_id)
             ])
             score_dict = {
-                'appraisal_id': kw.get('appraisal_id'),
+                'appraisal_id': appraisal_id,
                 'question_id': question_id,
                 'score': data[question_id]
             }
