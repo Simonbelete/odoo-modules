@@ -28,7 +28,7 @@
 
     <report
             id="report_Employee_short_report_45_days_probation"
-            string="45 days probation"
+            string="60 days probation"
             model="hr.employee"
             report_type="qweb-pdf"
             name="stadia_HR.45_days_probation"

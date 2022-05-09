@@ -54,6 +54,7 @@
         'views/template_css.xml',
         'views/filter_by_asset.xml',
         'views/interview_stage.xml',
+        'views/contract_state.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

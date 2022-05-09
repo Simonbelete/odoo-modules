@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_inherited_contract" model="ir.ui.view">
+        <field name="name">contract.stage</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='hr_responsible_id']" position="after">
+                <field name="asset_taken" required="1" attrs="{'invisible': [('state', '!=', 'open')]}"/>
+                <field name="loan_taken" required="1" attrs="{'invisible': [('state', '!=', 'open')]}"/>
+                <!--                <field name="stage_name" invisible="1" />-->
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_inherited_contract_from" model="ir.ui.view">
+        <field name="name">stage.form</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <header>
+                <button name="draft" states="draft" string="Draft" type="object" class="oe_highlight"/>
+                <button name="expire" states="open" string="Expired" type="object" class="oe_highlight"/>
+                <button name="close" states="close" string="Canceled" type="object" class="oe_highlight"/>
+            </header>
+        </field>
+    </record>
+</odoo>

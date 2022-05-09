@@ -299,7 +299,7 @@
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="o">
-                    <p>Dear Ato<span t-field="o.name"/>Following your application for employment and pursuant to the
+                    <p>Dear Ato <span t-field="o.name"/> Following your application for employment and pursuant to the
                         interview,
                         we are glad to inform you that we have accepted you as
                         <t t-esc="o.job_id.name"/>
@@ -309,7 +309,7 @@
                         <t t-esc="'{0:,.2f}'.format(o.contract_employee_id.wage)"/>
                         transportation allowance of birr
                         <t t-esc="'{0:,.2f}'.format(o.contract_employee_id.total_allowance)"/>
-                        on 45 days probation.
+                        on 60 days probation.
                         A letter of permanent employment will be issued as soon as your successful completion of the
                         probation period.
                         <p>Welcome and congratulations!
