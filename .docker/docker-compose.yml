@@ -1,0 +1,36 @@
+version: '3.7'
+
+networks:
+  odoo_modules:
+    driver: bridge
+
+services:
+  postgresql:
+    image: odoo_modules/postgresql
+    container_name: odoo_modules_postgresql
+    build:
+      context: .
+      dockerfile: postgresql/Dockerfile
+       args:
+        POSTGRES_VERSION: ${POSTGRES_VERSION}
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD} 
+    volumes:
+      - './postgresql/db:/var/lib/postgresql/data'
+    ports:
+      - '5432:5432'
+    networks:
+      - odoodoo_moduleso_dev
+  mailhog:
+    image: odoo_modules/mailhog
+    container_name: odoo_modules_mailhog
+    build:
+      context: .
+      dockerfile: mailhog/Dockerfile
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+    networks:
+      - odoo_modules
