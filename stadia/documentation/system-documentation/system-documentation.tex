@@ -1,0 +1,43 @@
+\documentclass[12pt,a4paper,openbib,titlepage]{report}
+\usepackage{graphicx} % for includegraphics
+\usepackage[titletoc]{appendix} % for appendix page
+\usepackage{pdfpages} % for including pdf files
+\usepackage{setspace} % for \doublespacing
+\usepackage{multirow} % for multirow table
+\usepackage{tikz} % for drawing
+%\usepackage{tikz-uml} % for uml diagram
+\usepackage[backend=biber,style=numeric,citestyle=authortitle-ibid]{biblatex}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[pdftex, plainpages = false, pdfpagelabels, 
+pdfpagelayout = OneColumn, % create hyperlinks in citations,figures,tables and refs.
+                bookmarks,
+                bookmarksopen = true,
+                bookmarksnumbered = true,
+                linktocpage,
+                colorlinks = true,
+                linkcolor = black,
+                urlcolor  = black,
+                citecolor = black,
+                anchorcolor = black,
+                hyperindex = true,
+                ]{hyperref}
+
+\makeatother
+\setlength{\oddsidemargin}{0.5cm}
+\setlength{\evensidemargin}{0.5cm}
+\setlength{\topmargin}{-1.6cm}
+\setlength{\leftmargin}{0.5cm}
+\setlength{\rightmargin}{0.5cm}
+\setlength{\textheight}{24.00cm} 
+\setlength{\textwidth}{15.00cm}
+\parindent 0pt
+\parskip 5pt
+
+\renewcommand{\baselinestretch}{1.25} % for line spacing
+
+\begin{document}
+	\include{cover}
+\end{document}
