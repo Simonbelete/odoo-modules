@@ -3,11 +3,11 @@
 \usepackage[titletoc]{appendix} % for appendix page
 \usepackage{pdfpages} % for including pdf files
 \usepackage{setspace} % for \doublespacing
+\usepackage{tabularx}
 \usepackage{multirow} % for multirow table
 \usepackage{tikz} % for drawing
 %\usepackage{tikz-uml} % for uml diagram
 \usepackage[backend=biber,style=numeric,citestyle=authortitle-ibid]{biblatex}
-
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -37,6 +37,7 @@ pdfpagelayout = OneColumn, % create hyperlinks in citations,figures,tables and r
 \parskip 5pt
 
 \renewcommand{\baselinestretch}{1.25} % for line spacing
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 
 \begin{document}
 	\include{cover}
@@ -51,4 +52,9 @@ pdfpagelayout = OneColumn, % create hyperlinks in citations,figures,tables and r
 	\include{abbreviations}
 	\pagenumbering{arabic}
 	\include{chp1}
+	\include{chp2}
+	\include{chp3}
+	\include{chp4}
+	\include{chp5}
+	\include{appendix}
 \end{document}
