@@ -8,4 +8,8 @@
         'hr',
         'hr_recruitment'
     ],
+    'data': [
+        'data/hr_job_data.xml',
+        'data/hr_department_data.xml'
+    ]
 }
