@@ -11,7 +11,7 @@ services:
     build:
       context: .
       dockerfile: postgresql/Dockerfile
-       args:
+      args:
         POSTGRES_VERSION: ${POSTGRES_VERSION}
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
@@ -22,7 +22,7 @@ services:
     ports:
       - '5432:5432'
     networks:
-      - odoodoo_moduleso_dev
+      - odoo_modules
   mailhog:
     image: odoo_modules/mailhog
     container_name: odoo_modules_mailhog
