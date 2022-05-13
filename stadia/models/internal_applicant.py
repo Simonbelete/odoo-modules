@@ -5,4 +5,5 @@ class InternalApplicant(models.Model):
     _name = "stadia.internal.applicant"
 
     employee_id = fields.Many2one('hr.employee')
-    job_id = fields.Many2one('hr.job')
+    # Select opend job positions
+    job_id = fields.Many2one('hr.job', domain="[('state', '=', 'recruit')]")
