@@ -1,7 +1,7 @@
 {
     'name': 'stadia',
     'version': '0.1.0',
-    'category': 'Custome Modules',
+    'category': 'Human Resources',
     'author': '',
     'depends': [
         'base',
@@ -10,6 +10,8 @@
     ],
     'data': [
         'data/hr_job_data.xml',
-        'data/hr_department_data.xml'
+        'data/hr_department_data.xml',
+
+        'views/hr_recruitment_menu.xml'
     ]
 }
