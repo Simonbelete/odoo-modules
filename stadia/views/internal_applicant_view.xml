@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="stadia_internal_app_action" model="ir.actions.act_window">
-        <field name="name">stadia.internal.app.action</field>
+        <field name="name">Internal Applicants</field>
         <field name="res_model">stadia.internal.applicant</field>
         <field name="view_mode">tree,form</field>
     </record>
