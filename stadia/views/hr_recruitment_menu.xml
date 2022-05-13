@@ -2,7 +2,7 @@
 <odoo>
     <menuitem 
     name="Internal Applications" 
-    parent="hr_recruitment.menu_hr_recruitment_root" 
+    parent="hr_recruitment.menu_crm_case_categ0_act_job" 
     id="hr_recruitment_internal_app_menu" 
     action="stadia_internal_app_action" 
     sequence="3"/>
