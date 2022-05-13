@@ -12,6 +12,7 @@
         'data/hr_job_data.xml',
         'data/hr_department_data.xml',
 
-        'views/hr_recruitment_menu.xml'
+        'views/hr_recruitment_menu.xml',
+        'views/internal_applicant_view.xml'
     ]
 }
