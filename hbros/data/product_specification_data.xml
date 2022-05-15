@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_specification_30X3" model="hbros.product.specification">
+        <field name="name">30X3</field>
+    </record>
+
+    <record id="product_specification_10X80" model="hbros.product.specification">
+        <field name="name">10X80</field>
+    </record>
+
+    <record id="product_specification_10X55" model="hbros.product.specification">
+        <field name="name">10X55</field>
+    </record>
+
+    <record id="product_specification_4.0MM" model="hbros.product.specification">
+        <field name="name">4.0MM</field>
+    </record>
+
+    <record id="product_specification_KG" model="hbros.product.specification">
+        <field name="name">KG</field>
+    </record>
+
+    <record id="product_specification_20X3" model="hbros.product.specification">
+        <field name="name">20X3</field>
+    </record>
+
+    <record id="product_specification_40X8" model="hbros.product.specification">
+        <field name="name">40X8</field>
+    </record>
+
+    <record id="product_specification_12X6" model="hbros.product.specification">
+        <field name="name">12X6</field>
+    </record>
+
+    <record id="product_specification_10MM" model="hbros.product.specification">
+        <field name="name">10 MM</field>
+    </record>
+
+    <record id="product_specification_14MM" model="hbros.product.specification">
+        <field name="name">14 MM</field>
+    </record>
+
+    <record id="product_specification_2.0MM" model="hbros.product.specification">
+        <field name="name">2.0MM</field>
+    </record>
+
+    <record id="product_specification_ARC_3_5_PCS" model="hbros.product.specification">
+        <field name="name">ARC-3.5-PCS</field>
+    </record>
+
+    <record id="product_specification_13" model="hbros.product.specification">
+        <field name="name">'13</field>
+    </record>
+
+    <record id="product_specification_17" model="hbros.product.specification">
+        <field name="name">'17</field>
+    </record>
+
+</odoo>
