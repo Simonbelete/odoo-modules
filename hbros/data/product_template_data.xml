@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_2686" model="product.template">
+        <field name="default_code">2686</field>
+        <field name="name">IRON</field>
+        <field name="cated_id" ref="product.category" />
+    </record>
+
+</odoo>
