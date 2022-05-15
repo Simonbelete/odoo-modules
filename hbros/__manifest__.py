@@ -4,7 +4,9 @@
     'category': 'Manufacturing',
     'depends': ['base', 'mrp'],
     'data': [
-        'data/product_category.xml',
+        'data/uom_category_data.xml',
+        'data/uom_uom_data.xml',
+        'data/product_category_data.xml',
         'data/product_template_data.xml'
     ]
 }
