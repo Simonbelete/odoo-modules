@@ -4,7 +4,7 @@
     <record id="product_template_2686" model="product.template">
         <field name="default_code">2686</field>
         <field name="name">IRON</field>
-        <field name="cated_id" ref="product.category" />
+        <field name="categ_id">4</field>
     </record>
 
 </odoo>
