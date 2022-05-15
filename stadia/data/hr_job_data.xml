@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_job_data_gm" model="hr.job">
+        <field name="name">General Manager</field>
+    </record>
+
+    <record id="hr_job_data_rcmd" model="hr.job">
+        <field name="name">Subversion (RCMD)</field>
+    </record>
+
+    <record id="hr_job_data_design" model="hr.job">
+        <field name="name">Design</field>
+    </record>
+
+    <record id="hr_job_data_laboratory" model="hr.job">
+        <field name="name">Laboratory</field>
+    </record>
+
+    <record id="hr_job_data_admin_and_finance" model="hr.job">
+        <field name="name">Admin and finance</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="hr_job_kanban" model="ir.ui.view">
+        <field name="name">hr.job.kanban</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.view_hr_job_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='o_kanban_card_header']" position="inside">
+                <button class="btn btn-primary" name="%(stadia_internal_app_action)d" type="action">
+                    <field name="internal_applicant_count"/> Internal Applications
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
