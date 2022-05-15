@@ -4,7 +4,10 @@
     <record id="product_template_2686" model="product.template">
         <field name="default_code">2686</field>
         <field name="name">IRON</field>
-        <field name="categ_id">4</field>
+        <field name="categ_id" ref="product_category_raw" />
+        <field name="list_price">0</field>
+        <field name="standard_price">750</field>
+        <field name="uom_id" ref="uom_uom_BERGA" />
     </record>
 
 </odoo>

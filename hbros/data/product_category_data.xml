@@ -2,17 +2,14 @@
 <odoo>
 
     <record id="product_category_raw" model="product.category">
-        <field name="id">4</field>
         <field name="name">RAW</field>
     </record>
 
     <record id="product_category_ac_1" model="product.category">
-        <field name="id">5</field>
         <field name="name">AC-1</field>
     </record>
 
     <record id="product_category_part" model="product.category">
-        <field name="id">6</field>
         <field name="name">PART</field>
     </record>
 
