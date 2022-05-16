@@ -21,6 +21,14 @@
         <field name="name">FLAT</field>
     </record>
 
+    <record id="product_type_ROUND" model="hbros.product.type">
+        <field name="name">ROUND</field>
+    </record>
+
+    <record id="product_type_SH" model="hbros.product.type">
+        <field name="name">SH</field>
+    </record>
+
     <record id="product_type_ELECTROD" model="hbros.product.type">
         <field name="name">ELECTROD</field>
     </record>
