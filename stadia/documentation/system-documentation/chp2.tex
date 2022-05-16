@@ -50,6 +50,68 @@ If the Core Systems functional areas of the System fail (becomes unusable) for a
 \end{table}
 \end{center}
 
+The minimum acceptable level of reliability for the core system Reporting aspect of the System would be no more than five (5) days (one work week).
+
+\paragraph{Recoverability}
+Recoverability is the ability to restore function and data in the event of a failure.
+
+\begin{itemize}
+	\item In the event the ERP application is completely unavailable to users (down) because of a System failure, it should be restored within 2 hours after the failure is detected.  This timeframe assumes that a locally controllable event (such as a hardware issue) has caused the outage.  If the application software is at issue and requires Contractor intervention, then the expected restoration time shall follow expected levels that shall be stated in the Service Level Agreement. 
+	\item In the event that the operational database is corrupted, the database must be capable of being restored to its condition no more than 2 hours before the corruption occurred and must be restored to its most recent point in time prior to the corruption (1 day before). (Once a Contractor is selected a final data recovery strategy shall be determined).
+\end{itemize}
+
+The core system will perform periodic backups of all databases and will store these backups off-site.  At a minimum daily incremental changes to the database shall be captured and stored and on a weekly basis and a full database backup should be performed.  Daily backups shall be retained for at least six weeks (approximately one monthly close cycle) and weekly backups should be retained for at least fourteen weeks (one quarterly close cycle).  
+
+In the event that the entire data center is destroyed, the following steps shall be required:
+\begin{itemize}
+	\item New Application and Database Servers would need to be located and installed
+	\item Operating Systems shall need to be set up on the Servers(i.e Linux Server)
+	\item Applications the ERP core System (Odoo) shall need to be installed on the Servers
+	\item The last off-site back up of the ERP application database shall be restored to the Servers
+\end{itemize}
+
+\paragraph{System Availability}
+System availability is the time when the application must be available for use. Required System availability is used in determining when maintenance may be performed.
+
+The System must be available from 2:00 AM – 11:00 PM GMT+3 Monday – Saturday (National Holiday and Service Reduction Days not included).  Any scheduled down time for maintenance shall be not be scheduled around these core hours.
+
+\paragraph{Fault Tolerance}
+Not Applicable refer to Odoo Guideline
+
+\paragraph{Performance}
+The current preference is that accessing any transactional screen and updating data fields should take no more than 3 seconds.
+
+System performance should be measured using up to 10 to 300 concurrent users(based on Stadia's number of employee)
+
+\paragraph{Capacity}
+The ERP System shall have the capacity to handle the types of volumes described below:
+\begin{itemize}
+	\item {TODO} number of employee creation per month
+	\item {TODO} reports per month
+\end{itemize}
+
+\paragraph{Data Mapping and Conversion}
+The following tables describe the data in the current system. he file structures and data in the current system are housed in Postgressql tables but are not truly relational in design.
+
+\begin{itemize}
+	\item A = Alphanumeric
+	\item D = Date (MM/DD/YYYY)
+	\item N = Numeric
+\end{itemize}
+
+\begin{center}
+\begin{table}[!hb]
+\begin{tabular}{|c|c|c|c|c| } 
+  \hline
+  \textbf{Ref} & \textbf{Description} & \textbf{Field Type} & \textbf{Note} & \textbf{Field Length (Bytes)} \\ 
+  \hline
+  1 & Badge ID & A & Generated Badge Number ID & 6 \\ 
+  \hline
+\end{tabular}
+\caption{Datat mapping and conversion}
+\end{table}
+\end{center}
+
 
 \section{System Requirement Analysis}
 
