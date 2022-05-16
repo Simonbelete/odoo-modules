@@ -16,8 +16,7 @@
         <field name="categ_id" ref="product_category_ac_1" />
         <field name="name">COLENA</field>
         <field name="product_type" ref="product_type_ANGLE" />
-        <field name="uom_id" ref="uom_uom_PCS" />
-        <field name="uom_po_id" ref="uom_uom_PCS" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
         <field name="list_price">0</field>
         <field name="standard_price">0</field>
     </record>

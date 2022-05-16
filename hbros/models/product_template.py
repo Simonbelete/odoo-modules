@@ -5,3 +5,4 @@ class ProductTemplate(models.Model):
 
     product_type = fields.Many2one('hbros.product.type', string='Product Type')
     product_specification = fields.Many2one('hbros.product.specification', string='Product Specification')
+    measurement_uom_id = fields.Many2one('uom.uom', 'Product Unit Measurement')

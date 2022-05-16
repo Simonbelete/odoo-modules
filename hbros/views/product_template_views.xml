@@ -13,6 +13,9 @@
             <xpath expr="//field[@name='categ_id']" position="after">
                 <field name="product_specification"/>
             </xpath>
+            <xpath expr="//field[@name='product_type']" position="after">
+                <field name="measurement_uom_id" string='Measurement'/>
+            </xpath>
 
         </field>
     </record>
