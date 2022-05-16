@@ -10,7 +10,16 @@
                 <field name="salary" string="Salary" />
              </xpath>
              <xpath expr="//button[@name='action_show_details']" position="before">
-                <field name="cost" string="Total Cost"/>
+                <field name="product_type"/>
+             </xpath>
+             <xpath expr="//button[@name='action_show_details']" position="before">
+                <field name="product_specification"/>
+             </xpath>
+             <xpath expr="//button[@name='action_show_details']" position="before">
+                <field name="measurement_uom_id"/>
+             </xpath>
+             <xpath expr="//button[@name='action_show_details']" position="before">
+                <field name="consumption_cost" string="Cost"/>
              </xpath>
             <!-- <xpath expr="//field[@name='product_uom']" position="after">
                 <field name="bom_id.bom_line_ids.total_cost" string="Total Cost"/>
