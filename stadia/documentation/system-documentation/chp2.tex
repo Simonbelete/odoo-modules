@@ -11,7 +11,45 @@ General structure of a user story described in this document:
 \subsection{Functional Requirements}
 The following sections describe the data required and the functional requirements that shall be performed in the new ERP System for both the HQ and field-based staffs.  These functional requirements include the on-going System maintenance and the creation and management reports for all areas.
 
+\begin{itemize}
+	\item The System shall have a common database core which allows integration of data and transactions between all financial, operational, production, and customer service functions within the ERP System.
+	\item The System shall have a graphic user interface (GUI) implemented  as a Web-based interface
+	\item The System shall be able to export selected records into either pdf or table file format
+	\item The System shall have administrator ERP System and user security functionality to include:
+		\begin{itemize}
+			\item Setting Up a New User
+			\item Updating an Existing User
+			\item Restricting User Access to Certain Roles
+		\end{itemize}
+	\item The System shall have the ability for generated reports to be savable and exportable to numerous devices and mediums including printers
+	\item The System shall produce Fixed Asset Depreciation Schedules
+\end{itemize}
+
 \subsection{Non-functional Requirements}
+
+\paragraph{Reliability}
+Reliability is the probability that the System will be able to process work correctly and completely without being aborted.
+\\
+The proposed ERP System has varying degrees of impact on areas of Stadia should parts of the System fail.
+If the Core Systems functional areas of the System fail (becomes unusable) for a period of time the impact on Stadia would be as follows:
+
+\begin{center}
+\begin{table}[!hb]
+\begin{tabular}{ | m{10em} | m{25em}| } 
+  \hline
+  \textbf{Length of Time of Outage} & \textbf{Impact to Stadia} \\ 
+  \hline
+   One Hour & Some Impact to {{TODO}} \\ 
+   \hline
+   One Day & Medium to Large Impact {{TODO}} \\
+   \hline
+   One Week & Very Large to Catastrophic Impact. \\
+  \hline
+\end{tabular}
+\caption{Impact of reliablity on Stadia}
+\end{table}
+\end{center}
+
 
 \section{System Requirement Analysis}
 
