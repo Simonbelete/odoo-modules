@@ -6,7 +6,7 @@ class StockMove(models.Model):
     # From product template
     standard_price = fields.Float(related='product_tmpl_id.standard_price')
     # Raw * CONSUMTION
-    consumption_cost = fields.Float(compute="_compute_consumption_cost", store=True)
+    consumption_cost = fields.Float(compute="_compute_consumption_cost", store=True, inverse="_invers_consumption_cost")
     total_consumption_cost = fields.Float(compute="_compute_total_consumption_cost", store=True)
 
     # Reference Fields from product.template
@@ -30,6 +30,11 @@ class StockMove(models.Model):
         for record in self:
             if(record.state != 'done'):
                 record.consumption_cost = record.standard_price * record.product_uom_qty
+
+    def _invers_consumption_cost(self):
+        for record in self:
+            record.consumption_cost = record.standard_price * record.product_uom_qty
+
 
     @api.depends('standard_price', 'consumption_cost')
     def _compute_total_consumption_cost(self):
