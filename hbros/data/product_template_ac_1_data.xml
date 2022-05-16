@@ -19,6 +19,7 @@
         <field name="measurement_uom_id" ref="uom_uom_PCS" />
         <field name="list_price">0</field>
         <field name="standard_price">0</field>
+        <field name="type">product</field>
     </record>
     <record id="mrp_bom_ac_1640" model="mrp.bom">
         <field name="product_tmpl_id" ref="product_template_ac_1640" />
