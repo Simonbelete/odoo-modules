@@ -13,7 +13,7 @@
         <field name="name">10X55</field>
     </record>
 
-    <record id="product_specification_4.0MM" model="hbros.product.specification">
+    <record id="product_specification_4_0MM" model="hbros.product.specification">
         <field name="name">4.0MM</field>
     </record>
 
@@ -41,7 +41,7 @@
         <field name="name">14 MM</field>
     </record>
 
-    <record id="product_specification_2.0MM" model="hbros.product.specification">
+    <record id="product_specification_2_0MM" model="hbros.product.specification">
         <field name="name">2.0MM</field>
     </record>
 
