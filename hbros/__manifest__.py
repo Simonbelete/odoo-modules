@@ -15,5 +15,6 @@
         'data/product_template_ac_1_data.xml',
 
         'views/product_template_views.xml',
+        'views/mrp_production_views.xml'
     ]
 }
