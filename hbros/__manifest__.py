@@ -11,7 +11,8 @@
         'data/product_type_data.xml',
         'data/product_specification_data.xml',
         'data/product_category_data.xml',
-        'data/product_template_data.xml',
+        'data/product_template_raw_data.xml',
+        'data/product_template_ac_1_data.xml',
 
         'views/product_template_views.xml',
     ]
