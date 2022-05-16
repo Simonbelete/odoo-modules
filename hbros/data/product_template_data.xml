@@ -8,6 +8,7 @@
         <field name="product_type" ref="product_type_ANGLE" />
         <field name="product_specification" ref="product_specification_30X3" />
         <field name="uom_id" ref="uom_uom_BERGA" />
+        <field name="uom_po_id" ref="uom_uom_BERGA" />
         <field name="list_price">0</field>
         <field name="standard_price">750</field>
     </record>
@@ -19,6 +20,7 @@
         <field name="product_type" ref="product_type_NORMAL" />
         <field name="product_specification" ref="product_specification_10X80" />
         <field name="uom_id" ref="uom_uom_PCS" />
+        <field name="uom_po_id" ref="uom_uom_PCS" />
         <field name="list_price">0</field>
         <field name="standard_price">9.2</field>
     </record>
@@ -30,6 +32,7 @@
         <field name="product_type" ref="product_type_NORMAL" />
         <field name="product_specification" ref="product_specification_10X55" />
         <field name="uom_id" ref="uom_uom_PCS" />
+        <field name="uom_po_id" ref="uom_uom_PCS" />
         <field name="list_price">0</field>
         <field name="standard_price">9.2</field>
     </record>
@@ -41,6 +44,7 @@
         <field name="product_type" ref="product_type_SH" />
         <field name="product_specification" ref="product_specification_4_0MM" />
         <field name="uom_id" ref="uom_uom_MXM" />
+        <field name="uom_po_id" ref="uom_uom_MXM" />
         <field name="list_price">0</field>
         <field name="standard_price">1562.5</field>
     </record>
@@ -52,6 +56,7 @@
         <field name="product_type" ref="product_type_IRON" />
         <field name="product_specification" ref="product_specification_KG" />
         <field name="uom_id" ref="uom_uom_KG" />
+        <field name="uom_po_id" ref="uom_uom_KG" />
         <field name="list_price">0</field>
         <field name="standard_price">25</field>
     </record>
@@ -63,6 +68,7 @@
         <field name="product_type" ref="product_type_FLAT" />
         <field name="product_specification" ref="product_specification_20X3" />
         <field name="uom_id" ref="uom_uom_BERGA" />
+        <field name="uom_po_id" ref="uom_uom_BERGA" />
         <field name="list_price">0</field>
         <field name="standard_price">250</field>
     </record>
@@ -74,6 +80,7 @@
         <field name="product_type" ref="product_type_FLAT" />
         <field name="product_specification" ref="product_specification_40X8" />
         <field name="uom_id" ref="uom_uom_BERGA" />
+        <field name="uom_po_id" ref="uom_uom_BERGA" />
         <field name="list_price">0</field>
         <field name="standard_price">1620</field>
     </record>
@@ -85,6 +92,7 @@
         <field name="product_type" ref="product_type_FLAT" />
         <field name="product_specification" ref="product_specification_12X6" />
         <field name="uom_id" ref="uom_uom_BERGA" />
+        <field name="uom_po_id" ref="uom_uom_BERGA" />
         <field name="list_price">0</field>
         <field name="standard_price">200</field>
     </record>
@@ -96,6 +104,7 @@
         <field name="product_type" ref="product_type_ROUND" />
         <field name="product_specification" ref="product_specification_10MM" />
         <field name="uom_id" ref="uom_uom_METER" />
+        <field name="uom_po_id" ref="uom_uom_METER" />
         <field name="list_price">0</field>
         <field name="standard_price">40</field>
     </record>
@@ -107,6 +116,7 @@
         <field name="product_type" ref="product_type_ROUND" />
         <field name="product_specification" ref="product_specification_14MM" />
         <field name="uom_id" ref="uom_uom_METER" />
+        <field name="uom_po_id" ref="uom_uom_METER" />
         <field name="list_price">0</field>
         <field name="standard_price">55</field>
     </record>
@@ -118,6 +128,7 @@
         <field name="product_type" ref="product_type_SH" />
         <field name="product_specification" ref="product_specification_2_0MM" />
         <field name="uom_id" ref="uom_uom_MXM" />
+        <field name="uom_po_id" ref="uom_uom_MXM" />
         <field name="list_price">0</field>
         <field name="standard_price">1600</field>
     </record>
@@ -129,6 +140,7 @@
         <field name="product_type" ref="product_type_ELECTROD" />
         <field name="product_specification" ref="product_specification_ARC_3_5_PCS" />
         <field name="uom_id" ref="uom_uom_PCS" />
+        <field name="uom_po_id" ref="uom_uom_PCS" />
         <field name="list_price">0</field>
         <field name="standard_price">2.9</field>
     </record>
@@ -140,6 +152,7 @@
         <field name="product_type" ref="product_type_NORMAL" />
         <field name="product_specification" ref="product_specification_13" />
         <field name="uom_id" ref="uom_uom_PCS" />
+        <field name="uom_po_id" ref="uom_uom_PCS" />
         <field name="list_price">0</field>
         <field name="standard_price">2</field>
     </record>
@@ -151,6 +164,7 @@
         <field name="product_type" ref="product_type_DADO" />
         <field name="product_specification" ref="product_specification_13" />
         <field name="uom_id" ref="uom_uom_PCS" />
+        <field name="uom_po_id" ref="uom_uom_PCS" />
         <field name="list_price">0</field>
         <field name="standard_price">0.8</field>
     </record>
@@ -162,6 +176,7 @@
         <field name="product_type" ref="product_type_KECHIN" />
         <field name="product_specification" ref="product_specification_17" />
         <field name="uom_id" ref="uom_uom_PCS" />
+        <field name="uom_po_id" ref="uom_uom_PCS" />
         <field name="list_price">0</field>
         <field name="standard_price">0.6</field>
     </record>
