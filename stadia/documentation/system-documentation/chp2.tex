@@ -163,6 +163,35 @@ each actor. Administrator Actors generally have a
 function to manage users such as creating accounts
 and setting access rights.
 
+\subsubsection{Use Case Diagram And Description}
+Website security requirements mandate separation of administrative interface from common functions provided to users. This segregation, for example, is strongly recommended by ISO 17799.
+
+System should have separate application for administrators and for common users. It is recommended by OWASP Guide 2.0\footcite{https://www.owasp.org} that website administration application should not be accessible from  the internet without going through some management networks eg. via a strongly authenticated VPN or from a trusted network operation center.
+
+Except for administrators, some part of the administrative interfaces should be also available to the Help desk staff (Customer Service) and some staffs, as they need to be able to assist customers having issues while using the customer oriented website.
+
+Top level use case diagram below shows some administrative functions that administration website could provide.
+
+\paragraph{Top Level Use Case Diagram}
+\begin{figure}[!hb]
+\includegraphics[width=15cm,keepaspectratio]{usecases/top_level_usecase.drawio.png}
+\caption{Top level use case diagram}
+\end{figure}
+
+%################################# Acquisition #############################
+\begin{figure}[!ht]
+\centering
+%\vspace*{-8cm}
+%\hspace*{-3cm}
+%\noindent
+\includegraphics[width=10cm,keepaspectratio]{usecases/acquisition_usecase.drawio.png}
+\caption{Manage Acquisition use case diagram }
+\end{figure}
+%################################# End Of Acquisition############################# 
+
+
+
+
 \subsubsection{Administrator Use Case Diagram}
 
 \subsubsection{Manager Use Case Diagram}
