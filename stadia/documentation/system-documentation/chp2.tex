@@ -11,7 +11,136 @@ General structure of a user story described in this document:
 \subsection{Functional Requirements}
 The following sections describe the data required and the functional requirements that shall be performed in the new ERP System for both the HQ and field-based staffs.  These functional requirements include the on-going System maintenance and the creation and management reports for all areas.
 
+\begin{itemize}
+	\item The System shall have a common database core which allows integration of data and transactions between all financial, operational, production, and customer service functions within the ERP System.
+	\item The System shall have a graphic user interface (GUI) implemented  as a Web-based interface
+	\item The System shall be able to export selected records into either pdf or table file format
+	\item The System shall have administrator ERP System and user security functionality to include:
+		\begin{itemize}
+			\item Setting Up a New User
+			\item Updating an Existing User
+			\item Restricting User Access to Certain Roles
+		\end{itemize}
+	\item The System shall have the ability for generated reports to be savable and exportable to numerous devices and mediums including printers
+	\item The System shall produce Fixed Asset Depreciation Schedules
+\end{itemize}
+
 \subsection{Non-functional Requirements}
+
+\paragraph{Reliability}
+Reliability is the probability that the System will be able to process work correctly and completely without being aborted.
+\\
+The proposed ERP System has varying degrees of impact on areas of Stadia should parts of the System fail.
+If the Core Systems functional areas of the System fail (becomes unusable) for a period of time the impact on Stadia would be as follows:
+
+\begin{center}
+\begin{table}[!hb]
+\begin{tabular}{ | m{10em} | m{25em}| } 
+  \hline
+  \textbf{Length of Time of Outage} & \textbf{Impact to Stadia} \\ 
+  \hline
+   One Hour & Some Impact to {{TODO}} \\ 
+   \hline
+   One Day & Medium to Large Impact {{TODO}} \\
+   \hline
+   One Week & Very Large to Catastrophic Impact. \\
+  \hline
+\end{tabular}
+\caption{Impact of reliablity on Stadia}
+\end{table}
+\end{center}
+
+The minimum acceptable level of reliability for the core system Reporting aspect of the System would be no more than five (5) days (one work week).
+
+\paragraph{Recoverability}
+Recoverability is the ability to restore function and data in the event of a failure.
+
+\begin{itemize}
+	\item In the event the ERP application is completely unavailable to users (down) because of a System failure, it should be restored within 2 hours after the failure is detected.  This timeframe assumes that a locally controllable event (such as a hardware issue) has caused the outage.  If the application software is at issue and requires Contractor intervention, then the expected restoration time shall follow expected levels that shall be stated in the Service Level Agreement. 
+	\item In the event that the operational database is corrupted, the database must be capable of being restored to its condition no more than 2 hours before the corruption occurred and must be restored to its most recent point in time prior to the corruption (1 day before). (Once a Contractor is selected a final data recovery strategy shall be determined).
+\end{itemize}
+
+The core system will perform periodic backups of all databases and will store these backups off-site.  At a minimum daily incremental changes to the database shall be captured and stored and on a weekly basis and a full database backup should be performed.  Daily backups shall be retained for at least six weeks (approximately one monthly close cycle) and weekly backups should be retained for at least fourteen weeks (one quarterly close cycle).  
+
+In the event that the entire data center is destroyed, the following steps shall be required:
+\begin{itemize}
+	\item New Application and Database Servers would need to be located and installed
+	\item Operating Systems shall need to be set up on the Servers(i.e Linux Server)
+	\item Applications the ERP core System (Odoo) shall need to be installed on the Servers
+	\item The last off-site back up of the ERP application database shall be restored to the Servers
+\end{itemize}
+
+\paragraph{System Availability}
+System availability is the time when the application must be available for use. Required System availability is used in determining when maintenance may be performed.
+
+The System must be available from 2:00 AM – 11:00 PM GMT+3 Monday – Saturday (National Holiday and Service Reduction Days not included).  Any scheduled down time for maintenance shall be not be scheduled around these core hours.
+
+\paragraph{Fault Tolerance}
+Not Applicable refer to Odoo Guideline
+
+\paragraph{Performance}
+The current preference is that accessing any transactional screen and updating data fields should take no more than 3 seconds.
+
+System performance should be measured using up to 10 to 300 concurrent users(based on Stadia's number of employee)
+
+\paragraph{Capacity}
+The ERP System shall have the capacity to handle the types of volumes described below:
+\begin{itemize}
+	\item {TODO} number of employee creation per month
+	\item {TODO} reports per month
+\end{itemize}
+
+\paragraph{Data Mapping and Conversion}
+The following tables describe the data in the current system. he file structures and data in the current system are housed in Postgressql tables but are not truly relational in design.
+
+\begin{itemize}
+	\item A = Alphanumeric
+	\item D = Date (MM/DD/YYYY)
+	\item N = Numeric
+\end{itemize}
+
+\begin{center}
+\begin{table}[!hb]
+\begin{tabular}{|c|c|c|c|c| } 
+  \hline
+  \textbf{Ref} & \textbf{Description} & \textbf{Field Type} & \textbf{Note} & \textbf{Field Length (Bytes)} \\ 
+  \hline
+  1 & Badge ID & A & Generated Badge Number ID & 6 \\ 
+  \hline
+\end{tabular}
+\caption{Datat mapping and conversion}
+\end{table}
+\end{center}
+
+
+\paragraph{Design, Testing, Implementation, and Acceptance}
+The Contractor/Provider shall be responsible for:
+
+\begin{itemize}
+	\item The design and configuration of the new ERP System based on Stadia business requirements.
+	\item Installation of the ERP System in a test environment
+	\item Loading the test database with sufficient data to perform the required User Acceptance Testing. This task shall be on-going until successful completion of the User Acceptance Testing. Both Stadia and Adarash will provide the User Acceptance Testing Matrix.
+	\item Setup of the software and activation of the modules.
+	\item Setup of the master files and tables and work with Stadia's staff to verify the data.
+	\item Implementation of the ERP System into the final production environment.
+	\item 
+\end{itemize}
+
+\paragraph{Training and Documentation}
+The Contractor/Provider shall be responsible for:
+
+\begin{itemize}
+	\item Training of end users and technical staff to support to the ERP System to include:
+		\begin{itemize}
+			\item General Manger
+			\item System Admin(IT staff)
+			\item Clerks
+			\item Department heads
+		\end{itemize}
+	\item Retraining for personnel as needed or requested by management
+	\item Creating a learning team of "super users"(System Admins or IT staff) who can support others in all basic and some advanced functions
+	\item Providing and/or creating training materials and technical documentation of the ERP System to include Quick Reference guides and an inmate self-learning module.
+\end{itemize}
 
 \section{System Requirement Analysis}
 

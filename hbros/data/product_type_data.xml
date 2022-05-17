@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_type_ANGLE" model="hbros.product.type">
+        <field name="name">ANGLE</field>
+    </record>
+
+    <record id="product_type_NORMAL" model="hbros.product.type">
+        <field name="name">NORMAL</field>
+    </record>
+
+    <record id="product_type_SH" model="hbros.product.type">
+        <field name="name">SH</field>
+    </record>
+
+    <record id="product_type_IRON" model="hbros.product.type">
+        <field name="name">IRON</field>
+    </record>
+
+    <record id="product_type_FLAT" model="hbros.product.type">
+        <field name="name">FLAT</field>
+    </record>
+
+    <record id="product_type_ROUND" model="hbros.product.type">
+        <field name="name">ROUND</field>
+    </record>
+
+    <record id="product_type_SH" model="hbros.product.type">
+        <field name="name">SH</field>
+    </record>
+
+    <record id="product_type_ELECTROD" model="hbros.product.type">
+        <field name="name">ELECTROD</field>
+    </record>
+
+    <record id="product_type_DADO" model="hbros.product.type">
+        <field name="name">DADO</field>
+    </record>
+
+    <record id="product_type_KECHIN" model="hbros.product.type">
+        <field name="name">KECHIN</field>
+    </record>
+
+</odoo>

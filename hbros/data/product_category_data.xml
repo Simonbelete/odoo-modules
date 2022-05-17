@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_category_raw" model="product.category">
+        <field name="name">RAW</field>
+    </record>
+
+    <record id="product_category_ac_1" model="product.category">
+        <field name="name">AC-1</field>
+    </record>
+
+    <record id="product_category_part" model="product.category">
+        <field name="name">PART</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="uom_uom_BERGA" model="uom.uom">
+        <field name="name">BERGA</field>
+        <field name="category_id" ref="uom_category_BERGA"/>
+    </record>
+
+    <record id="uom_uom_PCS" model="uom.uom">
+        <field name="name">PCS</field>
+        <field name="category_id" ref="uom_category_PCS" />
+    </record>
+
+    <record id="uom_uom_MXM" model="uom.uom">
+        <field name="name">MXM</field>
+        <field name="category_id" ref="uom_category_MXM" />
+    </record>
+
+    <record id="uom_uom_KG" model="uom.uom">
+        <field name="name">KG</field>
+        <field name="category_id" ref="uom_category_KG" />
+    </record>
+
+    <record id="uom_uom_METER" model="uom.uom">
+        <field name="name">METER</field>
+        <field name="category_id" ref="uom_category_METER"/>
+    </record>
+
+</odoo>

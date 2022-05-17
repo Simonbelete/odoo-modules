@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="mrp_production_form_view" model="ir.ui.view">
+        <field name="name">hbros.mrp.production.form</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view" />
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='user_id']" position="before">
+                <field name="salary" string="Salary" />
+             </xpath>
+             <xpath expr="//button[@name='action_show_details']" position="before">
+                <field name="product_type"/>
+             </xpath>
+             <xpath expr="//button[@name='action_show_details']" position="before">
+                <field name="product_specification"/>
+             </xpath>
+             <xpath expr="//button[@name='action_show_details']" position="before">
+                <field name="measurement_uom_id"/>
+             </xpath>
+             <xpath expr="//button[@name='action_show_details']" position="before">
+                <field name="consumption_cost" string="Cost"/>
+             </xpath>
+             <xpath expr="//button[@name='action_show_details']" position="before">
+                <field name="total_consumption_cost" string="Total Cost"/>
+             </xpath>
+            <!-- <xpath expr="//field[@name='product_uom']" position="after">
+                <field name="bom_id.bom_line_ids.total_cost" string="Total Cost"/>
+            </xpath> -->
+        </field>
+    </record>
+
+</odoo>

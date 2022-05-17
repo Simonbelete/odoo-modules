@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_hbros_product_type,access_hbros_product_type,model_hbros_product_type,base.group_user,1,1,1,1
+access_hbros_product_specification,access_hbros_product_specification,model_hbros_product_specification,base.group_user,1,1,1,1
