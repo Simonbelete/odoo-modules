@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="stadia_asset">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="oe_structure"/>
+                <link rel="stylesheet" href="/asset-management/static/src/css/style.css"/>
+                <table class="table styled-table">
+                    <tr>
+                        <th>Asset name</th>
+                        <th>Responsible Person</th>
+                        <th>Asset Tag Number</th>
+                        <th>Asset Category</th>
+                        <th>Serial Number</th>
+                        <th>Purchased Date</th>
+                        <th>Gross Value</th>
+                        <th>Salvage Value</th>
+                        <th>Residual Value</th>
+                        <th>Vendor</th>
+                    </tr>
+                    <t t-foreach="docs" t-as="o">
+
+                        <tr>
+                            <td>
+                                <t t-esc="o.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.responsible_person.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.tag_number"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.asset_category.category_name"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.asset_reference"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.created_date"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.gross_value"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.salvage_value"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.residual_value"/>
+                            </td>
+                            <td>
+                                <t t-esc="o.vendor.name"/>
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </t>
+        </t>
+
+    </template>
+</odoo>

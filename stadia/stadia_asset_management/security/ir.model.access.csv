@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+asset_category_id,asset_category_name,model_asset_type,,1,1,1,1
+stadia_asset_id,stadia_asset_name,model_stadia_asset,,1,1,1,1
+stadia_warehouse_id,stadia_warehouse_name,model_stadia_warehouse_info,,1,1,1,1

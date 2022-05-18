@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="warehouse_location_form" model="ir.ui.view">
+        <field name="name">warehouse.location.form</field>
+        <field name="model">stadia.warehouse.info</field>
+        <field name="arch" type="xml">
+            <form string="Create Warehouse">
+                <sheet>
+                    <group>
+                        <group string="Warehouse Information">
+                            <field name="warehouse_name"/>
+                            <field name="warehouse_location"/>
+                            <field name="warehouse_manager"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="warehouse_location_view" model="ir.ui.view">
+        <field name="name">warehouse.location.tree</field>
+        <field name="model">stadia.warehouse.info</field>
+        <field name="arch" type="xml">
+            <tree string="Stadia Warehouse Location List">
+                <field name="warehouse_name"/>
+                <field name="warehouse_location"/>
+                <field name="warehouse_manager"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="stadia_warehouse_location_creation" model="ir.actions.act_window">
+        <field name="name">Create New Warehouse Location</field>
+        <field name="res_model">stadia.warehouse.info</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create New Warehouse Location
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+            id="action_menu_warehouse_location_create"
+            name="Warehouse"
+            sequence="5"
+            parent="action_menu_for_reporting"
+            action="stadia_warehouse_location_creation"/>
+</odoo>
