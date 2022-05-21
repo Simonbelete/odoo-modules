@@ -177,6 +177,191 @@ Top level use case diagram below shows some administrative functions that admini
 \includegraphics[width=15cm,keepaspectratio]{usecases/top_level_usecase.drawio.png}
 \caption{Top level use case diagram}
 \end{figure}
+\clearpage
+
+%################################# Mange Inventory #############################
+\begin{figure}[!ht]
+\centering
+%\vspace*{-8cm}
+%\hspace*{-3cm}
+%\noindent
+\includegraphics[width=15cm,keepaspectratio]{usecases/manage_inventory.drawio.png}
+\caption{Manage Inventory use case diagram }
+\end{figure}
+
+\begin{table}[!h]
+\begin{tabular}{|l|p{6cm}|p{6cm}|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Use Case Name} & \multicolumn{2}{p{10cm}|}{Manage Inventory} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Description} &\multicolumn{2}{p{10cm}|}{Management of annual asset inventory in STADIA Engineering Works Consultant plc} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Primary Actor}& \multicolumn{2}{p{10cm}|}{Finance, General 
+Manager, Administration} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Pre-Condition} & \multicolumn{2}{c|}{User has been logged on to system} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Post-Condition} & \multicolumn{2}{p{10cm}|}{}  \\ 
+\hline 
+\multirow{4}{*}{\textbf{Basic Flow}} & \textbf{Actor Action} & \textbf{System Response}\\
+\cline{2-3}
+%
+&
+\textbf{1.}  The Use Case starts when the user is logged on to the website and select the manage inventory menu.
+& 
+\textbf{2.}  The system will display lists of assets.
+\\
+%
+&
+\textbf{3.}  The user will Schedule stock counting in calendar.
+& 
+\textbf{4.}  The system will set and notify other depertments. 
+\\
+%
+&
+
+& 
+\textbf{5.}  The Use Case ends. 
+\\
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Alternate Flow} & \multicolumn{2}{p{10cm}|}{\textbf{A1 : } If the user requests to create commitee:}  \\ 
+\cline{2-3}
+\multirow{2}{*}{} & \textbf{Actor Action} & \textbf{System Response}\\
+\cline{2-3}
+%
+&
+\textbf{2.1}  The user click create commite button/icon the scheduled stock counting date. 
+& 
+\textbf{2.2}  The system display a form for selecting stock counting commite. 
+\\
+%
+&
+\textbf{2.3}  The user fills out the and submit the form. 
+& 
+\textbf{2.4}  The Use Case ends.  
+\\
+\hline
+\end{tabular}
+\caption{Manage inventory} 
+\end{table}
+
+%--------------------Stock
+\begin{table}[!h]
+\begin{tabular}{|l|p{6cm}|p{6cm}|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Use Case Name} & \multicolumn{2}{p{10cm}|}{Manage Stock} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Description} &\multicolumn{2}{p{10cm}|}{The idea is that user could create different stocks, modify and remove} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Primary Actor}& \multicolumn{2}{p{10cm}|}{Store Keeper} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Pre-Condition} & \multicolumn{2}{c|}{User has been logged on to system} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Post-Condition} & \multicolumn{2}{p{10cm}|}{}  \\ 
+\hline 
+\multirow{4}{*}{\textbf{Basic Flow}} & \textbf{Actor Action} & \textbf{System Response}\\
+\cline{2-3}
+%
+&
+\textbf{1.}  The Use Case starts when the user is logged on to the website and manage inventory stock.
+& 
+\textbf{2.}  The system will display lists of assets.
+\\
+%
+&
+\textbf{3.}  The user will select create new asset.
+& 
+\textbf{4.}  The system will display form for creating new asset. 
+\\
+%
+&
+\textbf{5.}  The user will fill the displayed from and submit the form.
+& 
+\textbf{6.}  The system will verify the information like if the data is redundant or not and store the asset information. 
+\\
+%
+&
+
+& 
+\textbf{7.}  The Use Case ends. 
+\\
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Alternate Flow} & \multicolumn{2}{p{10cm}|}{\textbf{A1 : } If the user requests to edit an existing asset:}  \\ 
+\cline{2-3}
+\multirow{2}{*}{} & \textbf{Actor Action} & \textbf{System Response}\\
+\cline{2-3}
+%
+&
+\textbf{2.1}  The user click edit button/icon for the selected asset. 
+& 
+\textbf{2.2}  The system display the same form as creating new asset, but filled with the selected asset information. 
+\\
+%
+&
+\textbf{2.3}  The user edits the options and submit the form. 
+& 
+\textbf{2.4}  The flow continues to Basic flow 6  
+\\
+\hline
+\end{tabular}
+\caption{Manage Stock} 
+\end{table}
+
+%################################# End Mange Inventory ############################# 
+
+%################################# Asset ############################# 
+\clearpage
+\begin{figure}[!ht]
+\centering
+%\vspace*{-8cm}
+%\hspace*{-3cm}
+%\noindent
+\includegraphics[width=10cm,keepaspectratio]{usecases/asset.drawio.png}
+\caption{Manage Acquisition use case diagram }
+\end{figure}
+
+%--------------------Asset
+\begin{table}[!h]
+\begin{tabular}{|l|p{6cm}|p{6cm}|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Use Case Name} & \multicolumn{2}{p{10cm}|}{Manage Asset} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Description} &\multicolumn{2}{p{10cm}|}{Good issuance
+and Return procedure} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Primary Actor}& \multicolumn{2}{p{10cm}|}{Store Keeper} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Pre-Condition} & \multicolumn{2}{c|}{User has been logged on to system} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Post-Condition} & \multicolumn{2}{p{10cm}|}{}  \\ 
+\hline 
+\multirow{4}{*}{\textbf{Basic Flow}} & \textbf{Actor Action} & \textbf{System Response}\\
+\cline{2-3}
+%
+&
+\textbf{1.}  The Use Case starts when the user is logged on to the website and manage inventory stock.
+& 
+\textbf{2.}  The system will display lists of assets.
+\\
+%
+&
+\textbf{3.}  The user will select request good.
+& 
+\textbf{4.}  The system will notify store keeper. 
+\\
+%
+&
+
+& 
+\textbf{5.}  The Use Case ends. 
+\\
+\hline
+\end{tabular}
+\caption{Manage Stock} 
+\end{table}
+
+%################################# End Of Asset ############################# 
+
 
 %################################# Acquisition #############################
 \begin{figure}[!ht]
@@ -196,7 +381,7 @@ Top level use case diagram below shows some administrative functions that admini
 %\hspace*{-3cm}
 %\noindent
 \includegraphics[width=15cm,keepaspectratio]{usecases/recruitment.drawio.png}
-\caption{Manage Acquisition use case diagram }
+\caption{Manage Recruitment use case diagram }
 \end{figure}
 %################################# End Of Recruitment ############################# 
 
@@ -208,9 +393,21 @@ Top level use case diagram below shows some administrative functions that admini
 %\hspace*{-3cm}
 %\noindent
 \includegraphics[width=10cm,keepaspectratio]{usecases/loan.drawio.png}
-\caption{Manage Acquisition use case diagram }
+\caption{Manage Loan use case diagram }
 \end{figure}
 %################################# End Of Loan ############################# 
+
+%################################# appraisal #############################
+\begin{figure}[!ht]
+\centering
+%\vspace*{-8cm}
+%\hspace*{-3cm}
+%\noindent
+\includegraphics[width=15cm,keepaspectratio]{usecases/appraisal.drawio.png}
+\caption{Appraisal use case diagram }
+\end{figure}
+%################################# End Of appraisal ############################# 
+
 
 %################################# Payroll #############################
 \begin{figure}[!ht]
@@ -219,21 +416,11 @@ Top level use case diagram below shows some administrative functions that admini
 %\hspace*{-3cm}
 %\noindent
 \includegraphics[width=10cm,keepaspectratio]{usecases/payroll.drawio.png}
-\caption{Manage Acquisition use case diagram }
+\caption{Manage Payroll use case diagram }
 \end{figure}
 %################################# End Of Payroll ############################# 
 
 
-%################################# appraisal #############################
-\begin{figure}[!ht]
-\centering
-%\vspace*{-8cm}
-%\hspace*{-3cm}
-%\noindent
-\includegraphics[width=10cm,keepaspectratio]{usecases/appraisal.drawio.png}
-\caption{Manage Acquisition use case diagram }
-\end{figure}
-%################################# End Of Attendacne ############################# 
 
 \begin{figure}[!ht]
 \centering
@@ -241,21 +428,11 @@ Top level use case diagram below shows some administrative functions that admini
 %\hspace*{-3cm}
 %\noindent
 \includegraphics[width=10cm,keepaspectratio]{usecases/attendance.drawio.png}
-\caption{Manage Acquisition use case diagram }
+\caption{Manage Attendance use case diagram }
 \end{figure}
 %################################# End Of Attendacne ############################# 
 
-\begin{figure}[!ht]
-\centering
-%\vspace*{-8cm}
-%\hspace*{-3cm}
-%\noindent
-\includegraphics[width=10cm,keepaspectratio]{usecases/asset.drawio.png}
-\caption{Manage Acquisition use case diagram }
-\end{figure}
-%################################# End Of Asset ############################# 
-
-
+\clearpage
 
 %\subsubsection{Administrator Use Case Diagram}
 
@@ -280,38 +457,81 @@ Top level use case diagram below shows some administrative functions that admini
 %\subsubsection{Asset Management Activity Diagram}
 
 
-\subsection{User Access Rights}
+%\subsection{User Access Rights}
 
-\hspace{-2cm}
-\begin{tabularx}{540pt}{|X|c|c|c|c|c|c|c|p{3cm}|}
+%\hspace{-2cm}
+%\begin{tabularx}{540pt}{|X|c|c|c|c|c|c|c|p{3cm}|}
 
 %{|*{9}{Y|}}
 
-\hline
+%\hline
 
-\textbf{No} & \textbf{User} & \textbf{Acess Level} & \textbf{Object} & \multicolumn{4}{c|}{\textbf{Acess Right}} & \textbf{Information} \\
-\cline{5-8} & &  &  & Read & Write & Create & Delete & \\
+%\textbf{No} & \textbf{User} & \textbf{Acess Level} & \textbf{Object} & \multicolumn{4}{c|}{\textbf{Acess Right}} & \textbf{Information} \\
+%\cline{5-8} & &  &  & Read & Write & Create & Delete & \\
 
-\hline
+%\hline
 
-\multirow{1}{*}{1} & \multirow{1}{*}{Administrator} & \multirow{1}{*}{Administration} & ALL & \cmark & \cmark & \cmark & \cmark & Top Level \\
+%\multirow{1}{*}{1} & \multirow{1}{*}{Administrator} & \multirow{1}{*}{Administration} & ALL & \cmark & \cmark & \cmark & \cmark & Top Level \\
 
-\hline
+%\hline
 
-\multirow{2}{*}{2} & \multirow{2}{*}{System Admin} & \multirow{2}{*}{System Admin} & 
-User & \cmark & \cmark & \cmark & \xmark & Second level below Administrator \\
-\cline{4-8} & & & 
-Acess Right 2 & \xmark & \xmark & \xmark & \xmark & \\
+%\multirow{2}{*}{2} & \multirow{2}{*}{System Admin} & \multirow{2}{*}{System Admin} & 
+%User & \cmark & \cmark & \cmark & \xmark & Second level below Administrator \\
+%\cline{4-8} & & & 
+%Acess Right 2 & \xmark & \xmark & \xmark & \xmark & \\
 
-\hline
+%\hline
 
-\multirow{2}{*}{3} & \multirow{2}{*}{Manager} & \multirow{2}{*}{Manger} & 
-Attendance & \cmark & \cmark & \xmark & \xmark & Manager \\
-\cline{4-8} & & & 
-Acess Right 2 & \xmark & \xmark & \xmark & \xmark & \\
+%\multirow{2}{*}{3} & \multirow{2}{*}{Manager} & \multirow{2}{*}{Manger} & 
+%Attendance & \cmark & \cmark & \xmark & \xmark & Manager \\
+%\cline{4-8} & & & 
+%Acess Right 2 & \xmark & \xmark & \xmark & \xmark & \\
 
-\hline
+%\hline
 
-\end{tabularx}
-\hspace*{-1cm}
+%\end{tabularx}
+%\hspace*{-1cm}
 
+\clearpage
+\subsection{Activity Diagram}
+Are graphical representations of workflows of stepwise activities and actions with support for choice, iteration and concurrency. In the Unified Modeling Language, activity diagrams are intended to model both computational and organizational processes (i.e., workflows), as well as the data flows intersecting with the related activities. Although activity diagrams primarily show the overall flow of control, they can also include elements showing the flow of data between activities through one or more data stores.\footcite{wikiactivitydiagram}
+
+%\subsubsection{Action States and Activity States}
+%\begin{itemize}
+%	\item Action states are atomic and cannot be decomposed
+%	\item Work of the action state is not interrupted.
+%	\item Activity states can be further decomposed
+%	\item Their activity being represented by other activity diagrams
+%	\item They may be interrupted
+%	\item Represented in UML by a rounded rectangle.
+%	\item Activity represents the performance of some behavior in the work flow.
+%\end{itemize}
+
+\begin{figure}[!h]
+\label{login_activity_diagram}
+\center
+\includegraphics[width=10cm,keepaspectratio]{activity_diagrams/manage_inventory_activity_diagram.drawio.png}
+\caption{Invenory activity diagram}
+\end{figure}
+
+
+\begin{figure}[!h]
+\label{asset_activity_diagram}
+\center
+\includegraphics[width=15cm,keepaspectratio]{activity_diagrams/manage_asset_activity_diagram.drawio.png}
+\caption{Issue asset activity diagram}
+\end{figure} 
+
+\begin{figure}[!h]
+\label{loan_activity_diagram}
+\center
+\includegraphics[width=15cm,keepaspectratio]{activity_diagrams/loan_activity_diagram.drawio.png}
+\caption{Loan activity diagram}
+\end{figure}
+
+\begin{figure}[!h]
+\label{loan_activity_diagram}
+\center
+\includegraphics[width=15cm,keepaspectratio]{activity_diagrams/appraisal_activity_diagram.drawio.png}
+\caption{Performance Evaluation activity diagram}
+\end{figure}
