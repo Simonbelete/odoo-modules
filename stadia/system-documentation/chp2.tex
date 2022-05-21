@@ -145,7 +145,7 @@ The Contractor/Provider shall be responsible for:
 \section{System Requirement Analysis}
 
 \subsection{Actor and Use Case Identification}
-A use case diagram is a graphic depiction of the interactions among the elements of a system. A use case is a methodology used in the system analysis to identify, clarify, and organize system requirements in this context, the term \"system" refers to something being developed or operated such as a mail-order product sales and service website. Use case diagram are employed in UML (Unified Modeling Language). A standard notation for the modeling of real-world object and systems. System objectives can include planning overall requirements validating a hardware design, testing and debugging a software product under development, creating an online help reference, or performing a consumer-service oriented task. For example, use case in a product sales environment would include item ordering, catalog updating payment processing, and customer relations. A use case diagram contains four components.
+A use case diagram is a graphic depiction of the interactions among the elements of a system. A use case is a methodology used in the system analysis to identify, clarify, and organize system requirements in this context, the term \"system" refers to something being developed modules. Use case diagram are employed in UML (Unified Modeling Language). A standard notation for the modeling of real-world object and systems. System objectives can include planning overall requirements validating a hardware design, testing and debugging a software product under development, creating an online help reference, or performing a consumer-service oriented task. For example, use case in a product sales environment would include item ordering, catalog updating payment processing, and customer relations. A use case diagram contains four components.
 
 \begin{figure}[!h]
 \includegraphics[width=13cm, keepaspectratio]{usecases/actors.png}
@@ -164,13 +164,11 @@ function to manage users such as creating accounts
 and setting access rights.
 
 \subsubsection{Use Case Diagram And Description}
-Website security requirements mandate separation of administrative interface from common functions provided to users. This segregation, for example, is strongly recommended by ISO 17799.
+System security requirements mandate separation of administrative interface from common functions provided to users. This segregation, for example, is strongly recommended by ISO 17799.
 
-System should have separate application for administrators and for common users. It is recommended by OWASP Guide 2.0\footcite{https://www.owasp.org} that website administration application should not be accessible from  the internet without going through some management networks eg. via a strongly authenticated VPN or from a trusted network operation center.
+System should have separate application for administrators and for common users. It is recommended by OWASP Guide 2.0\footcite{https://www.owasp.org} that system should not be accessible from  the internet without going through some management networks eg. via a strongly authenticated VPN or from a trusted network operation center.
 
-Except for administrators, some part of the administrative interfaces should be also available to the Help desk staff (Customer Service) and some staffs, as they need to be able to assist customers having issues while using the customer oriented website.
-
-Top level use case diagram below shows some administrative functions that administration website could provide.
+Top level use case diagram below shows functions that system could provide.
 
 %\paragraph{Top Level Use Case Diagram}
 \begin{figure}[!hb]
@@ -207,7 +205,7 @@ Manager, Administration} \\
 \cline{2-3}
 %
 &
-\textbf{1.}  The Use Case starts when the user is logged on to the website and select the manage inventory menu.
+\textbf{1.}  The Use Case starts when the user is logged on to the system and select the manage inventory menu.
 & 
 \textbf{2.}  The system will display lists of assets.
 \\
@@ -263,7 +261,7 @@ Manager, Administration} \\
 \cline{2-3}
 %
 &
-\textbf{1.}  The Use Case starts when the user is logged on to the website and manage inventory stock.
+\textbf{1.}  The Use Case starts when the user is logged on to the system and manage inventory stock.
 & 
 \textbf{2.}  The system will display lists of assets.
 \\
@@ -339,7 +337,7 @@ and Return procedure} \\
 \cline{2-3}
 %
 &
-\textbf{1.}  The Use Case starts when the user is logged on to the website and manage inventory stock.
+\textbf{1.}  The Use Case starts when the user is logged on to the system and manage inventory stock.
 & 
 \textbf{2.}  The system will display lists of assets.
 \\
