@@ -9,4 +9,20 @@
         <field name="name">DINO AUSMAN</field>
     </record>
 
+    <record id="hr_employee_MOHAMMED_A_KADIR" model="hr.employee">
+        <field name="name">MOHAMMED A/KADIR</field>
+    </record>
+
+    <record id="hr_employee_SEID_MOHAMMED" model="hr.employee">
+        <field name="name">SEID MOHAMMED</field>
+    </record>
+
+    <record id="hr_employee_DIRIBA_ABEBE" model="hr.employee">
+        <field name="name">DIRIBA ABEBE</field>
+    </record>
+
+    <record id="hr_employee_DINO_AUSMAN" model="hr.employee">
+        <field name="name">DINO AUSMAN</field>
+    </record>
+
 </odoo>
