@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- 2251 -->
+    <record id="product_template_ac_2251" model="product.template">
+        <field name="default_code">2251</field>
+        <field name="categ_id" ref="product_category_part" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_YETEBEYEDE" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_2251" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_2251" />
+        <field name="product_qty">1</field>
+        <field name="salary">25.9</field>
+        <field name="employee_id" ref="hr_employee_DIBABA_DIRO" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_1" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1671" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_2" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1654" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_3" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1658" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_4" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1929" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_5" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1666" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_6" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1646" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_7" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1635" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_9" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1669" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_10" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1649" />
+        <field name="product_qty">2</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_11" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1640" />
+        <field name="product_qty">2</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_12" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1673" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_13" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1675" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_14" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1677" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_15" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1681" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_16" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1679" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_17" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1644" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_18" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_ac_1644" />
+        <field name="product_qty">2</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_19" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_3086" />
+        <field name="product_qty">4.3</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_20" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2436" />
+        <field name="product_qty">4</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_21" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2436" />
+        <field name="product_qty">4</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_22" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2427" />
+        <field name="product_qty">4</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+    <record id="mrp_bom_line_ac_2251_22" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2913" />
+        <field name="product_qty">2</field>
+        <field name="bom_id" ref="mrp_bom_ac_2251" />
+    </record>
+
+</odoo>

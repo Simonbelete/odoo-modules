@@ -25,4 +25,8 @@
         <field name="name">DINO AUSMAN</field>
     </record>
 
+    <record id="hr_employee_DIBABA_DIRO" model="hr.employee">
+        <field name="name">DIBABA DIRO</field>
+    </record>
+
 </odoo>
