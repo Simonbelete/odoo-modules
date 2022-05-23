@@ -2,7 +2,7 @@
     'name': 'hbros',
     'version': '0.1.0',
     'category': 'Manufacturing',
-    'depends': ['base', 'mrp', 'om_hr_payroll'],
+    'depends': ['base', 'mrp', 'om_hr_payroll', 'account'],
     'data': [
         'security/ir.model.access.csv',
 
