@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- 1640 -->
+    <record id="product_template_ac_1640" model="product.template">
+        <field name="default_code">1640</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_ANGLE" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1640" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1640" />
+        <field name="product_qty">1</field>
+        <field name="salary">2</field>
+        <field name="employee_id" ref="hr_employee_MILLION_TADESE" />
+    </record>
+    <record id="mrp_bom_line_ac_1640" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2686" />
+        <field name="product_qty">0.0242</field>
+        <field name="bom_id" ref="mrp_bom_ac_1640" />
+    </record>
+
+    <!-- 1681 -->
+    <record id="product_template_ac_1681" model="product.template">
+        <field name="default_code">1681</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_TUNDINO_5_5CM" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1681" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1681" />
+        <field name="product_qty">1</field>
+        <field name="salary">0.4</field>
+        <field name="employee_id" ref="hr_employee_DINO_AUSMAN" />
+    </record>
+    <record id="mrp_bom_line_ac_1640" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2433" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_1681" />
+    </record>
+
+    <!-- 1675 -->
+    <record id="product_template_ac_1675" model="product.template">
+        <field name="default_code">1675</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_TUNDINO_2_5CM" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1675" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1675" />
+        <field name="product_qty">1</field>
+        <field name="salary">0.26</field>
+        <field name="employee_id" ref="hr_employee_DINO_AUSMAN" />
+    </record>
+    <record id="mrp_bom_line_ac_1675" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2438" />
+        <field name="product_qty">1</field>
+        <field name="bom_id" ref="mrp_bom_ac_1675" />
+    </record>
+
+    <!-- 1646 -->
+    <record id="product_template_ac_1646" model="product.template">
+        <field name="default_code">1646</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_EJETA_20X3" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1646" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1646" />
+        <field name="product_qty">1</field>
+        <field name="salary">3</field>
+        <field name="employee_id" ref="hr_employee_MOHAMMED_A_KADIR" />
+    </record>
+    <record id="mrp_bom_line_ac_1646" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2730" />
+        <field name="product_qty">0.003446</field>
+        <field name="bom_id" ref="mrp_bom_ac_1646" />
+    </record>
+
+    <!-- 1666 -->
+    <record id="product_template_ac_1666" model="product.template">
+        <field name="default_code">1666</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_MASHKERKERIA_4CM" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1666" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1666" />
+        <field name="product_qty">1</field>
+        <field name="salary">4</field>
+        <field name="employee_id" ref="hr_employee_MOHAMMED_A_KADIR" />
+    </record>
+    <record id="mrp_bom_line_ac_1666" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2980" />
+        <field name="product_qty">0.01</field>
+        <field name="bom_id" ref="mrp_bom_ac_1666" />
+    </record>
+
+    <!-- 1669 -->
+    <record id="product_template_ac_1669" model="product.template">
+        <field name="default_code">1669</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_MILAS" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1669" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1669" />
+        <field name="product_qty">1</field>
+        <field name="salary">0.26</field>
+        <field name="employee_id" ref="hr_employee_DINO_AUSMAN" />
+    </record>
+    <record id="mrp_bom_line_ac_1669" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2691" />
+        <field name="product_qty">0.014166</field>
+        <field name="bom_id" ref="mrp_bom_ac_1669" />
+    </record>
+
+    <!-- 1649 -->
+    <record id="product_template_ac_1649" model="product.template">
+        <field name="default_code">1649</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_KEND_PIYATO" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1649" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1649" />
+        <field name="product_qty">1</field>
+        <field name="salary">0.86</field>
+        <field name="employee_id" ref="hr_employee_SEID_MOHAMMED" />
+    </record>
+    <record id="mrp_bom_line_ac_1649_1" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2697" />
+        <field name="product_qty">0.02334</field>
+        <field name="bom_id" ref="mrp_bom_ac_1649" />
+    </record>
+    <record id="mrp_bom_line_ac_1649_2" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2771" />
+        <field name="product_qty">0.0022</field>
+        <field name="bom_id" ref="mrp_bom_ac_1649" />
+    </record>
+
+    <!-- 1673 -->
+    <record id="product_template_ac_1673" model="product.template">
+        <field name="default_code">1673</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_TUNDINO_1_5CM" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1673" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1673" />
+        <field name="product_qty">1</field>
+        <field name="salary">0.27</field>
+        <field name="employee_id" ref="hr_employee_DINO_AUSMAN" />
+    </record>
+    <record id="mrp_bom_line_ac_1673" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2710" />
+        <field name="product_qty">0.015</field>
+        <field name="bom_id" ref="mrp_bom_ac_1673" />
+    </record>
+
+    <!-- 1679 -->
+    <record id="product_template_ac_1679" model="product.template">
+        <field name="default_code">1679</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_TUNDINO_47CM" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1679" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1679" />
+        <field name="product_qty">1</field>
+        <field name="salary">0.52</field>
+        <field name="employee_id" ref="hr_employee_DINO_AUSMAN" />
+    </record>
+    <record id="mrp_bom_line_ac_1679" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2710" />
+        <field name="product_qty">0.47</field>
+        <field name="bom_id" ref="mrp_bom_ac_1679" />
+    </record>
+
+    <!-- 1677 -->
+    <record id="product_template_ac_1677" model="product.template">
+        <field name="default_code">1677</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_TUNDINO_3CM" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1677" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1677" />
+        <field name="product_qty">1</field>
+        <field name="salary">2.18</field>
+        <field name="employee_id" ref="hr_employee_DIRIBA_ABEBE" />
+    </record>
+    <record id="mrp_bom_line_ac_1677" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2716" />
+        <field name="product_qty">0.045</field>
+        <field name="bom_id" ref="mrp_bom_ac_1677" />
+    </record>
+
+    <!-- 1644 -->
+    <record id="product_template_ac_1644" model="product.template">
+        <field name="default_code">1644</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_EGIR" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1644" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1644" />
+        <field name="product_qty">1</field>
+        <field name="salary">5</field>
+        <field name="employee_id" ref="hr_employee_MOHAMMED_A_KADIR" />
+    </record>
+    <record id="mrp_bom_line_ac_1644" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2736" />
+        <field name="product_qty">0.0596</field>
+        <field name="bom_id" ref="mrp_bom_ac_1644" />
+    </record>
+
+    <!-- 1654 -->
+    <record id="product_template_ac_1654" model="product.template">
+        <field name="default_code">1654</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_EGIR" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1654" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1654" />
+        <field name="product_qty">1</field>
+        <field name="salary">6</field>
+        <field name="employee_id" ref="hr_employee_MOHAMMED_A_KADIR" />
+    </record>
+    <record id="mrp_bom_line_ac_1654" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2736" />
+        <field name="product_qty">0.017</field>
+        <field name="bom_id" ref="mrp_bom_ac_1654" />
+    </record>
+
+    <!-- 1654 -->
+    <record id="product_template_ac_1654" model="product.template">
+        <field name="default_code">1654</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_KIDAN" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1654" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1654" />
+        <field name="product_qty">1</field>
+        <field name="salary">6</field>
+        <field name="employee_id" ref="hr_employee_MOHAMMED_A_KADIR" />
+    </record>
+    <record id="mrp_bom_line_ac_1654" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2736" />
+        <field name="product_qty">0.017</field>
+        <field name="bom_id" ref="mrp_bom_ac_1654" />
+    </record>
+
+    <!-- 1658 -->
+    <record id="product_template_ac_1658" model="product.template">
+        <field name="default_code">1658</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_KIT_KIDAN" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1658" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1658" />
+        <field name="product_qty">1</field>
+        <field name="salary">7</field>
+        <field name="employee_id" ref="hr_employee_MOHAMMED_A_KADIR" />
+    </record>
+    <record id="mrp_bom_line_ac_1658" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2736" />
+        <field name="product_qty">0.0056</field>
+        <field name="bom_id" ref="mrp_bom_ac_1658" />
+    </record>
+
+    <!-- 1671 -->
+    <record id="product_template_ac_1671" model="product.template">
+        <field name="default_code">1671</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_MILAS_MAFEGNA" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1671" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1671" />
+        <field name="product_qty">1</field>
+        <field name="salary">0.26</field>
+        <field name="employee_id" ref="hr_employee_DINO_AUSMAN" />
+    </record>
+    <record id="mrp_bom_line_ac_1671" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2736" />
+        <field name="product_qty">0.00125</field>
+        <field name="bom_id" ref="mrp_bom_ac_1671" />
+    </record>
+
+    <!-- 1635 -->
+    <record id="product_template_ac_1635" model="product.template">
+        <field name="default_code">1635</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_27_5" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1635" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1635" />
+        <field name="product_qty">1</field>
+        <field name="salary">8</field>
+        <field name="employee_id" ref="hr_employee_MILLION_TADESE" />
+    </record>
+    <record id="mrp_bom_line_ac_1635" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2730" />
+        <field name="product_qty">0.0128</field>
+        <field name="bom_id" ref="mrp_bom_ac_1635" />
+    </record>
+
+    <!-- 1929 -->
+    <record id="product_template_ac_1929" model="product.template">
+        <field name="default_code">1929</field>
+        <field name="categ_id" ref="product_category_ac_1" />
+        <field name="name">COLENA</field>
+        <field name="product_type" ref="product_type_LAMERA" />
+        <field name="measurement_uom_id" ref="uom_uom_PCS" />
+        <field name="list_price">0</field>
+        <field name="standard_price">0</field>
+        <field name="type">product</field>
+    </record>
+    <record id="mrp_bom_ac_1929" model="mrp.bom">
+        <field name="product_tmpl_id" ref="product_template_ac_1929" />
+        <field name="product_qty">1</field>
+        <field name="salary">2</field>
+        <field name="employee_id" ref="hr_employee_MOHAMMED_A_KADIR" />
+    </record>
+    <record id="mrp_bom_line_ac_1929" model="mrp.bom.line">
+        <field name="product_id" ref="product_template_2736" />
+        <field name="product_qty">0.111</field>
+        <field name="bom_id" ref="mrp_bom_ac_1929" />
+    </record>
+
+</odoo>

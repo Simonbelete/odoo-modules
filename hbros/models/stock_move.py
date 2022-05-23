@@ -39,10 +39,5 @@ class StockMove(models.Model):
     @api.depends('standard_price', 'consumption_cost')
     def _compute_total_consumption_cost(self):
         for record in self:
-            print("******************************************")
-            print(record.consumption_cost)
-            print(record.production_qty)
-            print(record.state)
-            print("************************************")
             if(record.state != 'done'):
                 record.total_consumption_cost = record.production_qty * record.consumption_cost

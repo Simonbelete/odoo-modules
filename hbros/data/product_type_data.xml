@@ -41,4 +41,64 @@
         <field name="name">KECHIN</field>
     </record>
 
+    <record id="product_type_TUNDINO_5_5CM" model="hbros.product.type">
+        <field name="name">TUNDINO-5.5CM</field>
+    </record>
+
+    <record id="product_type_TUNDINO_1_5CM" model="hbros.product.type">
+        <field name="name">TUNDINO-1.5CM</field>
+    </record>
+
+    <record id="product_type_TUNDINO_47CM" model="hbros.product.type">
+        <field name="name">TUNDINO-47CM</field>
+    </record>
+
+    <record id="product_type_TUNDINO_3CM" model="hbros.product.type">
+        <field name="name">TUNDINO-3CM</field>
+    </record>
+
+    <record id="product_type_TUNDINO_2_5CM" model="hbros.product.type">
+        <field name="name">TUNDINO-2.5CM</field>
+    </record>
+
+    <record id="product_type_EJETA_20X3" model="hbros.product.type">
+        <field name="name">EJETA-20X3</field>
+    </record>
+
+    <record id="product_type_MASHKERKERIA_4CM" model="hbros.product.type">
+        <field name="name">MASHKERKERIA-4CM</field>
+    </record>
+
+    <record id="product_type_MILAS" model="hbros.product.type">
+        <field name="name">MILAS</field>
+    </record>
+
+    <record id="product_type_KEND_PIYATO" model="hbros.product.type">
+        <field name="name">KEND-PIYATO</field>
+    </record>
+
+    <record id="product_type_EGIR" model="hbros.product.type">
+        <field name="name">EGIR</field>
+    </record>
+
+    <record id="product_type_KIDAN" model="hbros.product.type">
+        <field name="name">KIDAN</field>
+    </record>
+
+    <record id="product_type_KIT_KIDAN" model="hbros.product.type">
+        <field name="name">KIT-KIDAN</field>
+    </record>
+
+    <record id="product_type_MILAS_MAFEGNA" model="hbros.product.type">
+        <field name="name">MILAS-MAFEGNA</field>
+    </record>
+
+    <record id="product_type_27_5" model="hbros.product.type">
+        <field name="name">27.5</field>
+    </record>
+
+    <record id="product_type_LAMERA" model="hbros.product.type">
+        <field name="name">LAMERA</field>
+    </record>
+
 </odoo>
