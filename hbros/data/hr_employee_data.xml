@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_employee_MILLION_TADESE" model="hr.employee">
+        <field name="name">MILLION TADESE</field>
+    </record>
+
+    <record id="hr_employee_DINO_AUSMAN" model="hr.employee">
+        <field name="name">DINO AUSMAN</field>
+    </record>
+
+</odoo>

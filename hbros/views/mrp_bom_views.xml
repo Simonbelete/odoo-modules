@@ -9,6 +9,9 @@
              <xpath expr="//field[@name='type']" position="after">
                 <field name="salary" string="Salary" />
              </xpath>
+             <xpath expr="//field[@name='type']" position="after">
+                <field name="employee_id" />
+             </xpath>
         </field>
     </record>
 

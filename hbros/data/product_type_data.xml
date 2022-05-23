@@ -41,4 +41,8 @@
         <field name="name">KECHIN</field>
     </record>
 
+    <record id="product_type_TUNDINO_5_5CM" model="hbros.product.type">
+        <field name="name">TUNDINO-5.5CM</field>
+    </record>
+
 </odoo>
