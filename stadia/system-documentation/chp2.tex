@@ -177,15 +177,56 @@ Top level use case diagram below shows functions that system could provide.
 \end{figure}
 \clearpage
 
-%################################# Mange Inventory #############################
+%################################# Acquisition ############################# 
+\clearpage
 \begin{figure}[!ht]
 \centering
 %\vspace*{-8cm}
 %\hspace*{-3cm}
 %\noindent
-\includegraphics[width=15cm,keepaspectratio]{usecases/manage_inventory.drawio.png}
-\caption{Manage Inventory use case diagram }
+\includegraphics[width=15cm,keepaspectratio]{usecases/asset.drawio.png}
+\caption{Manage Asset use case diagram }
 \end{figure}
+
+%--------------------Asset
+\begin{table}[!h]
+\begin{tabular}{|l|p{6cm}|p{6cm}|}
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Use Case Name} & \multicolumn{2}{p{10cm}|}{Manage Asset} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Description} &\multicolumn{2}{p{10cm}|}{Good issuance
+and Return procedure} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Primary Actor}& \multicolumn{2}{p{10cm}|}{Store Keeper} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Pre-Condition} & \multicolumn{2}{c|}{User has been logged on to system} \\ 
+\hline 
+\rule[-1ex]{0pt}{2.5ex} \textbf{Post-Condition} & \multicolumn{2}{p{10cm}|}{}  \\ 
+\hline 
+\multirow{4}{*}{\textbf{Basic Flow}} & \textbf{Actor Action} & \textbf{System Response}\\
+\cline{2-3}
+%
+&
+\textbf{1.}  The Use Case starts when the user is logged on to the system and manage inventory stock.
+& 
+\textbf{2.}  The system will display lists of assets.
+\\
+%
+&
+\textbf{3.}  The user will select request good.
+& 
+\textbf{4.}  The system will notify store keeper. 
+\\
+%
+&
+
+& 
+\textbf{5.}  The Use Case ends. 
+\\
+\hline
+\end{tabular}
+\caption{Manage Asset} 
+\end{table}
 
 \begin{table}[!h]
 \begin{tabular}{|l|p{6cm}|p{6cm}|}
@@ -305,59 +346,6 @@ Manager, Administration} \\
 \caption{Manage Stock} 
 \end{table}
 
-%################################# End Mange Inventory ############################# 
-
-%################################# Asset ############################# 
-\clearpage
-\begin{figure}[!ht]
-\centering
-%\vspace*{-8cm}
-%\hspace*{-3cm}
-%\noindent
-\includegraphics[width=10cm,keepaspectratio]{usecases/asset.drawio.png}
-\caption{Manage Acquisition use case diagram }
-\end{figure}
-
-%--------------------Asset
-\begin{table}[!h]
-\begin{tabular}{|l|p{6cm}|p{6cm}|}
-\hline 
-\rule[-1ex]{0pt}{2.5ex} \textbf{Use Case Name} & \multicolumn{2}{p{10cm}|}{Manage Asset} \\ 
-\hline 
-\rule[-1ex]{0pt}{2.5ex} \textbf{Description} &\multicolumn{2}{p{10cm}|}{Good issuance
-and Return procedure} \\ 
-\hline 
-\rule[-1ex]{0pt}{2.5ex} \textbf{Primary Actor}& \multicolumn{2}{p{10cm}|}{Store Keeper} \\ 
-\hline 
-\rule[-1ex]{0pt}{2.5ex} \textbf{Pre-Condition} & \multicolumn{2}{c|}{User has been logged on to system} \\ 
-\hline 
-\rule[-1ex]{0pt}{2.5ex} \textbf{Post-Condition} & \multicolumn{2}{p{10cm}|}{}  \\ 
-\hline 
-\multirow{4}{*}{\textbf{Basic Flow}} & \textbf{Actor Action} & \textbf{System Response}\\
-\cline{2-3}
-%
-&
-\textbf{1.}  The Use Case starts when the user is logged on to the system and manage inventory stock.
-& 
-\textbf{2.}  The system will display lists of assets.
-\\
-%
-&
-\textbf{3.}  The user will select request good.
-& 
-\textbf{4.}  The system will notify store keeper. 
-\\
-%
-&
-
-& 
-\textbf{5.}  The Use Case ends. 
-\\
-\hline
-\end{tabular}
-\caption{Manage Stock} 
-\end{table}
-
 %################################# End Of Asset ############################# 
 
 
@@ -426,9 +414,19 @@ and Return procedure} \\
 %\hspace*{-3cm}
 %\noindent
 \includegraphics[width=10cm,keepaspectratio]{usecases/attendance.drawio.png}
-\caption{Manage Attendance use case diagram }
+\caption{Manage Attendance for office employees use case diagram }
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+%\vspace*{-8cm}
+%\hspace*{-3cm}
+%\noindent
+\includegraphics[width=10cm,keepaspectratio]{usecases/attendance_project.drawio.png}
+\caption{Manage Attendance for project employees use case diagram }
 \end{figure}
 %################################# End Of Attendacne ############################# 
+
 
 \clearpage
 
@@ -510,6 +508,13 @@ Are graphical representations of workflows of stepwise activities and actions wi
 \center
 \includegraphics[width=10cm,keepaspectratio]{activity_diagrams/manage_inventory_activity_diagram.drawio.png}
 \caption{Invenory activity diagram}
+\end{figure}
+
+\begin{figure}[!h]
+\label{loan_activity_diagram}
+\center
+\includegraphics[width=15cm,keepaspectratio]{activity_diagrams/acquisition_activity_diagram.drawio.png}
+\caption{Hiring, Recruitment and Transferring activity diagram}
 \end{figure}
 
 

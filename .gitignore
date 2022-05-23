@@ -1,4 +1,5 @@
 odoo/
+apps/
 abc_manufacturing/
 
 .docker/postgresql/db/

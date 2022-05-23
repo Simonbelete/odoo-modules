@@ -9,6 +9,9 @@
              <xpath expr="//field[@name='user_id']" position="before">
                 <field name="salary" string="Salary" />
              </xpath>
+             <xpath expr="//field[@name='user_id']" position="before">
+               <field name="employee_id" string="Employee" />
+            </xpath>
              <xpath expr="//button[@name='action_show_details']" position="before">
                 <field name="product_type"/>
              </xpath>
