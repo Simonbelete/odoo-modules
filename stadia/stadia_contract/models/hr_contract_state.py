@@ -6,9 +6,13 @@ from odoo.exceptions import ValidationError
 
 class EmployeeContract(models.Model):
     _inherit = "hr.contract"
+    approval_letter = fields.Binary(string="Approval Letter")
 
     def toRunning(self):
-        self.state = 'open'
+        if not self.approval_letter:
+            raise ValidationError('There is no any approval letter inorder to move next step')
+        else:
+            self.state = 'open'
 
     def toExpired(self):
         self.state = 'close'
