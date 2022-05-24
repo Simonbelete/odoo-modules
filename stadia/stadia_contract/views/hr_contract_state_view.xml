@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_contract_inherited" model="ir.ui.view">
+        <field name="name">hr.employee.contract.inherited</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <header>
+                <field name="state" widget="statusbar"/>
+                <button name="toDraft" string="Go to Draft" type="object"
+                        attrs="{'invisible': [('state', 'in',  ('draft',  'cancel', 'close'))]}" class="oe_highlight"/>
+                <button name="toRunning" string="Go to Running" type="object"
+                        attrs="{'invisible': [('state', 'in',  ('open', 'cancel'))]}" class="oe_highlight"/>
+                <button name="toExpired" string="Go to Expired" type="object"
+                        attrs="{'invisible': [('state', 'in',  ('close',  'draft', 'cancel'))]}" class="oe_highlight"/>
+                <button name="toCancel" string="Go to Cancel" type="object"
+                        attrs="{'invisible': [('state', 'in',  ('cancel', 'open'))]}" class="oe_highlight"/>
+            </header>
+        </field>
+    </record>
+</odoo>
