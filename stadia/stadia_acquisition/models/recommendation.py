@@ -5,4 +5,5 @@ class Recommendation(models.Model):
     _name = "stadia.acquisition.recommendation"
 
     employee_id = fields.Many2one('hr.employee')
-    
+    acquisition_id = fields.Many2one('stadia.acquisition.acquisition')
+

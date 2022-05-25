@@ -7,6 +7,7 @@ class Acquisition(models.Model):
 
     requested_by = fields.Many2one('hr.employee') # default=lambda self: self.env.user)
     job_id = fields.Many2one('hr.job')
+    salary = fields.Float()
     state = fields.Selection([
         ('draft', 'Draft'),
         ('approved', 'Approved'),
@@ -18,6 +19,7 @@ class Acquisition(models.Model):
         "declined - GM have not approved the acquisition")
     decline_reason = fields.Char()
     no_of_recruitment = fields.Integer(default=1)
+    recommendation_ids = fields.One2many('stadia.acquisition.recommendation', 'acquisition_id')
 
     ## Below fields are for recommendation cv/employee
     #recommended_employee_id = fields.Many2one('hr.employee')
