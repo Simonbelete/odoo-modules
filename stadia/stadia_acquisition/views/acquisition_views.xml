@@ -7,6 +7,19 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <!-- Tree View -->
+    <record id="acquisition_tree" model="ir.ui.view">
+        <field name="name">Acquisition</field>
+        <field name="model">stadia.acquisition.acquisition</field>
+        <field name="arch" type="xml"> 
+            <tree>
+                <field name="job_id" string="Job Position"/>
+                <field name="requested_by" string="Requested By" />
+                <field name="no_of_recruitment" string="No of recruitment" />
+            </tree>
+        </field>
+    </record>
+
     <!-- Form -->
     <record id="acquisition_form" model="ir.ui.view">
         <field name="name">Acquisition</field>
