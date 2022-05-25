@@ -3,7 +3,7 @@ from odoo import fields, api, models
 class Acquisition(models.Model):
     """ Acquisition Form for hiring or promoting employee """
     _name = 'stadia.acquisition.acquisition'
-    _res_name = 'job_id'
+    _res_name = 'job_id.name'
 
     requested_by = fields.Many2one('hr.employee') # default=lambda self: self.env.user)
     job_id = fields.Many2one('hr.job')

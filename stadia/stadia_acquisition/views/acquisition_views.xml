@@ -5,19 +5,21 @@
         <field name="name">Acquisition</field>
         <field name="res_model">stadia.acquisition.acquisition</field>
         <field name="view_mode">tree,form</field>
-        <!-- <field name="context">{'search_default_state': 1}</field> -->
+        <field name="context">{'search_default_state': 1}</field>
     </record>
 
     <!-- Search -->
-    <!-- <record id="acquisition_search" model="ir.ui.view">
+    <record id="acquisition_search" model="ir.ui.view">
         <field name="name">stadia.acquisition.acquisition</field>
         <field name="model">stadia.acquisition.acquisition</field>
         <field name="arch" type="xml">
             <search>
-                <group ex
+                <group expand="0">
+                    <filter name="state" domain="[('state', '=', 'draft')]" />
+                </group>
             </search>
         </field>
-    </record> -->
+    </record>
 
     <!-- Tree View -->
     <record id="acquisition_tree" model="ir.ui.view">
