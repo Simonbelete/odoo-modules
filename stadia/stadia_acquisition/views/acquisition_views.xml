@@ -10,7 +10,7 @@
 
     <!-- Search -->
     <record id="acquisition_search" model="ir.ui.view">
-        <field name="name">stadia.acquisition.acquisition</field>
+        <field name="name">stadia.acquisition.acquisitRequestedion</field>
         <field name="model">stadia.acquisition.acquisition</field>
         <field name="arch" type="xml">
             <search>
