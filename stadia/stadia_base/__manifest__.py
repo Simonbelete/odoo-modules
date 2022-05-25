@@ -1,7 +1,7 @@
 {
     'name': 'STADIA Engineering Works Consultant PLC',
     'version': '0.1.0',
-    'category': 'Apps',
+    'category': 'Stadia',
     'author': '',
     'application': True,
     'depends': [
