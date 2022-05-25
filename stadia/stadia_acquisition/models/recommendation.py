@@ -6,4 +6,5 @@ class Recommendation(models.Model):
 
     employee_id = fields.Many2one('hr.employee')
     acquisition_id = fields.Many2one('stadia.acquisition.acquisition')
-
+    note = fields.Text()
+    cv_files = fields.Binary()

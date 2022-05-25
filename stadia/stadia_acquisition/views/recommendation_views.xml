@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Form -->
+    <record id="recommendation_form" model="ir.ui.view">
+        <field name="name">Recommendations</field>
+        <field name="model">stadia.acquisition.recommendation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="employee_id" />
+                        <field name="note" />
+                        <field name="cv_files" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
