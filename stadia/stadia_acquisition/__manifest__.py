@@ -3,6 +3,9 @@
     'version': '0.1.0',
     'category': 'Stadia',
     'author': '',
+    'depends': [
+        'hr_recruitment'
+    ],
     'data': [
         'security/ir.model.access.csv',
 

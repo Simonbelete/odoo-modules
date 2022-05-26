@@ -2,6 +2,8 @@
 
 ## Pre-requests
 
+Enable ```Interview Forms``` in settings
+
 ### Modules
 
 | Module name | Link |

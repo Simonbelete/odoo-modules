@@ -58,7 +58,8 @@
                     </group>
                     <notebook>
                         <page string="Recommendations">
-                            <field name="recommendation_ids" />
+                            <field name="application_ids" widget="one2many">
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
