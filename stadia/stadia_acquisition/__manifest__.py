@@ -11,6 +11,7 @@
 
         'views/acquisition_views.xml',
         'views/acquisition_menus.xml',
-        'views/recommendation_views.xml'
+        'views/recommendation_views.xml',
+        'views/hr_applicant_views.xml'
     ]
 }

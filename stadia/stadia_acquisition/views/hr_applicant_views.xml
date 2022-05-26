@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="stadia_hr_applicant_form" model="ir.ui.view">
+        <field name="name">stadia.acquisiton.hr.applicant</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <h2 class="o_row">
+                    <div>
+                        <label for="employee_id" class="oe_edit_only"/>
+                        <field name="employee_id" string="Employee Internal Applicant" />
+                    </div>
+                </h2>
+            </xpath>
+            <xpath expr="//field[@name='partner_name']" position="after">
+                <h2 class="o_row">
+                    <div>
+                        <label for="acquisition_id" class="oe_edit_only"/>
+                        <field name="acquisition_id" string="Acquistion" />
+                    </div>
+                </h2>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

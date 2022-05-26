@@ -29,18 +29,12 @@ class Acquisition(models.Model):
     #recommended_effective_date = fields.Date()
 
     def action_approve(self):
-        """ Approve acquisition and create/start recruiting in hr.recruitment 
-            create thr recommended user in recruitment
-        """
+        """ Approve acquisition, start recruiting"""
         for record in self:
-            for recomm in record.recommendation_ids:
-                self.env['hr.applicant'].create({
-                    'name': '%s\'s Application for %s' % (recomm.name, record.job_id),
-                    'description': recomm.email
-                })
+            
             record.write({'state': 'approved'})
 
     def action_decline(self):
-        """ Decline acquisition request """
+        """ Decline acquisition request, stop recruiting """
         for record in self:
             record.write({'state': 'declined'})
