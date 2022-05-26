@@ -27,6 +27,7 @@
         <field name="model">stadia.acquisition.acquisition</field>
         <field name="arch" type="xml"> 
             <tree>
+                <field name="title" string="Title"/>
                 <field name="job_id" string="Job Position"/>
                 <field name="requested_by" string="Requested By" />
                 <field name="no_of_recruitment" string="No of recruitment" />
@@ -48,6 +49,7 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="title" string="Title" />
                             <field name="requested_by" string="Requested By" />
                             <field name="job_id" string="Job Position" />
                             <field name="no_of_recruitment" string="Expected Employees" />	

@@ -3,8 +3,9 @@ from odoo import fields, api, models
 class Acquisition(models.Model):
     """ Acquisition Form for hiring or promoting employee """
     _name = 'stadia.acquisition.acquisition'
-    _rec_name = 'job_id'
+    _rec_name = 'title'
 
+    title = fields.Char(compute="_compute_name")
     requested_by = fields.Many2one('hr.employee') # default=lambda self: self.env.user)
     job_id = fields.Many2one('hr.job')
     salary = fields.Float()
@@ -38,3 +39,7 @@ class Acquisition(models.Model):
         """ Decline acquisition request, stop recruiting """
         for record in self:
             record.write({'state': 'declined'})
+
+    def _compute_name(self):
+        for record in self:
+            record.title = '%s Acquisition for %s department '  % (record.create_date.strftime('%m-%B-%Y'), record.job_id.name)
