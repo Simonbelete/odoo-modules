@@ -19,12 +19,19 @@ class EmployeeProfile(models.Model):
     house_number = fields.Char(string="House Number")
     mobile_number = fields.Char(string="Mobile Number")
 
-    def write(self, vals):
+    def write(self, vals, context={}):
         if 'mobile_phone' in vals:
             if vals['mobile_phone'].startswith("0"):
                 vals['mobile_phone'] = '+251' + vals['mobile_phone'][1:]
             else:
                 vals['mobile_phone'] = '+251' + vals['mobile_phone']
+
+        if 'work_phone' in vals:
+            if vals['work_phone'].startswith("0"):
+                vals['work_phone'] = '+251' + vals['work_phone'][1:]
+            else:
+                vals['work_phone'] = '+251' + vals['work_phone']
+
         return super(EmployeeProfile, self).write(vals)
 
 
