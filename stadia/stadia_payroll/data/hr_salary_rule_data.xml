@@ -7,7 +7,7 @@
         <field name="sequence">5</field>
         <field name="code">UNPAID</field>
         <field name="amount_select">code</field>
-        <field name="amount_python_compute">result=-(contract.wage/192) * worked_days.Unpaid.number_of_hours</field>
+        <field name="amount_python_compute">result=-(contract.wage/192) * worked_days.UNPAID.number_of_hours</field>
     </record>
 
     <record id="salary_rule_absent_attendance" model="hr.salary.rule">
@@ -16,7 +16,7 @@
         <field name="sequence">6</field>
         <field name="code">ABSENT</field>
         <field name="amount_select">code</field>
-        <field name="amount_python_compute">result=-worked_days.Sick.Time.Off.number_of_hours</field>
+        <field name="amount_python_compute">result=-((worked_days.WORK100.number_of_hours - worked_days.ATT.number_of_hours - worked_days.SICK.number_of_hours - worked_days.UNPAID.number_of_hours) * contract.wage/192)</field>
     </record>
 
 </odoo>
