@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+family_id,family_name,model_hr_family,,1,1,1,1
+education_id,education_name,model_hr_education,,1,1,1,1
+emergency_id,emergency_name,model_hr_emergency_information,,1,1,1,1
+
+

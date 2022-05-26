@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_family_information" model="ir.ui.view">
+        <field name="name">hr.employee.form.family.information</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='hr_settings']" style='' position="after">
+                <page string="Family Information">
+                    <field name="family_ids">
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <!--EDUCATIONAL INFORMATION-->
+    <record id="view_employee_education_information" model="ir.ui.view">
+        <field name="name">hr.employee.form.education.information</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='hr_settings']" style='' position="after">
+                <page string="Educational Information">
+                    <field name="education_ids">
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <!--CONTACT INFORMATION-->
+
+    <record id="view_employee_contact_information" model="ir.ui.view">
+        <field name="name">hr.employee.form.contact.information</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='personal_information']/group/group" style='' position="inside">
+                <field name="city"/>
+                <field name="sub_city"/>
+                <field name="woreda"/>
+                <field name="house_number"/>
+                <field name="mobile_number"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    EMERGENCY CONTACT INFORMATION-->
+
+    <record id="view_employee_emergency_contact_information" model="ir.ui.view">
+        <field name="name">hr.employee.form.emergency.contact.information</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='personal_information']/group/group[5]" style='' position="replace">
+                <group string="Emergency Contact">
+                    <field name="emergency_ids"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_employee_work_information_inherited" model="ir.ui.view">
+        <field name="name">hr.employee.form.work.information</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='public']/div/div/group" position="inside">
+                <field name="pension_id"/>
+                <field name="tin_number"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
