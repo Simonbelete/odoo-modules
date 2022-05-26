@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="promotion_menu" name="Promotion">
+        <menuitem id="promotion_sub_menu" action="promotion_action" />
+        <menuitem id="experience_menu" action="" />
+    </menuitem>
+</odoo>
