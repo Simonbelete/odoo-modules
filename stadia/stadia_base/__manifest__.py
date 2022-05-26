@@ -8,9 +8,10 @@
         'base',
         'hr',
         'hr_recruitment',
-    ],
-    'data': [
-        'data/hr_job_data.xml',
-        'data/hr_department_data.xml'
+        'hr_attendance',
+        'om_hr_payroll',
+        'prt_report_attachment_preview',
+        'hr_organizational_chart',
+        'om_account_asset'
     ]
 }
