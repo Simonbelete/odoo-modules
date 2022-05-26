@@ -4,6 +4,7 @@
     'category': 'Stadia',
     'author': '',
     'depends': [
-        'om_hr_payroll'
+        'om_hr_payroll',
+        'hr_attendance'
     ]
 }
