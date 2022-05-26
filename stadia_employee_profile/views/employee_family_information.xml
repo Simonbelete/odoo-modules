@@ -8,6 +8,13 @@
             <xpath expr="//page[@name='hr_settings']" style='' position="after">
                 <page string="Family Information">
                     <field name="family_ids">
+                        <tree editable="bottom">
+                            <field name="relation_type"/>
+                            <field name="name"/>
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                            <field name="mobile_number"/>
+                        </tree>
                     </field>
                 </page>
             </xpath>
@@ -22,6 +29,16 @@
             <xpath expr="//page[@name='hr_settings']" style='' position="after">
                 <page string="Educational Information">
                     <field name="education_ids">
+                        <tree editable="bottom">
+                            <field name="type"/>
+                            <field name="school_name"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="fields_of_study"
+                                   attrs="{'invisible': [('type', 'in', ['primary', 'secondary'])]}"/>
+                            <field name="grade" attrs="{'invisible': [('type', 'not in', ['primary', 'secondary'])]}"/>
+                            <field name="certificate"/>
+                        </tree>
                     </field>
                 </page>
             </xpath>
@@ -34,12 +51,13 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='personal_information']/group/group" style='' position="inside">
+            <xpath expr="//page[@name='personal_information']/group/group/field[@name='address_home_id']"
+                   position="before">
                 <field name="city"/>
                 <field name="sub_city"/>
                 <field name="woreda"/>
                 <field name="house_number"/>
-                <field name="mobile_number"/>
+                <field name="mobile_number" invisible="1"/>
             </xpath>
         </field>
     </record>
@@ -54,6 +72,13 @@
             <xpath expr="//page[@name='personal_information']/group/group[5]" style='' position="replace">
                 <group string="Emergency Contact">
                     <field name="emergency_ids"/>
+                    <!--                    <tree editable="bottom">-->
+                    <!--                        <field name="name"/>-->
+                    <!--                        <field name="city"/>-->
+                    <!--                        <field name="sub_city"/>-->
+                    <!--                        <field name="woreda"/>-->
+                    <!--                        <field name="mobile_number"/>-->
+                    <!--                    </tree>-->
                 </group>
             </xpath>
         </field>

@@ -38,9 +38,12 @@ class EmployeeFamily(models.Model):
     _description = "Employee Family"
     employee_id = fields.Many2one('hr.employee')
     name = fields.Text(string="Name")
-    relation_type = fields.Selection([('sister', 'Sister'), ('mother', 'Mother')])
+    relation_type = fields.Selection(
+        [('mother', 'Mother'), ('sister', 'Sister'), ('brother', 'Brother'), ('spouse', 'Spouse'),
+         ('spouse_mother', 'Spouse Mother'), ('spouse_sister', 'Spouse Sister'), ('spouse_brother', 'Spouse Brother')])
     gender = fields.Selection([("male", "Male"), ("female", "Female")], string="Gender", default="")
     birth_date = fields.Date(string="Birth Day")
+    mobile_number = fields.Char(string="Mobile Number")
 
 
 class EducationalInformation(models.Model):
@@ -49,13 +52,14 @@ class EducationalInformation(models.Model):
     name = fields.Text(string="Name")
     employee_id = fields.Many2one('hr.employee')
     type = fields.Selection(
-        [('primary', 'Primary Education'), ('secondary', 'Secondary Education'), ('higher', 'Higher Education')])
+        [('primary', 'Primary Education'), ('secondary', 'Secondary Education'), ('training', 'Training'),
+         ('higher', 'Higher Education')])
+    certificate = fields.Binary(string="Certificate")
     school_name = fields.Char(string="School Name")
     start_date = fields.Date(string="Start Date")
     end_date = fields.Date(string="End Date")
     fields_of_study = fields.Char(string="Fields of Study")
     grade = fields.Char(string="Grade", attrs="{'invisible': [('type', 'not in', ['primary', 'secondary'])]}")
-
 
 # class ActivityRestriction(models.Model):
 #     _inherit = "mail.activity"
