@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="salary_rule_unpaid" model="hr.salary.rule">
+        <field name="name">Unpaid time off</field>
+        <field name="category_id" ref="om_hr_payroll.DED" />
+        <field name="sequence">5</field>
+        <field name="code">UNPAID</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-(contract.wage/192) * worked_days.Unpaid.number_of_hours</field>
+    </record>
+
+    <record id="salary_rule_absent_attendance" model="hr.salary.rule">
+        <field name="name">Absent attendance</field>
+        <field name="category_id" ref="om_hr_payroll.DED" />
+        <field name="sequence">6</field>
+        <field name="code">ABSENT</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-worked_days.Sick.Time.Off.number_of_hours</field>
+    </record>
+
+</odoo>

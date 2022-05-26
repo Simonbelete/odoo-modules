@@ -6,5 +6,8 @@
     'depends': [
         'om_hr_payroll',
         'hr_attendance'
+    ],
+    'data': [
+        'data/hr_salary_rule_data.xml'
     ]
 }
