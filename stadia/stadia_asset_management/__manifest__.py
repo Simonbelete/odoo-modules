@@ -20,17 +20,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'hr'],
+    'depends': ['base', 'hr', 'om_account_asset'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/asset_menus.xml',
-        'views/asset_type_view.xml',
-        'views/asset_view.xml',
-        'report/asset_report.xml',
-        'report/asset_report_template.xml',
-        'views/warehouse_location_info_view.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
