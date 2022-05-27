@@ -20,9 +20,6 @@
                 <field name="gross_value"/>
              </xpath>
              <xpath expr="//field[@name='gross_value']" position="after">
-                <field name="depreciation"/>
-             </xpath>
-             <xpath expr="//field[@name='depreciation']" position="after">
                 <field name="nvb"/>
              </xpath>
         </field>

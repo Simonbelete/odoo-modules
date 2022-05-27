@@ -7,7 +7,6 @@ class AccountAssetDepreciationLine(models.Model):
     _inherit = 'account.asset.depreciation.line'
 
     gross_value = fields.Monetary(string="Gross Value")
-    depreciation = fields.Monetary(string="ACC. Depreciation/IFRS")
     nvb = fields.Monetary(string="NBV/IFRS")
 
 class AccountAssetAsset(models.Model):
@@ -75,7 +74,6 @@ class AccountAssetAsset(models.Model):
                     'depreciated_value': self.value - (self.salvage_value + residual_amount),
                     'depreciation_date': depreciation_date,
                     'gross_value': self.value,
-                    'depreciation': self.value - amount,
                     'nvb': self.value - amount - depreciation_calc 
                 }
                 commands.append((0, False, vals))
