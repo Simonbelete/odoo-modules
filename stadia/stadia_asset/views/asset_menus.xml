@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="stadia_asset_menu" name="Assets">
-        <menuitem id="stadia_asset_assets_menu" name="Assets" action="om_account_asset.view_account_asset_asset_purchase_tree" />
-        <!-- <menuitem id="Asset Types" /> -->
+    <menuitem id="asset_menu" name="Asset Management">
+        <menuitem id="assets_menu" action="om_account_asset.action_account_asset_asset_form" />
+        <menuitem id="asset_types" name="Asset Types" action="om_account_asset.action_account_asset_asset_list_normal_purchase" />
     </menuitem>
 </odoo>
