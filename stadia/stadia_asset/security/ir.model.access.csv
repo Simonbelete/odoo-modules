@@ -2,3 +2,4 @@ id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_asset_specification,access_asset_specification,model_asset_specification,base.group_user,1,1,1,1
 access_asset_specification_name,access_asset_specification_name,model_asset_specification_name,base.group_user,1,1,1,1
 access_asset_specification_value,access_asset_specification_value,model_asset_specification_value,base.group_user,1,1,1,1
+access_asset_location,access_asset_location,model_asset_location,base.group_user,1,1,1,1
