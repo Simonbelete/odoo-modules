@@ -7,6 +7,10 @@
         'om_account_asset'
     ],
     'data': [
-        'views/asset_menus.xml'
+        'security/ir.model.access.csv',
+
+        'views/asset_menus.xml',
+        'views/account_asset_views.xml',
+        'views/asset_specification_views.xml'
     ]
 }
