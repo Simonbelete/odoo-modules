@@ -68,8 +68,17 @@ class HrPayslip(models.Model):
                     'contract_id': contract.id
                 }
 
+            perdime_worked_days = {
+                'name': 'Per dime Working Days',
+                'code': 'PD',
+                'number_of_days': work_data['days'],
+                'number_of_hours': work_data['hours'],
+                'contract_id': contract.id
+            }
+
             res.append(attendances)
             res.append(worked_attendances)
+            res.append(perdime_worked_days)
             res.extend(leaves.values())
         return res
 
