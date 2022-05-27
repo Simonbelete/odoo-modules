@@ -13,5 +13,8 @@
         'prt_report_attachment_preview',
         'hr_organizational_chart',
         'om_account_asset'
+    ],
+    'data': [
+        'data/ir_mail_server_data.xml'
     ]
 }

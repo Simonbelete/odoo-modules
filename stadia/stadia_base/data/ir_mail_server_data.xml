@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stadia_dev_mailhog_smtp" model="ir.mail_server">
+        <field name="name">Mailhog Dev SMTP</field>
+        <field name="smtp_host">127.0.0.1</field>
+        <field name="smtp_port">1025</field>
+    </record>
+</odoo>
