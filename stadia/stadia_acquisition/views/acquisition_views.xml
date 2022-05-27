@@ -50,6 +50,7 @@
                     <group>
                         <group>
                             <field name="title" string="Title" />
+                            <field name="date" string="Date" />
                             <field name="requested_by" string="Requested By" />
                             <field name="job_id" string="Job Position" />
                             <field name="no_of_recruitment" string="Expected Employees" />	

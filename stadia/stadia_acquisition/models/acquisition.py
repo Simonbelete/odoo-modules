@@ -1,3 +1,4 @@
+from datetime import datetime
 from odoo import fields, api, models
 
 class Acquisition(models.Model):
@@ -6,6 +7,7 @@ class Acquisition(models.Model):
     _rec_name = 'title'
 
     title = fields.Char(compute="_compute_name")
+    date = fields.Date(default=datetime.now(), required=True)
     requested_by = fields.Many2one('hr.employee') # default=lambda self: self.env.user)
     job_id = fields.Many2one('hr.job')
     salary = fields.Float()
@@ -40,6 +42,7 @@ class Acquisition(models.Model):
         for record in self:
             record.write({'state': 'declined'})
 
+    @api.onchange('date', 'job_id')
     def _compute_name(self):
         for record in self:
-            record.title = '%s Acquisition for %s department '  % (record.create_date.strftime('%m-%B-%Y'), record.job_id.name)
+            record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.date.strftime('%d-%B-%Y'))
