@@ -101,4 +101,8 @@
         <field name="name">LAMERA</field>
     </record>
 
+    <record id="product_type_YETEBEYEDE" model="hbros.product.type">
+        <field name="name">YETEBEYEDE</field>
+    </record>
+
 </odoo>

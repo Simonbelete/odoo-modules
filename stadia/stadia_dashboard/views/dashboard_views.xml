@@ -1,0 +1,20 @@
+<odoo>
+
+    <record id="action_dashboard" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">stadia_dashboard_reg</field>
+    </record>
+
+    <menuitem
+        id="dashboard"
+        name="Dashboard"
+        action="action_dashboard"
+        />
+
+    <template id="assets_backend_dashboard" name="Dashbaord assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/stadia_dashboard/static/src/js/stadia_dashboard.js"/>
+        </xpath>
+    </template>
+
+</odoo>

@@ -2,7 +2,7 @@
     'name': 'hbros',
     'version': '0.1.0',
     'category': 'Manufacturing',
-    'depends': ['base', 'mrp', 'om_hr_payroll'],
+    'depends': ['base', 'mrp', 'om_hr_payroll', 'account'],
     'data': [
         'security/ir.model.access.csv',
 
@@ -14,6 +14,7 @@
         'data/product_category_data.xml',
         'data/product_template_raw_data.xml',
         'data/product_template_ac_data.xml',
+        'data/product_template_part_data.xml',
 
         'views/product_template_views.xml',
         'views/mrp_production_views.xml',

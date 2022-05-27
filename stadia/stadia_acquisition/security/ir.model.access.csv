@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_stadia_acquisition_acquisition,access_stadia_acquisition_acquisition,model_stadia_acquisition_acquisition,base.group_user,1,1,1,1
+access_stadia_acquisition_recommendation,access_stadia_acquisition_recommendation,model_stadia_acquisition_recommendation,base.group_user,1,1,1,1
