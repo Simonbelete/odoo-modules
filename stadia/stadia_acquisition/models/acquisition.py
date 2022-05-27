@@ -7,7 +7,7 @@ class Acquisition(models.Model):
     _rec_name = 'title'
 
     title = fields.Char(compute="_compute_name")
-    date = fields.Date(default=datetime.now(), required=True)
+    acquisition_date = fields.Date(default=datetime.now(), required=True)
     requested_by = fields.Many2one('hr.employee') # default=lambda self: self.env.user)
     job_id = fields.Many2one('hr.job')
     salary = fields.Float()
@@ -45,4 +45,4 @@ class Acquisition(models.Model):
     @api.onchange('date', 'job_id')
     def _compute_name(self):
         for record in self:
-            record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.date.strftime('%d-%B-%Y'))
+            record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
