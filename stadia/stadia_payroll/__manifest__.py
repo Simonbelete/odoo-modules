@@ -8,6 +8,8 @@
         'hr_attendance'
     ],
     'data': [
-        'data/hr_salary_rule_data.xml'
+        'data/hr_salary_rule_data.xml',
+        
+        'views/hr_contract_views.xml'
     ]
 }

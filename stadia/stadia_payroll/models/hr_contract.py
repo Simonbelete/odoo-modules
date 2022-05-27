@@ -4,4 +4,4 @@ class HrContract(models.Model):
     _inherit = 'hr.contract'
 
     # In days
-    perdime = fields.Float(default = 0)
+    perdime = fields.Monetary(default = 0)
