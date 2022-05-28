@@ -4,6 +4,7 @@
     'category': 'Stadia',
     'author': '',
     'depends': [
+        'hr',
         'om_account_asset'
     ],
     'data': [
