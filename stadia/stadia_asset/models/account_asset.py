@@ -15,6 +15,8 @@ class AccountAssetAsset(models.Model):
     asset_specification_ids = fields.Many2many('asset.specification')
     asset_location_id = fields.Many2one('asset.location', required=True)
     responsible_id = fields.Many2one('hr.employee', required=True)
+    # Employee that have the asset
+    employee_id = fields.Many2one('hr.employee')
 
     # Change precision
     method_progress_factor = fields.Float('Degressive Factor', default=0.3,  digits='Asset degressive')
