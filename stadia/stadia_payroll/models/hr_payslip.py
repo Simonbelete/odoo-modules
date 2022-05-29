@@ -77,7 +77,8 @@ class HrPayslip(models.Model):
             }
 
             res.append(attendances)
-            res.append(worked_attendances)
+            if(attendances_lists):
+                res.append(worked_attendances)
             res.append(perdime_worked_days)
             res.extend(leaves.values())
         return res
