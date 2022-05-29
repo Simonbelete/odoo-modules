@@ -12,10 +12,10 @@
 
         'data/decimal_precision_data.xml',
 
-        'views/asset_menus.xml',
         'views/account_asset_views.xml',
         'views/asset_specification_views.xml',
         'views/hr_employee_views.xml',
-        'views/asset_request_views.xml'
+        'views/asset_request_views.xml',
+        'views/asset_menus.xml'
     ]
 }
