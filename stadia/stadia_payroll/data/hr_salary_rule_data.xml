@@ -52,7 +52,7 @@
         <field name="sequence">7</field>
         <field name="code">PD</field>
         <field name="amount_select">code</field>
-        <field name="amount_python_compute">result=(contract.perdime * worked_days.PD.number_of_days) + (inputs.PD.amount if inputs.PD else 0)</field>
+        <field name="amount_python_compute">result=((contract.perdime * worked_days.PD.number_of_days) + (inputs.PD.amount if inputs.PD else 0) if inputs.PD else 0)</field>
     </record>
 
 </odoo>
