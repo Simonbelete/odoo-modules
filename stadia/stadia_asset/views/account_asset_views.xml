@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_asset_form"  model="ir.ui.view">
+        <field name="name">account.asset.asset</field>
+        <field name="model">account.asset.asset</field>
+        <field name="inherit_id" ref="om_account_asset.view_account_asset_asset_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='first_depreciation_manual_date']" position="after">
+                <field name="asset_location_id" string="Asset Location" />
+            </xpath>
+            <xpath expr="//field[@name='first_depreciation_manual_date']" position="after">
+                <field name="responsible_id" string="Responsible" />
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Specifications">
+                    <field name="asset_specification_ids" />
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='remaining_value']" position="after">
+                <field name="gross_value"/>
+             </xpath>
+             <xpath expr="//field[@name='gross_value']" position="after">
+                <field name="nvb"/>
+             </xpath>
+        </field>
+    </record>
+</odoo>
