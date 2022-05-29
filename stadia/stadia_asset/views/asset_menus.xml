@@ -3,6 +3,6 @@
     <menuitem id="asset_menu" name="Asset Management">
         <menuitem id="assets_menu" action="om_account_asset.action_account_asset_asset_form" />
         <menuitem id="asset_types" name="Asset Types" action="om_account_asset.action_account_asset_asset_list_normal_purchase" />
-        <menuitem id="request_asset" name="Request Asset" action="om_account_asset.action_account_asset_asset_list_normal_purchase" />
+        <menuitem id="request_asset" name="Request Asset" action="asset_request" />
     </menuitem>
 </odoo>
