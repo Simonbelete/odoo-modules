@@ -11,7 +11,6 @@
         'hr_attendance',
         'om_hr_payroll',
         'prt_report_attachment_preview',
-        'hr_organizational_chart',
         'om_account_asset'
     ],
     'data': [
