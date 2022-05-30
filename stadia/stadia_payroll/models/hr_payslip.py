@@ -52,6 +52,13 @@ class HrPayslip(models.Model):
                 'number_of_hours': work_data['hours'],
                 'contract_id': contract.id,
             }
+            worked_attendances = {
+                'name': 'Attendances Working Days',
+                'code': 'ATT',
+                'number_of_days': 0,
+                'number_of_hours': 0,
+                'contract_id': contract.id
+            }
 
             # Tab in Tab out attendace
             if attendances_lists:
@@ -77,8 +84,7 @@ class HrPayslip(models.Model):
             }
 
             res.append(attendances)
-            if(attendances_lists):
-                res.append(worked_attendances)
+            res.append(worked_attendances)
             res.append(perdime_worked_days)
             res.extend(leaves.values())
         return res
