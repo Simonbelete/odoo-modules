@@ -62,6 +62,12 @@
                     <notebook>
                         <page string="Recommendations">
                             <field name="application_ids" widget="one2many">
+                                <tree>
+                                    <field name="employee_id" />
+                                    <field name="name" />
+                                    <field name="partner_name" />
+                                    <field name="email_from" />
+                                </tree>
                             </field>
                         </page>
                     </notebook>
