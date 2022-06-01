@@ -8,8 +8,9 @@ class Acquisition(models.Model):
 
     title = fields.Char(compute="_compute_name")
     acquisition_date = fields.Date(default=datetime.now(), required=True)
-    requested_by = fields.Many2one('hr.employee') # default=lambda self: self.env.user)
-    job_id = fields.Many2one('hr.job')
+    requested_by = fields.Many2one('hr.employee', default=lambda self: self.env.user.employee_id.id)
+    job_id = fields.Many2one('hr.job', domain="[('department_id', '=', department_id)]")
+    department_id =  fields.Many2one(related="requested_by.department_id")
     state = fields.Selection([
         ('draft', 'Draft'),
         ('approved', 'Approved'),

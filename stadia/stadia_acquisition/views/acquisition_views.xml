@@ -54,9 +54,12 @@
                         <group>
                             <field name="title" string="Title" />
                             <field name="acquisition_date" string="Date" />
-                            <field name="requested_by" string="Requested By" />
-                            <field name="job_id" string="Job Position" />
+                            <field name="job_id" string="Job Position"/>
                             <field name="no_of_recruitment" string="Expected Employees" />	
+                        </group>
+                        <group>
+                            <field name="requested_by" string="Requested By" readonly="True"/>
+                            <field name="department_id" string="Department" readonly="True"/>
                         </group>
                     </group>
                     <notebook>
