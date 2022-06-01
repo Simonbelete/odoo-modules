@@ -10,7 +10,6 @@ class Acquisition(models.Model):
     acquisition_date = fields.Date(default=datetime.now(), required=True)
     requested_by = fields.Many2one('hr.employee') # default=lambda self: self.env.user)
     job_id = fields.Many2one('hr.job')
-    salary = fields.Float()
     state = fields.Selection([
         ('draft', 'Draft'),
         ('approved', 'Approved'),

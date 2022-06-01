@@ -6,21 +6,38 @@
         <field name="model">hr.applicant</field>
         <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form" />
         <field name="arch" type="xml">
+            <!-- <xpath expr="//button[@name='create_employee_from_applicant']" position="attributes">
+                <attribute name="attrs">{'invisible': [('application_type', '=', 'internal')]}</attribute>
+            </xpath> -->
+            <!-- <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath> -->
             <xpath expr="//field[@name='name']" position="after">
                 <h2 class="o_row">
                     <div>
                         <label for="employee_id" class="oe_edit_only"/>
-                        <field name="employee_id" string="Employee Internal Applicant" />
+                        <field name="employee_id" string="Employee Internal Applicant(for internal employees)" />
                     </div>
                 </h2>
             </xpath>
             <xpath expr="//field[@name='partner_name']" position="after">
-                <h2 class="o_row">
+                <h5 class="o_row">
                     <div>
-                        <label for="acquisition_id" class="oe_edit_only"/>
-                        <field name="acquisition_id" string="Acquistion" />
+                        <label for="recommended_by" class="oe_edit_only"/>
+                        <field name="recommended_by" string="Recommended By" />
                     </div>
-                </h2>
+                </h5>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="stadia_hr_applicant_view" model="ir.ui.view">
+        <field name="name">hr.applicant</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_kanban_view_applicant"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_kanban_content']" position="inside">
+                <field name="recommended_by" />
             </xpath>
         </field>
     </record>
