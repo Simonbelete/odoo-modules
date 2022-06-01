@@ -12,6 +12,7 @@ class HrApplicant(models.Model):
         ('internal', 'Internal'),
         ('external', 'External')
     ], default='external')
+    color = fields.Integer("Color Index", default=0)
 
     @api.onchange('partner_name')
     def onchange_applicants_name(self):
@@ -36,3 +37,13 @@ class HrApplicant(models.Model):
         self.name = '%s Application letter for %s position' %(self.employee_id.name, self.job_id.name)
         self.partner_name = self.employee_id.name
         self.email_from = self.employee_id.work_email
+        self.color = 1
+    
+    # @api.model
+    # def _compute_color(self):
+    #     # if(not self.employee_id):
+    #     #     return
+    #     for record in self:
+    #         print("))))))))))))))))))))))))))))))))))))))))))))))")
+    #         print("))))))))))))))))))))))))))))))))))))))))))))))")
+    #         record.color = 1

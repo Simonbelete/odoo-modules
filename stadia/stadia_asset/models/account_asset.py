@@ -1,3 +1,4 @@
+import calendar
 from odoo import fields, api, models
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools import float_compare, float_is_zero
