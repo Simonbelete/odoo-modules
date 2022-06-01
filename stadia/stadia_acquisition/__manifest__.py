@@ -8,6 +8,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
 
         'data/hr_department_data.xml',
         'data/hr_job_data.xml',
