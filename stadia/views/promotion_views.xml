@@ -11,7 +11,7 @@
         <field name="name">Employe Promotions</field>
         <field name="model">stadia.promotion</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="stage_id" sample="1">
+            <kanban default_group_by="stage_id">
                 <templates>
                     <t t-name="kanban-box">
                         <div>
