@@ -25,13 +25,10 @@ class Acquisition(models.Model):
     note = fields.Text()
     internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
     external_applicant_ids = fields.One2many('hr.applicant', 'acquisition_id')
-    # recommendation_ids = fields.One2many('stadia.acquisition.recommendation', 'acquisition_id')
-    # application_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
     def action_approve(self):
         """ Approve acquisition, start recruiting"""
         for record in self:
-            
             record.write({'state': 'approved'})
 
     def action_decline(self):
