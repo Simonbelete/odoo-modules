@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="promotion_stage_waiting" model="stadia.promotion.stage">
+        <field name="name">Waiting</field>
+    </record>
+
+</odoo>

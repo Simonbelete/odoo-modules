@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <menuitem id="promotion_menu" name="Promotion" action="promotion_hr_job_action" web_icon="stadia_acquisition,static/Acquisition.png"/>
+    <menuitem id="promotion_menu" 
+        name="Promotion" 
+        web_icon="stadia_acquisition,static/Acquisition.png">
+        <menuitem id="promotion_by_job"
+            name="By Job Positions"
+            action="promotion_hr_job_action" />
+        <menuitem id="promotion_all"
+            name="All Promotions"
+            action="promotion_hr_job_action" />
+        <menuitem id="promotion_config"
+            name="configuration">
+            <menuitem id="promotion_config_stage"
+                name="Stages"
+                action="action_promotion_stage" />
+        </menuitem>
+    </menuitem>
 
 </odoo>
