@@ -11,6 +11,7 @@
     ],
     'data': [
         'security/acquisition_security.xml',
+        'security/ir.model.access.csv',
         
         'data/ir_mail_server_data.xml',
         'data/res_user_data.xml',

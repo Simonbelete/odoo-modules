@@ -22,8 +22,8 @@ class Acquisition(models.Model):
         "declined - GM have not approved the acquisition")
     decline_reason = fields.Char()
     no_of_recruitment = fields.Integer(default=1)
-    recommendation_ids = fields.One2many('stadia.acquisition.recommendation', 'acquisition_id')
-    application_ids = fields.One2many('hr.applicant', 'acquisition_id')
+    # recommendation_ids = fields.One2many('stadia.acquisition.recommendation', 'acquisition_id')
+    # application_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
     def action_approve(self):
         """ Approve acquisition, start recruiting"""

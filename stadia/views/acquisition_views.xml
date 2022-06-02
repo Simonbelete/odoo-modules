@@ -3,15 +3,15 @@
 
     <record id="acquisition_action" model="ir.actions.act_window">
         <field name="name">Acquisition</field>
-        <field name="res_model">stadia.acquisition.acquisition</field>
+        <field name="res_model">stadia.acquisition</field>
         <field name="view_mode">tree,kanban,form</field>
         <field name="context">{'search_default_state': 1}</field>
     </record>
 
     <!-- Search -->
     <record id="acquisition_search" model="ir.ui.view">
-        <field name="name">stadia.acquisition.acquisitRequestedion</field>
-        <field name="model">stadia.acquisition.acquisition</field>
+        <field name="name">stadia.acquisition</field>
+        <field name="model">stadia.acquisition</field>
         <field name="arch" type="xml">
             <search>
                 <group expand="0">
@@ -62,7 +62,7 @@
                             <field name="no_of_recruitment" string="Expected Employees" />	
                         </group>
                     </group>
-                    <notebook>
+                    <!-- <notebook>
                         <page string="Recommendations">
                             <field name="application_ids" widget="one2many">
                                 <tree>
@@ -74,7 +74,7 @@
                                 </tree>
                             </field>
                         </page>
-                    </notebook>
+                    </notebook> -->
                 </sheet>
             </form>
         </field>
