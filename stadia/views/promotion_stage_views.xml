@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="action_promotion_stage" model="ir.actions.act_window">
-        <field name="name">Promotions</field>
+        <field name="name">Promotions Stages</field>
         <field name="res_model">stadia.promotion.stage</field>
         <field name="view_mode">tree,form</field>
     </record>
