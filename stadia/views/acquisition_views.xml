@@ -47,6 +47,7 @@
                 <header>
                     <button name="action_approve" string="Approve" type="object" class="oe_highlight" />
                     <button name="action_decline" string="Decluser_idine" type="object" />
+                    <button name="action_done" string="Done" type="object" class="oe_highlight" />
                     <field name="state" widget="statusbar" statusbar_visible="draft,approved,declined,done"/>
                 </header>
                 <sheet>

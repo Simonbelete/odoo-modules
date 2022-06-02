@@ -33,6 +33,8 @@
                 <field name="department_id" />
                 <field name="acquisition_id" />
                 <field name="recommended_by" />
+                <field name="job_id" string="Previous Designation"/>
+                <field name="new_designation_job_id" string="New Designation job" />
             </tree>
         </field>
     </record>
@@ -71,6 +73,7 @@
                         <group>
                             <field name="acquisition_id" />
                             <field name="recommended_by" />
+                            <field name="new_designation_job_id" string="New Designation job" />
                         </group>
                     </group>
                 </sheet>

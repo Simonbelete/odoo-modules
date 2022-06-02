@@ -46,6 +46,12 @@ class Acquisition(models.Model):
         for record in self:
             record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
 
-
     def action_done(self):
         """ Move all (internal/external) applicants to refused state """
+        for ea in self.external_applicant_ids:
+            ea.write({'active': False})
+
+        for ia in self.internal_applicant_ids:
+            ia.write({'active': False})
+
+        self.write({'state': 'done'})
