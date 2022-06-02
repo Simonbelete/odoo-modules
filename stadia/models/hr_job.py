@@ -7,8 +7,6 @@ class Job(models.Model):
 
     def _compute_promotion_count(self):
         stage = self.env['stadia.promotion.stage'].search([('name', '!=', 'Waiting')])
-        # print('1111111111111111111111111111111111')
-        # print(stage.ids)
         
         promotions = 0
         if(stage.ids):

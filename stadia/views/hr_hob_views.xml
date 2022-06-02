@@ -46,22 +46,13 @@
                                 </div>
                             </div>
                             <div class="container o_kanban_card_content">
-                                <t t-if="record.state.raw_value == 'recruit'">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button class="btn btn-primary" name="%(action_promotion)d" type="action">
-                                                <field name="promotion_count"/> Promotions
-                                            </button>
-                                        </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" name="%(action_promotion)d" type="action">
+                                            <field name="promotion_count"/> Promotions
+                                        </button>
                                     </div>
-                                </t>
-                                <t t-if="record.state.raw_value == 'open'">
-                                    <div class="row">
-                                        <div class="col-12 o_kanban_primary_left">
-                                            <button class="btn btn-secondary" name="set_recruit" type="object">Start Recruitment</button>
-                                        </div>
-                                    </div>
-                                </t>
+                                </div>
                             </div>
                             <div class="o_hr_job_boxes">
                                 <a class="o_hr_job_box" name="%(action_promotion)d" type="action"/>
