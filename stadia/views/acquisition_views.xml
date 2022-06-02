@@ -3,15 +3,15 @@
 
     <record id="acquisition_action" model="ir.actions.act_window">
         <field name="name">Acquisition</field>
-        <field name="res_model">stadia.acquisition.acquisition</field>
+        <field name="res_model">stadia.acquisition</field>
         <field name="view_mode">tree,kanban,form</field>
         <field name="context">{'search_default_state': 1}</field>
     </record>
 
     <!-- Search -->
     <record id="acquisition_search" model="ir.ui.view">
-        <field name="name">stadia.acquisition.acquisitRequestedion</field>
-        <field name="model">stadia.acquisition.acquisition</field>
+        <field name="name">stadia.acquisition</field>
+        <field name="model">stadia.acquisition</field>
         <field name="arch" type="xml">
             <search>
                 <group expand="0">
@@ -27,7 +27,7 @@
     <!-- Tree View -->
     <record id="acquisition_tree" model="ir.ui.view">
         <field name="name">Acquisition</field>
-        <field name="model">stadia.acquisition.acquisition</field>
+        <field name="model">stadia.acquisition</field>
         <field name="arch" type="xml"> 
             <tree>
                 <field name="title" string="Title"/>
@@ -41,25 +41,32 @@
     <!-- Form -->
     <record id="acquisition_form" model="ir.ui.view">
         <field name="name">Acquisition</field>
-        <field name="model">stadia.acquisition.acquisition</field>
+        <field name="model">stadia.acquisition</field>
         <field name="arch" type="xml">
             <form>
                 <header>
                     <button name="action_approve" string="Approve" type="object" class="oe_highlight" />
                     <button name="action_decline" string="Decline" type="object" />
-                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,declined,done"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,declined"/>
                 </header>
                 <sheet>
                     <group>
                         <group>
                             <field name="title" string="Title" />
                             <field name="acquisition_date" string="Date" />
-                            <field name="requested_by" string="Requested By" />
-                            <field name="job_id" string="Job Position" />
+                            <field name="job_id" string="Job Position"/>
+                        </group>
+                        <group>
+                            <field name="requested_by" string="Requested By" readonly="True"/>
+                            <field name="department_id" string="Department" readonly="True"/>
                             <field name="no_of_recruitment" string="Expected Employees" />	
                         </group>
                     </group>
-                    <notebook>
+                    <group>
+                        <field name="note" string="Note" />
+                        <field name="decline_reason" string="Decline Note" group="group_acquisition_gm"/>
+                    </group>
+                    <!-- <notebook>
                         <page string="Recommendations">
                             <field name="application_ids" widget="one2many">
                                 <tree>
@@ -71,7 +78,7 @@
                                 </tree>
                             </field>
                         </page>
-                    </notebook>
+                    </notebook> -->
                 </sheet>
             </form>
         </field>

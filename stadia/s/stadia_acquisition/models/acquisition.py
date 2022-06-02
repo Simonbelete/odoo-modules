@@ -8,8 +8,9 @@ class Acquisition(models.Model):
 
     title = fields.Char(compute="_compute_name")
     acquisition_date = fields.Date(default=datetime.now(), required=True)
-    requested_by = fields.Many2one('hr.employee') # default=lambda self: self.env.user)
-    job_id = fields.Many2one('hr.job')
+    requested_by = fields.Many2one('hr.employee', default=lambda self: self.env.user.employee_id.id)
+    job_id = fields.Many2one('hr.job', domain="[('department_id', '=', department_id)]")
+    department_id =  fields.Many2one(related="requested_by.department_id")
     state = fields.Selection([
         ('draft', 'Draft'),
         ('approved', 'Approved'),
@@ -24,12 +25,6 @@ class Acquisition(models.Model):
     recommendation_ids = fields.One2many('stadia.acquisition.recommendation', 'acquisition_id')
     application_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
-    ## Below fields are for recommendation cv/employee
-    #recommended_employee_id = fields.Many2one('hr.employee')
-    #recommended_employee_salary = fields.Float()
-    #recommended_employee_allowance = fields.Float()
-    #recommended_effective_date = fields.Date()
-
     def action_approve(self):
         """ Approve acquisition, start recruiting"""
         for record in self:
@@ -43,5 +38,7 @@ class Acquisition(models.Model):
 
     @api.onchange('date', 'job_id')
     def _compute_name(self):
+        if(not self.job_id):
+            return
         for record in self:
             record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))

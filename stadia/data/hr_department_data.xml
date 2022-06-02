@@ -17,8 +17,8 @@
         <field name="name">Laboratory</field>
     </record>
 
-    <record id="hr_departmentdata_admin_and_finance" model="hr.department">
-        <field name="name">Admin and finance</field>
+    <record id="stadia_hr_department_admin_and_finance" model="hr.department">
+        <field name="name">Administration and Finance</field>
     </record>
 
 </odoo>

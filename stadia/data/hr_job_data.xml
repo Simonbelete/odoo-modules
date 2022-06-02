@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- <record id="hr_job_data_gm" model="hr.job">
+        <field name="name">General Manager</field>
+    </record>
+
+    <record id="hr_job_data_rcmd" model="hr.job">
+        <field name="name">Subversion (RCMD)</field>
+    </record>
+
+    <record id="hr_job_data_design" model="hr.job">
+        <field name="name">Design</field>
+    </record>
+
+    <record id="hr_job_data_laboratory" model="hr.job">
+        <field name="name">Laboratory</field>
+    </record>
+
+    <record id="hr_job_data_admin_and_finance" model="hr.job">
+        <field name="name">Admin and finance</field>
+    </record> -->
+
+    <record id="stadia_hr_job_store_keeper" model="hr.job">
+        <field name="name">Store keeper</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance" />
+    </record> 
+
+    <record id="stadia_hr_job_accountant" model="hr.job">
+        <field name="name">Accountant</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance" />
+    </record> 
+
+    <record id="stadia_hr_job_custodian" model="hr.job">
+        <field name="name">Custodian</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance" />
+    </record> 
+
+    <record id="stadia_hr_job_human_resources" model="hr.job">
+        <field name="name">Human Resources</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance" />
+    </record> 
+
+    <record id="stadia_hr_job_secretary" model="hr.job">
+        <field name="name">Administration and Finance Secretary</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance" />
+    </record> 
+
+</odoo>

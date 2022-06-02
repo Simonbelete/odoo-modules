@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="promotion_hr_job_action" model="ir.actions.act_window">
+        <field name="name">Employee Promotion</field>
+        <field name="res_model">hr.job</field>
+        <field name="view_mode">kanban</field>
+    </record>
+
+    <record id="promotion_hr_job_view" model="ir.ui.view">
+        <field name="name">Employee Promotion</field>
+        <field name="model">hr.job</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban" on_create="hr_recruitment.create_job_simple" sample="1">
+                <field name="name"/>
+                <field name="alias_name"/>
+                <field name="alias_domain"/>
+                <field name="is_favorite"/>
+                <field name="department_id"/>
+                <field name="no_of_recruitment"/>
+                <field name="color"/>
+                <field name="new_application_count"/>
+                <field name="no_of_hired_employee"/>
+                <field name="promotion_count"/>
+                <field name="manager_id"/>
+                <field name="state"/>
+                <field name="user_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{!selection_mode ? kanban_color(record.color.raw_value) : ''}">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary col-12">
+                                        <span><t t-esc="record.name.value"/></span>
+                                    </div>
+                                    <div class="o_kanban_record_subtitle col-12 text-muted">
+                                        <field name="user_id" />
+                                    </div>
+                                    <field name="is_favorite" widget="boolean_favorite" nolabel="1"/>
+                                    <div t-if="record.alias_name.value and record.alias_domain.value and record.state.raw_value == 'recruit'" class="o_secondary o_job_alias">
+                                        <small> <i class="fa fa-envelope-o" role="img" aria-label="Alias" title="Alias"></i> <field name="alias_id"/> </small>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#"><i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/></a>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" name="%(action_promotion)d" type="action">
+                                            <field name="promotion_count"/> Promotions
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_hr_job_boxes">
+                                <a class="o_hr_job_box" name="%(action_promotion)d" type="action"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+</odoo>
