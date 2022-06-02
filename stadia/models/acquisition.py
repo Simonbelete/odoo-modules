@@ -15,6 +15,7 @@ class Acquisition(models.Model):
         ('draft', 'Draft'),
         ('approved', 'Approved'),
         ('declined', 'Declined'),
+        ('done', 'Done')
     ], default='draft', 
     help="draft - when the acquisition is created"
         "approved - approved by general manager i.e start recruiting"
@@ -22,6 +23,8 @@ class Acquisition(models.Model):
     decline_reason = fields.Text()
     no_of_recruitment = fields.Integer(default=1)
     note = fields.Text()
+    internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
+    external_applicant_ids = fields.One2many('hr.applicant', 'acquisition_id')
     # recommendation_ids = fields.One2many('stadia.acquisition.recommendation', 'acquisition_id')
     # application_ids = fields.One2many('hr.applicant', 'acquisition_id')
 

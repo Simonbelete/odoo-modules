@@ -25,6 +25,7 @@
         'views/promotion_views.xml',
         'views/promotion_stage_views.xml',
         'views/hr_hob_views.xml',
+        'views/hr_applicant_views.xml',
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml'
     ]

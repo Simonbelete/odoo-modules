@@ -46,8 +46,8 @@
             <form>
                 <header>
                     <button name="action_approve" string="Approve" type="object" class="oe_highlight" />
-                    <button name="action_decline" string="Decline" type="object" />
-                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,declined"/>
+                    <button name="action_decline" string="Decluser_idine" type="object" />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,declined,done"/>
                 </header>
                 <sheet>
                     <group>
@@ -66,19 +66,21 @@
                         <field name="note" string="Note" />
                         <field name="decline_reason" string="Decline Note" group="group_acquisition_gm"/>
                     </group>
-                    <!-- <notebook>
-                        <page string="Recommendations">
-                            <field name="application_ids" widget="one2many">
+                    <notebook>
+                        <page string="Internal Applicants">
+                            <field name="internal_applicant_ids" />
+                        </page>
+                        <page string="External Applicants">
+                            <field name="external_applicant_ids" widget="many2many">
                                 <tree>
-                                    <field name="employee_id" />
+                                    <field name="recommended_by" />
                                     <field name="name" />
                                     <field name="partner_name" />
                                     <field name="email_from" />
-                                    <field name="recommended_by" />
                                 </tree>
                             </field>
                         </page>
-                    </notebook> -->
+                    </notebook>
                 </sheet>
             </form>
         </field>
