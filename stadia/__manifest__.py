@@ -19,6 +19,7 @@
         'data/hr_job_data.xml',
 
         'views/acquisition_views.xml',
-        'views/acquisition_menus.xml'
+        'views/acquisition_menus.xml',
+        'views/hr_employee_views.xml'
     ]
 }
