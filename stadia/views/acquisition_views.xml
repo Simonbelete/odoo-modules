@@ -5,7 +5,7 @@
         <field name="name">Acquisition</field>
         <field name="res_model">stadia.acquisition</field>
         <field name="view_mode">tree,kanban,form</field>
-        <field name="context">{'search_default_state': 1}</field>
+        <!-- <field name="context">{'search_default_state': 1}</field> -->
     </record>
 
     <!-- Search -->
@@ -14,9 +14,9 @@
         <field name="model">stadia.acquisition</field>
         <field name="arch" type="xml">
             <search>
-                <group expand="0">
+                <!-- <group expand="0">
                     <filter name="state" domain="[('state', '=', 'draft')]" />
-                </group>
+                </group> -->
                 <searchpanel>
                     <field name="state" string="Status"/>
                 </searchpanel>
