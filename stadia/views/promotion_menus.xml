@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="promotion_menu" name="Promotion" action="promotion_hr_job_action" web_icon="stadia_acquisition,static/Acquisition.png"/>
+
+</odoo>

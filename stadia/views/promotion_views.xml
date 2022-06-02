@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_promotion" model="ir.actions.act_window">
+        <field name="name">Promotions</field>
+        <field name="res_model">stadia.promotion</field>
+        <field name="view_mode">kanban,form</field>
+    </record>
+
+</odoo>
