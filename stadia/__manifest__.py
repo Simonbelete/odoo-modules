@@ -7,7 +7,8 @@
     'depends': [
         'base',
         'hr',
-        'hr_recruitment'
+        'hr_recruitment',
+        'hr_contract'
     ],
     'data': [
         'security/acquisition_security.xml',
