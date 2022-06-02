@@ -15,13 +15,13 @@ class Acquisition(models.Model):
         ('draft', 'Draft'),
         ('approved', 'Approved'),
         ('declined', 'Declined'),
-        ('done', 'Done'),
     ], default='draft', 
     help="draft - when the acquisition is created"
         "approved - approved by general manager i.e start recruiting"
         "declined - GM have not approved the acquisition")
-    decline_reason = fields.Char()
+    decline_reason = fields.Text()
     no_of_recruitment = fields.Integer(default=1)
+    note = fields.Text()
     # recommendation_ids = fields.One2many('stadia.acquisition.recommendation', 'acquisition_id')
     # application_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
