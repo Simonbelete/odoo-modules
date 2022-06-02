@@ -7,4 +7,20 @@
         <field name="view_mode">kanban,form</field>
     </record>
 
+    <record id="promotion_kanban_view" model="ir.ui.view">
+        <field name="name">Employe Promotions</field>
+        <field name="model">stadia.promotion</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_id">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div>
+                            <field name="employee_id" />
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
 </odoo>

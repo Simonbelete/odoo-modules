@@ -5,3 +5,4 @@ class Promotion(models.Model):
     _name = 'stadia.promotion'
 
     employee_id = fields.Many2one('hr.employee')
+    stage_id = fields.Many2one('stadia.promotion.stage')
