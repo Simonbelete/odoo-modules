@@ -5,4 +5,4 @@ class HrApplicant(models.Model):
     _inherit = 'hr.applicant'
 
     recommended_by = fields.Many2one('hr.employee')
-    acquisition_id = fields.Many2one('stadia.acquisition', domain="[('state', '=', 'approved')]", required=True)
+    acquisition_id = fields.Many2one('stadia.acquisition', domain="[('state', '=', 'approved'), ('job_id', '=', job_id)]", required=True)
