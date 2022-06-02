@@ -4,14 +4,18 @@
     <menuitem id="promotion_menu" 
         name="Promotion" 
         web_icon="stadia_acquisition,static/Acquisition.png">
-        <menuitem id="promotion_by_job"
-            name="By Job Positions"
-            action="promotion_hr_job_action" />
-        <menuitem id="promotion_all"
-            name="All Promotions"
-            action="promotion_hr_job_action" />
+        <menuitem id="Applications" sequence="1">
+            <menuitem id="promotion_by_job"
+                name="By Job Positions"
+                action="promotion_hr_job_action" />
+            <menuitem id="promotion_all"
+                name="All Promotions"
+                action="action_promotion_non_filter" />
+        </menuitem>
+        
         <menuitem id="promotion_config"
-            name="configuration">
+            name="Configuration"
+            sequence="2">
             <menuitem id="promotion_config_stage"
                 name="Stages"
                 action="action_promotion_stage" />

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="action_promotion_non_filter" model="ir.actions.act_window">
+        <field name="name">Promotions</field>
+        <field name="res_model">stadia.promotion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
     <record id="action_promotion" model="ir.actions.act_window">
         <field name="name">Promotions</field>
@@ -18,9 +23,22 @@
         </field>
     </record>
 
+    <!-- Tree View -->
+    <record id="promotion_tree_view" model="ir.ui.view">
+        <field name="name">Employee Promotions</field>
+        <field name="model">stadia.promotion</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" />
+                <field name="department_id" />
+                <field name="acquisition_id" />
+                <field name="recommended_by" />
+            </tree>
+        </field>
+    </record>
 
     <record id="promotion_kanban_view" model="ir.ui.view">
-        <field name="name">Employe Promotions</field>
+        <field name="name">Employee Promotions</field>
         <field name="model">stadia.promotion</field>
         <field name="arch" type="xml">
             <kanban default_group_by="stage_id">
@@ -51,6 +69,8 @@
                             <field name="job_id" />
                         </group>
                         <group>
+                            <field name="acquisition_id" />
+                            <field name="recommended_by" />
                         </group>
                     </group>
                 </sheet>

@@ -45,3 +45,7 @@ class Acquisition(models.Model):
             return
         for record in self:
             record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
+
+
+    def action_done(self):
+        """ Move all (internal/external) applicants to refused state """

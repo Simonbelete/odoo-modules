@@ -68,7 +68,12 @@
                     </group>
                     <notebook>
                         <page string="Internal Applicants">
-                            <field name="internal_applicant_ids" />
+                            <field name="internal_applicant_ids">
+                                <tree>
+                                    <field name="recommended_by" string="Recommended By"/>
+                                    <field name="employee_id" />
+                                </tree>
+                            </field>
                         </page>
                         <page string="External Applicants">
                             <field name="external_applicant_ids" widget="many2many">
