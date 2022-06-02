@@ -21,6 +21,7 @@
                 <field name="color"/>
                 <field name="new_application_count"/>
                 <field name="no_of_hired_employee"/>
+                <field name="promotion_count"/>
                 <field name="manager_id"/>
                 <field name="state"/>
                 <field name="user_id"/>
@@ -49,7 +50,7 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <button class="btn btn-primary" name="%(action_promotion)d" type="action">
-                                                <field name="application_count"/> Promotions
+                                                <field name="promotion_count"/> Promotions
                                             </button>
                                         </div>
                                     </div>
