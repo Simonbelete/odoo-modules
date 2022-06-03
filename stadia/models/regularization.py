@@ -33,8 +33,6 @@ class Regularization(models.Model):
         start_date = self.from_date
         while start_date <= self.to_date:
             current_date = datetime.combine(start_date, datetime.min.time())
-            print('--------------------------------')
-            print(current_date)
             self.env['hr.attendance'].sudo().create({
                 'check_in': datetime.combine(current_date, datetime.min.time()),
                 'check_out': datetime.combine(current_date, datetime.min.time()) + timedelta(hours=8),
