@@ -8,7 +8,8 @@
         'base',
         'hr',
         'hr_recruitment',
-        'hr_contract'
+        'hr_contract',
+        'hr_attendance'
     ],
     'data': [
         'security/acquisition_security.xml',
