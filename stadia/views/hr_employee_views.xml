@@ -5,7 +5,7 @@
         <field name="name">hr.employee</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form" />
-        <field name="arch" type="xml">
+        <field name="arch" type="xml" xml:space="preserve">
             <xpath expr="//header" position="inside">
                 <button string="Create User" class="oe_highlight" type="object" name="action_create_user" attrs="{'invisible': [('user_id', '!=', False)]}" />
             </xpath>
@@ -18,12 +18,12 @@
             <xpath expr="//field[@name='category_ids']" position="after">
                 <group>
                     <field name="title" string="Title"/>
-                </group>
-            </xpath>
-            <xpath expr="//field[@name='category_ids']" position="after">
-                <group>
                     <field name="sex" string="Sex"/>
                 </group>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="title" readonly="True"/> 
+                <span>.</span>
             </xpath>
         </field>
     </record>
