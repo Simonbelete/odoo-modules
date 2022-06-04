@@ -22,6 +22,7 @@
         'data/promotion_data.xml',
 
         'report/hr_employee_badge.xml',
+        'report/hr_contract_employee_badge.xml',
 
         'views/acquisition_views.xml',
         'views/hr_employee_views.xml',

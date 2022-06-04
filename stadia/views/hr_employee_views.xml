@@ -5,7 +5,7 @@
         <field name="name">hr.employee</field>
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form" />
-        <field name="arch" type="xml" xml:space="preserve">
+        <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
                 <button string="Create User" class="oe_highlight" type="object" name="action_create_user" attrs="{'invisible': [('user_id', '!=', False)]}" />
             </xpath>
