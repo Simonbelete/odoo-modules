@@ -15,6 +15,16 @@
             <xpath expr="//field[@name='job_id']" position="attributes">
                 <attribute name="required">True</attribute>
             </xpath>
+            <xpath expr="//field[@name='category_ids']" position="after">
+                <group>
+                    <field name="title" string="Title"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='category_ids']" position="after">
+                <group>
+                    <field name="sex" string="Sex"/>
+                </group>
+            </xpath>
         </field>
     </record>
 

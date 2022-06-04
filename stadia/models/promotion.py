@@ -14,7 +14,7 @@ class Promotion(models.Model):
     acquisition_id = fields.Many2one('stadia.acquisition', domain="[('state', '=', 'approved')]")
     recommended_by = fields.Many2one('hr.employee')
     new_designation_job_id = fields.Many2one('hr.job', required=True)
-    active = fields.Boolean(default=False)
+    active = fields.Boolean(default=True)
 
     @api.model
     def _read_group_state_ids(self, stages, domain, order):

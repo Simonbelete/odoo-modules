@@ -92,7 +92,7 @@
                         </page>
                         <page string="External Applicants">
                             <field name="external_applicant_ids" widget="many2many">
-                                <tree default_order="stage_id.sequence">
+                                <tree >
                                     <field name="recommended_by" />
                                     <field name="name" />
                                     <field name="partner_name" />
