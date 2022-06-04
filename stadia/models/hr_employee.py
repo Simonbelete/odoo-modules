@@ -12,6 +12,7 @@ class HrEmployee(models.Model):
         ('m', 'Male'),
         ('f', 'female')
     ], required=True)
+    promotion_count = fields.Integer(compute="_compute_promotion_count", default=0)
 
     def action_create_user(self):
         """ Check the employee job position and create user base on that"""
