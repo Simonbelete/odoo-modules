@@ -31,6 +31,8 @@
         'views/hr_hob_views.xml',
         'views/hr_applicant_views.xml',
         'views/regularization_views.xml',
+        'views/hr_contract_views.xml',
+        'views/hr_contract_views.xml',
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
         'views/regularization_menus.xml'

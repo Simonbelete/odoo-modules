@@ -6,3 +6,4 @@ from . import hr_employee
 from . import hr_applicant
 from . import hr_attendance
 from . import regularization
+from . import hr_contract

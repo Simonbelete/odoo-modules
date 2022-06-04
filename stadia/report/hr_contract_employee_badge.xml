@@ -80,46 +80,53 @@
                 }
                     
                 </style>
-            <div class="badge_box">
-                <div class="badge_title">
-                    <img src="http://stadiaconsultancy.com/images/about/aboutlogo.jpg" class="badge_img" />
-                    <div>
-                        <h5 class="badge_name">STADIA Engineering Works Consultant PLC</h5>
-                        <h5 class="badge_title_id">Staff ID Card</h5>
+            <t t-foreach="docs" t-as="employee_contract">   
+                <div class="badge_box">
+                    <div class="badge_title">
+                        <img src="http://stadiaconsultancy.com/images/about/aboutlogo.jpg" class="badge_img" />
+                        <div>
+                            <h5 class="badge_name">STADIA Engineering Works Consultant PLC</h5>
+                            <h5 class="badge_title_id">Staff ID Card</h5>
+                        </div>
+                    </div>
+                    <div class="badge_detail">
+                        <h5>ID No: STAD/SID/HO/019/21</h5>
+                        <h5>Name: 
+                            <span class="underline">
+                                <t t-esc="employee_contract.employee_id.title " />
+                                <t t-esc="employee_contract.employee_id.name" />
+                            </span>
+                        </h5>
+                        <h5>Sex: <span class="underline"><t t-esc="employee_contract.employee_id.sex " /></span></h5>
+                        <h5>Project Name: <span class="underline"><t t-esc="employee_contract.project_id.name " /></span></h5>
+                        <h5>Position:: <span class="underline"><t t-esc="employee_contract.job_id.name" /></span></h5>
+                        <h5>Office Address: Wuhalemat NB Business Center Building
+                9th Floor Bole K/Ketema Woreda 04 House No. 901</h5>
+                        <h5>Phone No: +251-11-861-06-31/011-6-67-22-35</h5>
                     </div>
                 </div>
-                <div class="badge_detail">
-                    <h5>ID No: STAD/SID/HO/019/21</h5>
-                    <h5>Name: <span class="underline">W/rt Hera Negussu</span></h5>
-                    <h5>Sex: <span class="underline">Female</span></h5>
-                    <h5>Project Name: <span class="underline">Jijiga Tuli</span></h5>
-                    <h5>Position:: <span class="underline">Assistant Resident Engineer</span></h5>
-                    <h5>Office Address: Wuhalemat NB Business Center Building
-            9th Floor Bole K/Ketema Woreda 04 House No. 901</h5>
-                    <h5>Phone No: +251-11-861-06-31/011-6-67-22-35</h5>
-                </div>
-            </div>
-            
-            <div class="badge_page_2">
-                <h5>Address. Sub City Yeaka Woreda -. H. No. 430</h5>
-                <h5>Tel: 09-12-02-76-34</h5>
-                <h5>We certify that the bearer of this ID Card is an employee of</h5>
-                <h5>STADIA Engineering Works Consultant PLC.</h5>
-                <div class="badge_sig">
-                    <h5>Auth. Rep. Sig.</h5>
-                    <div class="sig_line"></div>
-                </div>
-                <div class="badge_issued">
-                    <div>
-                        <h5>Date Issued</h5>
-                        <h5>27/01/2021</h5>
+                
+                <div class="badge_page_2">
+                    <h5>Address. Sub City Yeaka Woreda -. H. No. 430</h5>
+                    <h5>Tel: <t t-esc="employee_contract.employee_id.phone" /></h5>
+                    <h5>We certify that the bearer of this ID Card is an employee of</h5>
+                    <h5>STADIA Engineering Works Consultant PLC.</h5>
+                    <div class="badge_sig">
+                        <h5>Auth. Rep. Sig.</h5>
+                        <div class="sig_line"></div>
                     </div>
-                    <div>
-                        <h5>Expiry Date</h5>
-                        <h5>27/01/2021</h5>
+                    <div class="badge_issued">
+                        <div>
+                            <h5>Date Issued</h5>
+                            <h5>27/01/2021</h5>
+                        </div>
+                        <div>
+                            <h5>Expiry Date</h5>
+                            <h5>27/01/2021</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </t>
         </t>
     </template>
 
