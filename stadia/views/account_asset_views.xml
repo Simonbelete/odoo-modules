@@ -21,6 +21,15 @@
             <xpath expr="//field[@name='prorata']" position="attributes">
                 <attribute name="string">Depreciation by purchase date</attribute>
             </xpath>
+            <xpath expr="//field[@name='code']" position="attributes">
+                <attribute name="string">Code</attribute>
+            </xpath>
+            <xpath expr="//button[@name='open_entries']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
         </field>
     </record>
 </odoo>
