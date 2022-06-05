@@ -9,7 +9,7 @@ class AccountAssetAsset(models.Model):
 
     def _compute_asset_movement_count(self):
         count = 0
-        # for am in self.asset_movement_ids:
-        #    if(am.state == 'approved'):
-        #        count = count + 1
+        for am in self.asset_movement_ids:
+           if(am.state == 'approved'):
+               count = count + 1
         self.asset_movement_count = count
