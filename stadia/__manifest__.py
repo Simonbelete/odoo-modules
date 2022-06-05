@@ -9,7 +9,8 @@
         'hr',
         'hr_recruitment',
         'hr_contract',
-        'hr_attendance'
+        'hr_attendance',
+        'om_account_asset'
     ],
     'data': [
         'security/acquisition_security.xml',
@@ -33,8 +34,11 @@
         'views/regularization_views.xml',
         'views/hr_contract_views.xml',
         'views/hr_contract_views.xml',
+        'views/asset_movement_views.xml',
+        'views/account_asset_views.xml',
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
-        'views/regularization_menus.xml'
+        'views/regularization_menus.xml',
+        'views/asset_menus.xml'
     ]
 }

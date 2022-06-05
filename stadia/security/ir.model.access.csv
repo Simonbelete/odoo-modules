@@ -5,3 +5,4 @@ access_stadia_promotion,access_stadia_promotion,model_stadia_promotion,base.grou
 access_stadia_promotion_stage,access_stadia_promotion_stage,model_stadia_promotion_stage,base.group_user,1,1,1,1
 access_stadia_attendance,access_stadia_attendance,model_stadia_attendance,base.group_user,1,1,1,1
 access_stadia_attendance_category,access_stadia_attendance_category,model_stadia_attendance_category,base.group_user,1,1,1,1
+access_asset_movement,access_asset_movement,model_asset_movement,base.group_user,1,1,1,1
