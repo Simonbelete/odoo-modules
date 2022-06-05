@@ -18,6 +18,9 @@
                     </group>
                 </page>
             </xpath>
+            <xpath expr="//field[@name='prorata']" position="attributes">
+                <attribute name="string">Depreciation by purchase date</attribute>
+            </xpath>
         </field>
     </record>
 </odoo>
