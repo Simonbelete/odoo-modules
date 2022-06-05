@@ -6,11 +6,29 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button string="Create User" class="oe_highlight" type="object" name="action_create_user" attrs="{'invisible': [('user_id', '!=', False)]}" />
+            </xpath>
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button class="oe_stat_button" icon="fa-trophy" type="action" name="%(action_promotion)d">
+                    <field name="promotion_count" string="Employee Promotion" widget="statinfo" />
+                </button>
+            </xpath>
             <xpath expr="//field[@name='department_id']" position="attributes">
                 <attribute name="required">True</attribute>
             </xpath>
             <xpath expr="//field[@name='job_id']" position="attributes">
                 <attribute name="required">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='category_ids']" position="after">
+                <group>
+                    <field name="title" string="Title"/>
+                    <field name="sex" string="Sex"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="title" readonly="True"/> 
+                <span>.</span>
             </xpath>
         </field>
     </record>

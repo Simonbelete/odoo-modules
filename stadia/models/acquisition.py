@@ -15,6 +15,7 @@ class Acquisition(models.Model):
         ('draft', 'Draft'),
         ('approved', 'Approved'),
         ('declined', 'Declined'),
+        ('done', 'Done')
     ], default='draft', 
     help="draft - when the acquisition is created"
         "approved - approved by general manager i.e start recruiting"
@@ -22,13 +23,12 @@ class Acquisition(models.Model):
     decline_reason = fields.Text()
     no_of_recruitment = fields.Integer(default=1)
     note = fields.Text()
-    # recommendation_ids = fields.One2many('stadia.acquisition.recommendation', 'acquisition_id')
-    # application_ids = fields.One2many('hr.applicant', 'acquisition_id')
+    internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
+    external_applicant_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
     def action_approve(self):
         """ Approve acquisition, start recruiting"""
         for record in self:
-            
             record.write({'state': 'approved'})
 
     def action_decline(self):
@@ -42,3 +42,13 @@ class Acquisition(models.Model):
             return
         for record in self:
             record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
+
+    def action_done(self):
+        """ Move all (internal/external) applicants to refused state """
+        for ea in self.external_applicant_ids:
+            ea.write({'active': False})
+
+        for ia in self.internal_applicant_ids:
+            ia.write({'active': False})
+
+        self.write({'state': 'done'})
