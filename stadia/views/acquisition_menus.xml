@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <menuitem id="acquisition_menu" name="Acquistion" action="acquisition_action" web_icon="stadia_acquisition,static/Acquisition.png"/>
+    <menuitem id="acquisition_menu" name="Acquistion" action="acquisition_action" web_icon="stadia,static/Acquisition.png"/>
 
 </odoo>

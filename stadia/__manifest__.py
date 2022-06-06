@@ -12,7 +12,11 @@
         'hr_attendance',
         'om_account_asset',
         'hr_payroll_community',
-        'project'
+        'project',
+        'hr_employee_updation',
+        'muk_web_theme',
+        'oh_employee_documents_expiry',
+        'oh_appraisal'
     ],
     'data': [
         'security/acquisition_security.xml',

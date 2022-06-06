@@ -27,7 +27,7 @@
             </xpath>
             <xpath expr="//field[@name='name']" position="before">
                 <field name="title" readonly="True"/> 
-                <span>.</span>
+                <span style="margin-left: 10px"></span>
             </xpath>
         </field>
     </record>

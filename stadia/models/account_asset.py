@@ -3,6 +3,7 @@ from odoo import fields, api, models
 class AccountAssetAsset(models.Model):
     _inherit = 'account.asset.asset'
 
+    cpv = fields.Char()
     asset_movement_ids = fields.One2many('asset.movement', 'asset_id')
     # Holds approved asset movement
     current_movement_id = fields.Many2one('asset.movement')

@@ -97,7 +97,7 @@
                                 <t t-esc="employee_contract.employee_id.name" />
                             </span>
                         </h5>
-                        <h5>Sex: <span class="underline"><t t-esc="employee_contract.employee_id.sex " /></span></h5>
+                        <h5>Sex: <span class="underline"></span></h5>
                         <h5>Project Name: <span class="underline"><t t-esc="employee_contract.project_id.name " /></span></h5>
                         <h5>Position:: <span class="underline"><t t-esc="employee_contract.job_id.name" /></span></h5>
                         <h5>Office Address: Wuhalemat NB Business Center Building

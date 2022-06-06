@@ -3,7 +3,7 @@
 
     <menuitem id="promotion_menu" 
         name="Promotion" 
-        web_icon="stadia_acquisition,static/Acquisition.png">
+        web_icon="stadia,static/promotion.png">
         <menuitem id="Applications" sequence="1">
             <menuitem id="promotion_by_job"
                 name="By Job Positions"
