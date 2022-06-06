@@ -9,6 +9,13 @@
             <xpath expr="//field[@name='structure_type_id']" position="after">
                 <field name="project_id" string="Project" />
             </xpath>
+            <xpath expr="//group[@name='salary_and_advantages']" position="inside">
+                <label for="perdime"/>
+                <div class="o_row" name="perdime">
+                    <field name="perdime" nolabel="1"/>
+                    <span>/ day</span>
+                </div>
+            </xpath>
         </field>
     </record>
 </odoo>

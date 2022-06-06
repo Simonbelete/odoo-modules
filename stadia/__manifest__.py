@@ -10,7 +10,8 @@
         'hr_recruitment',
         'hr_contract',
         'hr_attendance',
-        'om_account_asset'
+        'om_account_asset',
+        'hr_payroll_community'
     ],
     'data': [
         'security/acquisition_security.xml',
@@ -21,6 +22,7 @@
         'data/hr_department_data.xml',
         'data/hr_job_data.xml',
         'data/promotion_data.xml',
+        'data/hr_salary_rule_data.xml',
 
         'report/hr_employee_badge.xml',
         'report/hr_contract_employee_badge.xml',

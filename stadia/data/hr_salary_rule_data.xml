@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="salary_rule_unpaid" model="hr.salary.rule">
+        <field name="name">Unpaid time off</field>
+        <field name="category_id" ref="hr_payroll_community.DED" />
+        <field name="sequence">5</field>
+        <field name="code">UNPAID</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-(contract.wage/192) * (worked_days.UNPAID.number_of_hours if worked_days.UNPAID else 0)</field>
+    </record>
+
+</odoo>

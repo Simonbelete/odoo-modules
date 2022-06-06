@@ -3,6 +3,7 @@
 ## Pre-requests
 
 Enable ```Interview Forms``` in settings
+Set Unpaid Leave code to ```UNPAID``` in time off -> Time off types
 
 ### Modules
 
