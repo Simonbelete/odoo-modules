@@ -11,7 +11,8 @@
         'hr_contract',
         'hr_attendance',
         'om_account_asset',
-        'hr_payroll_community'
+        'hr_payroll_community',
+        'project'
     ],
     'data': [
         'security/acquisition_security.xml',
