@@ -23,6 +23,7 @@
         'data/hr_department_data.xml',
         'data/hr_job_data.xml',
         'data/promotion_data.xml',
+        'data/hr_salary_rule_category_data.xml',
         'data/hr_salary_rule_data.xml',
 
         'report/hr_employee_badge.xml',

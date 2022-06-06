@@ -11,21 +11,57 @@
     </record>
 
     <record id="salary_rule_absent_attendance" model="hr.salary.rule">
-        <field name="name">Absent attendance</field>
+        <field name="name">Absent Attendance</field>
         <field name="category_id" ref="hr_payroll_community.DED" />
         <field name="sequence">6</field>
         <field name="code">ATT</field>
         <field name="amount_select">code</field>
-        <field name="amount_python_compute">result=(-((worked_days.WORK100.number_of_hours - (worked_days.ATT.number_of_hours if worked_days.ATT else 0) - (worked_days.SICK.number_of_hours if worked_days.SICK else 0) -(worked_days.UNPAID.number_of_hours if worked_days.UNPAID else 0)) * contract.wage/208) if worked_days.ATT else 0)</field>
+        <field name="amount_python_compute">result=-(((worked_days.WORK100.number_of_hours - (worked_days.ATT.number_of_hours if worked_days.ATT else 0) - (worked_days.SICK.number_of_hours if worked_days.SICK else 0) -(worked_days.UNPAID.number_of_hours if worked_days.UNPAID else 0)) * contract.wage/208) if worked_days.ATT else (contract.wage/208 * worked_days.WORK100.number_of_hours))</field>
     </record>
 
     <record id="salary_rule_perdime" model="hr.salary.rule">
-        <field name="name">Per dime allowance</field>
+        <field name="name">Per Dime Allowance</field>
         <field name="category_id" ref="hr_payroll_community.ALW" />
         <field name="sequence">7</field>
         <field name="code">PD</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">result=((contract.perdime * worked_days.PD.number_of_days) + (inputs.PD.amount if inputs.PD else 0) if worked_days.PD else 0)</field>
+    </record>
+
+    <record id="salary_rule_pension" model="hr.salary.rule">
+        <field name="name">Pension</field>
+        <field name="category_id" ref="hr_payroll_community.DED" />
+        <field name="sequence">8</field>
+        <field name="code">PE</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-(contract.wage * 0.07)</field>
+    </record>
+
+    <record id="salary_rule_tax" model="hr.salary.rule">
+        <field name="name">Tax</field>
+        <field name="category_id" ref="hr_payroll_community.DED" />
+        <field name="sequence">9</field>
+        <field name="code">TAX</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-(payslip.tax_dec)</field>
+    </record>
+
+    <record id="salary_rule_tax" model="hr.salary.rule">
+        <field name="name">Tax</field>
+        <field name="category_id" ref="hr_payroll_community.DED" />
+        <field name="sequence">9</field>
+        <field name="code">TAX</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-(payslip.tax_dec)</field>
+    </record>
+
+    <record id="salary_rule_remaining_leaves" model="hr.salary.rule">
+        <field name="name">Remaining Leaves</field>
+        <field name="category_id" ref="REF" />
+        <field name="sequence">10</field>
+        <field name="code">RL</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=(contract.wage / worked_days.WORK100.number_of_days) * payslip.remaining_leaves</field>
     </record>
 
 </odoo>
