@@ -93,6 +93,42 @@
             <xpath expr="//page[@name='public']/div/div/group" position="inside">
                 <field name="pension_id"/>
                 <field name="tin_number"/>
+                <field name="total_sum"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_employee_leave_allocation" model="ir.ui.view">
+        <field name="name">hr.employee.leave.allocation</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_form_manager"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="number_of_days_display"/>
+                <field name="link_leave_allocation"/>
+                <field name="remaining_leave"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="asset_leave_inherited" model="ir.ui.view">
+        <field name="name">asset.leave.tree</field>
+        <field name="model">hr.leave</field>
+        <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="number_of_days" string="Taken Allocation"/>
+                <field name="remaining_leave"/>
+                <field name="number_of_days_display"/>
+            </tree>
+        </field>
+    </record>
+    <record id="asset_mrp_inherited" model="ir.ui.view">
+        <field name="name">asset.leave.mrp</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="made_by"/>
             </xpath>
         </field>
     </record>

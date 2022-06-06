@@ -19,6 +19,16 @@ class EmployeeProfile(models.Model):
     house_number = fields.Char(string="House Number")
     mobile_number = fields.Char(string="Mobile Number")
 
+    production_ids = fields.One2many('mrp.production', 'made_by')
+    total_sum = fields.Float(compute='mrp_sum')
+
+
+    def mrp_sum(self):
+        sum = 0
+        for rec in self.production_ids:
+            sum = rec.product_qty + sum
+        self.total_sum = sum
+
     def write(self, vals, context={}):
         if 'mobile_phone' in vals:
             if vals['mobile_phone'].startswith("0"):
@@ -76,6 +86,7 @@ class EducationalInformation(models.Model):
     fields_of_study = fields.Char(string="Fields of Study")
     grade = fields.Char(string="Grade", attrs="{'invisible': [('type', 'not in', ['primary', 'secondary'])]}")
 
+
 # class ActivityRestriction(models.Model):
 #     _inherit = "mail.activity"
 #
@@ -85,3 +96,21 @@ class EducationalInformation(models.Model):
 #         parameter, therefore setting context to feedback """
 #         messages, next_activities = self._action_done()
 #         return messages.ids and messages.ids[0] or False
+class LeaveCalculation(models.Model):
+    _inherit = "hr.leave"
+    remaining_leave = fields.Float(compute="totalLeave")
+    link_leave_allocation = fields.Many2one('hr.leave.allocation')
+    number_of_days_display = fields.Float(related="link_leave_allocation.number_of_days_display", store=True)
+
+    @api.depends('number_of_days_display', 'number_of_days')
+    def totalLeave(self):
+        for rec in self:
+            if rec.number_of_days_display and rec.number_of_days:
+                rec.remaining_leave = rec.number_of_days_display - rec.number_of_days
+            else:
+                rec.remaining_leave = rec.number_of_days_display - rec.number_of_days
+
+
+class MrpProduction(models.Model):
+    _inherit = "mrp.production"
+    made_by = fields.Many2one('hr.employee')
