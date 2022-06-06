@@ -23,7 +23,6 @@
             <xpath expr="//field[@name='category_ids']" position="after">
                 <group>
                     <field name="title" string="Title"/>
-                    <field name="sex" string="Sex"/>
                 </group>
             </xpath>
             <xpath expr="//field[@name='name']" position="before">
