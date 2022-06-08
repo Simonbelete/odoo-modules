@@ -20,7 +20,6 @@ class Acquisition(models.Model):
     help="draft - when the acquisition is created"
         "approved - approved by general manager i.e start recruiting"
         "declined - GM have not approved the acquisition")
-    decline_reason = fields.Text()
     no_of_recruitment = fields.Integer(default=1)
     note = fields.Text()
     internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
