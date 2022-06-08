@@ -69,6 +69,7 @@
                             <field name="employee_id" />
                             <field name="department_id" />
                             <field name="job_id" />
+                            <field name="promotion_type" string="Type"/>
                         </group>
                         <group>
                             <field name="acquisition_id" />

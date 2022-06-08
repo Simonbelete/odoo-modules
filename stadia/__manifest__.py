@@ -14,9 +14,9 @@
         'hr_payroll_community',
         'project',
         'hr_employee_updation',
-        'muk_web_theme',
         'oh_employee_documents_expiry',
-        'oh_appraisal'
+        'oh_appraisal',
+        'ohrms_loan'
     ],
     'data': [
         'security/acquisition_security.xml',

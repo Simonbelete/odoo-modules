@@ -15,6 +15,10 @@ class Promotion(models.Model):
     recommended_by = fields.Many2one('hr.employee')
     new_designation_job_id = fields.Many2one('hr.job', required=True)
     active = fields.Boolean(default=True)
+    promotion_type = fields.Selection([
+        ('promotion', 'Promotion'),
+        ('transfer', 'Transfer')
+    ], default='promotion')
 
     @api.model
     def _read_group_state_ids(self, stages, domain, order):
