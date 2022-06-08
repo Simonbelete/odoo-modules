@@ -22,6 +22,7 @@
         'security/acquisition_security.xml',
         'security/ir.model.access.csv',
         
+        'data/mail_data.xml',
         'data/ir_mail_server_data.xml',
         'data/res_user_data.xml',
         'data/hr_department_data.xml',

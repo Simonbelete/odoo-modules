@@ -5,6 +5,7 @@ class Acquisition(models.Model):
     """ Acquisition Form for hiring or promoting employee """
     _name = 'stadia.acquisition'
     _rec_name = 'title'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     title = fields.Char(compute="_compute_name")
     acquisition_date = fields.Date(default=datetime.now(), required=True)
@@ -27,13 +28,32 @@ class Acquisition(models.Model):
 
     def action_approve(self):
         """ Approve acquisition, start recruiting"""
-        for record in self:
-            record.write({'state': 'approved'})
+        print('88888888888888888888888888888888888888')
+        print(self.requested_by.parent_id.user_id.ids)
+        self.activity_schedule('stadia.mail_act_acquisition_approval',user_id=self.requested_by.parent_id.user_id.ids, summary='Acquisition Approval', note=f'Please Approve {self.title}')
+        # for record in self:
+        #     record.write({'state': 'approved'})
 
     def action_decline(self):
         """ Decline acquisition request, stop recruiting """
         for record in self:
             record.write({'state': 'declined'})
+
+    @api.model
+    def create(self, values):
+        acquisition = super(Acquisition, self).create(values)
+        # self.schedule_activity()
+        self.activity_schedule('stadia.mail_act_acquisition_approval',user_id=self.zz.user_id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
+        return acquisition
+
+    def schedule_activity(self):
+        users = self.env.ref('stadia.group_acquisition_admin').users
+        for user in users:
+            print('----------------------------------')
+            print('----------------------------------')
+            print(user.name)
+            self.activity_schedule('stadia.mail_act_acquisition_approval', user_id=user.id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
+
 
     @api.onchange('date', 'job_id')
     def _compute_name(self):
