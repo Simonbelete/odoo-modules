@@ -46,21 +46,26 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button name="action_request" 
+                        string="Request" 
+                        type="object" 
+                        class="oe_highlight" 
+                        attrs="{'invisible': [('state', '!=', 'draft')] }"/>
                     <button name="action_approve" 
                         string="Approve" 
                         type="object" 
                         class="oe_highlight" 
-                        attrs="{'invisible': [('state', '!=', 'draft')] }"/>
+                        attrs="{'invisible': [('state', '!=', 'requested')] }"/>
                     <button name="action_decline" 
                         string="Decline" 
                         type="object" 
-                        attrs="{'invisible': [('state', '!=', 'draft')] }"/>
+                        attrs="{'invisible': [('state', '!=', 'requested')] }"/>
                     <button name="action_done" 
                         string="Done" 
                         type="object" 
                         class="oe_highlight" 
                         attrs="{'invisible': [('state', '!=', 'approved')] }"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,approved,declined,done"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,requested,approved,declined,done"/>
                 </header>
                 <sheet>
                     <group>

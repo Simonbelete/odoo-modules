@@ -14,6 +14,7 @@ class Acquisition(models.Model):
     department_id =  fields.Many2one(related="requested_by.department_id")
     state = fields.Selection([
         ('draft', 'Draft'),
+        ('requested', 'Requested'),
         ('approved', 'Approved'),
         ('declined', 'Declined'),
         ('done', 'Done')
@@ -26,11 +27,16 @@ class Acquisition(models.Model):
     internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
     external_applicant_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
+    def action_request(self):
+        """ Request to GM """
+        self.schedule_activity()
+        for record in self:
+            record.write({'state': 'requested'})
+
     def action_approve(self):
         """ Approve acquisition, start recruiting"""
-        print('88888888888888888888888888888888888888')
-        print(self.requested_by.parent_id.user_id.ids)
-        self.activity_schedule('stadia.mail_act_acquisition_approval',user_id=self.requested_by.parent_id.user_id.ids, summary='Acquisition Approval', note=f'Please Approve {self.title}')
+        # self.activity_schedule('stadia.mail_act_acquisition_approval',user_id=self.requested_by.parent_id.user_id.ids, summary='Acquisition Approval', note=f'Please Approve {self.title}')
+        self.schedule_activity()
         # for record in self:
         #     record.write({'state': 'approved'})
 
@@ -42,8 +48,7 @@ class Acquisition(models.Model):
     @api.model
     def create(self, values):
         acquisition = super(Acquisition, self).create(values)
-        # self.schedule_activity()
-        self.activity_schedule('stadia.mail_act_acquisition_approval',user_id=self.zz.user_id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
+        # self.activity_schedule('stadia.mail_act_acquisition_approval',user_id=self.zz.user_id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
         return acquisition
 
     def schedule_activity(self):
@@ -51,8 +56,10 @@ class Acquisition(models.Model):
         for user in users:
             print('----------------------------------')
             print('----------------------------------')
-            print(user.name)
-            self.activity_schedule('stadia.mail_act_acquisition_approval', user_id=user.id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
+            print(user)
+            print('----------------------------------')
+            if(user.active == True):
+                self.activity_schedule('stadia.mail_act_acquisition_approval', user_id=user.id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
 
 
     @api.onchange('date', 'job_id')
