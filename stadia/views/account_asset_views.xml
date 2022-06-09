@@ -49,9 +49,11 @@
                             <field name="depreciation_line_ids">
                                 <tree>
                                     <field name="depreciation_date" />
+                                    <field name="days" />
                                     <field name="amount" widget="monetary" string="Depreciation" />
                                     <field name="depreciated_value" readonly="1"/>
                                     <field name="remaining_value" readonly="1" widget="monetary" string="Residual"/>
+                                    <field name="nbv" readonly="1" widget="monetary"/>
                                 </tree>
                             </field>
                         </page>

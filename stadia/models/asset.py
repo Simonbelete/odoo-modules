@@ -14,11 +14,14 @@ class AccountAssetCategory(models.Model):
 class AssetDepreciationLine(models.Model):
     _name = 'stadia.asset.depreciation.line'
 
+    # For development remove on main
+    days = fields.Float()
     asset_id = fields.Many2one('stadia.asset')
     amount = fields.Monetary(string='Current Depreciation', required=True)
     remaining_value = fields.Monetary(string='Next Period Depreciation', required=True)
     depreciated_value = fields.Monetary(string='Cumulative Depreciation', required=True)
     depreciation_date = fields.Date('Depreciation Date', index=True)
+    nbv = fields.Monetary('NBV/IFRS')
     currency_id = fields.Many2one('res.currency', string='Currency', required=True,
                                   readonly=True,
         default=lambda self: self.env.user.company_id.currency_id.id)
@@ -71,42 +74,52 @@ class AccountAssetAsset(models.Model):
     def compute_depreciation_board(self):
         self.ensure_one()
     
-        total_days = (self.first_depreciation_date.year % 4) and 365 or 366
-        
-        commands = []
+        # total_days = (self.first_depreciation_date.year % 4) and 365 or 366
+        total_days = 360
+        previous_depreciation_line_ids = self.depreciation_line_ids
+
+        # Remove old depreciation lines
+        commands = [(2, line_id.id, False) for line_id in previous_depreciation_line_ids]
         amount = 1
         residual_amount = self.gross_value
         depreciation_date = self.first_depreciation_date
         month_day = depreciation_date.day
+        # holds if the purchase date and depreciation date is already calculated
+        check_p_and_d_run = False
         # Loop through depreciation until zero or close to zero
-        while amount > 0:
+        while residual_amount > 0:
             # Get the number of day between purchase date and depreciation date
-            purchase_and_depreciation_days = abs((self.purchase_date - self.first_depreciation_date).day)
-            if(purchase_and_depreciation_days > 0):
-                amount = (purchase_and_depreciation_days * self.ifrs_rate)/total_days
+            purchase_and_depreciation_days = abs((self.purchase_date - self.first_depreciation_date).days)
+            if(purchase_and_depreciation_days > 0 and check_p_and_d_run == False):
+                rate = (purchase_and_depreciation_days * self.ifrs_rate)/total_days
+                amount = self.gross_value * rate
                 residual_amount -= amount
                 val = {
+                    'days': purchase_and_depreciation_days,
                     'amount': amount,
                     'asset_id': self.id,
                     'remaining_value': residual_amount,
                     'depreciated_value': self.gross_value - residual_amount,
-                    'depreciation_date': self.purchase_date
+                    'depreciation_date': self.purchase_date,
+                    'nbv': self.gross_value - amount - residual_amount
                 }
                 commands.append((0, False, val))
+                check_p_and_d_run = True
                 continue
-        
-            amount = residual_amount * self.ifrs_rate
+            amount = self.gross_value * self.ifrs_rate
             residual_amount -= amount
             vals = {
+                'days': total_days,
                 'amount': amount,
                 'asset_id': self.id,
-                'remaining_value': residual_amount,
+                'remaining_value': residual_amount if(residual_amount > 0) else 0,
                 'depreciated_value': self.gross_value - residual_amount,
-                'depreciation_date': depreciation_date
+                'depreciation_date': depreciation_date,
+                'nbv': self.gross_value - amount - residual_amount
             }
             commands.append((0, False, vals))
 
-            depreciation_date = depreciation_date + relativedelta(months=+self.method_period)
+            depreciation_date = depreciation_date + relativedelta(months=+12)
 
             if month_day > 28:
                 max_day_in_month = calendar.monthrange(depreciation_date.year, depreciation_date.month)[1]

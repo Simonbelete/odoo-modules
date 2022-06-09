@@ -9,3 +9,4 @@ access_asset_location,access_asset_location,model_asset_location,base.group_user
 access_subcity,access_subcity,model_subcity,base.group_user,1,1,1,1
 access_stadia_asset_category,access_stadia_asset_category,model_stadia_asset_category,base.group_user,1,1,1,1
 access_stadia_asset,access_stadia_asset,model_stadia_asset,base.group_user,1,1,1,1
+access_stadia_asset_depreciation_line,access_stadia_asset_depreciation_line,model_stadia_asset_depreciation_line,base.group_user,1,1,1,1
