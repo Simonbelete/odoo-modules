@@ -7,7 +7,7 @@ from . import hr_applicant
 from . import hr_attendance
 from . import regularization
 from . import hr_contract
-from . import account_asset
+from . import asset
 from . import asset_movement
 from . import asset_location
 from . import hr_payslip

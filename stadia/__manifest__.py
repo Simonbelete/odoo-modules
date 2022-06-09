@@ -10,7 +10,6 @@
         'hr_recruitment',
         'hr_contract',
         'hr_attendance',
-        'om_account_asset',
         'hr_payroll_community',
         'project',
         'hr_employee_updation',
