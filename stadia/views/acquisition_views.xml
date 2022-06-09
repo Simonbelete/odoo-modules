@@ -68,6 +68,16 @@
                     <field name="state" widget="statusbar" statusbar_visible="draft,requested,approved,declined,done"/>
                 </header>
                 <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button class="oe_stat_button" icon="fa-trophy" string="Internal Applicants" type="action" name="%(action_promotion_by_acquisition)d">
+                        </button>
+                        <button class="oe_stat_button" icon="fa-paperclip" string="External Applicants" type="action" name="%(stadia_action_hr_job_applications)d"
+                            context="{
+                                'search_default_job_id': job_id,
+                                'default_job_id': job_id,
+                                'default_acquisition_id': id
+                            }" />
+                    </div>
                     <group>
                         <group>
                             <field name="title" string="Title" />

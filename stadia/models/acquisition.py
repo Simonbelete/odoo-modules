@@ -35,10 +35,8 @@ class Acquisition(models.Model):
 
     def action_approve(self):
         """ Approve acquisition, start recruiting"""
-        # self.activity_schedule('stadia.mail_act_acquisition_approval',user_id=self.requested_by.parent_id.user_id.ids, summary='Acquisition Approval', note=f'Please Approve {self.title}')
-        self.schedule_activity()
-        # for record in self:
-        #     record.write({'state': 'approved'})
+        for record in self:
+            record.write({'state': 'approved'})
 
     def action_decline(self):
         """ Decline acquisition request, stop recruiting """
@@ -54,10 +52,6 @@ class Acquisition(models.Model):
     def schedule_activity(self):
         users = self.env.ref('stadia.group_acquisition_admin').users
         for user in users:
-            print('----------------------------------')
-            print('----------------------------------')
-            print(user)
-            print('----------------------------------')
             if(user.active == True):
                 self.activity_schedule('stadia.mail_act_acquisition_approval', user_id=user.id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
 

@@ -34,9 +34,10 @@
         'report/hr_employee_badge.xml',
         'report/hr_contract_employee_badge.xml',
 
-        'views/acquisition_views.xml',
+        'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
         'views/promotion_stage_views.xml',
+        'views/acquisition_views.xml',
         'views/hr_employee_views.xml',
         'views/hr_hob_views.xml',
         'views/hr_applicant_views.xml',
