@@ -4,11 +4,10 @@ class Promotion(models.Model):
     """ Internal Employee promotions """
     _name = 'stadia.promotion'
     _res_name = 'employee_id'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     def _default_stage_id(self):
-        a = self.env['stadia.promotion.stage'].search([('sequence', '=', 1)], limit=1)
-        print('11111111111111111111111111111')
-        return a
+        return self.env['stadia.promotion.stage'].search([('sequence', '=', 1)], limit=1)
 
     # Employee to be promoted
     employee_id = fields.Many2one('hr.employee')
