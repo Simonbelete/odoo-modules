@@ -8,14 +8,9 @@ class AssetMovement(models.Model):
 
     @api.depends('asset_id')
     def _compute_previous_movement_id(self):
-        print('00000000000000000000000000000000000000')
-        print('00000000000000000000000000000000000000')
-        print('00000000000000000000000000000000000000')
-        print('00000000000000000000000000000000000000')
-        print(self.asset_id)
         self.previous_movement_id = self.asset_id.current_movement_id
 
-    asset_id = fields.Many2one('account.asset.asset', required=True)
+    asset_id = fields.Many2one('stadia.asset', required=True)
     previous_movement_id = fields.Many2one('asset.movement', store=True, compute=_compute_previous_movement_id)
     previous_movement_location_id = fields.Many2one(related='previous_movement_id.location_id')
     previous_movement_employee_id = fields.Many2one(related='previous_movement_id.employee_id')
