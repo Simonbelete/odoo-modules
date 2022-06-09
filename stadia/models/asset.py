@@ -21,7 +21,6 @@ class AssetDepreciationLine(models.Model):
     remaining_value = fields.Monetary(string='Next Period Depreciation', required=True)
     depreciated_value = fields.Monetary(string='Cumulative Depreciation', required=True)
     depreciation_date = fields.Date('Depreciation Date', index=True)
-    nbv = fields.Monetary('NBV/IFRS')
     currency_id = fields.Many2one('res.currency', string='Currency', required=True,
                                   readonly=True,
         default=lambda self: self.env.user.company_id.currency_id.id)
@@ -101,7 +100,6 @@ class AccountAssetAsset(models.Model):
                     'remaining_value': residual_amount,
                     'depreciated_value': self.gross_value - residual_amount,
                     'depreciation_date': self.purchase_date,
-                    'nbv': self.gross_value - amount - residual_amount
                 }
                 commands.append((0, False, val))
                 check_p_and_d_run = True
@@ -115,7 +113,6 @@ class AccountAssetAsset(models.Model):
                 'remaining_value': residual_amount if(residual_amount > 0) else 0,
                 'depreciated_value': self.gross_value - residual_amount,
                 'depreciation_date': depreciation_date,
-                'nbv': self.gross_value - amount - residual_amount
             }
             commands.append((0, False, vals))
 
