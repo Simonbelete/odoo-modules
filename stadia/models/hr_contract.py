@@ -6,3 +6,4 @@ class HrContract(models.Model):
     project_id = fields.Many2one('project.project', required=True)
     # Per day perdime
     perdime = fields.Monetary(default = 0)
+    cost_sharing = fields.Monetary(default = 0)

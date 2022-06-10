@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="salary_rule_unpaid" model="hr.salary.rule">
+    <!-- <record id="salary_rule_unpaid" model="hr.salary.rule">
         <field name="name">Unpaid time off</field>
         <field name="category_id" ref="hr_payroll_community.DED" />
         <field name="sequence">5</field>
@@ -62,6 +62,15 @@
         <field name="code">RL</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">result=(contract.wage / worked_days.WORK100.number_of_days) * payslip.remaining_leaves</field>
+    </record> -->
+
+    <record id="salary_rule_cost_sharing" model="hr.salary.rule">
+        <field name="name">Cost Sharing</field>
+        <field name="category_id" ref="hr_payroll_community.DED" />
+        <field name="sequence">11</field>
+        <field name="code">CS   </field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-(contract.wage * contract.cost_sharing)</field>
     </record>
 
 </odoo>

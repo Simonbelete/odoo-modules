@@ -73,6 +73,7 @@ class HrPayslip(models.Model):
                 'number_of_hours': work_data['hours'],
                 'contract_id': contract.id,
             }
+
             worked_attendances = {
                 'name': 'Attendances Working Days',
                 'code': 'ATT',
@@ -80,7 +81,6 @@ class HrPayslip(models.Model):
                 'number_of_hours': 0,
                 'contract_id': contract.id
             }
-
             # Tab in Tab out attendace
             if attendances_lists:
                 worked_hours = 0
@@ -88,13 +88,11 @@ class HrPayslip(models.Model):
                 for attendance in attendances_lists:
                     worked_hours = worked_hours + attendance.worked_hours
 
-                worked_attendances = {
-                    'name': 'Attendances Working Days',
-                    'code': 'ATT',
-                    'number_of_days': worked_hours/24,
-                    'number_of_hours': worked_hours,
-                    'contract_id': contract.id
-                }
+                # Take out lunch time per day
+                total_lunch_time = worked_hours/8 # 8 hr (1day)
+                worked_hours = worked_hours - total_lunch_time 
+                worked_attendances['number_of_days'] = worked_hours/24
+                worked_attendances['number_of_hours'] = worked_hours
 
             perdime_worked_days = {
                 'name': 'Per dime Working Days',
