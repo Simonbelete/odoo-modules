@@ -32,10 +32,10 @@
         <field name="arch" type="xml"> 
             <tree>
                 <field name="title" string="Title"/>
-                <field name="acquisition_date" string="Date" />
                 <field name="job_id" string="Job Position"/>
                 <field name="requested_by" string="Requested By" />
                 <field name="no_of_recruitment" string="No of recruitment" />
+                <field name="acquisition_date" string="Date" />
             </tree>
         </field>
     </record>
