@@ -6,6 +6,7 @@ class Acquisition(models.Model):
     _name = 'stadia.acquisition'
     _rec_name = 'title'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _order = 'acquisition_date desc'
 
     title = fields.Char(compute="_compute_name")
     acquisition_date = fields.Date(default=datetime.now(), required=True)
