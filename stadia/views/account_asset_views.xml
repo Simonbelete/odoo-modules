@@ -63,7 +63,7 @@
                         </page>
                         <page string="Depreciation information">
                             <group>
-                                <field name="ifrs_rate" />
+                                <field name="ifrs_rate" required="True" />
                             </group>
                         </page>
                         <page string="Asset Location">

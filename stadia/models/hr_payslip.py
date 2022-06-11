@@ -9,6 +9,40 @@ class HrPayslip(models.Model):
     tax_dec = fields.Float(compute="_compute_tax_dec")
     # untaken_leave_salary = fields.Float(default=0, compute="_compute_untaken_leave")
     remaining_leaves = fields.Float(related='employee_id.remaining_leaves')
+    # Calculation values
+    unpaid_value = fields.Float(compute="_compute_unpaid_value", default=0)
+    absent_attendance_value = fields.Float(compute="_compute_absent_attendance_value", default=0)
+    perdime_value = fields.Float(compute="_compute_perdime_value")
+
+    def _compute_unpaid_value(self):
+        for record in self:
+            for line in record.worked_days_line_ids:
+                if(line.code == 'UNPAID'):
+                    self.unpaid_value = abs(self.contract_id.wage/30 * line.number_of_days)
+                else:
+                    self.unpaid_value = 0
+
+    def _compute_absent_attendance_value(self):
+        for record in self:
+            for line in record.worked_days_line_ids:
+                if(line.code == 'ATT'):
+                    self.absent_attendance_value = abs(self.contract_id.wage/30 * line.number_of_days)
+                else:
+                    self.absent_attendance_value = 0
+
+    def _compute_perdime_value(self):
+        for record in self:
+            total_days = 0
+            for line in record.worked_days_line_ids:
+                total_days += line.number_of_days
+
+            pd_inputs = 0
+            # In Advance perdime
+            for iline in record.input_line_ids:
+                if(iline.code == 'PD'):
+                    pd_inputs += iline.amount
+
+            self.perdime_value = total_days * record.contract_id.perdime + pd_inputs
 
     def _compute_tax_dec(self):
         for total_wage in self:
@@ -63,6 +97,10 @@ class HrPayslip(models.Model):
                 if work_hours:
                     current_leave_struct['number_of_days'] += hours / work_hours
 
+                if(holiday.holiday_status_id.code == 'UNPAID'):
+                    current_leave_struct['number_of_hours'] = -current_leave_struct['number_of_hours']
+                    current_leave_struct['number_of_days'] = -current_leave_struct['number_of_days']
+
             # compute worked days
             work_data = contract.employee_id._get_work_days_data(day_from, day_to, calendar=contract.resource_calendar_id)
             attendances = {
@@ -77,34 +115,44 @@ class HrPayslip(models.Model):
             worked_attendances = {
                 'name': 'Attendances Working Days',
                 'code': 'ATT',
-                'number_of_days': 0,
-                'number_of_hours': 0,
+                'number_of_days': -work_data['days'],
+                'number_of_hours': -work_data['hours'],
                 'contract_id': contract.id
             }
             # Tab in Tab out attendace
             if attendances_lists:
                 worked_hours = 0
-                # Loop through attendance and add the worked_hours
+                # formate { day: hour}
+                worked_hours_per_day = {}
                 for attendance in attendances_lists:
-                    worked_hours = worked_hours + attendance.worked_hours
+                    # Check if the check in and out date is the same
+                    if(attendance.check_in.date() == attendance.check_out.date()):
+                        if attendance.check_in.day in worked_hours_per_day:
+                            worked_hours_per_day[attendance.check_in.day] += attendance.worked_hours
+                        else:
+                            worked_hours_per_day[attendance.check_in.day] = attendance.worked_hours
 
-                # Take out lunch time per day
-                total_lunch_time = worked_hours/8 # 8 hr (1day)
-                worked_hours = worked_hours - total_lunch_time 
-                worked_attendances['number_of_days'] = worked_hours/24
+                # Loop through daily attendance and subtract 1 luch hour
+                # per day attendance
+                for i in worked_hours_per_day:
+                    if(worked_hours_per_day[i] > 9):
+                        worked_hours += 8
+                    elif(worked_hours_per_day[i] >= 5):
+                        worked_hours += worked_hours_per_day[i] - 1
+                    else:
+                        worked_hours += worked_hours_per_day[i] 
+
+                worked_attendances['number_of_days'] = worked_hours/8
                 worked_attendances['number_of_hours'] = worked_hours
 
-            perdime_worked_days = {
-                'name': 'Per dime Working Days',
-                'code': 'PD',
-                'number_of_days': work_data['days'],
-                'number_of_hours': work_data['hours'],
-                'contract_id': contract.id
-            }
+            # Calculate not worked attendaces
+            worked_attendances['number_of_days'] = -(attendances['number_of_days'] - worked_attendances['number_of_days'])
+            worked_attendances['number_of_hours'] = -(attendances['number_of_hours'] - worked_attendances['number_of_hours'])
+            # worked_attendances['number_of_days'] = -(worked_attendances['number_of_days'])
+            # worked_attendances['number_of_hours'] = -(worked_attendances['number_of_hours'])
 
             res.append(attendances)
             res.append(worked_attendances)
-            res.append(perdime_worked_days)
             res.extend(leaves.values())
         return res
 

@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="salary_rule_unpaid" model="hr.salary.rule">
+        <field name="name">Unpaid time off</field>
+        <field name="category_id" ref="hr_payroll_community.DED" />
+        <field name="sequence">5</field>
+        <field name="code">UNPAID</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-(payslip.unpaid_value)</field>
+    </record>
+
+    <record id="salary_rule_absent_attendance" model="hr.salary.rule">
+        <field name="name">Absent Attendance</field>
+        <field name="category_id" ref="hr_payroll_community.DED" />
+        <field name="sequence">6</field>
+        <field name="code">ATT</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-(payslip.absent_attendance_value)</field>
+    </record>
+
+    <record id="salary_rule_perdime" model="hr.salary.rule">
+        <field name="name">Per Dime Allowance</field>
+        <field name="category_id" ref="hr_payroll_community.ALW" />
+        <field name="sequence">7</field>
+        <field name="code">PD</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=payslip.perdime_value</field>
+    </record>
+
+    <record id="salary_rule_pension" model="hr.salary.rule">
+        <field name="name">Pension</field>
+        <field name="category_id" ref="hr_payroll_community.DED" />
+        <field name="sequence">8</field>
+        <field name="code">PE</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-(contract.wage * 0.07)</field>
+    </record>
+
+    <record id="salary_rule_tax" model="hr.salary.rule">
+        <field name="name">Tax</field>
+        <field name="category_id" ref="hr_payroll_community.DED" />
+        <field name="sequence">9</field>
+        <field name="code">TAX</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=-(payslip.tax_dec)</field>
+    </record>
+
     <!-- <record id="salary_rule_unpaid" model="hr.salary.rule">
         <field name="name">Unpaid time off</field>
         <field name="category_id" ref="hr_payroll_community.DED" />
         <field name="sequence">5</field>
         <field name="code">UNPAID</field>
         <field name="amount_select">code</field>
-        <field name="amount_python_compute">result=-(contract.wage/208) * (worked_days.UNPAID.number_of_hours if worked_days.UNPAID else 0)</field>
-    </record>
+        <field name="amount_python_compute">result=-(contract.wage/30) * (worked_days.UNPAID.number_of_days or 0)</field>
+    </record> -->
 
-    <record id="salary_rule_absent_attendance" model="hr.salary.rule">
+   <!-- <record id="salary_rule_absent_attendance" model="hr.salary.rule">
         <field name="name">Absent Attendance</field>
         <field name="category_id" ref="hr_payroll_community.DED" />
         <field name="sequence">6</field>

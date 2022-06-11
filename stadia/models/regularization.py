@@ -37,7 +37,7 @@ class Regularization(models.Model):
             if(current_date.weekday() not in weekend):
                 self.env['hr.attendance'].sudo().create({
                     'check_in': datetime.combine(current_date, datetime.min.time()),
-                    'check_out': datetime.combine(current_date, datetime.min.time()) + timedelta(hours=8),
+                    'check_out': datetime.combine(current_date, datetime.min.time()) + timedelta(hours=9), # 9hrs including lunch
                     'regularization': True,
                     'employee_id': self.employee_id.id,
                 })

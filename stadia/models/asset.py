@@ -104,6 +104,7 @@ class AccountAssetAsset(models.Model):
                 commands.append((0, False, val))
                 check_p_and_d_run = True
                 continue
+
             amount = self.gross_value * self.ifrs_rate
             residual_amount -= amount
             vals = {
