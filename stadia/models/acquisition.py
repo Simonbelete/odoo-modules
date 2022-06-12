@@ -28,6 +28,8 @@ class Acquisition(models.Model):
     internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
     external_applicant_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
+    # Job Specifications
+
     def action_request(self):
         """ Request to GM """
         self.schedule_activity()
@@ -36,8 +38,8 @@ class Acquisition(models.Model):
 
     def action_approve(self):
         """ Approve acquisition, start recruiting"""
-        # for record in self:
-        #     record.write({'state': 'approved'})
+        for record in self:
+            record.write({'state': 'approved'})
         self.schedule_activity_done()
 
     def action_decline(self):

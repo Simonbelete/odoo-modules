@@ -15,7 +15,8 @@
         'hr_employee_updation',
         'oh_employee_documents_expiry',
         'oh_appraisal',
-        'ohrms_loan'
+        'ohrms_loan',
+        'prt_report_attachment_preview'
     ],
     'data': [
         'security/acquisition_security.xml',
@@ -33,6 +34,8 @@
 
         'report/hr_employee_badge.xml',
         'report/hr_contract_employee_badge.xml',
+        'report/header_template.xml',
+        'report/acquisition_job_spec.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',

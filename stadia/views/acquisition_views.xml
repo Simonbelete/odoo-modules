@@ -95,6 +95,18 @@
                         <field name="note" string="Note" />
                     </group>
                     <notebook>
+                        <page string="Job Specification">
+                            <group name="main_info">
+                                <group string="Qualification">
+                                    <label for="wage"/>
+                                    <div class="o_row" name="wage">
+                                        <field name="wage" nolabel="1"/>
+                                        <span>/ month</span>
+                                    </div>
+                                </group>
+                                <group string="Yearly Advantages" name="yearly_advantages"/>
+                            </group>
+                        </page>
                         <page string="Internal Applicants">
                             <field name="internal_applicant_ids">
                                 <tree default_order="stage_id.sequence">
