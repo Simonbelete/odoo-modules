@@ -15,6 +15,9 @@
     </record>
 
     <template id="asset_report">
-        <h1><t t-esc="data['a']" /></h1>
+        <t t-foreach="data" t-as="doc">
+            <h1><t t-esc="doc['amount']" /></h1>
+        </t>
+        <!-- <h1><t t-esc="data['a']" /></h1> -->
     </template>
 </odoo>

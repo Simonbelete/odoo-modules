@@ -9,9 +9,14 @@ var stock_report_generic = require('stock.stock_report_generic');
 var AssetReport = stock_report_generic.extend({
   get_html: function() {
     var self = this;
+    var args = [
+      this.given_context.date
+    ]
     return this._rpc({
       model: 'report.stadia.asset_report',
-      method: 'get_html'
+      method: 'get_html',
+      args: args,
+      context: this.given_context
     }).then(function (result) {
       self.data = result
     })
@@ -26,7 +31,9 @@ var AssetReport = stock_report_generic.extend({
   },
   renderSearch: function() {
     this.$searchView = $(QWeb.render('asset_search_report'))
+    this.$searchView.find('.s_asset_report_date').on('change', this._onChangeDate.bind(this)).change()
   },
+  // Add contenet to odoo header
   update_cp: function() {
     var status = {
       cp_content: {
@@ -34,6 +41,20 @@ var AssetReport = stock_report_generic.extend({
       }
     }
     return this.updateControlPanel(status);
+  },
+  _onChangeDate: function(ev) {
+    var date = $(ev.currentTarget).val()
+    console.log(date)
+    if(date){
+      this.given_context.date = date;
+      this._reload()
+    }
+  },
+  _reload: function() {
+    var self = this;
+    return this.get_html().then(function () {
+      self.$('.o_content').html(self.data.lines);
+    })
   }
 })
 
