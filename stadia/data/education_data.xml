@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stadia_education_ma" model="stadia.education">
+        <field name="name">M.A</field>
+    </record>
+    <record id="stadia_education_degree" model="stadia.education">
+        <field name="name">Degree</field>
+    </record>
+    <record id="stadia_education_diploma" model="stadia.education">
+        <field name="name">Diploma</field>
+    </record>
+    <record id="stadia_education_certificate" model="stadia.education">
+        <field name="name">Certificate</field>
+    </record>
+</odoo>

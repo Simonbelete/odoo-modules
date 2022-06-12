@@ -30,6 +30,7 @@
         'data/promotion_data.xml',
         'data/hr_salary_rule_category_data.xml',
         'data/hr_salary_rule_data.xml',
+        'data/education_data.xml',
 
         'report/hr_employee_badge.xml',
         'report/hr_contract_employee_badge.xml',
