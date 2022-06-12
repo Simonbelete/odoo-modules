@@ -52,8 +52,9 @@
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',
-        'views/asset_menus.xml',
-
+        'views/asset_menus.xml'
+    ],
+    'qweb': [
         'static/src/xml/asset_static_report.xml'
     ]
 }
