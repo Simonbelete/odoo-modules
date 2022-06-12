@@ -12,7 +12,6 @@
         'hr_attendance',
         'hr_payroll_community',
         'project',
-        'hr_employee_updation',
         'oh_employee_documents_expiry',
         'oh_appraisal',
         'ohrms_loan',
