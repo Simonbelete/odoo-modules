@@ -81,4 +81,11 @@
             </form>
         </field>
     </record>
+
+    <!-- Reporting -->
+    <record id="action_report_asset" model="ir.actions.client">
+        <field name="name">Fixed Assets Schedule</field>
+        <field name="tag">stadia_asset_schedule</field>
+        <field name="context" eval="{'model': 'report.stadia.asset_report'}" />
+    </record>
 </odoo>

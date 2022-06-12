@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stadia_job_spec_print" model="ir.actions.report">
+        <field name="name">Fixed Assets Schedule</field>
+        <field name="model">stadia.asset</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stadia.asset_report</field>
+        <field name="report_file">job_spec_template</field>
+        <field name="print_report_name">'Fixed Assets Schedule - %s' % (object.id)</field>
+        <field name="paperformat_id" ref="paperformat_euro_lowmargin"/>
+        <!-- model_[model name] -->
+        <field name="binding_model_id" ref="model_stadia_asset"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="asset_report">
+        <t t-call="web.basic_layout">
+            <h1>Hello World</h1>
+        </t>
+    </template>
+</odoo>

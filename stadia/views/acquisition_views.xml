@@ -98,10 +98,9 @@
                         <page string="Job Specification">
                             <group name="main_info">
                                 <group string="Qualification">
-                                    <label for="wage"/>
-                                    <div class="o_row" name="wage">
-                                        <field name="wage" nolabel="1"/>
-                                        <span>/ month</span>
+                                    <label for="education_id"/>
+                                    <div class="o_row" name="education_id">
+                                        <field name="education_id" nolabel="1"/>
                                     </div>
                                 </group>
                                 <group string="Yearly Advantages" name="yearly_advantages"/>

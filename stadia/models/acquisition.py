@@ -29,6 +29,14 @@ class Acquisition(models.Model):
     external_applicant_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
     # Job Specifications
+    education_id = fields.Many2one('stadia.education')
+    experience_total_year = fields.Integer()
+    experience_related_job_id = fields.Many2one('hr.job')
+    training_related_job_id = fields.Many2one('hr.job')
+    training_skills = fields.Char()
+    job_description = fields.Text()
+    place_department_id = fields.Many2one('hr.department')
+    project_id = fields.Many2one('project.project')
 
     def action_request(self):
         """ Request to GM """

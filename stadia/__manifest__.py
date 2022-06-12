@@ -36,6 +36,7 @@
         'report/hr_contract_employee_badge.xml',
         'report/header_template.xml',
         'report/acquisition_job_spec.xml',
+        'report/asset.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
@@ -51,6 +52,8 @@
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',
-        'views/asset_menus.xml'
+        'views/asset_menus.xml',
+
+        'static/src/xml/asset_static_report.xml'
     ]
 }
