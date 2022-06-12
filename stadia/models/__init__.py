@@ -12,3 +12,4 @@ from . import asset_movement
 from . import asset_location
 from . import hr_payslip
 from . import sub_city
+from . import education
