@@ -7,13 +7,33 @@ var stock_report_generic = require('stock.stock_report_generic');
 
 
 var AssetReport = stock_report_generic.extend({
-  // template: 'eg_template',
-  start: function() {
+  get_html: function() {
     var self = this;
-    self.$('.sta_con').append(QWeb.render('s_dashboard', {widget: self}))
+    return this._rpc({
+      model: 'report.stadia.asset_report',
+      method: 'get_html'
+    }).then(function (result) {
+      self.data = result
+    })
+  },
+  set_html: function() {
+    var self = this;
     return this._super().then(function() {
-      self.$('.sta_con').append(QWeb.render('s_dashboard', {widget: self}))
-    });
+      self.$('.o_content').html(self.data.lines);
+      self.renderSearch()
+      self.update_cp();
+    })
+  },
+  renderSearch: function() {
+    this.$searchView = $(QWeb.render('asset_search_report'))
+  },
+  update_cp: function() {
+    var status = {
+      cp_content: {
+        $searchview: this.$searchView
+      }
+    }
+    return this.updateControlPanel(status);
   }
 })
 

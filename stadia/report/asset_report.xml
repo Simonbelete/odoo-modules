@@ -15,8 +15,6 @@
     </record>
 
     <template id="asset_report">
-        <t t-call="web.basic_layout">
-            <h1>Hello World</h1>
-        </t>
+        <h1><t t-esc="data['a']" /></h1>
     </template>
 </odoo>

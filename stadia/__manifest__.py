@@ -36,7 +36,7 @@
         'report/hr_contract_employee_badge.xml',
         'report/header_template.xml',
         'report/acquisition_job_spec.xml',
-        'report/asset.xml',
+        'report/asset_report.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
@@ -55,6 +55,6 @@
         'views/asset_menus.xml'
     ],
     'qweb': [
-        'static/src/xml/asset_static_report.xml'
+        'static/src/xml/asset.xml'
     ]
 }
