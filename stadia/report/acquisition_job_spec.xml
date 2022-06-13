@@ -57,7 +57,9 @@
                 }
             </style>
             <div class="jst-container">
-                <t t-call="stadia.header_template" />
+                <t t-call="stadia.header_template">
+                    <t t-set="title" t-value="'Job Specification Format'"/>
+                </t>
                 <t t-foreach="docs" t-as="acquisition">
                     <div style="margin-top:50px" class="jst-form">
                         <div>

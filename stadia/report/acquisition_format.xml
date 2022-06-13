@@ -2,7 +2,7 @@
 <odoo>
     <record id="acquisition_format_print" model="ir.actions.report">
         <field name="name">HR Acquisition Format</field>
-        <field name="model">stadia.acquisition</field>
+        <field name="model">hr.recruitment</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">stadia.job_spec_template</field>
         <field name="report_file">job_spec_template</field>
