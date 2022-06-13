@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="contract_agreement_print" model="ir.actions.report">
+        <field name="name">Contract Agreement</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stadia.contract_agreement_template</field>
+        <field name="report_file">contract_agreement</field>
+        <field name="print_report_name">'Contract agreement for Employment - %s' % (object.id)</field>
+        <field name="paperformat_id" ref="paperformat_euro_lowmargin"/>
+        <!-- model_[model name] -->
+        <field name="binding_model_id" ref="model_hr_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="contract_agreement_template">
+        <t t-call="web.basic_layout">
+            <style>
+                .header-1 {
+                    justify-content: space-between;
+                    border: 0px solid red;
+                    padding: 2px 5px;
+                    display: flex;
+                    flex-direction: row;
+                }
+                .vl {
+                    border-left: 6px solid rgb(224, 13, 6);
+                    height: 75px;
+                    position: absolute;
+                    left: 40%;
+                    top: 0;
+                }
+                .div-agree {
+                    margin-left: 200px;
+                }
+                ol.orderlist {
+                    list-style-type: square;
+                }
+                ol.list-alpa {
+                    list-style-type: upper-alpha;
+                }
+                .badge_img {
+                    margin-left: 100px;
+                    width: 50px;
+                    height: 50px;
+                    left: 70%;
+                }
+                .witness {
+                    margin-left: 60px;
+                }
+            </style>
+            <div class="header-1">
+                <div>
+                    <h7>EMPLOYEMENT AREEMENT</h7>
+                </div>
+                <div class="vl"></div>
+                <div>
+                    <img src="stadia1.png" class="badge_img" />
+                </div>
+                <div class="div-right">
+                    STADIA ENGINEERING AND WORKS CONSULTANT PLC.
+                </div>
+            </div>
+            <hr />
+            <hr/>
+            <div class="div-agree">
+                <u>
+                    <h2>EMPLOYEMENT AGREEMENT</h2>
+                </u>
+            </div>
+            <div>
+                <p>
+                    1. This permanent employment is made and entered into this <b>[Insert Date]</b> by and between, STADIA
+                    Engineering
+                    Works Consultant Plc, having its registered office at 9th floor, NB Building, near Wuha Limat, Addis Ababa,
+                    Ethiopia,
+                    hereinafter referred to as the “Employer”, and Ato ------------, address: Sub city----------Wereda --------,
+                    House
+                    No. ----------Phone number +251------------ Tin no _________________Bank account no______________hereinafter
+                    referred
+                    to as “Employee”.<br />
+        
+                    2. Whereas the Employer desires to assign the Employee as a <b>Highway Engineer</b> with a written permanent
+                    employment
+                    contract to undertake the duties and responsibilities of the Highway Engineer included in the Service
+                    Contract
+                    document. <br />
+                    3. Now, therefore, the Employer and the Employee, for the consideration herein specified, agree as follows.
+                    <br />
+                    3.1 TERMS
+                <ul>
+                    <li>The Employer hereby employs, and the Employee hereby accepts
+                        employment as Highway Engineer for the project starting from <b>[Insert Date]</b></li>
+        
+                </ul><br />
+                3.2 TYPICAL ROLES AND RESPONSIBILITY <br />
+                <ul>
+                    <li>Planning, co-ordination and day-to-day control of all project activities</li><br />
+                    <li>Continuous liaison with the Contractor and Employer's Representative including preparation and
+                        issue of progress reports and required deliverables as per our schedule</li><br />
+                    <li>Establishment and control of project related quality assurance routines</li><br />
+                    <li>Monitoring of progress of work compared with planned progress</li><br />
+                    <li>Will carry out investigation of road alignment geometry in order to assure a safe, economical and
+                        comfortable alignment taking into account the terrain
+                        conditions, traffic nature anticipated, the proposed design standard and environmental conditions.</li>
+                    <br />
+                    <br />
+                    <li>Will conduct a physical assessment of the selected route corridor along the other proposed route.</li>
+                    <br />
+                    <li>Instruct and supervise the surveying activities for the final design work of the road project.</li><br />
+                    <li>Carryout preliminary geometric design of the proposed alignments so as to get prior approval of the
+                        preliminary design from the Contractor and Employer's Representative before proceeding
+                        to the detailed design work using a modern and comprehensive CADD package and MX-Road road design
+                        software</li><br />
+                    <li>Will show horizontal and vertical curves control criteria to justify that the design is as per
+                        the requirements of the design standard</li><br />
+                    <li>Indicate the locations of proposed structures (culverts and bridges) by investigating their
+                        geometrical suitability of the preliminary geometric design in that locality</li><br />
+                    <li>Will thoroughly examine Right of Way requirements</li><br />
+                    <li>Will thoroughly examine consumption of productive land and other natural resources</li><br />
+                    <li>Closely follow up and monitor the route corridor selection, check procedure of analysis.</li><br />
+                    <li>will define general and specific Road design parameters such as:</li><br />
+                    <ol class="orderlist">
+                        <li>Design speeds to be adopted for the various road sections;</li> <br />
+                        <li>Typical cross-sections for the various road sections, together
+                            with the upgrade/widening proposals (cross-section development);</li><br />
+                        <li>The minimum horizontal and vertical alignment criteria for various design speeds;</li><br />
+                        <li>Super elevation criteria for the different design speeds;</li><br />
+                        <li>Geometric design parameters regarding lane widths, type of pavements, road signs and speed control;
+                        </li><br />
+                    </ol>
+                </ul>
+                3.3 PROBATION<br />
+                <ul>
+                    <li>The employee shall go probation of 60 Working days from the first day of employment to determine his/her
+                        suitability for the post.
+                        If during this period the Employer fined the Employee unfit for the job he can terminate the contract
+                        of employment without being obliged to give prior notice, pay severance pay of compensation.</li>
+                </ul>
+                3.4 PLACE OF WORK<br />
+                <ul>
+                    <li>The employee shall be assigned to work at Head Office.However; the company may transfer the employees to
+                        other projects.</li>
+                </ul>
+                3.5 CONTRACT AMOUNT<br />
+                <ul>
+                    <li>The Employer shall pay the Employee a gross monthly contract amount of ETB <b>[Insert amount in figure
+                            and Words]</b> per day. </li>
+                    <li>This indicated monthly contract amount shall be paid to the Employee on a monthly basis. </li>
+                </ul>
+                3.6 WORKING HOURS<br />
+                <ul>
+                    <li>The Employee’s normal working hours shall be 48 hours on a week.</li>
+                    <li>The employer from time to time depending on the employer’s operational needs shall determine the time of
+                        reporting to and departure from work.</li>
+                </ul>
+                3.7 OVER TIME <br />
+                <ul>
+                    <li>The Employer may in accordance with the labor proclamation 1156/2011 require the
+                        Employee to work overtime. The payment of such work shall be computed as per the above-mentioned
+                        proclamation.</li>
+                    <li>The Employee shall be entitled to 16 working days of Annual leave for the first year of service,
+                        plus one working day for every additional Two years of service.</li>
+                </ul>
+                3.9 SICK LEAVE <br />
+                <ul>
+                    <li>When the employee is unable to carry out his/her duties owing to sickness other than resulting from
+                        employment injury he shall be entitled to a sick leave up to six months’ period starting from the first
+                        day of his/her sickness.</li>
+                    <li>The sick leave mentioned here in above shall be given to the employee in the following manner.</li>
+                    <ol class="list-alpa">
+                        <li>The first one-month with 100% of his/her wage.</li>
+                        <li>The next two months with 50% of his/her wage.</li>
+                        <li>The next three months without pay.</li>
+                    </ol>
+                </ul>
+                3.10 TERMINATION OF EMPLOYMENT CONTRACT<br />
+                Termination of Employment Contract may be made by: <br />
+                <ul>
+                    <li>Completion of the project;</li>
+                    <li>Mutual agreement of the parties; </li>
+                    <li>Retirement of the Employee; </li>
+                    <li>Termination by the Employer; </li>
+                    <li>In such cases, both parties shall give a minimum of 30 days’ notice to terminate this contract. </li>
+                </ul>
+                4 In witness, thereof, we hereby sign this contract this -- day of <b>[Insert Date].</b> <br />
+        
+                Employer________________________ Employee ___________________________ <br />
+                <div class="witness">
+                    <br />
+                    <br />
+                    Witness<br />
+        
+                    1. ________________________<br />
+        
+        
+                    2. ________________________<br />
+        
+        
+                    3. ________________________<br />
+                </div>
+        
+                </p>
+            </div>
+        </t>
+    </template>
+</odoo>
