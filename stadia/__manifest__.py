@@ -19,6 +19,8 @@
         'report_xlsx'
     ],
     'data': [
+        'views/stadia_template.xml',
+
         'security/acquisition_security.xml',
         'security/ir.model.access.csv',
         
@@ -38,9 +40,9 @@
         'report/header_template.xml',
         'report/acquisition_job_spec.xml',
         'report/asset_report.xml',
+        'report/acquisition_format.xml',
         'report/hiring_promotion_template.xml',
 
-        'views/stadia_template.xml',
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
         'views/promotion_stage_views.xml',
