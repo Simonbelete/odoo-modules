@@ -15,7 +15,8 @@
         'oh_employee_documents_expiry',
         'oh_appraisal',
         'ohrms_loan',
-        'prt_report_attachment_preview'
+        'prt_report_attachment_preview',
+        'report_xlsx'
     ],
     'data': [
         'security/acquisition_security.xml',

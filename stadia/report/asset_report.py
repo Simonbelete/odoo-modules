@@ -1,8 +1,10 @@
+import xlsxwriter
 from datetime import datetime
 from odoo import api, models
 
 class AssetReport(models.AbstractModel):
     _name = 'report.stadia.asset_report'
+    _inherit = 'report.report_xlsx.abstract'
 
     @api.model
     def _get_report_values(self, docids, data=None):
@@ -57,5 +59,14 @@ class AssetReport(models.AbstractModel):
         if date:
             datas = self._get_report_data(datetime.strptime(date, '%Y-%m-%d'))
         res = {}
-        res['lines'] = self.env.ref('stadia.asset_report')._render({'data': datas})
+        res['lines'] = self.env.ref('stadia.asset_report_template')._render({'data': datas})
         return res
+
+    def generate_xlsx_report(self, workbook, data, partners):
+        print('hello')
+        # for obj in partners:
+        #     report_name = obj.name
+        #     # One sheet by partner
+        #     sheet = workbook.add_worksheet(report_name[:31])
+        #     bold = workbook.add_format({'bold': True})
+        #     sheet.write(0, 0, obj.name, bold)

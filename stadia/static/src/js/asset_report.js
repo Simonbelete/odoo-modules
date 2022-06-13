@@ -3,6 +3,7 @@ odoo.define('asset_report', function (require) {
 
 var core = require('web.core');
 var QWeb = core.qweb;
+var framework = require('web.framework');
 var stock_report_generic = require('stock.stock_report_generic');
 
 
@@ -60,17 +61,39 @@ var AssetReport = stock_report_generic.extend({
     })
   },
   _onClickPrint: function() {
-    print('hhhh')
     var action = {
       'type': 'ir.actions.report',
-      'report_type':  'qweb-pdf',
-      'report_name': 'Report 1',
-      'report_file': 'asset_report'
-    }
+      'model': 'stadia.asset',
+      'report_type': 'xlsx',
+      'report_name': 'stadia.asset_report?docids=1',
+      'report_file': 'abd',
+    };
+    return this.do_action(action).then(function (){
+        // framework.unblockUI();
+    });
+    // var args = [
+    //   this.given_context.date
+    // ]
+    // this._rpc({
+    //   model: 'report.stadia.asset_report',
+    //   method: 'action_print_xls_report',
+    //   args: args,
+    //   context: this.given_context
+    // }).then(function (result) {
+    //   console.log(result)
+    //   console.log('given')
+    // })
+    // print('hhhh')
+    // var action = {
+    //   'type': 'ir.actions.report',
+    //   'report_type':  'qweb-pdf',
+    //   'report_name': 'Report 1',
+    //   'report_file': 'asset_report'
+    // }
 
-    return this.do_action(action).then(function () {
+    // return this.do_action(action).then(function () {
       
-    })
+    // })
   }
 })
 

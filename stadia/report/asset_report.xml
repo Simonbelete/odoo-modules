@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="stadia_job_spec_print_xls" model="ir.actions.report">
+        <field name="name">Fixed Assets Schedule</field>
+        <field name="model">stadia.asset</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">stadia.asset_report</field>
+        <field name="report_file">job_spec_template_xls</field>
+        <field name="binding_type">report</field>
+    </record>
+
     <record id="stadia_job_spec_print" model="ir.actions.report">
         <field name="name">Fixed Assets Schedule</field>
         <field name="model">stadia.asset</field>
@@ -14,7 +23,7 @@
         <field name="binding_type">report</field>
     </record>
 
-    <template id="asset_report">
+    <template id="asset_report_template">
         <div class="container">
             <table style="width: 100%">
                 <thead>
