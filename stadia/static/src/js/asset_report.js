@@ -61,39 +61,18 @@ var AssetReport = stock_report_generic.extend({
     })
   },
   _onClickPrint: function() {
+    var context = "{'date': '" + this.given_context.date + "'}"
     var action = {
       'type': 'ir.actions.report',
       'model': 'stadia.asset',
       'report_type': 'xlsx',
-      'report_name': 'stadia.asset_report?docids=1',
+      'report_name': 'stadia.asset_report?docids=0',
       'report_file': 'abd',
+      'context': context
     };
     return this.do_action(action).then(function (){
         // framework.unblockUI();
     });
-    // var args = [
-    //   this.given_context.date
-    // ]
-    // this._rpc({
-    //   model: 'report.stadia.asset_report',
-    //   method: 'action_print_xls_report',
-    //   args: args,
-    //   context: this.given_context
-    // }).then(function (result) {
-    //   console.log(result)
-    //   console.log('given')
-    // })
-    // print('hhhh')
-    // var action = {
-    //   'type': 'ir.actions.report',
-    //   'report_type':  'qweb-pdf',
-    //   'report_name': 'Report 1',
-    //   'report_file': 'asset_report'
-    // }
-
-    // return this.do_action(action).then(function () {
-      
-    // })
   }
 })
 

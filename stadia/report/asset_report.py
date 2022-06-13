@@ -63,10 +63,19 @@ class AssetReport(models.AbstractModel):
         return res
 
     def generate_xlsx_report(self, workbook, data, partners):
-        print('hello')
-        # for obj in partners:
-        #     report_name = obj.name
-        #     # One sheet by partner
-        #     sheet = workbook.add_worksheet(report_name[:31])
-        #     bold = workbook.add_format({'bold': True})
-        #     sheet.write(0, 0, obj.name, bold)
+        sheet = workbook.add_worksheet()
+        bold = workbook.add_format({'bold': True})
+        sheet.write(0, 0, '', bold)
+        assets = self._get_report_data(self._parse_date(data.context.date))
+    
+        for obj in partners:
+            # report_name = obj.name
+            # One sheet by partner
+            
+            sheet.write(0, 0, 'Hello')
+
+    def _parse_date(self, date=False):
+        date_parsed = date
+        if date:
+            date_parsed = self._get_report_data(datetime.strptime(date, '%Y-%m-%d'))
+        return date_parsed
