@@ -30,13 +30,16 @@ var AssetReport = stock_report_generic.extend({
     })
   },
   renderSearch: function() {
-    this.$searchView = $(QWeb.render('asset_search_report'))
+    this.$buttonPrint = $(QWeb.render('asset_print_report_button'))
+    this.$buttonPrint.find('.s_asset_report_print').on('click', this._onClickPrint.bind(this));
+    this.$searchView = $(QWeb.render('asset_search_report'));
     this.$searchView.find('.s_asset_report_date').on('change', this._onChangeDate.bind(this)).change()
   },
   // Add contenet to odoo header
   update_cp: function() {
     var status = {
       cp_content: {
+        $buttons: this.$buttonPrint,
         $searchview: this.$searchView
       }
     }
@@ -54,6 +57,19 @@ var AssetReport = stock_report_generic.extend({
     var self = this;
     return this.get_html().then(function () {
       self.$('.o_content').html(self.data.lines);
+    })
+  },
+  _onClickPrint: function() {
+    print('hhhh')
+    var action = {
+      'type': 'ir.actions.report',
+      'report_type':  'qweb-pdf',
+      'report_name': 'Report 1',
+      'report_file': 'asset_report'
+    }
+
+    return this.do_action(action).then(function () {
+      
     })
   }
 })

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates>
+    <t t-name="asset_print_report_button">
+        <div>
+            <button type="button" class="btn btn-primary s_asset_report_print">Print</button>
+        </div>
+    </t>
+
     <form class="form-inline" t-name="asset_search_report">
         <div class="form-group col-lg-4">
             <label>Year:</label>

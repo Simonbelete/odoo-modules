@@ -15,9 +15,60 @@
     </record>
 
     <template id="asset_report">
-        <t t-foreach="data" t-as="doc">
-            <h1><t t-esc="doc['amount']" /></h1>
-        </t>
-        <!-- <h1><t t-esc="data['a']" /></h1> -->
+        <div class="container">
+            <table style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>የተገዛበት ቀን</th>
+                        <th>መግለጫ</th>
+                        <th>የደረሰኝ ቁጥር</th>
+                        <th>የአቅራቢ ሥም</th>
+                        <th>የሂሳብ ማወራረሻ</th>
+                        <th>ንብረቱ የሚገኝበት ቦታ</th>
+                        <th>ንብረቱ የሚገኝበት ሰራተኛ</th>
+                        <th>መለያ ቁጥር</th>
+                        <th>IFRS % [rate]</th>
+                        <th>ዋጋ</th>
+                        <th>የእርጅና ቅናሽ</th>
+                        <th>የተጠራቀመ የእርጅና ቅናሽ</th>
+                        <th>የተጣራው የእቃው ዋጋ(ብር) </th>
+                    </tr>
+                    <tr>
+                        <th>Date of Purchase</th>
+                        <th>Description</th>
+                        <th>Reference no</th>
+                        <th>Supplier Name</th>
+                        <th>Accounts Ref</th>
+                        <th>Location</th>
+                        <th>Name</th>
+                        <th>ID.T.No.</th>
+                        <th>IFRS % [rate]</th>
+                        <th>Cost</th>
+                        <th>Deperciation Amount</th>
+                        <th>ACC. Depreciation   /IFRS</th>
+                        <th>NBV/IFRS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="data" t-as="doc">
+                        <tr>
+                            <td><t t-esc="doc['purchase_date']" /></td>
+                            <td><t t-esc="doc['name']" /></td>
+                            <td><t t-esc="doc['reference_no']" /></td>
+                            <td><t t-esc="doc['partner_id']" /></td>
+                            <td><t t-esc="doc['cpv']" /></td>
+                            <td><t t-esc="doc['current_movement_location_id']" /></td>
+                            <td><t t-esc="doc['current_movement_employee_id']" /></td>
+                            <td><t t-esc="doc['id_t_no']" /></td>
+                            <td><t t-esc="doc['ifrs_rate']" /></td>
+                            <td><t t-esc="doc['gross_value']" /></td>
+                            <td><t t-esc="doc['current_amount']" /></td>
+                            <td><t t-esc="doc['depreciated_value']" /></td>
+                            <td><t t-esc="doc['remaining_value']" /></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
     </template>
 </odoo>

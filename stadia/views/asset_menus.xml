@@ -5,9 +5,4 @@
         <menuitem id="asset_types" name="Asset Types" action="action_asset_category" />
         <menuitem id="asset_reporting" name="Asset Reporting" action="action_report_asset" />
     </menuitem>
-    <template id="asset_backend" name="Asset Report" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
-            <script type="text/javascript" src="/stadia/static/src/js/asset_report.js"/>
-        </xpath>
-    </template>
 </odoo>
