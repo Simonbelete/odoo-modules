@@ -6,9 +6,9 @@
         </xpath>
     </template>
 
-    <!-- <template id="assets_common" name="stadia common assets" inherit_id="web.assets_common">
+    <template id="assets_common" name="stadia common assets" inherit_id="web.assets_common">
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/scss" href="/mrp/static/src/scss/mrp_bom_report.scss" />
+            <link rel="stylesheet" type="text/scss" href="/stadia/static/src/scss/input.scss" />
         </xpath>
-    </template> -->
+    </template>
 </odoo>

@@ -38,6 +38,7 @@
         'report/header_template.xml',
         'report/acquisition_job_spec.xml',
         'report/asset_report.xml',
+        'report/hiring_promotion_template.xml',
 
         'views/stadia_template.xml',
         'views/hr_recruitment_views.xml',

@@ -53,37 +53,51 @@
                 .jst-line {
                     border: 0;
                     border-bottom: 2px solid #000;
+                    margin-bottom: 5px;
                 }
             </style>
             <div class="jst-container">
                 <t t-call="stadia.header_template" />
-               <div style="margin-top:50px" class="jst-form">
-                   <div>
-                       <label class="jst-label">Date: -</label>
-                       <input type="text" class="jst-line" />
-                   </div>
-                   <div>
-                        <label class="jst-label">From: -</label>
-                        <input type="text" class="jst-line" />
-                    </div>
-                    <div>
-                        <label class="jst-label">To: -</label>
-                        <input type="text" style="border: 0px" class="jst-line" value="General Manager"/>
-                    </div>
-                    <div>
-                        <label class="jst-label">Position: -</label>
-                        <input type="text" class="jst-line" />
-                    </div>
-                    <div>
-                        <label class="jst-label">Qualification</label>
-                       <div style="margin-left: 10px">
-                            <label class="jst-label">Education</label>
-                            <div>
-                                <input type="checkbox" />
+                <t t-foreach="docs" t-as="acquisition">
+                    <div style="margin-top:50px" class="jst-form">
+                        <div>
+                            <label class="jst-label">Date: -</label>
+                            <input type="text" class="jst-line" t-att-value="acquisition['acquisition_date']"/>
+                        </div>
+                        <div>
+                                <label class="jst-label">From: -</label>
+                                <input type="text" class="jst-line" t-att-value="acquisition['requested_by']['name']"/>
                             </div>
-                       </div>
+                            <div>
+                                <label class="jst-label">To: -</label>
+                                <input type="text" style="border: 0px" class="jst-line" value="General Manager"/>
+                            </div>
+                            <div>
+                                <label class="jst-label">Position: -</label>
+                                <input type="text" class="jst-line"  t-att-value="acquisition['job_id']['name']"/>
+                            </div>
+                            <div>
+                                <label class="jst-label">Qualification</label>
+                            <div style="margin-left: 20px">
+                                    <label class="jst-label">Education</label>
+                                    <div style="margin-left: 10px">
+                                        <input type="checkbox" />
+                                    </div>
+                                    <label class="jst-label">Experience:</label>
+                                    <div style="margin-left: 10px">
+                                        <span>
+                                            <span>Year of Experience (Total year)</span>
+                                            <input type="text" class="s_input_line jst-line" />
+                                        </span>
+                                        <span>
+                                            <span>(Related to the position)</span>
+                                            <input type="text" style="width: 100px" class="s_input_line jst-line"  />
+                                        </span>
+                                    </div>
+                            </div>
+                            </div>
                     </div>
-               </div>
+                </t>
             </div>
         </t>
     </template>

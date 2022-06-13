@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="hiring_promotion_template">
+        <t t-call="web.basic_layout">
+            <div>
+                <t t-call="stadia.header_template" />
+                <t t-foreach="docs" t-as="data">
+                    
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

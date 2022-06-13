@@ -34,9 +34,11 @@ class Acquisition(models.Model):
     experience_related_job_id = fields.Many2one('hr.job')
     training_related_job_id = fields.Many2one('hr.job')
     training_skills = fields.Char()
-    job_description = fields.Text()
+    # Duties and Responsibilities
+    job_description = fields.Html()
     place_department_id = fields.Many2one('hr.department')
     project_id = fields.Many2one('project.project')
+    
 
     def action_request(self):
         """ Request to GM """
