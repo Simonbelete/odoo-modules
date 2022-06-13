@@ -24,8 +24,23 @@
     </record>
 
     <template id="asset_report_template">
-        <div class="container">
-            <table style="width: 100%">
+        <div class="">
+            <style>
+                .ht-table {
+                    border-collapse: collapse;
+                    border: 1px solid;
+                    width: 100%
+                }
+                .ht-table > tbody, thead > tr > th, td {
+                    border: 1px solid;
+                    padding: 2px;
+                    min-width: 100px;
+                }
+                .ht-table > tbody > tr > th > h6, h5, h4 {
+                    text-align: center;
+                }
+            </style>
+            <table style="width: 100%" class="ht-table">
                 <thead>
                     <tr>
                         <th>የተገዛበት ቀን</th>
@@ -64,16 +79,16 @@
                             <td><t t-esc="doc['purchase_date']" /></td>
                             <td><t t-esc="doc['name']" /></td>
                             <td><t t-esc="doc['reference_no']" /></td>
-                            <td><t t-esc="doc['partner_id']" /></td>
+                            <td><t t-esc="doc['partner_id']['name']" /></td>
                             <td><t t-esc="doc['cpv']" /></td>
-                            <td><t t-esc="doc['current_movement_location_id']" /></td>
-                            <td><t t-esc="doc['current_movement_employee_id']" /></td>
+                            <td><t t-esc="doc['current_movement_location_id']['name']" /></td>
+                            <td><t t-esc="doc['current_movement_employee_id']['name']" /></td>
                             <td><t t-esc="doc['id_t_no']" /></td>
                             <td><t t-esc="doc['ifrs_rate']" /></td>
                             <td><t t-esc="doc['gross_value']" /></td>
-                            <td><t t-esc="doc['current_amount']" /></td>
-                            <td><t t-esc="doc['depreciated_value']" /></td>
-                            <td><t t-esc="doc['remaining_value']" /></td>
+                            <td><t t-esc="'%.2f'%(doc['current_amount'])" /></td>
+                            <td><t t-esc="'%.2f'%(doc['depreciated_value'])" /></td>
+                            <td><t t-esc="'%.2f'%(doc['remaining_value'])" /></td>
                         </tr>
                     </t>
                 </tbody>
