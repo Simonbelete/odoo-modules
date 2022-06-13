@@ -50,6 +50,103 @@
                                 <label>Project</label>
                                 <input type="text" style="width: 80%" class="s_input_line" />
                             </div>
+                            <div>
+                                <label>Project</label>
+                                <input type="text" style="width: 80%" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Salary</label>
+                                <input type="text" style="width: 100px" class="s_input_line" />
+                                <label>In Word</label>
+                                <input type="text" style="width: 60%" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>per diem</label>
+                                <input type="text" class="s_input_line" />
+                                <label>In Word</label>
+                                <input type="text" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Allowance</label>
+                                <input type="text" class="s_input_line" />
+                                <label>In Word</label>
+                                <input type="text" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Transport Allowance</label>
+                                <input type="text" class="s_input_line" />
+                                <label>In Word</label>
+                                <input type="text" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Effective Date</label>
+                                <input type="text" style="width: 60%" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Tin Number</label>
+                                <input type="text" style="width: 60%" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Account Number</label>
+                                <input type="text" style="width: 60%" class="s_input_line" />
+                            </div>
+                        </div>
+                    </div>
+                    <div style="border: 1px solid black; margin-top:50px; padding: 10px">
+                        <h3 style="text-decoration: underline; text-align: left;">Transfer/Promotion</h3>
+                        <div style="margin-top: 50px">
+                            <div>
+                                <label>Name</label>
+                                <input type="text" style="width: 140px" class="s_input_line" />
+                                <label>Father Name</label>
+                                <input type="text" style="width: 140px" class="s_input_line" />
+                                <label>Grand Father Name</label>
+                                <input type="text" style="width: 140px" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Pervious Project</label>
+                                <input type="text" style="width: 60%" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Position</label>
+                                <input type="text" style="width: 60%" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>New Project</label>
+                                <input type="text" style="width: 60%" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Position</label>
+                                <input type="text" style="width: 60%" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Salary</label>
+                                <input type="text" style="width: 100px" class="s_input_line" />
+                                <label>In Word</label>
+                                <input type="text" style="width: 60%" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>per diem</label>
+                                <input type="text" class="s_input_line" />
+                                <label>In Word</label>
+                                <input type="text" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Allowance</label>
+                                <input type="text" class="s_input_line" />
+                                <label>In Word</label>
+                                <input type="text" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Transport Allowance</label>
+                                <input type="text" class="s_input_line" />
+                                <label>In Word</label>
+                                <input type="text" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Effective Date</label>
+                                <input type="text" style="width: 60%" class="s_input_line" />
+                            </div>
                         </div>
                     </div>
                 </t>
