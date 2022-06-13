@@ -10,7 +10,7 @@
         <field name="binding_type">report</field>
     </record>
 
-    <record id="stadia_job_spec_print" model="ir.actions.report">
+    <record id="stadia_job_spec_print_a" model="ir.actions.report">
         <field name="name">Fixed Assets Schedule</field>
         <field name="model">stadia.asset</field>
         <field name="report_type">qweb-pdf</field>
