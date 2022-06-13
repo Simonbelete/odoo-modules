@@ -5,6 +5,8 @@ class Acquisition(models.Model):
     """ Acquisition Form for hiring or promoting employee """
     _name = 'stadia.acquisition'
     _rec_name = 'title'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _order = 'acquisition_date desc'
 
     title = fields.Char(compute="_compute_name")
     acquisition_date = fields.Date(default=datetime.now(), required=True)
@@ -13,6 +15,7 @@ class Acquisition(models.Model):
     department_id =  fields.Many2one(related="requested_by.department_id")
     state = fields.Selection([
         ('draft', 'Draft'),
+        ('requested', 'Requested'),
         ('approved', 'Approved'),
         ('declined', 'Declined'),
         ('done', 'Done')
@@ -20,28 +23,39 @@ class Acquisition(models.Model):
     help="draft - when the acquisition is created"
         "approved - approved by general manager i.e start recruiting"
         "declined - GM have not approved the acquisition")
-    decline_reason = fields.Text()
     no_of_recruitment = fields.Integer(default=1)
     note = fields.Text()
     internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
     external_applicant_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
+    # Job Specifications
+    education_id = fields.Many2one('stadia.education')
+    experience_total_year = fields.Integer()
+    experience_related_job_id = fields.Many2one('hr.job')
+    training_related_job_id = fields.Many2one('hr.job')
+    training_skills = fields.Char()
+    # Duties and Responsibilities
+    job_description = fields.Html()
+    place_department_id = fields.Many2one('hr.department')
+    project_id = fields.Many2one('project.project')
+    
+
+    def action_request(self):
+        """ Request to GM """
+        self.schedule_activity()
+        for record in self:
+            record.write({'state': 'requested'})
+
     def action_approve(self):
         """ Approve acquisition, start recruiting"""
         for record in self:
             record.write({'state': 'approved'})
+        self.schedule_activity_done()
 
     def action_decline(self):
         """ Decline acquisition request, stop recruiting """
         for record in self:
             record.write({'state': 'declined'})
-
-    @api.onchange('date', 'job_id')
-    def _compute_name(self):
-        if(not self.job_id):
-            return
-        for record in self:
-            record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
 
     def action_done(self):
         """ Move all (internal/external) applicants to refused state """
@@ -52,3 +66,35 @@ class Acquisition(models.Model):
             ia.write({'active': False})
 
         self.write({'state': 'done'})
+
+    @api.model
+    def create(self, values):
+        acquisition = super(Acquisition, self).create(values)
+        # self.activity_schedule('stadia.mail_act_acquisition_approval',user_id=self.zz.user_id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
+        return acquisition
+
+    @api.onchange('date', 'job_id')
+    def _compute_name(self):
+        if(not self.job_id):
+            return
+        for record in self:
+            record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
+
+    def schedule_activity(self):
+        users = self.env.ref('stadia.group_acquisition_admin').users
+        for user in users:
+            if(user.active == True):
+                self.activity_schedule('stadia.mail_act_acquisition_approval', user_id=user.id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
+
+    def schedule_activity_done(self):
+        activity = self.env['mail.activity'].search([
+            ('res_id', '=', self.id), 
+            ('user_id', '=', self.env.user.id), 
+            ('activity_type_id', '=', self.env.ref('stadia.mail_act_acquisition_approval').id)
+            ])
+        activity.action_feedback(feedback='Approved')
+        other_activity = self.env['mail.activity'].search([
+            ('res_id', '=', self.id), 
+            ('activity_type_id', '=', self.env.ref('stadia.mail_act_acquisition_approval').id)
+            ])
+        other_activity.unlink()

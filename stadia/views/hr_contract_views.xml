@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
 
-    <record id="stadia_hr_employee_form" model="ir.ui.view">
+    <record id="stadia_hr_employee_contract_form" model="ir.ui.view">
         <field name="name">hr.contract</field>
         <field name="model">hr.contract</field>
         <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
@@ -9,6 +9,23 @@
             <xpath expr="//field[@name='structure_type_id']" position="after">
                 <field name="project_id" string="Project" />
             </xpath>
+            <xpath expr="//group[@name='salary_and_advantages']" position="inside">
+                <label for="perdime"/>
+                <div class="o_row" name="perdime">
+                    <field name="perdime" nolabel="1"/>
+                    <span>/ day</span>
+                </div>
+            </xpath>
+            <xpath expr="//group[@name='main_info']">
+                <group string="Others">
+                    <label for="cost_sharing"/>
+                    <div class="o_row" name="cost_sharing">
+                        <field name="cost_sharing" string="Cost Sharing" nolabel="1"/>
+                        <span>/ month</span>
+                    </div>
+                </group>
+            </xpath>
         </field>
     </record>
+
 </odoo>

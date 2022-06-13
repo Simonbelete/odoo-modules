@@ -31,12 +31,14 @@ class Regularization(models.Model):
         self.write({'state': 'approved'})
         delta = timedelta(days=1)
         start_date = self.from_date
+        weekend = set([6]) # Sunday
         while start_date <= self.to_date:
             current_date = datetime.combine(start_date, datetime.min.time())
-            self.env['hr.attendance'].sudo().create({
-                'check_in': datetime.combine(current_date, datetime.min.time()),
-                'check_out': datetime.combine(current_date, datetime.min.time()) + timedelta(hours=8),
-                'regularization': True,
-                'employee_id': self.employee_id.id,
-            })
+            if(current_date.weekday() not in weekend):
+                self.env['hr.attendance'].sudo().create({
+                    'check_in': datetime.combine(current_date, datetime.min.time()),
+                    'check_out': datetime.combine(current_date, datetime.min.time()) + timedelta(hours=9), # 9hrs including lunch
+                    'regularization': True,
+                    'employee_id': self.employee_id.id,
+                })
             start_date += delta

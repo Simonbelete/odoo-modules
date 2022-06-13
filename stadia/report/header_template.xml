@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="header_template">
+        <style>
+            .ht-table {
+                border-collapse: collapse;
+                border: 1px solid;
+                width: 100%
+            }
+            .ht-table > tbody > tr > th {
+                border: 1px solid;
+                padding: 2px;
+                min-width: 100px;
+            }
+            .ht-table > tbody > tr > th > h6, h5, h4 {
+                text-align: center;
+            }
+        </style>
+        <table class="ht-table">
+            <tr>
+                <th><img style="height: 100px; width: 200px;" src="/stadia/static/stadia_plain_logo.png" /></th>
+                <th>
+                    <h5>ስታድያ የምህንድ <span style="color: blue;">Export</span> ስና ስራዎች ኃላ/የተ/የግ/ማህበር</h5>
+                </th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th><h5><t t-esc="title" /></h5></th>
+                <th></th>
+            </tr>
+        </table>
+    </template>
+</odoo>

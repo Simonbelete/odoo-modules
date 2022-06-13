@@ -8,13 +8,15 @@
     </record>
 
     <record id="group_acquisition_admin" model="res.groups">
-        <field name="name">Admin</field>
+        <field name="name">Administrator</field>
         <field name="category_id" ref="module_category_acquisition" />
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
     </record>
-    
+
     <record id="group_acquisition_gm" model="res.groups">
         <field name="name">General Managerr</field>
         <field name="category_id" ref="module_category_acquisition" />
+        <field name="implied_ids" eval="[(4, ref('group_acquisition_admin'))]" />
     </record>
 
 </odoo>

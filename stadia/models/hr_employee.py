@@ -8,12 +8,12 @@ class HrEmployee(models.Model):
         ('wt', 'W/t'),
         ('wro', 'W/ro')
     ], required=True)
-    sex = fields.Selection([
-        ('m', 'Male'),
-        ('f', 'female')
-    ], required=True)
-    promotion_count = fields.Integer(compute="_compute_promotion_count", default=0)
+    promotion_count = fields.Integer(default=0)
+    sub_city_id = fields.Many2one('subcity')
 
     def action_create_user(self):
         """ Check the employee job position and create user base on that"""
-        
+        return
+
+    def _compute_promotion_count(self):
+        print('abcd')

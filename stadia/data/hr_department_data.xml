@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="hr_departmentdata_gm" model="hr.department">
+    <record id="hr_department_gm" model="hr.department">
         <field name="name">General Manager</field>
     </record>
 
-    <record id="hr_departmentdata_rcmd" model="hr.department">
+    <record id="hr_department_rcmd" model="hr.department">
         <field name="name">Subversion (RCMD)</field>
     </record>
 

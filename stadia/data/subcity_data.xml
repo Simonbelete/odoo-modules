@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="subcity_addis_ketema" model="subcity">
+        <field name="name">Addis Ketema</field>
+    </record>
+    <record id="subcity_akaki_kality" model="subcity">
+        <field name="name">Akaki Kality</field>
+    </record>
+</odoo>

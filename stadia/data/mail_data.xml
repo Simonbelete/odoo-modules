@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Acquisition activities -->
+    <record id="mail_act_acquisition_approval" model="mail.activity.type">
+        <field name="name">Acquisition Approval</field>
+        <field name="icon">fa-sun-o</field>
+        <field name="res_model_id" ref="model_stadia_acquisition" />
+    </record>
+</odoo>

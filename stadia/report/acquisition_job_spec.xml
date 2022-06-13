@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_euro_lowmargin" model="report.paperformat">
+        <field name="name">European A4 low margin</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">5</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">80</field>
+    </record>
+
+    <record id="stadia_job_spec_print" model="ir.actions.report">
+        <field name="name">Job Specification Format</field>
+        <field name="model">stadia.acquisition</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stadia.job_spec_template</field>
+        <field name="report_file">job_spec_template</field>
+        <field name="print_report_name">'HR Job Specification format - %s' % (object.title)</field>
+        <field name="paperformat_id" ref="paperformat_euro_lowmargin"/>
+        <!-- model_[model name] -->
+        <field name="binding_model_id" ref="model_stadia_acquisition"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="job_spec_template">
+        <t t-call="web.basic_layout">
+            <style>
+                .jst-container {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
+                }
+                .jst-form > div {
+                    margin-bottom: 10px;
+                }
+                .jst-label {
+                    font-weight: bold;
+                }
+                .jst-line {
+                    border: 0;
+                    border-bottom: 2px solid #000;
+                    margin-bottom: 5px;
+                }
+            </style>
+            <div class="jst-container">
+                <t t-call="stadia.header_template">
+                    <t t-set="title" t-value="'Job Specification Format'"/>
+                </t>
+                <t t-foreach="docs" t-as="acquisition">
+                    <div style="margin-top:50px" class="jst-form">
+                        <div>
+                            <label class="jst-label">Date: -</label>
+                            <input type="text" class="jst-line" t-att-value="acquisition['acquisition_date']"/>
+                        </div>
+                        <div>
+                                <label class="jst-label">From: -</label>
+                                <input type="text" class="jst-line" t-att-value="acquisition['requested_by']['name']"/>
+                            </div>
+                            <div>
+                                <label class="jst-label">To: -</label>
+                                <input type="text" style="border: 0px" class="jst-line" value="General Manager"/>
+                            </div>
+                            <div>
+                                <label class="jst-label">Position: -</label>
+                                <input type="text" class="jst-line"  t-att-value="acquisition['job_id']['name']"/>
+                            </div>
+                            <div>
+                                <label class="jst-label">Qualification</label>
+                            <div style="margin-left: 20px">
+                                    <label class="jst-label">Education</label>
+                                    <div style="margin-left: 10px">
+                                        <input type="checkbox" />
+                                    </div>
+                                    <label class="jst-label">Experience:</label>
+                                    <div style="margin-left: 10px">
+                                        <span>
+                                            <span>Year of Experience (Total year)</span>
+                                            <input type="text" class="s_input_line jst-line" />
+                                        </span>
+                                        <span>
+                                            <span>(Related to the position)</span>
+                                            <input type="text" style="width: 100px" class="s_input_line jst-line"  />
+                                        </span>
+                                    </div>
+                            </div>
+                            </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

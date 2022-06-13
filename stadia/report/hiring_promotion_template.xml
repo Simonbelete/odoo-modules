@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="hiring_promotion_template">
+        <t t-call="web.basic_layout">
+            <style>
+                .s_label {
+                    font-weight: bold;
+                }
+                .s_input_line {
+                    border: 0;
+                    border-bottom: 2px solid #000;
+                    margin-bottom: 17px;
+                }                
+            </style>
+            <div class="jst-container">
+                <t t-call="stadia.header_template">
+                    <t t-set="title" t-value="'HR Ac quisition Format'"/>
+                </t>
+                <t t-foreach="docs" t-as="data">
+                    <div style="margin-top: 20px">
+                        <label class="s_label">Date: -</label>
+                        <input type="text" class="s_input_line"/>
+                    </div>
+                    <div style="border: 1px solid black; margin-top:50px; padding: 10px">
+                        <h3 style="text-decoration: underline; text-align: left;">Hiring</h3>
+                        <div style="margin-top: 50px">
+                            <div>
+                                <label>Name</label>
+                                <input type="text" style="width: 140px" class="s_input_line" />
+                                <label>Father Name</label>
+                                <input type="text" style="width: 140px" class="s_input_line" />
+                                <label>Grand Father Name</label>
+                                <input type="text" style="width: 140px" class="s_input_line" />
+                            </div>
+                            <div>
+                                <label>Specialized in</label>
+                                <input type="text" style="width: 80%" class="s_input_line" />
+                            </div>
+                            <div>
+                                <span>
+                                    <span>Year of Experience (Total year)</span>
+                                    <input type="text" class="s_input_line jst-line" />
+                                </span>
+                                <span>
+                                    <span>(Related to the position)</span>
+                                    <input type="text" style="width: 100px" class="s_input_line jst-line"  />
+                                </span>
+                            </div>
+                            <div>
+                                <label>Project</label>
+                                <input type="text" style="width: 80%" class="s_input_line" />
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

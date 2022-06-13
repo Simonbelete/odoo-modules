@@ -2,7 +2,8 @@
 <odoo>
 
     <record id="promotion_stage_waiting" model="stadia.promotion.stage">
-        <field name="name">Waiting</field>
+        <field name="name">Initial Qualification</field>
+        <field name="sequence">1</field>
     </record>
 
 </odoo>
