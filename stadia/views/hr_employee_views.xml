@@ -29,6 +29,12 @@
                 <field name="title" readonly="True"/> 
                 <span style="margin-left: 10px"></span>
             </xpath>
+            <xpath expr="//page[@name='personal_information']/group/group/field[@name='address_home_id']"
+                    position="before">
+                <field name="sub_city_id"/>
+                <field name="woreda"/>
+                <field name="house_number"/>
+            </xpath>
         </field>
     </record>
 
