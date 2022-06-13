@@ -43,6 +43,7 @@
         'report/acquisition_format.xml',
         'report/hiring_promotion_template.xml',
         'report/contract_agreement.xml',
+        'report/lateral_transfer.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
