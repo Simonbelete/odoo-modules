@@ -4,7 +4,7 @@ class HrEmployeeBase(models.AbstractModel):
     _inherit = 'hr.employee.base'
 
     def _defaultBadgeIdNo(self):
-        return self._generage_full_id()
+        return '0000/000/00/000/00'
 
     badge_id_no = fields.Char(string="ID No", copy=False, default=_defaultBadgeIdNo)
     title = fields.Selection([
