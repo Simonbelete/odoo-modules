@@ -3,7 +3,7 @@ from odoo import fields, api, models
 class Promotion(models.Model):
     """ Internal Employee promotions """
     _name = 'stadia.promotion'
-    _res_name = 'employee_id'
+    _rec_name = 'employee_id'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     def _default_stage_id(self):
