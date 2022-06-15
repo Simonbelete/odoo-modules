@@ -38,6 +38,7 @@
         'report/hr_employee_badge.xml',
         'report/hr_contract_employee_badge.xml',
         'report/header_template.xml',
+        'report/stamp_logo_template.xml',
         'report/acquisition_job_spec.xml',
         'report/asset_report.xml',
         'report/acquisition_format.xml',
