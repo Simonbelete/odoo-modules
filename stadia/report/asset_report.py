@@ -79,3 +79,7 @@ class AssetReport(models.AbstractModel):
         if date:
             date_parsed = self._get_report_data(datetime.strptime(date, '%Y-%m-%d'))
         return date_parsed
+
+    def get_asset_category(self):
+        asset_categories = self.env['stadia.asset.category'].search([])
+        return asset_categories

@@ -1,4 +1,5 @@
 from odoo import fields, api, models
+from datetime import datetime
 
 class Promotion(models.Model):
     """ Internal Employee promotions """
@@ -11,6 +12,7 @@ class Promotion(models.Model):
 
     # Employee to be promoted
     employee_id = fields.Many2one('hr.employee')
+    date = fields.Date(required=True, default=datetime.now())
     department_id =  fields.Many2one(related="employee_id.department_id")
     # Previous job id
     job_id = fields.Many2one(related="employee_id.job_id")

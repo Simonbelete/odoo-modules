@@ -75,6 +75,7 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="date" />
                             <field name="employee_id" />
                             <field name="department_id" />
                             <field name="job_id" />
