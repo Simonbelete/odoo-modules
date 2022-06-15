@@ -25,6 +25,9 @@
             <!-- <xpath expr="//header" position="inside">
                 <button string="Create User" class="oe_highlight" type="object" name="action_create_user" attrs="{'invisible': [('user_id', '!=', False)]}" />
             </xpath> -->
+            <xpath expr="//header" position="inside">
+                <button string="Generate id" type="object" name="action_generate_badge_id" />
+            </xpath>
             <xpath expr="//div[@class='oe_button_box']" position="inside">
                 <button class="oe_stat_button" icon="fa-trophy" type="action" name="%(action_promotion)d">
                     <field name="promotion_count" string="Employee Promotion" widget="statinfo" />
@@ -36,10 +39,11 @@
             <xpath expr="//field[@name='job_id']" position="attributes">
                 <attribute name="required">True</attribute>
             </xpath>
-            <xpath expr="//field[@name='category_ids']" position="after">
-                <group>
-                    <field name="title" string="Title"/>
-                </group>
+            <xpath expr="//field[@name='mobile_phone']" position="before">
+                <field name="badge_id_no"/>
+            </xpath>
+            <xpath expr="//field[@name='mobile_phone']" position="before">
+                <field name="title" string="Title"/>
             </xpath>
             <xpath expr="//field[@name='name']" position="before">
                 <field name="title" readonly="True"/> 
