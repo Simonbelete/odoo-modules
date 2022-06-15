@@ -15,3 +15,4 @@ from . import sub_city
 from . import education
 from . import survey_user
 from . import work_place
+from . import hr_employee_base
