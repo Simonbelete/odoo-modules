@@ -25,6 +25,8 @@ class Promotion(models.Model):
         ('promotion', 'Promotion'),
         ('transfer', 'Transfer')
     ], default='promotion')
+    
+
 
     @api.model
     def _read_group_state_ids(self, stages, domain, order):
