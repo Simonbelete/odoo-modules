@@ -21,6 +21,7 @@
         'views/stadia_template.xml',
 
         'security/acquisition_security.xml',
+        'security/security.xml',
         'security/ir.model.access.csv',
         
         'data/mail_data.xml',
