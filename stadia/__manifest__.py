@@ -11,7 +11,6 @@
         'hr_contract',
         'hr_attendance',
         'hr_payroll_community',
-        'project',
         'oh_employee_documents_expiry',
         'oh_appraisal',
         'ohrms_loan',
@@ -34,6 +33,7 @@
         'data/hr_salary_rule_category_data.xml',
         'data/hr_salary_rule_data.xml',
         'data/education_data.xml',
+        'data/workplace_data.xml',
 
         'report/hr_employee_badge.xml',
         'report/hr_contract_employee_badge.xml',
