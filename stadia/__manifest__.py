@@ -10,6 +10,7 @@
         'hr_recruitment',
         'hr_contract',
         'hr_attendance',
+        'hr_skills',
         'hr_payroll_community',
         'oh_employee_documents_expiry',
         'oh_appraisal',

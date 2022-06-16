@@ -14,3 +14,4 @@ access_stadia_education,access_stadia_education,model_stadia_education,base.grou
 access_stadia_workplace,access_stadia_workplace,model_stadia_workplace,base.group_user,1,1,1,1
 access_hr_employee_relation,access_hr_employee_relation,model_hr_employee_relation,base.group_user,1,1,1,1
 access_hr_employee_family,access_hr_employee_family,model_hr_employee_family,base.group_user,1,1,1,1
+access_hr_education,access_hr_education,model_hr_education,base.group_user,1,1,1,1
