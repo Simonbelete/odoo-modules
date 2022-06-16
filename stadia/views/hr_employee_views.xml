@@ -20,6 +20,12 @@
                         <field name="pension_no" string="Pension Number"/>
                         <field name="tin_no" string="Tin Number"/>
                     </group>
+                    <group string="Citizenship">
+                        <field name="country_id" />
+                        <field name="birthday" />
+                        <field name="gender" />
+                        <field name="marital" />
+                    </group>
                 </group>
             </xpath>
             <!-- <xpath expr="//header" position="inside">
