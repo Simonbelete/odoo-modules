@@ -6,8 +6,62 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
-            <xpath expr="//header" position="inside">
+            <!-- Hide the default fields -->
+            <xpath expr="//page[@name='personal_information']/*[1]" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']" position="inside">
+                <group>
+                    <group string="Private Contact">
+                        <field name="sub_city_id" string="Sub city"/>
+                        <field name="woreda" string="Woreda"/>
+                        <field name="house_number" string="House Number"/>
+                        <field name="bank_account_id" />
+                        <field name="pension_no" string="Pension Number"/>
+                        <field name="tin_no" string="Tin Number"/>
+                    </group>
+                    <group string="Citizenship">
+                        <field name="country_id" />
+                        <field name="birthday" />
+                        <field name="gender" />
+                        <field name="marital" />
+                    </group>
+                    <group string="Emergency Contact">
+                        <field name="emergency_contact_name" />
+                        <field name="emergency_contact_city_id" />
+                        <field name="emergency_contact_woreda" />
+                        <field name="emergency_contact_house_no" />
+                        <field name="emergency_contact_relation_id" />
+                    </group>
+                </group>
+                <group string="Education">
+                    <field name="education_ids">
+                        <tree editable="bottom">
+                            <field name="type"/>
+                            <field name="school_name"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="fields_of_study"
+                                   attrs="{'invisible': [('type', 'in', ['primary', 'secondary'])]}"/>
+                            <field name="grade" attrs="{'invisible': [('type', 'not in', ['primary', 'secondary'])]}"/>
+                            <field name="certificate"/>
+                        </tree>
+                    </field>
+                </group>
+                <group string="Family">
+                    <field name="family_ids">
+                        <tree>
+                            <field name="name" />
+                            <field name="relation_id" />
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+            <!-- <xpath expr="//header" position="inside">
                 <button string="Create User" class="oe_highlight" type="object" name="action_create_user" attrs="{'invisible': [('user_id', '!=', False)]}" />
+            </xpath> -->
+            <xpath expr="//header" position="inside">
+                <button string="Generate id" type="object" name="action_generate_badge_id" />
             </xpath>
             <xpath expr="//div[@class='oe_button_box']" position="inside">
                 <button class="oe_stat_button" icon="fa-trophy" type="action" name="%(action_promotion)d">
@@ -20,14 +74,21 @@
             <xpath expr="//field[@name='job_id']" position="attributes">
                 <attribute name="required">True</attribute>
             </xpath>
-            <xpath expr="//field[@name='category_ids']" position="after">
-                <group>
-                    <field name="title" string="Title"/>
-                </group>
+            <xpath expr="//field[@name='mobile_phone']" position="before">
+                <field name="badge_id_no"/>
+            </xpath>
+            <xpath expr="//field[@name='mobile_phone']" position="before">
+                <field name="title" string="Title"/>
             </xpath>
             <xpath expr="//field[@name='name']" position="before">
                 <field name="title" readonly="True"/> 
                 <span style="margin-left: 10px"></span>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']/group/group/field[@name='address_home_id']"
+                    position="before">
+                <field name="sub_city_id"/>
+                <field name="woreda"/>
+                <field name="house_number"/>
             </xpath>
         </field>
     </record>

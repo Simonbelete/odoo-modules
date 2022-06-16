@@ -75,6 +75,7 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="date" />
                             <field name="employee_id" />
                             <field name="department_id" />
                             <field name="job_id" />
@@ -84,6 +85,7 @@
                             <field name="acquisition_id" />
                             <field name="recommended_by" />
                             <field name="new_designation_job_id" string="New Designation job" />
+                            <field name="new_work_place" string="Transferred Work Place" />
                         </group>
                     </group>
                 </sheet>

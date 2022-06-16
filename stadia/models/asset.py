@@ -16,6 +16,7 @@ class AssetDepreciationLine(models.Model):
 
     # For development remove on main
     days = fields.Float()
+    sequence = fields.Integer(required=True)
     asset_id = fields.Many2one('stadia.asset')
     amount = fields.Monetary(string='Current Depreciation', required=True)
     remaining_value = fields.Monetary(string='Next Period Depreciation', required=True)
@@ -27,6 +28,23 @@ class AssetDepreciationLine(models.Model):
     company_id = fields.Many2one('res.company', string='Company', required=True,
                                  readonly=True,
                                  default=lambda self: self.env.company)
+
+    # @api.onchange('depreciated_value')
+    # def depreciation_onchange(self):
+    #     all_depreciation_lines = self.env['stadia.asset.depreciation.line'].search([('asset_id', '=', self.asset_id.id)])
+    #     print('11111111111111111111111111')
+    #     print(all_depreciation_lines)
+    #     print(self.asset_id.id)
+        # residual_amount = all_depreciation_lines[0].depreciated_value
+        # for depreciation_line in all_depreciation_lines:
+        #     print('111111111111111111111111')
+            # print(depreciation_line.sequence)
+            # if(depreciation_line.sequence != 1):
+            #     residual_amount -= depreciation_line.amount 
+            #     depreciation_line.write({
+            #         'remaining_value': residual_amount,
+            #         'depreciated_value': depreciation_line.gross_value - residual_amount,
+            #     })
 
 class AccountAssetAsset(models.Model):
     _name = 'stadia.asset'
@@ -57,6 +75,26 @@ class AccountAssetAsset(models.Model):
                                  readonly=True,
                                  default=lambda self: self.env.company)
 
+    # @api.onchange('depreciation_line_ids')
+    # def _onchange_depreciation_line_ids(self):
+    #     residual_amount = self.depreciation_line_ids[0].remaining_value
+    #     for depreciation_line in self.depreciation_line_ids:
+    #         residual_amount -= depreciation_line.amount
+    #         depreciation_line.write({
+    #                 'remaining_value': residual_amount,
+    #                 'depreciated_value': self.gross_value - residual_amount,
+    #             })
+            # if(depreciation_line.sequence != 1):
+            #     print('dddddd')
+            #     print(residual_amount)
+            #     depreciation_line.write({
+            #         'remaining_value': residual_amount,
+            #         'depreciated_value': self.gross_value - residual_amount,
+            #     })
+            # else:
+                 
+
+
     @api.model
     def create(self, vals):
         asset = super(AccountAssetAsset, self.with_context(mail_create_nolog=True)).create(vals)
@@ -79,14 +117,16 @@ class AccountAssetAsset(models.Model):
 
         # Remove old depreciation lines
         commands = [(2, line_id.id, False) for line_id in previous_depreciation_line_ids]
-        amount = 1
+        amount = 0
         residual_amount = self.gross_value
         depreciation_date = self.first_depreciation_date
         month_day = depreciation_date.day
         # holds if the purchase date and depreciation date is already calculated
         check_p_and_d_run = False
+        i = 0
         # Loop through depreciation until zero or close to zero
         while residual_amount > 0:
+            i += 1
             # Get the number of day between purchase date and depreciation date
             purchase_and_depreciation_days = abs((self.purchase_date - self.first_depreciation_date).days)
             if(purchase_and_depreciation_days > 0 and check_p_and_d_run == False):
@@ -94,6 +134,7 @@ class AccountAssetAsset(models.Model):
                 amount = self.gross_value * rate
                 residual_amount -= amount
                 val = {
+                    'sequence': i,
                     'days': purchase_and_depreciation_days,
                     'amount': amount,
                     'asset_id': self.id,
@@ -108,6 +149,7 @@ class AccountAssetAsset(models.Model):
             amount = self.gross_value * self.ifrs_rate
             residual_amount -= amount
             vals = {
+                'sequence': i,
                 'days': total_days,
                 'amount': amount,
                 'asset_id': self.id,

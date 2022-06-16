@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="stamp_logo_template">
+        <style>
+            .s_bordered_red_box {
+                border: 6px solid red;
+                padding: 5px;
+                margin-bottom: 4px;
+                max-width: 350px;
+            }
+            .s_text_higlight {
+                color: #B64126;
+            }  
+        </style>
+        <div>
+            <div class="s_bordered_red_box">
+                <img src="/stadia/static/stadia_logo.jpg" style="width: 100px; height: 100px"/>
+            </div>
+            <div class="s_bordered_red_box">
+                <p class="s_text_higlight">Head Office</p>
+                <p>NB Business Center 9th floor, Room No 901, Near Wuha Limat Addis Ababa, Ethiopia</p>
+                <div>
+                    <p class="s_text_higlight">P.O.Box:</p>
+                    <p>33900 Addis Ababa</p>
+                </div>
+                <div>
+                    <p class="s_text_higlight">Tel:</p>
+                    <div style="margin-left: 20px">
+                        <p>+251-118610631</p>
+                        <p>+251-118217890</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="s_text_higlight">Fax:</p>
+                    <p style="margin-left: 20px">+251 -116189537</p>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

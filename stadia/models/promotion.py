@@ -1,9 +1,10 @@
 from odoo import fields, api, models
+from datetime import datetime
 
 class Promotion(models.Model):
     """ Internal Employee promotions """
     _name = 'stadia.promotion'
-    _res_name = 'employee_id'
+    _rec_name = 'employee_id'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     def _default_stage_id(self):
@@ -11,6 +12,7 @@ class Promotion(models.Model):
 
     # Employee to be promoted
     employee_id = fields.Many2one('hr.employee')
+    date = fields.Date(required=True, default=datetime.now())
     department_id =  fields.Many2one(related="employee_id.department_id")
     # Previous job id
     job_id = fields.Many2one(related="employee_id.job_id")
@@ -23,7 +25,8 @@ class Promotion(models.Model):
         ('promotion', 'Promotion'),
         ('transfer', 'Transfer')
     ], default='promotion')
-
+    new_work_place = fields.Many2one('stadia.workplace')
+    
     @api.model
     def _read_group_state_ids(self, stages, domain, order):
         stage_ids = stages._search([],order=order)
