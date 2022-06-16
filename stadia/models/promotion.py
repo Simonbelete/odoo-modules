@@ -25,9 +25,8 @@ class Promotion(models.Model):
         ('promotion', 'Promotion'),
         ('transfer', 'Transfer')
     ], default='promotion')
+    new_work_place = fields.Many2one('stadia.workplace')
     
-
-
     @api.model
     def _read_group_state_ids(self, stages, domain, order):
         stage_ids = stages._search([],order=order)
