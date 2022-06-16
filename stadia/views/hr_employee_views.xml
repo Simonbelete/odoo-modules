@@ -27,6 +27,9 @@
                         <field name="marital" />
                     </group>
                 </group>
+                <group string="Family">
+                    <field name="family_ids" />
+                </group>
             </xpath>
             <!-- <xpath expr="//header" position="inside">
                 <button string="Create User" class="oe_highlight" type="object" name="action_create_user" attrs="{'invisible': [('user_id', '!=', False)]}" />
