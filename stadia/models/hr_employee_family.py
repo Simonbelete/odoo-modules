@@ -8,5 +8,6 @@ class EmployeeRelation(models.Model):
 class HrEmployeeFamily(models.Model):
     _name = 'hr.employee.family'
 
+    name = fields.Char()
     employee_id = fields.Many2one('hr.employee')
     relation_id = fields.Many2one('hr.employee.relation')
