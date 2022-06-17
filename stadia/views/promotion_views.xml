@@ -95,8 +95,7 @@
                                     <field name="stage_id" />
                                     <field name="survey_id" />
                                     <field name="response_id" />
-                                    <button string="Start Survey" attrs="{'invisible': [('response_id', '!=', [])] }" class="oe_highlight" type="object" name="action_start_survey" />
-                                    <button string="Edit Survey" attrs="{'invisible': [('response_id', '=', [])] }" type="object" name="action_start_survey" />
+                                    <button string="Start/Edit Survey" class="oe_highlight" type="object" name="action_start_survey" />
                                     <button string="Consult Survey" type="object" name="action_print_survey" />
                                 </tree>
                             </field>

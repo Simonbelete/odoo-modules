@@ -45,9 +45,6 @@ class Promotion(models.Model):
                 'stage_id': s.id
             }
             commands.append((0, False, val))
-        print('00000000000000000000000000000')
-        print(commands)
-        print('00000000000000000000000000000')
         self.write({'survey_answer_ids': commands})
 
     @api.model
