@@ -61,6 +61,7 @@
         'views/hr_contract_views.xml',
         'views/asset_movement_views.xml',
         'views/account_asset_views.xml',
+        'views/hr_loan_views.xml',
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',

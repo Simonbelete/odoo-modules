@@ -15,7 +15,7 @@
 
     <template id="loan_request_template">
         <t t-call="web.html_container">
-            <t t-call="web.external_layout">
+            <t t-call="web.basic_layout">
                 <t t-foreach="docs" t-as="data">
                     <style>
                         th {
@@ -77,7 +77,7 @@
                                 <span class="s_label">የስራ መደብ:</span> <input type="text" class="jst-line" t-att-value="data['employee_id']['department_id']['name']"/>
                             </div>
                             <div>
-                                <span class="s_label">ፕሮጀክት</span> <input type="text" class="jst-line" />
+                                <span class="s_label">ፕሮጀክት</span> <input type="text" class="jst-line" t-att-value="data['employee_id']['work_place_id']['name']"/>
                             </div>
                             <div>
                                 <span class="s_label">አድራሻ <input type="text" class="jst-line" style="width: 100px"/> </span>
@@ -93,35 +93,35 @@
                             <div>
                                 <span class="s_label">የተቀጠረበት ቀን</span> <input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['joining_date']"/>
                             </div>
-                            በድርጅቱ ያገለገሉበት ቀን ---------------------
-                            <br/>
-                            የደሞዝ መጠን
-                            -----------------------------------------------------------------------------------------------------------
-                            <br/>
-                            ብድር የሚወሰድበት ምክንያት
-                            ------------------------------------------------------------------------------------------
-                            ------------
-                            ----------------------------------------------------------------------------------------------------------------
+                            <div>
+                                <span class="s_label">በድርጅቱ ያገለገሉበት ቀን</span> <input type="text" class="jst-line" style="width: 200px"/>
+                            </div>
+                            <div>
+                                <span class="s_label">የደሞዝ መጠን</span> <input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['contract_id']['wage']"/>
+                            </div>
+                            <div>
+                                <span class="s_label">ብድር የሚወሰድበት ምክንያት</span> <input type="text" class="jst-line" style="width: auto" t-att-value="data['reason']"/>
+                            </div>
                         </p>
                         <p style="margin-left:50px">
-                            የ1 ወር _______ የ2 ወር ____________ የ3 ወር _________________ ሌላ
-                            ----------------------------------------------------
-                            <br/>
-                            ተቆራጭ የሚደረግበት ጊዜ
-                            -------------------------------------------------------------------------------------------------
-                            <br/>
-                            የጠያቂው ፊርማ
-                            ---------------------------------------------------------------------------------------------------------
-                            <br/>
-                            የክፍል ኃላፊ አሰተያየት እና ፊርማ
-                            --------------------------------------------------------------------------------------------
-                            <br/>
-                            የስራ አስኪያጅ አስተያየት -------------------------------------------------------------------------------------------------------------
-                            --------------------------------------------------------------------------------------------------------------
-                            <br/>
-                            የስራ አስኪያጅ ፊርማ
-                            -------------------------------------------------------------------------------------------------------
-
+                            <div>
+                                <span class="s_label">ወር</span> <input type="text" class="jst-line" style="width: 200px" t-att-value="data['installment']"/>
+                            </div>
+                            <div>
+                                <span class="s_label">ተቆራጭ የሚደረግበት ጊዜ</span> <input type="text" class="jst-line" style="width: 200px" t-att-value="data['payment_date']"/>
+                            </div>
+                            <div>
+                                <span class="s_label">የጠያቂው ፊርማ</span> <input type="text" class="jst-line" style="width: 50%"/>
+                            </div>
+                            <div>
+                                <span class="s_label">የክፍል ኃላፊ አሰተያየት እና ፊርማ</span> <input type="text" class="jst-line" style="width: 80%"/>
+                            </div>
+                            <div>
+                                <span class="s_label"> የስራ አስኪያጅ አስተያየት</span> <input type="text" class="jst-line" style="width: 80%"/>
+                            </div>
+                            <div>
+                                <span class="s_label">የስራ አስኪያጅ ፊርማ</span> <input type="text" class="jst-line" style="width: 200px"/>
+                            </div>
                         </p>
                     </div>
                 </t>
