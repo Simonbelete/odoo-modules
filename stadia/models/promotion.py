@@ -30,10 +30,25 @@ class Promotion(models.Model):
     
     @api.model
     def create(self, values):
-        """ Auto Create/populate with survey ids"""
-        promotion_answers = self.env['promotion.answer'].search([])
-        values['survey_answer_ids'] = promotion_answers
-        return super(Promotion, self).create(values)
+        """ Auto Create/populate with survey ids """
+        promotion = super(Promotion, self).create(values)
+        promotion.sudo()._populate_answeres()
+        return promotion
+
+    def _populate_answeres(self):
+        self.ensure_one()
+        stages = self.env['stadia.promotion.stage'].search([])
+        commands = []
+        for s in stages:
+            val = {
+                'promotion_id': self.id,
+                'stage_id': s.id
+            }
+            commands.append((0, False, val))
+        print('00000000000000000000000000000')
+        print(commands)
+        print('00000000000000000000000000000')
+        self.write({'survey_answer_ids': commands})
 
     @api.model
     def _read_group_state_ids(self, stages, domain, order):
