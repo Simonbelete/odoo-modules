@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stadia_guarantor_letter_print" model="ir.actions.report">
+        <field name="name">Guarantor Letter</field>
+        <field name="model">hr.loan</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stadia.guarantor_letter_template</field>
+        <field name="report_file">guarantor_letter_template</field>
+        <field name="print_report_name">'Guarantor - %s' % (object.id)</field>
+        <field name="paperformat_id" ref="paperformat_euro_lowmargin"/>
+        <!-- model_[model name] -->
+        <field name="binding_model_id" ref="ohrms_loan.model_hr_loan"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="guarantor_letter_template">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <style>
+                        th {
+                        text-align: center;
+                        vertical-align: middle;
+                        }
+                        p{
+                        font-size:17px;
+                        }
+                        .main-footer{
+                        margin-left:50px;
+                        }
+                    </style>
+                    <table class="table table-striped">
+                        <tr>
+                            <th rowspan="2" style="width:20%"></th>
+                            <th style="width:55%">ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር.</th>
+                            <th rowspan="2"></th>
+                        </tr>
+                        <tr>
+                            <th>STADIA Engineering Works Consultant PLC</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>ዋስትና ማቅረቢያ ቅፅ</th>
+                            <th style="width:20%"></th>
+                        </tr>
+
+                    </table>
+
+                    <h5 style="margin-left:450px">ቀን፡ <input type="text" class="jst-line" t-att-value="data['date']"/></h5>
+                    <div>
+                        <p style="margin-left:50px">
+                            <div>
+                                <span class="s_label">1. የተበዳሪው ስም:</span>  <input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['name']"/>
+                                <span class="s_label">የስራ መደብ:</span>  <input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['job_id']['name']"/>
+                            </div>
+                            <div style="margin-left: 20px">
+                                <span class="s_label">አድራሻ <input type="text" class="jst-line" style="width: 100px"/> </span>
+                                <span class="s_label">ከተማ <input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['sub_city_id']['name']"/> </span>
+                                <span class="s_label">ወረዳ <input type="text" class="jst-line" style="width: 100px"/> </span>
+                                <span class="s_label">ቀበሌ <input type="text" class="jst-line" style="width: 100px"/> </span>
+                                <span class="s_label">የቤት ቁጥር <input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['house_number']"/> </span>
+                            </div>
+                            1. የተበዳሪው ስም________________________________________________
+                            አድራሻ ከተማ_____________________ክ/ከተማ_________________<br/>ወረዳ__________
+                            የቤት ቁጥር__________________ስልክ የቤት_____________ሞባይል_______________
+                            የተጠየቀው የብድር መጠን________________በፊደል____________________________
+                            <br/>ደመወዝ በወር ብር_______________________አበል ካለ________________________
+                            የብድሩ ክፍያ በደመዎዝ ላይ መቀነስ የሚጀምርበት ጊዜ____________________________
+                            <br/>
+                            በየወሩ ተቀናሽ የሚሆን የገንዘብ መጠን ብር____________________________________
+                            ተከፍሎ የሚያልቅበት ጊዜ________________________የተበዳሪው ፊርማ____________
+                            ስራ የተቀጠሩበት ቀን____________________________________________________
+                        </p>
+                        <p style="margin-left:50px">
+                            2. የተበዳሪው ዋስ ስም___________________________ የስራ መደብ_______________
+                            አድራሻ: ከተማ_________________ ክ/ከተማ__________________<br/>ወረዳ ___________
+                            የቤት ቁጥር__________________ስልክ የቤት______________ሞባይል____________
+                            <br/>ደመወዝ በወር ብር____________________________በፊደል____________________
+                            ስራ የተቀጠሩበት ቀን__________________________________________________
+                            <br/>
+
+                            እኔ ስሜ ከፍ ብሎ የተገለፀው የተበዳሪው ዋስ ስሆን ይህ ከዚህ በላይ የተጠቀሰው
+                            ብር________________________(____________________________)<br/>በተሰጠው የጊዜ ገደብ ተበዳሪው ክፍያውን
+                            ሳያጠናቅቅ ከስራ
+                            ቢለቁ እና ከድርጅቱ የሚያገኙትጠቅላላ ክፍያ ዕዳውን ሊያካክስ ሙሉ ለሙሉ ለመክፈል ተጠያቂና ዋስ መሆኔን በፊርማዬ አረጋግጣለው፡፡
+                            <br/>
+                            የዋስ ፊርማ_________________________________________
+                            <br/>
+
+                            የመዝጋቢ ስም____________________________ፊርማ ________________________
+                            <br/>
+
+                            የሰው ኃይል አስተዳደር ኃላፊ ስም_______________________ ፊርማ_______________
+
+                        </p>
+
+
+                        <p>
+                            <u>ማሳሰቢያ</u>
+                        </p>
+                        <p>ይህ ቅፅ በሶስት ኮፒ ይሞላል</p>
+                        <div class="main-footer">
+                            1ኛ ለፋይናስ መምሪያ
+                            <br/>
+                            2ኛ ለተበዳሪ የግል ማህበር
+                            <br/>
+                            3ኛ ለዋስ የግል ማህበር
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

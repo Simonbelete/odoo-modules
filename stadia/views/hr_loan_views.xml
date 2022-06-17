@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='installment']" position="after">
                 <field name="reason" string="Reason" />
+                <field name="guarantor_id" string="Guarantor" />
             </xpath>
         </field>
     </record>

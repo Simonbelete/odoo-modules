@@ -49,6 +49,7 @@
         'report/contract_agreement.xml',
         'report/lateral_transfer.xml',
         'report/loan.xml',
+        'report/guarantor_letter.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
