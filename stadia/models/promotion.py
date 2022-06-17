@@ -29,6 +29,13 @@ class Promotion(models.Model):
     survey_answer_ids = fields.One2many('promotion.answer', 'promotion_id')
     
     @api.model
+    def create(self, values):
+        """ Auto Create/populate with survey ids"""
+        promotion_answers = self.env['promotion.answer'].search([])
+        values['survey_answer_ids'] = promotion_answers
+        return super(Promotion, self).create(values)
+
+    @api.model
     def _read_group_state_ids(self, stages, domain, order):
         stage_ids = stages._search([],order=order)
         return stages.browse(stage_ids)
