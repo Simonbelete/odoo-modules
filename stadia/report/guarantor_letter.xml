@@ -16,7 +16,7 @@
     <template id="guarantor_letter_template">
         <t t-call="web.html_container">
             <t t-call="web.basic_layout">
-                <t t-foreach="docs" t-as="o">
+                <t t-foreach="docs" t-as="data">
                     <style>
                         th {
                         text-align: center;
@@ -27,6 +27,29 @@
                         }
                         .main-footer{
                         margin-left:50px;
+                        }.jst-line {
+                            border: 0;
+                            border-bottom: 2px solid #000;
+                            margin-bottom: 5px;
+                            border-style: dashed;
+                            width: 70%;
+                        }
+                        .s_label {
+                            font-weight: bold;
+                            font-size: 16px;
+                            padding-right: 10px
+                        }
+                        .jst-line {
+                            border: 0;
+                            border-bottom: 2px solid #000;
+                            margin-bottom: 5px;
+                            border-style: dashed;
+                            width: 70%;
+                        }
+                        .s_label {
+                            font-weight: bold;
+                            font-size: 16px;
+                            padding-right: 10px
                         }
                     </style>
                     <table class="table table-striped">
@@ -54,58 +77,89 @@
                                 <span class="s_label">የስራ መደብ:</span>  <input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['job_id']['name']"/>
                             </div>
                             <div style="margin-left: 20px">
-                                <span class="s_label">አድራሻ <input type="text" class="jst-line" style="width: 100px"/> </span>
+                                <span class="s_label">አድራሻ ከተማ <input type="text" class="jst-line" style="width: 100px"/> </span>
                                 <span class="s_label">ከተማ <input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['sub_city_id']['name']"/> </span>
                                 <span class="s_label">ወረዳ <input type="text" class="jst-line" style="width: 100px"/> </span>
-                                <span class="s_label">ቀበሌ <input type="text" class="jst-line" style="width: 100px"/> </span>
-                                <span class="s_label">የቤት ቁጥር <input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['house_number']"/> </span>
                             </div>
-                            1. የተበዳሪው ስም________________________________________________
-                            አድራሻ ከተማ_____________________ክ/ከተማ_________________<br/>ወረዳ__________
-                            የቤት ቁጥር__________________ስልክ የቤት_____________ሞባይል_______________
-                            የተጠየቀው የብድር መጠን________________በፊደል____________________________
-                            <br/>ደመወዝ በወር ብር_______________________አበል ካለ________________________
-                            የብድሩ ክፍያ በደመዎዝ ላይ መቀነስ የሚጀምርበት ጊዜ____________________________
-                            <br/>
-                            በየወሩ ተቀናሽ የሚሆን የገንዘብ መጠን ብር____________________________________
-                            ተከፍሎ የሚያልቅበት ጊዜ________________________የተበዳሪው ፊርማ____________
-                            ስራ የተቀጠሩበት ቀን____________________________________________________
+                            <div style="margin-left: 20px">
+                                <span class="s_label">የቤት ቁጥር <input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['house_number']"/> </span>
+                                <span class="s_label">ሞባይል <input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['mobile_phone']"/> </span>
+                                <span class="s_label">ስልክ የቤት <input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['work_phone']"/> </span>
+                            </div>
+                            <div style="margin-left: 20px">
+                                <span class="s_label">የተጠየቀው የብድር መጠን<input type="text" class="jst-line" style="width: 100px" t-att-value="data['loan_amount']"/> </span>
+                                <span class="s_label">በፊደል <input type="text" class="jst-line" style="width: 200px"/> </span>
+                            </div>
+                            <div style="margin-left: 20px">
+                                <span class="s_label">ደመወዝ በወር ብር<input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['contract_id']['wage']"/></span>
+                                <span class="s_label">አበል ካለ<input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['contract_id']['perdime'],data['employee_id']['contract_id']['travel_allowance']"/> </span>
+                            </div>
+                            <div>
+                                <span class="s_label">የብድሩ ክፍያ በደመዎዝ ላይ መቀነስ የሚጀምርበት ጊዜ</span> <input type="text" class="jst-line" style="width: 200px" t-att-value="data['payment_date']"/>
+                            </div>
+                            <div>
+                                <span class="s_label">በየወሩ ተቀናሽ የሚሆን የገንዘብ መጠን ብር</span> <input type="text" class="jst-line" style="width: 200px" t-att-value="data['monthly_payment']"/>
+                            </div>
+                            <div>
+                                <span class="s_label">ተከፍሎ የሚያልቅበት ጊዜ</span> <input type="text" class="jst-line" style="width: 200px" t-att-value="data['end_payment_date']"/>
+                                <span class="s_label">የተበዳሪው ፊርማ</span> <input type="text" class="jst-line" style="width: 200px" />
+                            </div>
+                            <div>
+                                <span class="s_label">የተቀጠረበት ቀን</span> <input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['joining_date']"/>
+                            </div>
                         </p>
                         <p style="margin-left:50px">
-                            2. የተበዳሪው ዋስ ስም___________________________ የስራ መደብ_______________
-                            አድራሻ: ከተማ_________________ ክ/ከተማ__________________<br/>ወረዳ ___________
-                            የቤት ቁጥር__________________ስልክ የቤት______________ሞባይል____________
-                            <br/>ደመወዝ በወር ብር____________________________በፊደል____________________
-                            ስራ የተቀጠሩበት ቀን__________________________________________________
-                            <br/>
+                            <div>
+                                <span class="s_label">2. የተበዳሪው ዋስ ስም:</span>  <input type="text" class="jst-line" style="width: 100px" t-att-value="data['guarantor_id']['name']"/>
+                                <span class="s_label">የስራ መደብ:</span>  <input type="text" class="jst-line" style="width: 100px" t-att-value="data['guarantor_id']['job_id']['name']"/>
+                            </div>
+                            <div style="margin-left: 20px">
+                                <span class="s_label">አድራሻ ከተማ <input type="text" class="jst-line" style="width: 100px"/> </span>
+                                <span class="s_label">ከተማ <input type="text" class="jst-line" style="width: 100px" t-att-value="data['guarantor_id']['sub_city_id']['name']"/> </span>
+                                <span class="s_label">ወረዳ <input type="text" class="jst-line" style="width: 100px"/> </span>
+                            </div>
+                            <div style="margin-left: 20px">
+                                <span class="s_label">የቤት ቁጥር <input type="text" class="jst-line" style="width: 100px" t-att-value="data['guarantor_id']['house_number']"/> </span>
+                                <span class="s_label">ሞባይል <input type="text" class="jst-line" style="width: 200px" t-att-value="data['guarantor_id']['mobile_phone']"/> </span>
+                                <span class="s_label">ስልክ የቤት <input type="text" class="jst-line" style="width: 200px" t-att-value="data['guarantor_id']['work_phone']"/> </span>
+                            </div>
+                            <div style="margin-left: 20px">
+                                <span class="s_label">ደመወዝ በወር ብር<input type="text" class="jst-line" style="width: 100px" t-att-value="data['guarantor_id']['contract_id']['wage']"/></span>
+                                <span class="s_label">በፊደል<input type="text" class="jst-line" style="width: 200px"/></span>
+                            </div>
+                            <div style="margin-left: 20px">
+                                <span class="s_label">የተቀጠረበት ቀን</span> <input type="text" class="jst-line" style="width: 200px" t-att-value="data['guarantor_id']['joining_date']"/>
+                            </div>
+                            <div style="margin-left: 20px">
+                                <span class="s_label">እኔ ስሜ ከፍ ብሎ የተገለፀው የተበዳሪው ዋስ ስሆን ይህ ከዚህ በላይ የተጠቀሰው</span>
+                                <input type="text" class="jst-line" style="width: 150px" />(
+                                <input type="text" class="jst-line" style="width: 150px" t-att-value="data['loan_amount']"/>)
+                                <span>በተሰጠው የጊዜ ገደብ ተበዳሪው ክፍያውን ሳያጠናቅቅ ከስራ
+                                    ቢለቁ እና ከድርጅቱ የሚያገኙትጠቅላላ ክፍያ ዕዳውን ሊያካክስ ሙሉ ለሙሉ ለመክፈል ተጠያቂና ዋስ መሆኔን በፊርማዬ አረጋግጣለው፡፡</span>
+                            </div>
+                            <div style="margin-left: 20px">
+                                <span class="s_label">የዋስ ፊርማ</span> <input type="text" class="jst-line" style="width: 200px"/>
+                            </div>
+                            <div style="margin-left: 20px">
+                                <span class="s_label">የመዝጋቢ ስም<input type="text" class="jst-line" style="width: 100px" t-att-value="data['create_uid']['name']"/></span>
+                                <span class="s_label">ፊርማ<input type="text" class="jst-line" style="width: 200px" /></span>
+                            </div>
 
-                            እኔ ስሜ ከፍ ብሎ የተገለፀው የተበዳሪው ዋስ ስሆን ይህ ከዚህ በላይ የተጠቀሰው
-                            ብር________________________(____________________________)<br/>በተሰጠው የጊዜ ገደብ ተበዳሪው ክፍያውን
-                            ሳያጠናቅቅ ከስራ
-                            ቢለቁ እና ከድርጅቱ የሚያገኙትጠቅላላ ክፍያ ዕዳውን ሊያካክስ ሙሉ ለሙሉ ለመክፈል ተጠያቂና ዋስ መሆኔን በፊርማዬ አረጋግጣለው፡፡
-                            <br/>
-                            የዋስ ፊርማ_________________________________________
-                            <br/>
-
-                            የመዝጋቢ ስም____________________________ፊርማ ________________________
-                            <br/>
-
-                            የሰው ኃይል አስተዳደር ኃላፊ ስም_______________________ ፊርማ_______________
-
+                            <p>
+                                <u>ማሳሰቢያ</u>
+                            </p>
+                            <p>ይህ ቅፅ በሶስት ኮፒ ይሞላል</p>
+                            <div class="main-footer">
+                                1ኛ ለፋይናስ መምሪያ
+                                <br/>
+                                2ኛ ለተበዳሪ የግል ማህበር
+                                <br/>
+                                3ኛ ለዋስ የግል ማህበር
+                            </div>
                         </p>
 
 
-                        <p>
-                            <u>ማሳሰቢያ</u>
-                        </p>
-                        <p>ይህ ቅፅ በሶስት ኮፒ ይሞላል</p>
-                        <div class="main-footer">
-                            1ኛ ለፋይናስ መምሪያ
-                            <br/>
-                            2ኛ ለተበዳሪ የግል ማህበር
-                            <br/>
-                            3ኛ ለዋስ የግል ማህበር
-                        </div>
+                      
 
                     </div>
                 </t>
