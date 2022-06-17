@@ -48,6 +48,7 @@
         'report/hiring_promotion_template.xml',
         'report/contract_agreement.xml',
         'report/lateral_transfer.xml',
+        'report/loan.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stadia_job_spec_print" model="ir.actions.report">
+        <field name="name">Loan Request</field>
+        <field name="model">hr.loan</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stadia.loan_request_template</field>
+        <field name="report_file">loan_request_template</field>
+        <field name="print_report_name">'Loan Request - %s' % (object.id)</field>
+        <field name="paperformat_id" ref="paperformat_euro_lowmargin"/>
+        <!-- model_[model name] -->
+        <field name="binding_model_id" ref="ohrms_loan.model_hr_loan"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="loan_request_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="data">
+                    <style>
+                        th {
+                        text-align: center;
+                        vertical-align: middle;
+                        }
+                        p{
+                        font-size:20px;
+                        }
+                        .main-footer{
+                        margin-left:50px;
+                        }
+                        .jst-line {
+                            border: 0;
+                            border-bottom: 2px solid #000;
+                            margin-bottom: 5px;
+                            border-style: dashed;
+                            width: 70%;
+                        }
+                        .s_label {
+                            font-weight: bold;
+                            font-size: 16px;
+                            padding-right: 10px
+                        }
+                        .s_container {
+                            
+                        }
+                    </style>
+                    <table class="table table-striped">
+                        <tr>
+                            <th rowspan="1" style="width:20%"></th>
+                            <th style="width:55%">ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር.</th>
+                            <th rowspan="2"></th>
+                        </tr>
+                        <tr>
+                            <th><img style="height: 100px; width: 200px;" src="/stadia/static/stadia_plain_logo.png" /></th>
+                            <th>STADIA Engineering Works Consultant PLC</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>ስታዲያ የምህንድስና ስራዎች አማካሪ ኃላ/የተ/የግ/ማህበር
+                                የብድር መጠየቂያ ቅፅ
+                            </th>
+                            <th style="width:20%"></th>
+                        </tr>
+
+                    </table>
+
+                    <h5 style="margin-left:450px">ቀን፡  <input type="text" class="jst-line" t-att-value="data['date']"/></h5>
+                    <div>
+                        <p style="margin-left:50px">
+                            <div style="s_container">
+                                <span class="s_label">የብድር ጠያቂ ሙሉ ስም:</span>  <input type="text" class="jst-line" t-att-value="data['employee_id']['name']"/>
+                            </div>
+                            <div>
+                                <span class="s_label">የሥራ ክፍል:</span> <input type="text" class="jst-line" t-att-value="data['employee_id']['job_id']['name']"/>
+                            </div>
+                            <div>
+                                <span class="s_label">የስራ መደብ:</span> <input type="text" class="jst-line" t-att-value="data['employee_id']['department_id']['name']"/>
+                            </div>
+                            <div>
+                                <span class="s_label">ፕሮጀክት</span> <input type="text" class="jst-line" />
+                            </div>
+                            <div>
+                                <span class="s_label">አድራሻ <input type="text" class="jst-line" style="width: 100px"/> </span>
+                                <span class="s_label">ከተማ <input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['sub_city_id']['name']"/> </span>
+                                <span class="s_label">ወረዳ <input type="text" class="jst-line" style="width: 100px"/> </span>
+                                <span class="s_label">ቀበሌ <input type="text" class="jst-line" style="width: 100px"/> </span>
+                                <span class="s_label">የቤት ቁጥር <input type="text" class="jst-line" style="width: 100px" t-att-value="data['employee_id']['house_number']"/> </span>
+                            </div>
+                            <div>
+                                <span class="s_label">ሞባይል <input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['mobile_phone']"/> </span>
+                                <span class="s_label">ስልክ የቤት <input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['work_phone']"/> </span>
+                            </div>
+                            
+                            የተቀጠረበት ቀን--------------------------
+                            በድርጅቱ ያገለገሉበት ቀን ---------------------
+                            <br/>
+                            የደሞዝ መጠን
+                            -----------------------------------------------------------------------------------------------------------
+                            <br/>
+                            ብድር የሚወሰድበት ምክንያት
+                            ------------------------------------------------------------------------------------------
+                            ------------
+                            ----------------------------------------------------------------------------------------------------------------
+                        </p>
+                        <p style="margin-left:50px">
+                            የ1 ወር _______ የ2 ወር ____________ የ3 ወር _________________ ሌላ
+                            ----------------------------------------------------
+                            <br/>
+                            ተቆራጭ የሚደረግበት ጊዜ
+                            -------------------------------------------------------------------------------------------------
+                            <br/>
+                            የጠያቂው ፊርማ
+                            ---------------------------------------------------------------------------------------------------------
+                            <br/>
+                            የክፍል ኃላፊ አሰተያየት እና ፊርማ
+                            --------------------------------------------------------------------------------------------
+                            <br/>
+                            የስራ አስኪያጅ አስተያየት -------------------------------------------------------------------------------------------------------------
+                            --------------------------------------------------------------------------------------------------------------
+                            <br/>
+                            የስራ አስኪያጅ ፊርማ
+                            -------------------------------------------------------------------------------------------------------
+
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
