@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="stadia_job_spec_print" model="ir.actions.report">
+    <record id="stadia_loan_print" model="ir.actions.report">
         <field name="name">Loan Request</field>
         <field name="model">hr.loan</field>
         <field name="report_type">qweb-pdf</field>
