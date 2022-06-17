@@ -13,6 +13,9 @@
                     <span>/ day</span>
                 </div>
             </xpath>
+            <xpath expr="//field[@name='date_start']" position="before">
+                <field name="work_place_id" string="Work Location" />
+            </xpath>
             <xpath expr="//group[@name='main_info']">
                 <group string="Others">
                     <label for="cost_sharing"/>

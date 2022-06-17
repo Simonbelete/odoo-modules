@@ -90,8 +90,9 @@
                                 <span class="s_label">ሞባይል <input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['mobile_phone']"/> </span>
                                 <span class="s_label">ስልክ የቤት <input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['work_phone']"/> </span>
                             </div>
-                            
-                            የተቀጠረበት ቀን--------------------------
+                            <div>
+                                <span class="s_label">የተቀጠረበት ቀን</span> <input type="text" class="jst-line" style="width: 200px" t-att-value="data['employee_id']['joining_date']"/>
+                            </div>
                             በድርጅቱ ያገለገሉበት ቀን ---------------------
                             <br/>
                             የደሞዝ መጠን
