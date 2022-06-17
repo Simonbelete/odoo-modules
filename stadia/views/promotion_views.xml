@@ -74,12 +74,22 @@
                 </header>
                 <sheet>
                     <group>
+                        
                         <group>
                             <field name="date" />
                             <field name="employee_id" />
                             <field name="department_id" />
                             <field name="job_id" />
                             <field name="promotion_type" string="Type"/>
+                            <field name="survey_answer_ids" string="Type">
+                                <tree>
+                                    <field name="stage_id" />
+                                    <field name="survey_id" />
+                                    <field name="response_id" />
+                                    <button string="Start Survey" class="oe_highlight" type="object" name="action_start_survey" />
+                                    <button string="Consult Survey" class="oe_highlight" type="object" name="action_print_survey" />
+                                </tree>
+                            </field>
                         </group>
                         <group>
                             <field name="acquisition_id" />

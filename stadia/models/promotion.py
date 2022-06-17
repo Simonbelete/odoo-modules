@@ -26,8 +26,31 @@ class Promotion(models.Model):
         ('transfer', 'Transfer')
     ], default='promotion')
     new_work_place = fields.Many2one('stadia.workplace')
+    survey_answer_ids = fields.One2many('promotion.answer', 'promotion_id')
     
     @api.model
     def _read_group_state_ids(self, stages, domain, order):
         stage_ids = stages._search([],order=order)
         return stages.browse(stage_ids)
+
+
+class PromotionStageSurvery(models.Model):
+    _name = 'promotion.answer'
+
+    promotion_id = fields.Many2one('stadia.promotion')
+    stage_id = fields.Many2one('stadia.promotion.stage')
+    survey_id = fields.Many2one(related='stage_id.survey_id')
+    response_id = fields.Many2one('survey.user_input', "Response", ondelete="set null")
+    
+    def action_start_survey(self):
+        if not self.response_id:
+            response = self.survey_id._create_answer(user=self.env.user)
+            self.response_id = response.id
+        else:
+            response = self.response_id
+
+        return self.survey_id.action_start_survey(answer=response)
+
+    def action_print_survey(self):
+        self.ensure_one()
+        return self.survey_id.action_print_survey(answer=self.response_id)
