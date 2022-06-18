@@ -36,4 +36,27 @@
         </field>
     </record>
 
+    <record id="stadia_hr_application" model="ir.ui.view">
+        <field name="name">hr.applicant</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='description']" position="after">
+                <notebook>
+                    <page string="Survey">
+                        <field name="survey_answer_ids" string="Type">
+                            <tree>
+                                <field name="stage_id" />
+                                <field name="survey_id" />
+                                <field name="response_id" />
+                                <button string="Start/Edit Survey" class="oe_highlight" type="object" name="action_start_survey" />
+                                <button string="Consult Survey" type="object" name="action_print_survey" />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
