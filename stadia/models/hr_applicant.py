@@ -9,6 +9,10 @@ class HrApplicant(models.Model):
     """ Inherited modes to add is the applicant type is recommendation or not"""
     _inherit = 'hr.applicant'
 
+    def _default_ref_no(self):
+        return self.env['ir.sequence'].next_by_code('ref.no.sequence')
+
+    ref_no = fields.Char(string="Ref No", copy=False, default=_default_ref_no, required=True)
     recommended_by = fields.Many2one('hr.employee')
     acquisition_id = fields.Many2one('stadia.acquisition', domain="[('state', '=', 'approved')]", required=True)
     survey_answer_ids = fields.One2many('applicant.answer', 'hr_applicant_id')
