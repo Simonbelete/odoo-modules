@@ -14,7 +14,7 @@ class Promotion(models.Model):
         return self._generate_ref_no()
 
     def _generate_ref_no(self):
-        return 'P%s' % self.env['ir.sequence'].next_by_code('promotion.ref.no.sequence')
+        return self.env['ir.sequence'].next_by_code('ref.no.sequence')
 
     ref_no = fields.Char(string="Ref No", copy=False, default=_default_ref_no, required=True)
     # Employee to be promoted

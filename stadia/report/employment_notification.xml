@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="employment_notification_print" model="ir.actions.report">
+        <field name="name">Employment Notification</field>
+        <field name="model">hr.contract</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stadia.employment_notification_template</field>
+        <field name="report_file">employment_notification_template</field>
+        <field name="print_report_name">'Employment Notification - %s' % (object.id)</field>
+        <field name="paperformat_id" ref="paperformat_euro_lowmargin"/>
+        <!-- model_[model name] -->
+        <field name="binding_model_id" ref="model_hr_contract"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="employment_notification_template">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="data">
+                    <style>
+                        h7{
+                        font-size: 15px;
+                        padding: 0px;
+                        }
+                        .badge_box {
+                        margin-top: 0px;
+                        border: 0px solid red;
+                        -webkit-flex-direction: row;
+                        display: -webkit-box;
+                        }
+
+                        .main-footer {
+                        display: flex;
+                        -webkit-flex-direction: row;
+                        display: -webkit-box;
+                        }
+
+                        .secondrow {
+                        border: 0px solid red;
+                        -webkit-flex-direction: row;
+                        display: -webkit-box;
+                        }
+                        .fistcolumn {
+                        border: 0px solid;
+                        width: 400px;
+                        height: 200px;
+                        }
+
+                        .secondcolumn {
+                        width: 280px;
+                        margin-left: 160px;
+                        padding: 0px;
+                        border: 6px solid red;
+                        -webkit-box-align:end;
+                        }
+                        .secondrowfirstcolumn {
+                            border: 0px solid;
+                            padding: 2px 5px;
+                            width: 400px;
+                            height: 200px;
+                            }
+                            .secondrowsecondcolumn {
+                            width: 280px;
+                            border: 6px solid red;
+                            padding: 0px;
+                            margin-left: 160px;
+                            -webkit-box-align:end;
+    
+                            }
+                            .badge_title {
+                            display: flex;
+                            display: -webkit-box;
+                            -webkit-box-direction: row;
+                            }
+    
+                            .badge_name {
+                            font-weight: bold;
+                            font-style: italic;
+                            font-size: 30px;
+                            }
+    
+                            .badge_title_id {
+                            text-decoration: underline;
+                            text-align: center;
+                            }
+    
+                            .underline {
+                            text-decoration: underline;
+                            }
+    
+                            .badge_img {
+                            height: 160px;
+                            width: 250px;
+                            border: 0px solid;
+                            }
+    
+                            .badge_detail {
+                            margin-top: 10px;
+                            }
+    
+                            .post_box {
+                            color: red;
+                            }
+    
+                            .badge_detail>h5 {
+                            margin: 1px;
+                            }
+    
+                            .badge_page_2 {
+                            margin-top: 100px;
+                            width: 800px;
+                            }
+    
+                            .badge_page_2>h5 {
+                            margin: 5px;
+                            }
+    
+                            .badge_sig {
+                            margin-top: 15px;
+                            display: flex;
+                            display: -webkit-box;
+                            -webkit-box-direction: row;
+                            }
+    
+                            .sig_line {
+                            border-bottom: 4px solid black;
+                            width: 300px;
+                            margin-bottom: 24px;
+                            margin-left: 5px;
+                            }
+    
+                            .badge_issued {
+                            display: flex;
+                            display: -webkit-box;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            -webkit-box-pack: center;
+                            gap: 100px;
+                            -webkit-column-gap: 100px;
+                            }
+    
+                            .class-p {
+                            margin-left: 0px;
+                            margin-right: 0px;
+                            }
+    
+                            .subject {
+                            margin-top: 200px;
+                            margin-left: 100px;
+                            }
+    
+                            .hr1 {
+                            border: 3px solid rgb(122, 22, 22);
+                        }
+                    </style>
+                    <body>
+                        <div class="badge_box">
+                            <div class="fistcolumn" style="margin-left: 0px">
+                                <h7>Ref.No: [Insert Ref.No]</h7>
+                                <br/>
+                                <h7>Date: [Insert Date]</h7>
+                            </div>
+                            <div class="secondcolumn">
+                                <img src="http://stadiaconsultancy.com/images/about/aboutlogo.jpg" class="badge_img"/>
+                            </div>
+                        </div>
+                        <div class="secondrow">
+                            <div class="secondrowfirstcolumn" style="margin-left: 0px">
+                                <div>
+                                    <h7>To: [Insert Ref.No]</h7>
+                                    <br/>
+                                    <h7 style="margin-left:24px">Addis Ababa: [Insert Date]</h7>
+                                    <br/>
+                                    <h6 class="subject">Subject:
+                                        <b>[insert subject]</b>
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="secondrowsecondcolumn">
+                                <h7 style="color:red;">Head Office</h7>
+                                <br/>
+                                <h7>NB Business Center 9th floor,</h7>
+                                <h7>Room No 901, Near Wuha Limat</h7>
+                                <br/>
+                                <h7>Addis Ababa, Ethiopia</h7>
+                                <br/>
+                                <h7><span class="post_box">P.O.Box</span>: 33900 Addis Ababa
+                                </h7>
+                                <br/>
+                                <h7>NB Business Center 9th floor,</h7>
+                                <br/>
+                                <h7 class="post_box">Tell:</h7>
+                                <ul class="a">
+                                    <li>+251-118610631</li>
+                                    <li>+251-118217890</li>
+                                    <li>+251 -116189537</li>
+                                </ul>
+                                <h7 class="post_box">Fax:</h7>
+                                <br/>
+                                <h7>Website:</h7>
+                                <br/>
+                                <h7>www.stadiaconsultancy.com</h7>
+                                <h7>Email:info@stadiaconsultancy.com</h7>
+                            </div>
+                        </div>
+                        <div class="class-p">
+                            <h7>Dear:
+                                <b>[INSERT-VALUE]</b>
+                            </h7>
+                            <p>
+                                We are pleased to inform you that our company has decided to employ
+                                you for the
+                                position of
+                                <b>[Insert Position]</b>on the Consultancy Service for Continuation of Construction
+                                Supervision of
+                                <b>[Insert Place of
+                                    Work]
+                                </b>
+                                <br/>
+                                You will earn a monthly gross salary of
+                                <b>[Insert amount in figure and Words]</b>
+                                effective as of <b>[Insert Month Date, Year]</b>. The first 60 working days would be a
+                                probation period.
+                                <br/>
+                                We take this opportunity to express our belief that you will
+                                demonstrate your
+                                competency with the highest degree of commitment, integrity and team sprit towards the
+                                achievement of the
+                                project’s objectives.
+                            </p>
+                            <h7>With regards,</h7>
+                        </div>
+                        <div>
+                            <p>C.C</p>
+                            <UL>
+                                <li>Finance</li>
+                                <li>File</li>
+                                <li>file</li>
+                            </UL>
+                        </div>
+                        <div>
+                            <hr class="hr1"/>
+                            <hr/>
+                            <h7 style="text-align: center; color: rgb(247, 15, 15);">
+                                <u>Consultancy On</u>
+                            </h7>
+                        </div>
+                        <div class="main-footer">
+                            <div>Transportation</div>
+                            <div style="margin-left: 100px">Water Resource Management</div>
+                            <div style="margin-left: 100px">Environment</div>
+                            <div style="margin-left: 100px">Construction</div>
+                        </div>
+                    </body>
+                </t>
+            </t>
+        </t>
+
+    </template>
+
+</odoo>

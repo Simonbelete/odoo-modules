@@ -50,6 +50,7 @@
         'report/lateral_transfer.xml',
         'report/loan.xml',
         'report/guarantor_letter.xml',
+        'report/employment_notification.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
