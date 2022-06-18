@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="hr_employee_Betemariyam_tilahun" model="hr.employee">
+        <field name="name">Betemariyam Tilahun Mekonnen</field>
+        <field name="title">wro</field>
+        <field name="birthday">1993-01-06</field>
+        <field name="gender">female</field>
+        <field name="marital">married</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_boli"/>
+        <field name="woreda">09</field>
+        <field name="house_number">New</field>
+        <field name="mobile_phone">0912442753</field>
+        <field name="tin_no">0072434471</field>
+        <field name="department_id" ref="stadia_hr_department_project_formulation"/>
+        <field name="job_id" ref="stadia_hr_project_formulation_section_head"/>
+        <field name="emergency_contact_name">Befekadu Tilahu Mekonnen</field>
+        <field name="emergency_contact_city_id" ref="subcity_boli"/>
+        <field name="emergency_contact_woreda">09</field>
+        <field name="emergency_contact_house_no">New</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_Betemariyam_tilahun" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_Betemariyam_tilahun"/>
+        <field name="name">Betemariyam Tilahun Contract Agreement</field>
+        <field name="date_start">2021-03-15</field>
+        <field name="wage">28105</field>
+        <field name="travel_allowance">2200</field>
+        <field name="phone_allowance">300</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_Betemariyam_tilahun_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Addis Ababa University</field>
+        <field name="start_date">2012-01-01</field>
+        <field name="end_date">2016-09-18</field>
+        <field name="fields_of_study">Civil Engineering</field>
+        <field name="employee_id" ref="hr_employee_Betemariyam_tilahun"/>
+    </record>
+
+    <record id="employee_family_Betemariyam_tilahun_education2" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">School of Tomorrow</field>
+        <field name="start_date">2007-01-01</field>
+        <field name="end_date">2010-09-18</field>
+        <field name="employee_id" ref="hr_employee_Betemariyam_tilahun"/>
+    </record>
+
+    <record id="employee_family_Betemariyam_tilahun_education3" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Addis Kidam Primary School</field>
+        <field name="start_date">2001-01-01</field>
+        <field name="end_date">2006-09-18</field>
+        <field name="employee_id" ref="hr_employee_Betemariyam_tilahun"/>
+    </record>
+
+
+    <!--SPOUSE INFORMATION-->
+    <record id="employee_family_Betemariyam_tilahun_spouse" model="hr.employee.family">
+        <field name="name">Addsie Getie Adane</field>
+        <field name="employee_id" ref="hr_employee_Betemariyam_tilahun"/>
+        <field name="relation_id" ref="employee_family_spouse"/>
+    </record>
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_Betemariyam_tilahun_mother" model="hr.employee.family">
+        <field name="name">Dinkinesh Mekonnen Tesfu</field>
+        <field name="employee_id" ref="hr_employee_Betemariyam_tilahun"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_Betemariyam_tilahun_sister" model="hr.employee.family">
+        <field name="name">Werkinesh Tilahun Mekonnen</field>
+        <field name="employee_id" ref="hr_employee_Betemariyam_tilahun"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_Betemariyam_tilahun_sister2" model="hr.employee.family">
+        <field name="name">Marefia Tilahun Mekonnen</field>
+        <field name="employee_id" ref="hr_employee_Betemariyam_tilahun"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_Betemariyam_tilahun_brother" model="hr.employee.family">
+        <field name="name">Befekadu Tilahun Mekonnen</field>
+        <field name="employee_id" ref="hr_employee_Betemariyam_tilahun"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+
+    <!--    Nuhamin information-->
+    <record id="hr_employee_nuhamin_demeke" model="hr.employee">
+        <field name="name">Nuhamin Demeke Zewde</field>
+        <field name="title">wro</field>
+        <field name="birthday">1998-04-03</field>
+        <field name="gender">female</field>
+        <field name="marital">married</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_lemi"/>
+        <field name="woreda">05</field>
+        <field name="house_number">New</field>
+        <field name="mobile_phone">0939597074</field>
+        <field name="department_id" ref="stadia_hr_department_project_formulation"/>
+        <field name="job_id" ref="stadia_hr_project_formulation_contract_engineer"/>
+        <field name="emergency_contact_name">Zewditu Kebede Dejnie</field>
+        <field name="emergency_contact_city_id" ref="subcity_ledta"/>
+        <field name="emergency_contact_woreda">04</field>
+        <field name="emergency_contact_house_no">294</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_spouse"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_nuhamin_demeke" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+        <field name="name">Nuhamin Demeke Contract Agreement</field>
+        <field name="date_start">2020-03-16</field>
+        <field name="wage">3000</field>
+        <field name="perdime">256</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_nuhamin_demeke_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Addis Ababa Institute of Technology</field>
+        <field name="start_date">2015-01-01</field>
+        <field name="end_date">2019-09-18</field>
+        <field name="fields_of_study">Road and Transport Engineering</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+    </record>
+
+    <record id="employee_family_nuhamin_demeke_education2" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Hawassa University</field>
+        <field name="fields_of_study">Civil Engineering</field>
+        <field name="start_date">2011-01-01</field>
+        <field name="end_date">2015-09-18</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+    </record>
+
+
+    <record id="employee_family_nuhamin_demeke_education3" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Dej.Wondirad Preparatory school</field>
+        <field name="start_date">2008-01-01</field>
+        <field name="end_date">2009-09-18</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+    </record>
+
+    <record id="employee_family_nuhamin_demeke_education4" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Selam Childrens Village</field>
+        <field name="start_date">2006-01-01</field>
+        <field name="end_date">2007-09-18</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+    </record>
+
+    <record id="employee_family_nuhamin_demeke_education5" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Selam Childrens Village</field>
+        <field name="start_date">1999-01-01</field>
+        <field name="end_date">2005-09-18</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+    </record>
+
+
+    <!--    TRAINING INFORMATION-->
+    <record id="employee_family_nuhamin_demeke_training" model="hr.education">
+        <field name="school_name">Addis Ababa University</field>
+        <field name="type">training</field>
+        <field name="start_date">2018-01-10</field>
+        <field name="fields_of_study">ARCGIS</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+    </record>
+
+    <record id="employee_family_nuhamin_demeke_training2" model="hr.education">
+        <field name="school_name">Virtual Computer</field>
+        <field name="type">training</field>
+        <field name="start_date">2014-01-10</field>
+        <field name="fields_of_study">SAP</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+    </record>
+
+    <!--SPOUSE INFORMATION-->
+    <record id="employee_family_nuhamin_demeke_spouse" model="hr.employee.family">
+        <field name="name">Robera Wakshum Hailu</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+        <field name="relation_id" ref="employee_family_spouse"/>
+    </record>
+
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_nuhamin_demeke_mother" model="hr.employee.family">
+        <field name="name">Hulugirgesh Tsegaye Wudneh</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+
+    <!--    SPOUSE INFORMATION-->
+    <record id="employee_family_nuhamin_demeke_spouse_sister" model="hr.employee.family">
+        <field name="name">Mesert Wakshum Hailu</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+        <field name="relation_id" ref="employee_family_spouse_sister"/>
+    </record>
+
+    <record id="employee_family_nuhamin_demeke_spouse_sister2" model="hr.employee.family">
+        <field name="name">Meron Wakshum Hailu</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+        <field name="relation_id" ref="employee_family_spouse_sister"/>
+    </record>
+
+    <record id="employee_family_nuhamin_demeke_spouse_sister3" model="hr.employee.family">
+        <field name="name">Telile Wakshum Hailu</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+        <field name="relation_id" ref="employee_family_spouse_sister"/>
+    </record>
+
+    <record id="employee_family_nuhamin_demeke_spouse_brother" model="hr.employee.family">
+        <field name="name">Biruk Wakshum Hailu</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+        <field name="relation_id" ref="employee_family_spouse_brother"/>
+    </record>
+
+    <record id="employee_family_nuhamin_demeke_spouse_brother2" model="hr.employee.family">
+        <field name="name">Dawit Wakshum Hailu</field>
+        <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
+        <field name="relation_id" ref="employee_family_spouse_brother"/>
+    </record>
+
+    <!--    Meskerem Information-->
+    <record id="hr_employee_meskerem_berhanu" model="hr.employee">
+        <field name="name">Meskerem Berhanu Gebeyehu</field>
+        <field name="title">wt</field>
+        <field name="birthday">1994-01-27</field>
+        <field name="gender">female</field>
+        <field name="marital">single</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_lemi"/>
+        <field name="woreda">08</field>
+        <field name="house_number">New</field>
+        <field name="mobile_phone">0947324252</field>
+        <field name="tin_no">007151598</field>
+        <field name="department_id" ref="stadia_hr_department_project_formulation"/>
+        <field name="job_id" ref="stadia_hr_project_formulation_contract_engineer"/>
+        <field name="emergency_contact_name">Misrak Berhanu Gebeyehu</field>
+        <field name="emergency_contact_city_id" ref="subcity_lemi"/>
+        <field name="emergency_contact_woreda">08</field>
+        <field name="emergency_contact_house_no">New</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_meskerem_berhanu" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_meskerem_berhanu"/>
+        <field name="name">Meskerem Berhanu Contract Agreement</field>
+        <field name="date_start">2021-06-07</field>
+        <field name="wage">3000</field>
+        <field name="perdime">153</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_meskerem_berhanu_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Addis Ababa University</field>
+        <field name="start_date">2005-01-01</field>
+        <field name="end_date">2009-09-18</field>
+        <field name="fields_of_study">COTM</field>
+        <field name="employee_id" ref="hr_employee_meskerem_berhanu"/>
+    </record>
+
+    <record id="employee_family_meskerem_berhanu_education2" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Negus Teklehaymanot Preparatory school</field>
+        <field name="start_date">2001-01-01</field>
+        <field name="end_date">2002-09-18</field>
+        <field name="employee_id" ref="hr_employee_meskerem_berhanu"/>
+    </record>
+
+    <record id="employee_family_meskerem_berhanu_education3" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Debre Markos Preparatory school</field>
+        <field name="start_date">2003-01-01</field>
+        <field name="end_date">2004-09-18</field>
+        <field name="employee_id" ref="hr_employee_meskerem_berhanu"/>
+    </record>
+
+    <record id="employee_family_meskerem_berhanu_education4" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Debza primary school</field>
+        <field name="start_date">1993-01-01</field>
+        <field name="end_date">2000-09-18</field>
+        <field name="employee_id" ref="hr_employee_meskerem_berhanu"/>
+    </record>
+
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_meskerem_berhanu_mother" model="hr.employee.family">
+        <field name="name">Melkam Zewdu Bizuneh</field>
+        <field name="employee_id" ref="hr_employee_meskerem_berhanu"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_meskerem_berhanu_sister" model="hr.employee.family">
+        <field name="name">Misrak Berhanu Gebeyehu</field>
+        <field name="employee_id" ref="hr_employee_meskerem_berhanu"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+
+    <record id="employee_family_meskerem_berhanu_brother" model="hr.employee.family">
+        <field name="name">Beruk Berhanu Gebeyehu</field>
+        <field name="employee_id" ref="hr_employee_meskerem_berhanu"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+
+    <!--    Tigireda Information-->
+    <record id="hr_employee_tigireda_abebe" model="hr.employee">
+        <field name="name">Tigireda Abebe Wedaje</field>
+        <field name="title">wt</field>
+        <field name="birthday">1985-03-13</field>
+        <field name="gender">female</field>
+        <field name="marital">single</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_akaki_kality"/>
+        <field name="woreda">03</field>
+        <field name="house_number">373</field>
+        <field name="mobile_phone">0915577617</field>
+        <field name="tin_no">0069975431</field>
+        <field name="department_id" ref="stadia_hr_department_project_formulation"/>
+        <field name="job_id" ref="stadia_hr_project_formulation_contract_engineer_senior"/>
+        <field name="emergency_contact_name">Mulualem Abebe Wedaje</field>
+        <field name="emergency_contact_city_id" ref="subcity_akaki_kality"/>
+        <field name="emergency_contact_woreda">03</field>
+        <field name="emergency_contact_house_no">373</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_tigireda_abebe" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_tigireda_abebe"/>
+        <field name="name">Tigireda Abebe Contract Agreement</field>
+        <field name="date_start">2012-01-10</field>
+        <field name="wage">18621</field>
+        <field name="phone_allowance">300</field>
+        <field name="travel_allowance">2200</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_tigireda_abebe_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Ethiopian Architects Organization</field>
+        <field name="start_date">2005-01-01</field>
+        <field name="end_date">2009-09-18</field>
+        <field name="fields_of_study">COTM</field>
+        <field name="employee_id" ref="hr_employee_tigireda_abebe"/>
+    </record>
+
+
+    <record id="employee_family_tigireda_abebe_education2" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Akaki Institute Mission school</field>
+        <field name="start_date">2001-01-01</field>
+        <field name="end_date">2004-09-18</field>
+        <field name="employee_id" ref="hr_employee_tigireda_abebe"/>
+    </record>
+
+    <record id="employee_family_tigireda_abebe_education3" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Atse Tewodros Primary school</field>
+        <field name="start_date">1993-01-01</field>
+        <field name="end_date">2000-09-18</field>
+        <field name="employee_id" ref="hr_employee_tigireda_abebe"/>
+    </record>
+
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_tigireda_abebe_mother" model="hr.employee.family">
+        <field name="name">Gorefneso Negash Babos</field>
+        <field name="employee_id" ref="hr_employee_tigireda_abebe"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+
+    <!--    SISTER AND BROTHERS-->
+
+    <record id="employee_family_tigireda_abebe_brother" model="hr.employee.family">
+        <field name="name">Desalegn Abebe Wedaje</field>
+        <field name="employee_id" ref="hr_employee_tigireda_abebe"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <record id="employee_family_tigireda_abebe_brother2" model="hr.employee.family">
+        <field name="name">Mesele Abebe Wedaje</field>
+        <field name="employee_id" ref="hr_employee_tigireda_abebe"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <record id="employee_family_tigireda_abebe_brother3" model="hr.employee.family">
+        <field name="name">Netianet Abebe Wedaje</field>
+        <field name="employee_id" ref="hr_employee_tigireda_abebe"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <record id="employee_family_tigireda_abebe_brother4" model="hr.employee.family">
+        <field name="name">Mulualem Abebe Wedaje</field>
+        <field name="employee_id" ref="hr_employee_tigireda_abebe"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+</odoo>

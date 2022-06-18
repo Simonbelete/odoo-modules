@@ -1,34 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="stadia_hr_job_rcmd_dpt_head" model="hr.job">
-        <field name="name">Department Head</field>
-        <field name="department_id" ref="hr_department_rcmd" />
-    </record> 
+    <record id="stadia_hr_job_admin_accountant" model="hr.job">
+        <field name="name">Accountant</field>
+        <field name="department_id" ref="stadia_hr_department_finance"/>
+    </record>
+
+    <record id="stadia_hr_job_admin_it" model="hr.job">
+        <field name="name">IT Person</field>
+        <field name="department_id" ref="hr_department_it"/>
+    </record>
+
+    <record id="stadia_hr_job_admin_driver" model="hr.job">
+        <field name="name">Driver</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>
+    </record>
+
+    <!--    <record id="stadia_hr_job_rcmd_dpt_head" model="hr.job">-->
+    <!--        <field name="name">Department Head</field>-->
+    <!--        <field name="department_id" ref="hr_department_rcmd"/>-->
+    <!--    </record>-->
 
     <record id="stadia_hr_job_store_keeper" model="hr.job">
         <field name="name">Store keeper</field>
-        <field name="department_id" ref="stadia_hr_department_admin_and_finance" />
-    </record> 
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>
+    </record>
 
-    <record id="stadia_hr_job_accountant" model="hr.job">
-        <field name="name">Accountant</field>
-        <field name="department_id" ref="stadia_hr_department_admin_and_finance" />
-    </record> 
+    <!--    <record id="stadia_hr_job_accountant" model="hr.job">-->
+    <!--        <field name="name">Accountant</field>-->
+    <!--        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>-->
+    <!--    </record>-->
 
-    <record id="stadia_hr_job_custodian" model="hr.job">
-        <field name="name">Custodian</field>
-        <field name="department_id" ref="stadia_hr_department_admin_and_finance" />
-    </record> 
+    <!--    <record id="stadia_hr_job_custodian" model="hr.job">-->
+    <!--        <field name="name">Custodian</field>-->
+    <!--        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>-->
+    <!--    </record>-->
 
-    <record id="stadia_hr_job_human_resources" model="hr.job">
-        <field name="name">Human Resources</field>
-        <field name="department_id" ref="stadia_hr_department_admin_and_finance" />
-    </record> 
+    <!--    <record id="stadia_hr_job_human_resources" model="hr.job">-->
+    <!--        <field name="name">Human Resources</field>-->
+    <!--        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>-->
+    <!--    </record>-->
 
     <record id="stadia_hr_job_secretary" model="hr.job">
         <field name="name">Administration and Finance Secretary</field>
-        <field name="department_id" ref="stadia_hr_department_admin_and_finance" />
-    </record> 
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>
+    </record>
+
+    <record id="stadia_hr_job_admin_head" model="hr.job">
+        <field name="name">Administration and Finance Head</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>
+    </record>
+
+    <record id="stadia_hr_job_draft" model="hr.job">
+        <field name="name">Drafting</field>
+        <field name="department_id" ref="hr_department_rcmd"/>
+    </record>
+
+    <record id="stadia_hr_claim" model="hr.job">
+        <field name="name">Junior Claim Officer</field>
+        <field name="department_id" ref="hr_department_rcmd"/>
+    </record>
+
+    <record id="stadia_hr_rmcd_section_head" model="hr.job">
+        <field name="name">Road Contract Management Section Head</field>
+        <field name="department_id" ref="hr_department_rcmd"/>
+    </record>
+
+    <record id="stadia_hr_project_formulation_section_head" model="hr.job">
+        <field name="name">Project Formulation Section Head</field>
+        <field name="department_id" ref="stadia_hr_department_project_formulation"/>
+    </record>
+
+    <record id="stadia_hr_project_formulation_contract_engineer" model="hr.job">
+        <field name="name">Junior Contract Engineer</field>
+        <field name="department_id" ref="stadia_hr_department_project_formulation"/>
+    </record>
+
+    <record id="stadia_hr_project_formulation_contract_engineer_senior" model="hr.job">
+        <field name="name">Contract Engineer</field>
+        <field name="department_id" ref="stadia_hr_department_project_formulation"/>
+    </record>
+
+    <record id="stadia_hr_project_coordinator" model="hr.job">
+        <field name="name">Project Coordinator</field>
+    </record>
+
+    <record id="stadia_hr_design_section_head" model="hr.job">
+        <field name="name">Senior Highway Engineer/Section Head</field>
+    </record>
+
+    <record id="stadia_hr_design_cadd_engineer" model="hr.job">
+        <field name="name">CADD Engineer</field>
+    </record>
+
+    <record id="stadia_hr_design_material_engineer" model="hr.job">
+        <field name="name">Junior Payment/Material Engineer</field>
+    </record>
+
+    <record id="stadia_hr_design_structural_engineer" model="hr.job">
+        <field name="name">Structural Engineer</field>
+    </record>
+
+    <record id="stadia_hr_design_road_engineer" model="hr.job">
+        <field name="name">Road Engineer</field>
+    </record>
+
+   <record id="stadia_hr_design_lab_section_head" model="hr.job">
+        <field name="name">Lab Section Head and ME</field>
+    </record>
 
 </odoo>

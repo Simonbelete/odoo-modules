@@ -1,28 +1,37 @@
 <?xml version="1.0"?>
 <odoo>
+    <data>
+        <record id="stadia_hr_employee_contract_form" model="ir.ui.view">
+            <field name="name">hr.contract</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='salary_and_advantages']" position="inside">
+                    <label for="perdime"/>
+                    <div class="o_row" name="perdime">
+                        <field name="perdime" nolabel="1"/>
+                        <span>/ day</span>
+                    </div>
+                </xpath>
 
-    <record id="stadia_hr_employee_contract_form" model="ir.ui.view">
-        <field name="name">hr.contract</field>
-        <field name="model">hr.contract</field>
-        <field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
-        <field name="arch" type="xml">
-            <xpath expr="//group[@name='salary_and_advantages']" position="inside">
-                <label for="perdime"/>
-                <div class="o_row" name="perdime">
-                    <field name="perdime" nolabel="1"/>
-                    <span>/ day</span>
-                </div>
-            </xpath>
-            <xpath expr="//group[@name='main_info']">
-                <group string="Others">
-                    <label for="cost_sharing"/>
-                    <div class="o_row" name="cost_sharing">
-                        <field name="cost_sharing" string="Cost Sharing" nolabel="1"/>
+                <xpath expr="//group[@name='salary_and_advantages']" position="inside">
+                    <label for="phone_allowance"/>
+                    <div class="o_row" name="phone_allowance">
+                        <field name="phone_allowance" nolabel="1"/>
                         <span>/ month</span>
                     </div>
-                </group>
-            </xpath>
-        </field>
-    </record>
+                </xpath>
 
+                <xpath expr="//group[@name='main_info']">
+                    <group string="Others">
+                        <label for="cost_sharing"/>
+                        <div class="o_row" name="cost_sharing">
+                            <field name="cost_sharing" string="Cost Sharing" nolabel="1"/>
+                            <span>/ month</span>
+                        </div>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
 </odoo>

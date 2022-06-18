@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    ZENASH INFORMATION-->
+
+    <record id="hr_employee_zenash_fonja" model="hr.employee">
+        <field name="name">Zenash Fonja G/Tsadik</field>
+        <field name="title">wro</field>
+        <field name="birthday">1988-08-26</field>
+        <field name="gender">female</field>
+        <field name="marital">married</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_yeka"/>
+        <field name="woreda">04</field>
+        <field name="house_number">650</field>
+        <field name="mobile_phone">0911195813</field>
+        <field name="tin_no">0039075761</field>
+        <field name="department_id" ref="stadia_hr_department_finance"/>
+        <field name="job_id" ref="stadia_hr_job_admin_accountant"/>
+        <field name="emergency_contact_name">Hiwot Foja G/Tsadik</field>
+        <field name="emergency_contact_city_id" ref="subcity_yeka"/>
+        <field name="emergency_contact_woreda">04</field>
+        <field name="emergency_contact_house_no">650</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_zenash_fonja" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_zenash_fonja"/>
+        <field name="name">Zenash Fonja Contract Agreement</field>
+        <field name="date_start">2020-10-07</field>
+        <field name="wage">9279</field>
+        <field name="travel_allowance">2200</field>
+    </record>
+
+    <!--SPOUSE INFORMATION-->
+    <record id="employee_family_zenash_fonja_spouse" model="hr.employee.family">
+        <field name="name">Habtom Alem Abrha</field>
+        <field name="employee_id" ref="hr_employee_zenash_fonja"/>
+        <field name="relation_id" ref="employee_family_spouse"/>
+    </record>
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_zenash_fonja_mother" model="hr.employee.family">
+        <field name="name">Dagnesh Lema Sebra</field>
+        <field name="employee_id" ref="hr_employee_zenash_fonja"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+    <!--CHILD INFORMATION-->
+    <record id="employee_family_zenash_fonja_child" model="hr.employee.family">
+        <field name="name">Mariamawit Habtom Alem</field>
+        <field name="employee_id" ref="hr_employee_zenash_fonja"/>
+        <field name="relation_id" ref="employee_family_child"/>
+    </record>
+
+    <record id="employee_family_zenash_fonja_child2" model="hr.employee.family">
+        <field name="name">Hermela Habtom Alem</field>
+        <field name="employee_id" ref="hr_employee_zenash_fonja"/>
+        <field name="relation_id" ref="employee_family_child"/>
+    </record>
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_zenash_fonja_sister" model="hr.employee.family">
+        <field name="name">Hiwot Fonja G/Tsadik</field>
+        <field name="employee_id" ref="hr_employee_zenash_fonja"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_zenash_fonja_sister2" model="hr.employee.family">
+        <field name="name">Kebebush Fonja G/Tsadik</field>
+        <field name="employee_id" ref="hr_employee_zenash_fonja"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_zenash_fonja_sister3" model="hr.employee.family">
+        <field name="name">Abeba Fonja G/Tsadik</field>
+        <field name="employee_id" ref="hr_employee_zenash_fonja"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_zenash_fonja_brother" model="hr.employee.family">
+        <field name="name">Dawit Fonja G/Tsadik</field>
+        <field name="employee_id" ref="hr_employee_zenash_fonja"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <!--SPOUSE SISTER AND BROTHER-->
+
+    <record id="employee_family_zenash_fonja_spouse_sister" model="hr.employee.family">
+        <field name="name">Helen Alem Abrha</field>
+        <field name="employee_id" ref="hr_employee_zenash_fonja"/>
+        <field name="relation_id" ref="employee_family_spouse_sister"/>
+    </record>
+
+
+    <!--    BEMNET INFORMATION-->
+
+    <record id="hr_employee_bemnet_tesgaye" model="hr.employee">
+        <field name="name">Bemnet Tesgaye Abera</field>
+        <field name="title">wro</field>
+        <field name="birthday">1996-07-29</field>
+        <field name="gender">female</field>
+        <field name="marital">single</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_Nefas_selk"/>
+        <field name="woreda">01</field>
+        <field name="house_number">New</field>
+        <field name="mobile_phone">0923131461</field>
+        <field name="tin_no">0068424776</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>
+        <field name="job_id" ref="stadia_hr_job_admin_accountant"/>
+        <field name="emergency_contact_name">Amakelech Demissie Duki</field>
+        <field name="emergency_contact_city_id" ref="subcity_Nefas_selk"/>
+        <field name="emergency_contact_woreda">01</field>
+        <field name="emergency_contact_house_no">New</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_mother"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_bemnet_tesgaye" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_bemnet_tesgaye"/>
+        <field name="name">Bemnet Tesgaye Contract Agreement</field>
+        <field name="date_start">2020-04-18</field>
+        <field name="wage">6969</field>
+        <field name="travel_allowance">1600</field>
+    </record>
+
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_bemnet_tesgaye_mother" model="hr.employee.family">
+        <field name="name">Amakelech Demissie Duki</field>
+        <field name="employee_id" ref="hr_employee_bemnet_tesgaye"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+
+    <!--    KIBEBE SIMIE NEGAWO INFORMATION-->
+    <record id="hr_employee_kibebe_simie" model="hr.employee">
+        <field name="name">Kibebe Simie Negawo</field>
+        <field name="title">wro</field>
+        <field name="birthday">1973-06-13</field>
+        <field name="gender">male</field>
+        <field name="marital">married</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_yeka"/>
+        <field name="woreda">09</field>
+        <field name="house_number">1211</field>
+        <field name="mobile_phone">0911155538</field>
+        <field name="tin_no">0030678622</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>
+        <field name="job_id" ref="stadia_hr_job_store_keeper"/>
+        <field name="emergency_contact_name">Mekides Kassa Abitew</field>
+        <field name="emergency_contact_city_id" ref="subcity_yeka"/>
+        <field name="emergency_contact_woreda">09</field>
+        <field name="emergency_contact_house_no">1211</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_spouse"/>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_kibebe_simie_education" model="hr.education">
+        <field name="name">Kehena Elementary</field>
+        <field name="type">primary</field>
+        <field name="school_name">primary</field>
+        <field name="start_date">1973-01-01</field>
+        <field name="end_date">1979-10-30</field>
+        <field name="employee_id" ref="hr_employee_kibebe_simie"/>
+    </record>
+
+    <!--    TRAINING INFORMATION-->
+    <record id="employee_family_kibebe_simie_training" model="hr.education">
+        <field name="name">Drafting</field>
+        <field name="type">training</field>
+        <field name="school_name">Missak Technical</field>
+        <field name="start_date">1973-01-01</field>
+        <field name="end_date">1979-10-30</field>
+        <field name="employee_id" ref="hr_employee_kibebe_simie"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_kibebe_simie" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_kibebe_simie"/>
+        <field name="name">Kibebe Simie Contract Agreement</field>
+        <field name="date_start">2019-03-15</field>
+        <field name="wage">12036</field>
+        <field name="phone_allowance">300</field>
+        <field name="perdime">2200</field>
+    </record>
+
+    <!--SPOUSE INFORMATION-->
+    <record id="employee_family_kibebe_simie_spouse" model="hr.employee.family">
+        <field name="name">Mekides Kassa Abitew</field>
+        <field name="employee_id" ref="hr_employee_kibebe_simie"/>
+        <field name="relation_id" ref="employee_family_spouse"/>
+    </record>
+
+    <!--CHILD INFORMATION-->
+    <record id="employee_family_kibebe_simie_child" model="hr.employee.family">
+        <field name="name">Fikremariyam Kibebe Simie</field>
+        <field name="employee_id" ref="hr_employee_kibebe_simie"/>
+        <field name="relation_id" ref="employee_family_child"/>
+    </record>
+
+    <record id="employee_family_kibebe_simie_child2" model="hr.employee.family">
+        <field name="name">Betanya Kibebe Simie</field>
+        <field name="employee_id" ref="hr_employee_kibebe_simie"/>
+        <field name="relation_id" ref="employee_family_child"/>
+    </record>
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_kibebe_simie_sister" model="hr.employee.family">
+        <field name="name">Bethelhem Simie Negawo</field>
+        <field name="employee_id" ref="hr_employee_kibebe_simie"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_kibebe_simie_sister2" model="hr.employee.family">
+        <field name="name">Hanan Simie Negawo</field>
+        <field name="employee_id" ref="hr_employee_kibebe_simie"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <!--SPOUSE SISTER AND BROTHER-->
+
+    <record id="employee_family_kibebe_simie_spouse_sister" model="hr.employee.family">
+        <field name="name">Sofiya Jemal Ebgahia</field>
+        <field name="employee_id" ref="hr_employee_kibebe_simie"/>
+        <field name="relation_id" ref="employee_family_spouse_sister"/>
+    </record>
+
+    <record id="employee_family_kibebe_simie_spouse_brother" model="hr.employee.family">
+        <field name="name">Yonas Jemal Ebgahia</field>
+        <field name="employee_id" ref="hr_employee_kibebe_simie"/>
+        <field name="relation_id" ref="employee_family_spouse_brother"/>
+    </record>
+
+
+    <!--    NATNAaIL INFORMATION-->
+    <record id="hr_employee_natnail_tamru" model="hr.employee">
+        <field name="name">Natnail Tamru Bekile</field>
+        <field name="title">ato</field>
+        <field name="birthday">1988-01-05</field>
+        <field name="gender">male</field>
+        <field name="marital">single</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_boli"/>
+        <field name="woreda">04</field>
+        <field name="house_number">034</field>
+        <field name="mobile_phone">0923786967</field>
+        <field name="tin_no">0076114917</field>
+        <field name="department_id" ref="hr_department_it"/>
+        <field name="job_id" ref="stadia_hr_job_admin_it"/>
+        <field name="emergency_contact_name">Tamru Bekil</field>
+        <field name="emergency_contact_city_id" ref="subcity_boli"/>
+        <field name="emergency_contact_woreda">04</field>
+        <field name="emergency_contact_house_no">034</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_father"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_natnail_tamru" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_natnail_tamru"/>
+        <field name="name">Natnail Tamru Contract Agreement</field>
+        <field name="date_start">2021-03-12</field>
+        <field name="wage">6523</field>
+        <field name="perdime">0</field>
+        <field name="phone_allowance">0</field>
+        <field name="travel_allowance">1500</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_natnail_tamru_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Admas University</field>
+        <field name="fields_of_study">Computer Science</field>
+        <field name="start_date">2018-01-01</field>
+        <field name="end_date">2021-09-18</field>
+        <field name="employee_id" ref="hr_employee_natnail_tamru"/>
+    </record>
+
+    <!--    TRAINING INFORMATION-->
+    <record id="employee_family_natnail_tamru_training" model="hr.education">
+        <field name="school_name">SatCom</field>
+        <field name="type">training</field>
+        <field name="start_date">2009-01-10</field>
+        <field name="end_date">2009-01-10</field>
+        <field name="employee_id" ref="hr_employee_natnail_tamru"/>
+    </record>
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_natnail_tamru_sister" model="hr.employee.family">
+        <field name="name">Agermelkam Werku</field>
+        <field name="employee_id" ref="hr_employee_natnail_tamru"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_natnail_tamru_sister2" model="hr.employee.family">
+        <field name="name">Emebet Werku</field>
+        <field name="employee_id" ref="hr_employee_natnail_tamru"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_natnail_tamru_sister3" model="hr.employee.family">
+        <field name="name">Mesert Werku</field>
+        <field name="employee_id" ref="hr_employee_natnail_tamru"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_natnail_tamru_brother" model="hr.employee.family">
+        <field name="name">Amanuail Werku</field>
+        <field name="employee_id" ref="hr_employee_natnail_tamru"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <!--    BEKELE INFORMATION-->
+    <record id="hr_employee_bekele_kebede" model="hr.employee">
+        <field name="name">Bekele Kebede Abomsa</field>
+        <field name="title">ato</field>
+        <field name="birthday">1966-03-19</field>
+        <field name="gender">male</field>
+        <field name="marital">married</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_ledta"/>
+        <field name="woreda">04</field>
+        <field name="house_number">294</field>
+        <field name="mobile_phone">0911878174</field>
+        <field name="tin_no">0008002703</field>
+        <field name="pension_no">49766</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>
+        <field name="job_id" ref="stadia_hr_job_admin_driver"/>
+        <field name="emergency_contact_name">Zewditu Kebede Dejnie</field>
+        <field name="emergency_contact_city_id" ref="subcity_ledta"/>
+        <field name="emergency_contact_woreda">04</field>
+        <field name="emergency_contact_house_no">294</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_spouse"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_bekele_kebede" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="name">Bekele Kebede Contract Agreement</field>
+        <field name="date_start">2021-03-12</field>
+        <field name="wage">9050</field>
+        <field name="perdime">268</field>
+        <field name="phone_allowance">300</field>
+        <field name="travel_allowance">1500</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_bekele_kebede_education" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Weliso Secondary School</field>
+        <field name="start_date">1984-01-01</field>
+        <field name="end_date">1986-09-18</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+    </record>
+
+    <record id="employee_family_bekele_kebede_education2" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Welega Ambi Secondary School</field>
+        <field name="start_date">1988-01-01</field>
+        <field name="end_date">1990-09-18</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+    </record>
+
+    <record id="employee_family_bekele_kebede_education3" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Weliso Hulu Yemer primary School</field>
+        <field name="start_date">1975-01-01</field>
+        <field name="end_date">1980-09-18</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+    </record>
+
+    <record id="employee_family_bekele_kebede_education4" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Weliso Ras Gubena primary School</field>
+        <field name="start_date">1981-01-01</field>
+        <field name="end_date">1983-09-18</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+    </record>
+
+    <!--    TRAINING INFORMATION-->
+    <record id="employee_family_bekele_kebede_training" model="hr.education">
+        <field name="school_name">Addis Ababa Police Commission</field>
+        <field name="type">training</field>
+        <field name="start_date">1991-01-10</field>
+        <field name="end_date">1992-01-10</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+    </record>
+
+    <!--SPOUSE INFORMATION-->
+    <record id="employee_family_bekele_kebede_spouse" model="hr.employee.family">
+        <field name="name">Zewditu Kebede Dejnie</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="relation_id" ref="employee_family_spouse"/>
+    </record>
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_bekele_kebede_mother" model="hr.employee.family">
+        <field name="name">Belaynesh Diro Tolsa</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+    <!--CHILD INFORMATION-->
+    <record id="employee_family_bekele_kebede_child" model="hr.employee.family">
+        <field name="name">Nafiliet Bekele</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="relation_id" ref="employee_family_child"/>
+    </record>
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_bekele_kebede_sister" model="hr.employee.family">
+        <field name="name">Tigist Kebede Abomsa</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_bekele_kebede_sister2" model="hr.employee.family">
+        <field name="name">Aster Kebede Abomsa</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_bekele_kebede_sister3" model="hr.employee.family">
+        <field name="name">Brtukan Kebede Abomsa</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_bekele_kebede_sister4" model="hr.employee.family">
+        <field name="name">Ferihwot Kebede Abomsa</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_bekele_kebede_brother" model="hr.employee.family">
+        <field name="name">Nigusi Kebede Abomsa</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <!--    SPOUSE INFORMATION-->
+
+    <record id="employee_family_bekele_kebede_spouse_sister" model="hr.employee.family">
+        <field name="name">Selamawit Zekariyas Dejnie</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="relation_id" ref="employee_family_spouse_sister"/>
+    </record>
+
+    <record id="employee_family_bekele_kebede_spouse_brother" model="hr.employee.family">
+        <field name="name">Abiel Zekariyas Dejnie</field>
+        <field name="employee_id" ref="hr_employee_bekele_kebede"/>
+        <field name="relation_id" ref="employee_family_spouse_brother"/>
+    </record>
+
+
+    <!--    GETAMESAY INFORMATION-->
+
+    <record id="hr_employee_getamesay_dejene" model="hr.employee">
+        <field name="name">Getamesay Dejene Bekele</field>
+        <field name="title">ato</field>
+        <field name="birthday">1988-04-22</field>
+        <field name="gender">male</field>
+        <field name="marital">married</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_kolfe_kiraneo"/>
+        <field name="woreda">02</field>
+        <field name="house_number">0</field>
+        <field name="mobile_phone">0912030583</field>
+        <field name="tin_no">0066441258</field>
+        <field name="pension_no">0000213444</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>
+        <field name="job_id" ref="stadia_hr_job_admin_head"/>
+        <field name="emergency_contact_name">Hiwot Behaylu Desta</field>
+        <field name="emergency_contact_city_id" ref="subcity_kolfe_kiraneo"/>
+        <field name="emergency_contact_woreda">02</field>
+        <field name="emergency_contact_house_no">0</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_spouse"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_getamesay_dejene" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+        <field name="name">Bekele Kebede Contract Agreement</field>
+        <field name="date_start">2012-04-06</field>
+        <field name="wage">29828</field>
+        <field name="perdime">268</field>
+        <field name="phone_allowance">500</field>
+        <field name="travel_allowance">2200</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_getamesay_dejene_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Arba Minch University</field>
+        <field name="start_date">2009-01-02</field>
+        <field name="end_date">2012-09-18</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+    </record>
+
+    <record id="employee_family_getamesay_dejene_education2" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Higher 23 Preparatory School</field>
+        <field name="start_date">2005-01-02</field>
+        <field name="end_date">2006-09-18</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+    </record>
+
+    <record id="employee_family_getamesay_dejene_education2" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Hope Enterprise School</field>
+        <field name="start_date">2003-01-02</field>
+        <field name="end_date">2004-09-18</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+    </record>
+
+    <record id="employee_family_getamesay_dejene_education2" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Hope Enterprise School</field>
+        <field name="start_date">1994-01-02</field>
+        <field name="end_date">2002-09-18</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+    </record>
+
+
+    <!--SPOUSE INFORMATION-->
+    <record id="employee_family_getamesay_dejene_spouse" model="hr.employee.family">
+        <field name="name">Hiwot Behaylu Desta</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+        <field name="relation_id" ref="employee_family_spouse"/>
+    </record>
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_getamesay_dejene_mother" model="hr.employee.family">
+        <field name="name">Wesen Negash Mengesha</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+    <!--CHILD INFORMATION-->
+    <record id="employee_familygetamesay_dejene_child" model="hr.employee.family">
+        <field name="name">Yostina Getamesay Dejene</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+        <field name="relation_id" ref="employee_family_child"/>
+    </record>
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_getamesay_dejene_sister" model="hr.employee.family">
+        <field name="name">Simegn Dejene Bekele</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_getamesay_dejene_brother" model="hr.employee.family">
+        <field name="name">Habtamu Dejene Bekele</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <record id="employee_family_getamesay_dejene_brother2" model="hr.employee.family">
+        <field name="name">Sintayehu Dejene Bekele</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <!--    SPOUSE INFORMATION-->
+
+    <record id="employee_family_getamesay_dejene_spouse_sister" model="hr.employee.family">
+        <field name="name">Bezawit Behaylu Desta</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+        <field name="relation_id" ref="employee_family_spouse_sister"/>
+    </record>
+
+    <record id="employee_family_getamesay_dejene_spouse_sister2" model="hr.employee.family">
+        <field name="name">Hana Behaylu Desta</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+        <field name="relation_id" ref="employee_family_spouse_sister"/>
+    </record>
+
+    <record id="employee_family_getamesay_dejene_spouse_brother" model="hr.employee.family">
+        <field name="name">Abrham Behaylu Desta</field>
+        <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
+        <field name="relation_id" ref="employee_family_spouse_brother"/>
+    </record>
+
+    <!--    Hilen Information-->
+    <record id="hr_employee_hilen_taye" model="hr.employee">
+        <field name="name">Hilen Taye Kebede</field>
+        <field name="title">wro</field>
+        <field name="birthday">1982-08-16</field>
+        <field name="gender">female</field>
+        <field name="marital">single</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_ledta"/>
+        <field name="woreda">09</field>
+        <field name="house_number">169</field>
+        <field name="mobile_phone">0973077158</field>
+        <field name="tin_no">0066007032</field>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>
+        <field name="job_id" ref="stadia_hr_job_secretary"/>
+        <field name="emergency_contact_name">Daniele Asefa Tadese</field>
+        <field name="emergency_contact_city_id" ref="subcity_Gulele"/>
+        <field name="emergency_contact_woreda">07</field>
+        <field name="emergency_contact_house_no">126</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_hilen_taye" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_hilen_taye"/>
+        <field name="name">Hilen Taye Contract Agreement</field>
+        <field name="date_start">2018-05-22</field>
+        <field name="wage">6595</field>
+        <field name="phone_allowance">200</field>
+        <field name="travel_allowance">1550</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_hilen_taye_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Queens' College</field>
+        <field name="start_date">2010-01-01</field>
+        <field name="end_date">2013-09-18</field>
+        <field name="fields_of_study">Marketing</field>
+        <field name="employee_id" ref="hr_employee_hilen_taye"/>
+    </record>
+
+    <record id="employee_family_hilen_taye_education2" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Tikur Anbesa</field>
+        <field name="start_date">1999-01-01</field>
+        <field name="end_date">2000-09-18</field>
+        <field name="employee_id" ref="hr_employee_hilen_taye"/>
+    </record>
+
+    <record id="employee_family_hilen_taye_education3" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Janaiel Kienidi</field>
+        <field name="start_date">1990-01-01</field>
+        <field name="end_date">1998-09-18</field>
+        <field name="employee_id" ref="hr_employee_hilen_taye"/>
+    </record>
+
+
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_hilen_taye_mother" model="hr.employee.family">
+        <field name="name">Alemseged Tesema Haylie</field>
+        <field name="employee_id" ref="hr_employee_hilen_taye"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_hilen_taye_brother" model="hr.employee.family">
+        <field name="name">Danaiel Tayu Kebede</field>
+        <field name="employee_id" ref="hr_employee_hilen_taye"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+</odoo>

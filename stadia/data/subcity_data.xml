@@ -6,4 +6,40 @@
     <record id="subcity_akaki_kality" model="subcity">
         <field name="name">Akaki Kality</field>
     </record>
+
+    <record id="subcity_yeka" model="subcity">
+        <field name="name">Yeka</field>
+    </record>
+
+    <record id="subcity_Nefas_selk" model="subcity">
+        <field name="name">Nefas Selk</field>
+    </record>
+
+    <record id="subcity_boli" model="subcity">
+        <field name="name">Boli</field>
+    </record>
+
+    <record id="subcity_ledta" model="subcity">
+        <field name="name">Ledta</field>
+    </record>
+
+    <record id="subcity_kolfe_kiraneo" model="subcity">
+        <field name="name">Kolfe Kiraneo</field>
+    </record>
+
+    <record id="subcity_Gulele" model="subcity">
+        <field name="name">Gulele</field>
+    </record>
+
+    <record id="subcity_lemi" model="subcity">
+        <field name="name">Lemi Kura</field>
+    </record>
+
+    <record id="subcity_kirkos" model="subcity">
+        <field name="name">Kirkos </field>
+    </record>
+
+    <record id="subcity_addis_ketama" model="subcity">
+        <field name="name">Addis Ketama </field>
+    </record>
 </odoo>

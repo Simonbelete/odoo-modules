@@ -24,7 +24,7 @@
         'security/acquisition_security.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
-        
+
         'data/mail_data.xml',
         'data/ir_mail_server_data.xml',
         'data/res_user_data.xml',
@@ -32,11 +32,19 @@
         'data/sequence.xml',
         'data/hr_department_data.xml',
         'data/hr_job_data.xml',
+        'data/subcity_data.xml',
         'data/promotion_data.xml',
         'data/hr_salary_rule_category_data.xml',
         'data/hr_salary_rule_data.xml',
         'data/education_data.xml',
         'data/workplace_data.xml',
+
+        'data/employee_data/family_relation.xml',
+        'data/employee_data/hr_employee_admin.xml',
+        'data/employee_data/hr_employee_design.xml',
+        'data/employee_data/hr_employee_project_for.xml',
+        'data/employee_data/hr_employee_rcmd.xml',
+        'data/employee_data/asset.xml',
 
         'report/hr_employee_badge.xml',
         'report/hr_contract_employee_badge.xml',

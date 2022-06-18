@@ -5,6 +5,10 @@
         <field name="name">General Manager</field>
     </record>
 
+    <record id="hr_department_it" model="hr.department">
+        <field name="name">IT Department</field>
+    </record>
+
     <record id="hr_department_rcmd" model="hr.department">
         <field name="name">Subversion (RCMD)</field>
     </record>
@@ -19,6 +23,15 @@
 
     <record id="stadia_hr_department_admin_and_finance" model="hr.department">
         <field name="name">Administration and Finance</field>
+    </record>
+
+    <record id="stadia_hr_department_finance" model="hr.department">
+        <field name="name">Finance</field>
+        <field name="parent_id" ref="stadia_hr_department_admin_and_finance" />
+    </record>
+
+    <record id="stadia_hr_department_project_formulation" model="hr.department">
+        <field name="name">Project Formulation</field>
     </record>
 
 </odoo>
