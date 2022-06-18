@@ -23,6 +23,8 @@ class Promotion(models.Model):
     department_id =  fields.Many2one(related="employee_id.department_id")
     # Previous job id
     job_id = fields.Many2one(related="employee_id.job_id")
+    # Active previous work location
+    active_work_place_id = fields.Many2one(related="employee_id.contract_id.work_place_id")
     stage_id = fields.Many2one('stadia.promotion.stage', group_expand="_read_group_state_ids", default=_default_stage_id)
     acquisition_id = fields.Many2one('stadia.acquisition', domain="[('state', '=', 'approved')]")
     recommended_by = fields.Many2one('hr.employee')
@@ -34,7 +36,8 @@ class Promotion(models.Model):
     ], default='promotion')
     new_work_place = fields.Many2one('stadia.workplace')
     survey_answer_ids = fields.One2many('promotion.answer', 'promotion_id')
-    
+    salary = fields.Char()
+
     @api.model
     def create(self, values):
         """ Auto Create/populate with survey ids """
