@@ -352,4 +352,115 @@
         <field name="state">approved</field>
     </record>
 
+    <!--    Endalkachew Asset-->
+    <record id="stadia_asset_coa-off-001-26" model="stadia.asset">
+        <field name="id_t_no">STAD-OFF-001-25</field>
+        <field name="name">Desktop Computer</field>
+        <field name="purchase_date">1999-01-01</field>
+        <field name="first_depreciation_date">1999-01-01</field>
+        <field name="gross_value">0</field>
+        <field name="ifrs_rate">0.14</field>
+    </record>
+
+    <record id="stadia_asset_movement_coa-001-26" model="asset.movement">
+        <field name="asset_id" ref="stadia_asset_coa-off-001-26"/>
+        <field name="employee_id" ref="hr_employee_endalkachew_zemen"/>
+        <field name="state">approved</field>
+    </record>
+
+    <record id="stadia_asset_coa-off-001-027" model="stadia.asset">
+        <field name="id_t_no">STAD-OFF-001-027</field>
+        <field name="name">Desktop Computer</field>
+        <field name="purchase_date">1999-01-01</field>
+        <field name="first_depreciation_date">1999-01-01</field>
+        <field name="gross_value">0</field>
+        <field name="ifrs_rate">0.14</field>
+    </record>
+
+    <record id="stadia_asset_movement_coa-off-001-027" model="asset.movement">
+        <field name="asset_id" ref="stadia_asset_coa-off-001-027"/>
+        <field name="employee_id" ref="hr_employee_adyam_selemon"/>
+        <field name="state">approved</field>
+    </record>
+
+    <!--    Hagose Asset-->
+    <record id="stadia_asset_coa-001-38" model="stadia.asset">
+        <field name="id_t_no">STA-COA-001-38</field>
+        <field name="name">Computer</field>
+        <field name="purchase_date">1999-01-01</field>
+        <field name="first_depreciation_date">1999-01-01</field>
+        <field name="gross_value">0</field>
+        <field name="ifrs_rate">0.14</field>
+    </record>
+
+    <record id="stadia_asset_movement_coa-001-38" model="asset.movement">
+        <field name="asset_id" ref="stadia_asset_coa-001-38"/>
+        <field name="employee_id" ref="hr_employee_hagose_kidanemariyam"/>
+        <field name="state">approved</field>
+    </record>
+
+    <!--    Wondosen Asset-->
+    <record id="stadia_asset_coa-001-082" model="stadia.asset">
+        <field name="id_t_no">STA-COA-001-082</field>
+        <field name="name">Computer</field>
+        <field name="purchase_date">1999-01-01</field>
+        <field name="first_depreciation_date">1999-01-01</field>
+        <field name="gross_value">0</field>
+        <field name="ifrs_rate">0.14</field>
+    </record>
+
+    <record id="stadia_asset_movement_coa-001-082" model="asset.movement">
+        <field name="asset_id" ref="stadia_asset_coa-001-082"/>
+        <field name="employee_id" ref="hr_employee_wondosen_tilahun"/>
+        <field name="state">approved</field>
+    </record>
+
+    <!--    Alemnesh Asset-->
+    <record id="stadia_asset_com-001-036" model="stadia.asset">
+        <field name="id_t_no">STA-COM-001-036</field>
+        <field name="name">Computer</field>
+        <field name="purchase_date">1999-01-01</field>
+        <field name="first_depreciation_date">1999-01-01</field>
+        <field name="gross_value">0</field>
+        <field name="ifrs_rate">0.14</field>
+    </record>
+
+    <record id="stadia_asset_movement_com-001-036" model="asset.movement">
+        <field name="asset_id" ref="stadia_asset_com-001-036"/>
+        <field name="employee_id" ref="hr_employee_alemnesh_mebratu"/>
+        <field name="state">approved</field>
+    </record>
+
+    <!--    Yonathan Asset-->
+    <record id="stadia_asset_com-0fe-002-008" model="stadia.asset">
+        <field name="id_t_no">STA-OFE-002-008</field>
+        <field name="name">Chair</field>
+        <field name="purchase_date">1999-01-01</field>
+        <field name="first_depreciation_date">1999-01-01</field>
+        <field name="gross_value">0</field>
+        <field name="ifrs_rate">0.14</field>
+    </record>
+
+    <record id="stadia_asset_movement_0fe-002-008" model="asset.movement">
+        <field name="asset_id" ref="stadia_asset_com-0fe-002-008"/>
+        <field name="employee_id" ref="hr_employee_yonathan_gizaw"/>
+        <field name="state">approved</field>
+    </record>
+
+    <!--    Beawit Asset-->
+    <record id="stadia_asset_com-002-008" model="stadia.asset">
+        <field name="id_t_no">002-008</field>
+        <field name="name">Computer</field>
+        <field name="purchase_date">1999-01-01</field>
+        <field name="first_depreciation_date">1999-01-01</field>
+        <field name="gross_value">0</field>
+        <field name="ifrs_rate">0.14</field>
+    </record>
+
+    <record id="stadia_asset_movement-002-008" model="asset.movement">
+        <field name="asset_id" ref="stadia_asset_com-002-008"/>
+        <field name="employee_id" ref="hr_employee_bezawit_tesfaye"/>
+        <field name="state">approved</field>
+    </record>
+
 </odoo>

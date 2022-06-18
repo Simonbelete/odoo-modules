@@ -17,8 +17,16 @@
         <field name="name">Design</field>
     </record>
 
+    <record id="hr_departmentd_highway" model="hr.department">
+        <field name="name">Highway</field>
+    </record>
+
     <record id="hr_departmentdata_laboratory" model="hr.department">
         <field name="name">Laboratory</field>
+    </record>
+
+<record id="hr_department_geotechnical_engineering" model="hr.department">
+        <field name="name">Geotechnical Engineering, Material Testing and Payment Design</field>
     </record>
 
     <record id="stadia_hr_department_admin_and_finance" model="hr.department">

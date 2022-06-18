@@ -97,6 +97,14 @@
         <field name="name">Junior Payment/Material Engineer</field>
     </record>
 
+    <record id="stadia_hr_design_junior_highway_engineer" model="hr.job">
+        <field name="name">Junior Highway Engineer</field>
+    </record>
+
+    <record id="stadia_hr_design_highway_engineer" model="hr.job">
+        <field name="name">Highway Engineer</field>
+    </record>
+
     <record id="stadia_hr_design_structural_engineer" model="hr.job">
         <field name="name">Structural Engineer</field>
     </record>
@@ -105,8 +113,27 @@
         <field name="name">Road Engineer</field>
     </record>
 
-   <record id="stadia_hr_design_lab_section_head" model="hr.job">
+    <record id="stadia_hr_design_lab_section_head" model="hr.job">
         <field name="name">Lab Section Head and ME</field>
     </record>
 
+    <record id="stadia_hr_design_cod_engineer" model="hr.job">
+        <field name="name">Lab Section Head and ME</field>
+    </record>
+
+    <record id="stadia_hr_design_geotechnical_engineer" model="hr.job">
+        <field name="name">Senior Geotechnical Engineer</field>
+    </record>
+
+    <record id="stadia_hr_design_office_engineer" model="hr.job">
+        <field name="name">Senior Geotechnical Engineer</field>
+    </record>
+
+    <record id="stadia_hr_design_junior_contract_engineer" model="hr.job">
+        <field name="name">Junior Contract Engineer</field>
+    </record>
+
+    <record id="stadia_hr_design_hydraulic_engineer" model="hr.job">
+        <field name="name">Hydraulic Engineer</field>
+    </record>
 </odoo>
