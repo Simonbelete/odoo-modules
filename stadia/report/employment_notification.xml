@@ -157,9 +157,9 @@
                     <body>
                         <div class="badge_box">
                             <div class="fistcolumn" style="margin-left: 0px">
-                                <h7>Ref.No: [Insert Ref.No]</h7>
+                                <h7>Ref.No: <t t-esc="data['ref_no']" /></h7>
                                 <br/>
-                                <h7>Date: [Insert Date]</h7>
+                                <h7>Date: <t t-esc="data['date_start']" /></h7>
                             </div>
                             <div class="secondcolumn">
                                 <img src="http://stadiaconsultancy.com/images/about/aboutlogo.jpg" class="badge_img"/>
@@ -168,12 +168,12 @@
                         <div class="secondrow">
                             <div class="secondrowfirstcolumn" style="margin-left: 0px">
                                 <div>
-                                    <h7>To: [Insert Ref.No]</h7>
+                                    <h7>To: <t t-esc="data['employee_id']['title']" /> <t t-esc="data['employee_id']['name']" /></h7>
                                     <br/>
-                                    <h7 style="margin-left:24px">Addis Ababa: [Insert Date]</h7>
+                                    <h7 style="margin-left:24px">Addis Ababa:</h7>
                                     <br/>
                                     <h6 class="subject">Subject:
-                                        <b>[insert subject]</b>
+                                        <b>Employment Notification</b>
                                     </h6>
                                 </div>
                             </div>
@@ -206,21 +206,20 @@
                         </div>
                         <div class="class-p">
                             <h7>Dear:
-                                <b>[INSERT-VALUE]</b>
+                                <b><t t-esc="data['employee_id']['title']" />, <t t-esc="data['employee_id']['name']" /></b>
                             </h7>
                             <p>
                                 We are pleased to inform you that our company has decided to employ
                                 you for the
                                 position of
-                                <b>[Insert Position]</b>on the Consultancy Service for Continuation of Construction
+                                <b><t t-esc="data['job_id']['name']" /></b>on the Consultancy Service for Continuation of Construction
                                 Supervision of
-                                <b>[Insert Place of
-                                    Work]
+                                <b><t t-esc="data['work_place_id']['name']" />
                                 </b>
                                 <br/>
                                 You will earn a monthly gross salary of
-                                <b>[Insert amount in figure and Words]</b>
-                                effective as of <b>[Insert Month Date, Year]</b>. The first 60 working days would be a
+                                <b><t t-esc="data['wage']" /></b>
+                                effective as of <b><t t-esc="data['date_start']" /></b>. The first 60 working days would be a
                                 probation period.
                                 <br/>
                                 We take this opportunity to express our belief that you will
