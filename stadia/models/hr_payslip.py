@@ -145,11 +145,9 @@ class HrPayslip(models.Model):
                 worked_attendances['number_of_days'] = worked_hours/8
                 worked_attendances['number_of_hours'] = worked_hours
 
-            # Calculate not worked attendaces
-            worked_attendances['number_of_days'] = -(attendances['number_of_days'] - worked_attendances['number_of_days'])
-            worked_attendances['number_of_hours'] = -(attendances['number_of_hours'] - worked_attendances['number_of_hours'])
-            # worked_attendances['number_of_days'] = -(worked_attendances['number_of_days'])
-            # worked_attendances['number_of_hours'] = -(worked_attendances['number_of_hours'])
+                # Calculate not worked attendaces
+                worked_attendances['number_of_days'] = -(attendances['number_of_days'] - worked_attendances['number_of_days'])
+                worked_attendances['number_of_hours'] = -(attendances['number_of_hours'] - worked_attendances['number_of_hours'])
 
             res.append(attendances)
             res.append(worked_attendances)
