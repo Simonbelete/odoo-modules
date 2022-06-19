@@ -13,10 +13,10 @@
         'hr_skills',
         'hr_payroll_community',
         'oh_employee_documents_expiry',
-        'oh_appraisal',
         'ohrms_loan',
         'prt_report_attachment_preview',
-        'report_xlsx'
+        'report_xlsx',
+        'survey'
     ],
     'data': [
         'views/stadia_template.xml',
