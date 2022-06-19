@@ -10,7 +10,7 @@ class AccountAssetCategory(models.Model):
     _name = 'stadia.asset.category'
 
     name = fields.Char()
-    ifrs_rate = fields.Float(string="Degressive Factor")
+    ifrs_rate = fields.Float(string="Degressive Factor", digits="Asset IFRS Rate")
 
 class AssetDepreciationLine(models.Model):
     _name = 'stadia.asset.depreciation.line'
@@ -43,7 +43,7 @@ class AccountAssetAsset(models.Model):
     id_t_no = fields.Char(string="ID.T.No.")
     gross_value = fields.Monetary(string='Gross Value', required=True)
     salvage_value = fields.Monetary(string='Salvage Value')
-    ifrs_rate = fields.Float(string="Degressive Factor", required=True)
+    ifrs_rate = fields.Float(string="Degressive Factor", required=True, digits="Asset IFRS Rate")
     depreciation_line_ids = fields.One2many('stadia.asset.depreciation.line', 'asset_id')
     asset_movement_ids = fields.One2many('asset.movement', 'asset_id')
     first_depreciation_date = fields.Date(string="Depreciation Date", required=True)

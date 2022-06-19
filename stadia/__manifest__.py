@@ -30,6 +30,7 @@
         'data/res_user_data.xml',
         'data/resource_calendar_data.xml',
         'data/sequence.xml',
+        'data/decimal_precision.xml',
         'data/hr_department_data.xml',
         'data/hr_job_data.xml',
         'data/promotion_data.xml',
