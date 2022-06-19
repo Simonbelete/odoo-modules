@@ -7,6 +7,13 @@
         <field name="res_model_id" ref="model_stadia_acquisition" />
     </record>
 
+    <!-- Asset Movemenet -->
+    <record id="mail_act_asset_movement_approval" model="mail.activity.type">
+        <field name="name">Asset Movement Approval</field>
+        <field name="icon">fa-sun-o</field>
+        <field name="res_model_id" ref="model_asset_movement" />
+    </record>
+
     <!-- Employee activities -->
     <record id="mail_act_employee_creation" model="mail.activity.type">
         <field name="name">Employee Creation</field>
