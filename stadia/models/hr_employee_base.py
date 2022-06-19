@@ -25,7 +25,7 @@ class HrEmployeeBase(models.AbstractModel):
     emergency_contact_house_no = fields.Char()
     emergency_contact_relation_id = fields.Many2one('hr.employee.relation')
     education_ids = fields.One2many('hr.education', 'employee_id')
-    
+    joining_date = fields.Date(string='Joining Date', help="Employee joining date computed from the contract start date",compute='_compute_joining', store=True)
 
     def action_generate_badge_id(self):
         id_no = self._generage_full_id()
