@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--Hayat Information-->
+    <record id="hr_employee_hayat_aweil" model="hr.employee">
+        <field name="name">Hayat Aweil</field>
+        <field name="title">wt</field>
+        <field name="birthday">1985-09-05</field>
+        <field name="gender">female</field>
+        <field name="marital">single</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_Nefas_selk"/>
+        <field name="woreda">07</field>
+        <field name="house_number">756/477/ል</field>
+        <field name="mobile_phone">0916109578</field>
+        <field name="department_id" ref="hr_department_rcmd"/>
+        <field name="job_id" ref="stadia_hr_job_draft"/>
+        <field name="emergency_contact_name">Kenerio Abduradir</field>
+        <field name="emergency_contact_city_id" ref="subcity_Nefas_selk"/>
+        <field name="emergency_contact_woreda">07</field>
+        <field name="emergency_contact_house_no">590</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_mother"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_hayat_aweil" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_hayat_aweil"/>
+        <field name="name">Hayat Aweil Contract Agreement</field>
+        <field name="date_start">2019-11-29</field>
+        <field name="wage">2167</field>
+        <field name="perdime">120</field>
+        <field name="travel_allowance">650</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_hayat_aweil_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Hawassa University</field>
+        <field name="start_date">2006-01-01</field>
+        <field name="end_date">2010-09-18</field>
+        <field name="employee_id" ref="hr_employee_hayat_aweil"/>
+    </record>
+
+    <record id="employee_family_hayat_aweil_education2" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Shashemeni Preparatory</field>
+        <field name="start_date">2006-01-01</field>
+        <field name="end_date">2010-09-18</field>
+        <field name="employee_id" ref="hr_employee_hayat_aweil"/>
+    </record>
+
+
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_hayat_aweil_mother" model="hr.employee.family">
+        <field name="name">Kenerio Abduradir</field>
+        <field name="employee_id" ref="hr_employee_hayat_aweil"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_hayat_aweil_sister" model="hr.employee.family">
+        <field name="name">Fetya Awol</field>
+        <field name="employee_id" ref="hr_employee_hayat_aweil"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_hayat_aweil_sister2" model="hr.employee.family">
+        <field name="name">Zebiba Awol</field>
+        <field name="employee_id" ref="hr_employee_hayat_aweil"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_hayat_aweil_sister3" model="hr.employee.family">
+        <field name="name">Mohammed Awol</field>
+        <field name="employee_id" ref="hr_employee_hayat_aweil"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+
+    <!--    Mesert information-->
+    <record id="hr_employee_meseret_fikade" model="hr.employee">
+        <field name="name">Meseret Fikade Birhane</field>
+        <field name="title">wt</field>
+        <field name="birthday">1995-12-29</field>
+        <field name="gender">female</field>
+        <field name="marital">single</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_yeka"/>
+        <field name="woreda">06</field>
+        <field name="house_number">128</field>
+        <field name="mobile_phone">0910314592</field>
+        <field name="tin_no">0065808673</field>
+        <field name="department_id" ref="hr_department_rcmd"/>
+        <field name="job_id" ref="stadia_hr_claim"/>
+        <field name="emergency_contact_name">Altaye Fikade Birhane</field>
+        <field name="emergency_contact_city_id" ref="subcity_yeka"/>
+        <field name="emergency_contact_woreda">06</field>
+        <field name="emergency_contact_house_no">128</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_meseret_fikade" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_meseret_fikade"/>
+        <field name="name">Meseret Fikade Contract Agreement</field>
+        <field name="date_start">2019-03-12</field>
+        <field name="wage">7900</field>
+        <field name="perdime">180</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_meseret_fikade_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Hawassa University</field>
+        <field name="fields_of_study">COTM</field>
+        <field name="start_date">2015-01-02</field>
+        <field name="end_date">2019-07-12</field>
+        <field name="employee_id" ref="hr_employee_meseret_fikade"/>
+    </record>
+
+
+    <record id="employee_family_meseret_fikade_education2" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Kokbe Tsebah Preparatory</field>
+        <field name="start_date">2012-01-02</field>
+        <field name="end_date">2013-07-12</field>
+        <field name="employee_id" ref="hr_employee_meseret_fikade"/>
+    </record>
+
+
+    <record id="employee_family_meseret_fikade_education3" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Birhan Guzo Elementary School</field>
+        <field name="start_date">2002-01-02</field>
+        <field name="end_date">2011-07-12</field>
+        <field name="employee_id" ref="hr_employee_meseret_fikade"/>
+    </record>
+
+
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_meseret_fikade_mother" model="hr.employee.family">
+        <field name="name">Adanech WeldeyesSishah</field>
+        <field name="employee_id" ref="hr_employee_meseret_fikade"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_meseret_fikade_sister" model="hr.employee.family">
+        <field name="name">Serkalem Fikade Birhane</field>
+        <field name="employee_id" ref="hr_employee_meseret_fikade"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+
+    <record id="employee_family_meseret_fikade_brother" model="hr.employee.family">
+        <field name="name">Altaye Fikade Birhane</field>
+        <field name="employee_id" ref="hr_employee_meseret_fikade"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <record id="employee_family_meseret_fikade_brother2" model="hr.employee.family">
+        <field name="name">Chernet Fikade Birhane</field>
+        <field name="employee_id" ref="hr_employee_meseret_fikade"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+
+    <!--    Endalk Information-->
+    <record id="hr_employee_endalk_fentie" model="hr.employee">
+        <field name="name">Endalk Fentie Teshome</field>
+        <field name="title">ato</field>
+        <field name="birthday">1991-08-18</field>
+        <field name="gender">male</field>
+        <field name="marital">single</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_yeka"/>
+        <field name="woreda">01</field>
+        <field name="house_number">New</field>
+        <field name="mobile_phone">0926808377</field>
+        <field name="department_id" ref="hr_department_rcmd"/>
+        <field name="job_id" ref="stadia_hr_rmcd_section_head"/>
+        <field name="emergency_contact_name">Tobiya Abuhay Kassie</field>
+        <field name="emergency_contact_city_id" ref="subcity_boli"/>
+        <field name="emergency_contact_woreda">09</field>
+        <field name="emergency_contact_house_no">New</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_bendalk_fentie" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_endalk_fentie"/>
+        <field name="name">Endalk Fentie Contract Agreement</field>
+        <field name="date_start">2021-01-21</field>
+        <field name="wage">10421</field>
+        <field name="perdime">416</field>
+        <field name="phone_allowance">300</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_endalk_fentie_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Addis Ababa University</field>
+        <field name="start_date">2011-01-02</field>
+        <field name="end_date">2015-09-18</field>
+        <field name="fields_of_study">Civil and Environmental Engineering</field>
+        <field name="employee_id" ref="hr_employee_endalk_fentie"/>
+    </record>
+
+    <record id="employee_family_endalk_fentie_education2" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Addis Ababa University</field>
+        <field name="start_date">2016-01-02</field>
+        <field name="end_date">2020-09-18</field>
+        <field name="fields_of_study">Msc. By Geotechnical Engineering</field>
+        <field name="employee_id" ref="hr_employee_endalk_fentie"/>
+    </record>
+
+    <record id="employee_family_endalk_fentie_education3" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Dabat Preparatory</field>
+        <field name="start_date">2010-01-02</field>
+        <field name="end_date">2015-09-18</field>
+        <field name="employee_id" ref="hr_employee_endalk_fentie"/>
+    </record>
+
+    <record id="employee_family_endalk_fentie_education4" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Dabat Wereda-01 School</field>
+        <field name="start_date">1998-01-02</field>
+        <field name="end_date">2010-09-18</field>
+        <field name="employee_id" ref="hr_employee_endalk_fentie"/>
+    </record>
+
+
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_endalk_fentie_mother" model="hr.employee.family">
+        <field name="name">Zabua Kassie Asnakew</field>
+        <field name="employee_id" ref="hr_employee_endalk_fentie"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_endalk_fentie_sister" model="hr.employee.family">
+        <field name="name">Tigist Fentie Teshome</field>
+        <field name="employee_id" ref="hr_employee_endalk_fentie"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_endalk_fentie_sister2" model="hr.employee.family">
+        <field name="name">Serkie Fentie Teshome</field>
+        <field name="employee_id" ref="hr_employee_endalk_fentie"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+    <record id="employee_family_endalk_fentie_sister2" model="hr.employee.family">
+        <field name="name">Alembache Fentie Teshome</field>
+        <field name="employee_id" ref="hr_employee_endalk_fentie"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+
+    <record id="employee_family_endalk_fentie_brother" model="hr.employee.family">
+        <field name="name">Zenaw Fentie Teshome</field>
+        <field name="employee_id" ref="hr_employee_endalk_fentie"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+
+    <!--    Tseganesh information-->
+
+    <record id="hr_employee_tsegenesh_leta" model="hr.employee">
+        <field name="name">Tseganesh Leta Bikila</field>
+        <field name="title">wt</field>
+        <field name="birthday">1995-04-11</field>
+        <field name="gender">female</field>
+        <field name="marital">single</field>
+        <field name="country_id" ref="base.et"/>
+        <field name="sub_city_id" ref="subcity_Nefas_selk"/>
+        <field name="woreda">12</field>
+        <field name="house_number">1145</field>
+        <field name="mobile_phone">0945931435</field>
+        <field name="tin_no">0070373153</field>
+        <field name="department_id" ref="hr_department_rcmd"/>
+        <field name="job_id" ref="stadia_hr_claim"/>
+        <field name="emergency_contact_name">Mekonnen Leta Bikila</field>
+        <field name="emergency_contact_city_id" ref="subcity_Nefas_selk"/>
+        <field name="emergency_contact_woreda">12</field>
+        <field name="emergency_contact_house_no">1145</field>
+        <field name="emergency_contact_relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <!--    CONTRACT INFORMATION-->
+
+    <record id="hr_contract_tsegenesh_leta" model="hr.contract">
+        <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
+        <field name="name">Tseganesh Leta Contract Agreement</field>
+        <field name="date_start">2021-03-08</field>
+        <field name="wage">3000</field>
+        <field name="perdime">130</field>
+    </record>
+
+    <!--    EDUCATIONAL INFORMATION-->
+    <record id="employee_family_tsegenesh_leta_education" model="hr.education">
+        <field name="type">higher</field>
+        <field name="school_name">Mekelle University</field>
+        <field name="start_date">2015-01-02</field>
+        <field name="end_date">2019-07-30</field>
+        <field name="fields_of_study">Civil Engineering</field>
+        <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
+    </record>
+
+    <record id="employee_family_tsegenesh_leta_education2" model="hr.education">
+        <field name="type">secondary</field>
+        <field name="school_name">Lafto Secondary School</field>
+        <field name="start_date">2011-01-02</field>
+        <field name="end_date">2012-07-30</field>
+        <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
+    </record>
+
+    <record id="employee_family_tsegenesh_leta_education3" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Lafto Primary School</field>
+        <field name="start_date">2007-01-02</field>
+        <field name="end_date">2011-07-30</field>
+        <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
+    </record>
+
+    <record id="employee_family_tsegenesh_leta_education4" model="hr.education">
+        <field name="type">primary</field>
+        <field name="school_name">Abiot Fana Primary School</field>
+        <field name="start_date">2002-01-02</field>
+        <field name="end_date">2007-07-30</field>
+        <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
+    </record>
+
+
+    <!--    TRAINING INFORMATION-->
+    <record id="employee_family_tsegenesh_leta_training" model="hr.education">
+        <field name="school_name">Mekelle University</field>
+        <field name="type">training</field>
+        <field name="start_date">2018-01-10</field>
+        <field name="fields_of_study">Employability Skills and Development Strategies</field>
+        <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
+    </record>
+
+    <!--MOTHER INFORMATION-->
+    <record id="employee_family_tsegenesh_leta_mother" model="hr.employee.family">
+        <field name="name">Bekelech Ayele G/Kirstos</field>
+        <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
+        <field name="relation_id" ref="employee_family_mother"/>
+    </record>
+
+
+    <!--    SISTER AND BROTHERS-->
+    <record id="employee_family_tsegenesh_leta_sister" model="hr.employee.family">
+        <field name="name">Mekdes Leta Bikila</field>
+        <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
+        <field name="relation_id" ref="employee_family_sister"/>
+    </record>
+
+
+    <record id="employee_family_tsegenesh_leta_brother" model="hr.employee.family">
+        <field name="name">Mekonnen Leta Bikila</field>
+        <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+    <record id="employee_family_tsegenesh_leta_brother2" model="hr.employee.family">
+        <field name="name">Temesgen Leta Bikila</field>
+        <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
+        <field name="relation_id" ref="employee_family_brother"/>
+    </record>
+
+</odoo>

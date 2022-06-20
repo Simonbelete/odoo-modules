@@ -9,7 +9,7 @@ class EducationalInformation(models.Model):
         [('primary', 'Primary Education'), ('secondary', 'Secondary Education'), ('training', 'Training'),
          ('higher', 'Higher Education')])
     certificate = fields.Binary(string="Certificate")
-    school_name = fields.Char(string="School Name")
+    school_name = fields.Char(string="Name")
     start_date = fields.Date(string="Start Date")
     end_date = fields.Date(string="End Date")
     fields_of_study = fields.Char(string="Fields of Study")

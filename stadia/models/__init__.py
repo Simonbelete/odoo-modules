@@ -18,4 +18,5 @@ from . import work_place
 from . import hr_employee_base
 from . import hr_employee_family
 from . import hr_employee_education
+from . import hr_resume_line
 from . import hr_loan
