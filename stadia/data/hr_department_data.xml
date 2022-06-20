@@ -13,7 +13,7 @@
         <field name="name">Subversion (RCMD)</field>
     </record>
 
-    <record id="hr_departmentdata_design" model="hr.department">
+    <record id="hr_department_design" model="hr.department">
         <field name="name">Design</field>
     </record>
 

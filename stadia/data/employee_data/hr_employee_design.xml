@@ -178,7 +178,7 @@
         <field name="mobile_phone">0911048445</field>
         <field name="tin_no">0011098631</field>
         <field name="pension_no">0000128128</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_section_head"/>
         <field name="emergency_contact_name">Henok Laike Amdemichael</field>
         <field name="emergency_contact_city_id" ref="subcity_yeka"/>
@@ -317,7 +317,7 @@
         <field name="house_number">758</field>
         <field name="mobile_phone">0923807832</field>
         <field name="tin_no">0071578789</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_cadd_engineer"/>
         <field name="emergency_contact_name">Teshome Mekonnen Regasa</field>
         <field name="emergency_contact_city_id" ref="subcity_kirkos"/>
@@ -389,7 +389,7 @@
         <field name="woreda">02</field>
         <field name="house_number">674135</field>
         <field name="tin_no">0062467143</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_material_engineer"/>
         <field name="emergency_contact_name">Gosaye Teshome W/Hawariat</field>
         <field name="emergency_contact_city_id" ref="subcity_kirkos"/>
@@ -461,7 +461,7 @@
         <field name="house_number">104</field>
         <field name="mobile_phone">0912370563</field>
         <field name="tin_no">0019392135</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_structural_engineer"/>
         <field name="emergency_contact_name">Elsabeth Chane Woldu</field>
         <field name="emergency_contact_city_id" ref="subcity_yeka"/>
@@ -626,7 +626,7 @@
         <field name="house_number">358</field>
         <field name="mobile_phone">0913737065</field>
         <field name="tin_no">0019359464</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_road_engineer"/>
         <field name="emergency_contact_name">Melese H/Georgis</field>
         <field name="emergency_contact_city_id" ref="subcity_addis_ketama"/>
@@ -701,7 +701,7 @@
         <field name="sub_city_id" ref="subcity_boli"/>
         <field name="woreda">01</field>
         <field name="mobile_phone">0900299900</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_job_draft"/>
         <field name="emergency_contact_name">Mekim Enderis HUsien</field>
         <field name="emergency_contact_city_id" ref="subcity_boli"/>
@@ -766,7 +766,7 @@
         <field name="mobile_phone">0911570313</field>
         <field name="tin_no">0006092228</field>
         <field name="pension_no">0000522987</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_section_head"/>
         <field name="emergency_contact_name">Wendenesh Ruga Obse</field>
         <field name="emergency_contact_city_id" ref="subcity_Nefas_selk"/>
@@ -861,7 +861,7 @@
         <field name="mobile_phone">0910991750</field>
         <field name="tin_no">0008002703</field>
         <field name="pension_no">49766</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_lab_section_head"/>
         <field name="emergency_contact_name">Melese Tullu Adare</field>
         <field name="emergency_contact_relation_id" ref="employee_family_mother"/>
@@ -1093,7 +1093,7 @@
         <field name="sub_city_id" ref="subcity_yeka"/>
         <field name="mobile_phone">0918449507</field>
         <field name="tin_no">0059246234</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_junior_highway_engineer"/>
         <field name="emergency_contact_name">Destaw Zemene Yalew</field>
         <field name="emergency_contact_city_id" ref="subcity_yeka"/>
@@ -1391,7 +1391,7 @@
         <field name="house_number">420/11</field>
         <field name="mobile_phone">0910410279</field>
         <field name="tin_no">0066439298</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_office_engineer"/>
         <field name="emergency_contact_name">Betelhem Getu Zegye</field>
         <field name="emergency_contact_city_id" ref="subcity_akaki_kality"/>
@@ -1497,7 +1497,7 @@
         <field name="house_number">1240</field>
         <field name="mobile_phone">0910564338</field>
         <field name="tin_no">0069758158</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_junior_contract_engineer"/>
         <field name="emergency_contact_name">Mebratu G/Mariyam Bru</field>
         <field name="emergency_contact_city_id" ref="subcity_yeka"/>
@@ -1600,7 +1600,7 @@
         <field name="house_number">2948</field>
         <field name="mobile_phone">0991854829</field>
         <field name="tin_no">0013394466</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_highway_engineer"/>
         <field name="emergency_contact_name">Gizaw Belachew Wendatrash</field>
         <field name="emergency_contact_city_id" ref="subcity_ledta"/>
@@ -1681,7 +1681,7 @@
         <field name="mobile_phone">0912881322</field>
         <field name="tin_no">0008002703</field>
         <field name="pension_no">49766</field>
-        <field name="department_id" ref="hr_departmentdata_design"/>
+        <field name="department_id" ref="hr_department_design"/>
         <field name="job_id" ref="stadia_hr_design_hydraulic_engineer"/>
         <field name="emergency_contact_name">Tesfaye Beressa Akewak</field>
         <field name="emergency_contact_city_id" ref="subcity_addis_ketama"/>
