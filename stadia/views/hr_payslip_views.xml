@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.act_window" id="stadia_action_employee_attendance">
+        <field name="name">hr.attendance</field>
+        <field name="res_model">hr.attendance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="stadia_hr_payslip_fomr" model="ir.ui.view">
+        <field name="name">hr.payslip</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll_community.view_hr_payslip_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button class="oe_stat_button" icon="fa-clock-o" type="action" name="%(stadia_action_employee_attendance)d" string="Attendance"
+                    domain="[('check_in', '>=', date_from), ('check_out', '>=', date_from)]"
+                    context="{
+                        'search_employee_id': employee_id,
+                    }"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

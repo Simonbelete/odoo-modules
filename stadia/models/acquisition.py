@@ -59,11 +59,11 @@ class Acquisition(models.Model):
 
     def action_done(self):
         """ Move all (internal/external) applicants to refused state """
-        for ea in self.external_applicant_ids:
-            ea.write({'active': False})
+        # for ea in self.external_applicant_ids:
+        #     ea.write({'active': False})
 
-        for ia in self.internal_applicant_ids:
-            ia.write({'active': False})
+        # for ia in self.internal_applicant_ids:
+        #     ia.write({'active': False})
 
         self.write({'state': 'done'})
 
@@ -75,7 +75,8 @@ class Acquisition(models.Model):
 
     @api.onchange('date', 'job_id')
     def _compute_name(self):
-        if(not self.job_id):
+        if(not self.job_id or not self.date):
+            self.title = ''
             return
         for record in self:
             record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))

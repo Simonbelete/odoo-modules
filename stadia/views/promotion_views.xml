@@ -73,6 +73,12 @@
                     <field name="stage_id" widget="statusbar" options="{'clickable': '1'}" />
                 </header>
                 <sheet>
+                    <div class="oe_title">
+                        <label for="ref_no" class="oe_edit_only"/>
+                        <h1>
+                            <field name="ref_no" placeholder=""/>
+                        </h1>
+                    </div>
                     <group>
                         <group>
                             <field name="date" />
@@ -86,8 +92,22 @@
                             <field name="recommended_by" />
                             <field name="new_designation_job_id" string="New Designation job" />
                             <field name="new_work_place" string="Transferred Work Place" />
+                            <field name="salary" />
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Survey">
+                            <field name="survey_answer_ids" string="Type">
+                                <tree>
+                                    <field name="stage_id" />
+                                    <field name="survey_id" />
+                                    <field name="response_id" />
+                                    <button string="Start/Edit Survey" class="oe_highlight" type="object" name="action_start_survey" />
+                                    <button string="Consult Survey" type="object" name="action_print_survey" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>

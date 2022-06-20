@@ -10,12 +10,21 @@ class Promotion(models.Model):
     def _default_stage_id(self):
         return self.env['stadia.promotion.stage'].search([('sequence', '=', 1)], limit=1)
 
+    def _default_ref_no(self):
+        return self._generate_ref_no()
+
+    def _generate_ref_no(self):
+        return self.env['ir.sequence'].next_by_code('ref.no.sequence')
+
+    ref_no = fields.Char(string="Ref No", copy=False, default=_default_ref_no, required=True)
     # Employee to be promoted
     employee_id = fields.Many2one('hr.employee')
     date = fields.Date(required=True, default=datetime.now())
     department_id =  fields.Many2one(related="employee_id.department_id")
     # Previous job id
     job_id = fields.Many2one(related="employee_id.job_id")
+    # Active previous work location
+    active_work_place_id = fields.Many2one(related="employee_id.contract_id.work_place_id")
     stage_id = fields.Many2one('stadia.promotion.stage', group_expand="_read_group_state_ids", default=_default_stage_id)
     acquisition_id = fields.Many2one('stadia.acquisition', domain="[('state', '=', 'approved')]")
     recommended_by = fields.Many2one('hr.employee')
@@ -26,8 +35,51 @@ class Promotion(models.Model):
         ('transfer', 'Transfer')
     ], default='promotion')
     new_work_place = fields.Many2one('stadia.workplace')
-    
+    survey_answer_ids = fields.One2many('promotion.answer', 'promotion_id')
+    salary = fields.Char()
+
+    @api.model
+    def create(self, values):
+        """ Auto Create/populate with survey ids """
+        promotion = super(Promotion, self).create(values)
+        promotion.sudo()._populate_answeres()
+        return promotion
+
+    def _populate_answeres(self):
+        self.ensure_one()
+        stages = self.env['stadia.promotion.stage'].search([])
+        commands = []
+        for s in stages:
+            val = {
+                'promotion_id': self.id,
+                'stage_id': s.id
+            }
+            commands.append((0, False, val))
+        self.write({'survey_answer_ids': commands})
+
     @api.model
     def _read_group_state_ids(self, stages, domain, order):
         stage_ids = stages._search([],order=order)
         return stages.browse(stage_ids)
+
+
+class PromotionStageSurvery(models.Model):
+    _name = 'promotion.answer'
+
+    promotion_id = fields.Many2one('stadia.promotion')
+    stage_id = fields.Many2one('stadia.promotion.stage')
+    survey_id = fields.Many2one(related='stage_id.survey_id')
+    response_id = fields.Many2one('survey.user_input', "Response", ondelete="set null")
+    
+    def action_start_survey(self):
+        if not self.response_id:
+            response = self.survey_id._create_answer(user=self.env.user)
+            self.response_id = response.id
+        else:
+            response = self.response_id
+
+        return self.survey_id.action_start_survey(answer=response)
+
+    def action_print_survey(self):
+        self.ensure_one()
+        return self.survey_id.action_print_survey(answer=self.response_id)

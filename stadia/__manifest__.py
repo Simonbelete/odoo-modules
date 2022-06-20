@@ -13,10 +13,10 @@
         'hr_skills',
         'hr_payroll_community',
         'oh_employee_documents_expiry',
-        'oh_appraisal',
         'ohrms_loan',
         'prt_report_attachment_preview',
-        'report_xlsx'
+        'report_xlsx',
+        'survey'
     ],
     'data': [
         'views/stadia_template.xml',
@@ -30,6 +30,7 @@
         'data/res_user_data.xml',
         'data/resource_calendar_data.xml',
         'data/sequence.xml',
+        'data/decimal_precision.xml',
         'data/hr_department_data.xml',
         'data/hr_job_data.xml',
         'data/promotion_data.xml',
@@ -48,6 +49,11 @@
         'report/hiring_promotion_template.xml',
         'report/contract_agreement.xml',
         'report/lateral_transfer.xml',
+        'report/loan.xml',
+        'report/guarantor_letter.xml',
+        'report/employment_notification.xml',
+        'report/acceptance_letter.xml',
+        'report/promotion.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
@@ -60,6 +66,7 @@
         'views/hr_contract_views.xml',
         'views/asset_movement_views.xml',
         'views/account_asset_views.xml',
+        'views/hr_loan_views.xml',
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',
