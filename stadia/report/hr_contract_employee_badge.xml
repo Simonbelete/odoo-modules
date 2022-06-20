@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="badge_detail">
-                        <h5>ID No: STAD/SID/HO/019/21</h5>
+                        <h5>ID No: <t t-esc="employee_contract['employee_id']['badge_id_no']" /></h5>
                         <h5>Name: 
                             <span class="underline">
                                 <t t-esc="employee_contract.employee_id.title " />
@@ -98,7 +98,7 @@
                             </span>
                         </h5>
                         <h5>Sex: <span class="underline"></span></h5>
-                        <h5>Project Name: <span class="underline"><t t-esc="employee_contract.project_id.name " /></span></h5>
+                        <h5>Project Name: <span class="underline"><t t-esc="employee_contract.work_place_id.name " /></span></h5>
                         <h5>Position:: <span class="underline"><t t-esc="employee_contract.job_id.name" /></span></h5>
                         <h5>Office Address: Wuhalemat NB Business Center Building
                 9th Floor Bole K/Ketema Woreda 04 House No. 901</h5>
@@ -107,7 +107,7 @@
                 </div>
                 
                 <div class="badge_page_2">
-                    <h5>Address. Sub City Yeaka Woreda -. H. No. 430</h5>
+                    <h5>Address. <t t-esc="employee_contract['employee_id']['sub_city_id']['name']" /> -. H. No. <t t-esc="employee_contract['employee_id']['house_number']" /> </h5>
                     <h5>Tel: <t t-esc="employee_contract.employee_id.phone" /></h5>
                     <h5>We certify that the bearer of this ID Card is an employee of</h5>
                     <h5>STADIA Engineering Works Consultant PLC.</h5>
@@ -118,11 +118,11 @@
                     <div class="badge_issued">
                         <div>
                             <h5>Date Issued</h5>
-                            <h5>27/01/2021</h5>
+                            <h5><t t-esc="employee_contract['issued_date']" /></h5>
                         </div>
                         <div>
                             <h5>Expiry Date</h5>
-                            <h5>27/01/2021</h5>
+                            <h5><t t-esc="employee_contract['expiry_date']" /></h5>
                         </div>
                     </div>
                 </div>

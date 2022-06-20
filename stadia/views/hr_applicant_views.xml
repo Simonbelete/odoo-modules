@@ -14,6 +14,9 @@
                     </div>
                 </h2>
             </xpath>
+            <xpath expr="//field[@name='email_from']" position="before">
+               <field name="ref_no" />
+            </xpath>
             <xpath expr="//field[@name='partner_name']" position="after">
                 <h5 class="o_row">
                     <div>
@@ -32,6 +35,29 @@
         <field name="arch" type="xml">
             <xpath expr="//div[@class='oe_kanban_content']" position="inside">
                 <field name="recommended_by" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stadia_hr_application" model="ir.ui.view">
+        <field name="name">hr.applicant</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='description']" position="after">
+                <notebook>
+                    <page string="Survey">
+                        <field name="survey_answer_ids" string="Type">
+                            <tree>
+                                <field name="stage_id" />
+                                <field name="survey_id" />
+                                <field name="response_id" />
+                                <button string="Start/Edit Survey" class="oe_highlight" type="object" name="action_start_survey" />
+                                <button string="Consult Survey" type="object" name="action_print_survey" />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
             </xpath>
         </field>
     </record>

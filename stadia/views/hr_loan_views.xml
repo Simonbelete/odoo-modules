@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stadi_hr_loan_form" model="ir.ui.view">
+        <field name="name">hr.loan</field>
+        <field name="model">hr.loan</field>
+        <field name="inherit_id" ref="ohrms_loan.hr_loan_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='installment']" position="after">
+                <field name="reason" string="Reason" />
+                <field name="guarantor_id" string="Guarantor" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

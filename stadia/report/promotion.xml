@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="lateral_transfer_print" model="ir.actions.report">
-        <field name="name">Lateral Transfer</field>
+    <record id="promotion_print" model="ir.actions.report">
+        <field name="name">Pormoion and Salary Increment</field>
         <field name="model">stadia.promotion</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">stadia.lateral_transfer_template</field>
-        <field name="report_file">lateral_transfer</field>
-        <field name="print_report_name">'Lateral Transfer - %s' % (object.id)</field>
+        <field name="report_name">stadia.promotion_template</field>
+        <field name="report_file">promotion_template</field>
+        <field name="print_report_name">'Pormoion and Salary Increment - %s' % (object.id)</field>
         <field name="paperformat_id" ref="paperformat_euro_lowmargin"/>
         <!-- model_[model name] -->
         <field name="binding_model_id" ref="model_stadia_promotion"/>
         <field name="binding_type">report</field>
     </record>
 
-    <template id="lateral_transfer_template">
+    <template id="promotion_template">
         <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="o">
 
@@ -177,7 +177,7 @@
                                     <h6 style="margin-left:24px">Addis Ababa</h6>
                                     <h6 class="subject">Subject:
                                         <b>:
-                                            <u>Lateral Transfer</u>
+                                            <u>Promotion and Salary Increment </u>
                                         </b>
                                     </h6>
                                 </div>
@@ -218,24 +218,13 @@
                                 </b>
                             </h6>
                             <p>
-                                <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>It is to be recalled that you have been working on
-                                the <b><t t-esc="o['active_work_place_id']['name']" /></b> in
-                                the capacity of
-                                <b><t t-esc="o['job_id']['name']" /></b>.
+                                It is recalled that you have been working as a <b><t t-esc="o['active_work_place_id']['name']" /></b>
+                                 on projects being undertaken by the company. We are pleased to inform you that our company has decided to promote you 
+                                 to a position of: <b><t t-esc="o['job_id']['name']" /></b>. 
                                 <br/>
-                                However, in line with the discussion made with you, the company has transferred you to
-                                <b><t t-esc="o['new_work_place']['name']" />
-                                </b>
-                                in the capacity of <b><t t-esc="o['new_designation_job_id']['name']" /></b> effective as of
-                                <b><t t-esc="o['date']" /></b>
-                                <br/>
-                                You will earn monthly gross salary of ETB <b><t t-esc="o['salary']" /></b>.
-                                <br/>
-                                We take this opportunity to express our belief that you will continue to demonstrate
-                                your competency with
-                                the highest degree
-                                of commitment, integrity, and team sprit towards the achievement of the project’s
-                                objectives.
+                                Thus, you will earn a monthly gross salary: <t t-esc="o['date']" /> effective as of: <t t-esc="o['date']" />
+                                <br />
+                                We take this opportunity to express our belief that you will demonstrate your competency with the highest degree of commitment, integrity and team sprit towards the achievement of the firm’s objectives.
                             </p>
                             <h7>With regards,</h7>
 

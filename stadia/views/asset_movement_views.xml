@@ -26,12 +26,21 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+                    <button name="action_request" 
+                        string="Request" 
+                        type="object" 
+                        class="oe_highlight" 
+                        attrs="{'invisible': [('state', '!=', 'draft')] }"/>
                     <button name="action_approve" 
                         string="Approve" 
                         type="object" 
                         class="oe_highlight" 
-                        attrs="{'invisible': [('state', '!=', 'draft')] }"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,approved" />
+                        attrs="{'invisible': [('state', '!=', 'requested')] }"/>
+                    <button name="action_decline" 
+                        string="Decline" 
+                        type="object" 
+                        attrs="{'invisible': [('state', '!=', 'requested')] }"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,requested,approved,declined" />
                 </header>
                 <sheet>
                     <group>
@@ -54,6 +63,11 @@
                     </group>
                     <field name="note" />
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
             </form>
         </field>
     </record>

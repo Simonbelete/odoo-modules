@@ -13,14 +13,26 @@
                         <span>/ day</span>
                     </div>
                 </xpath>
-
-                <xpath expr="//group[@name='salary_and_advantages']" position="inside">
-                    <label for="phone_allowance"/>
-                    <div class="o_row" name="phone_allowance">
-                        <field name="phone_allowance" nolabel="1"/>
+            <xpath expr="//field[@name='employee_id']" position="before">
+                <field name="ref_no"  />
+            </xpath>
+            <xpath expr="//field[@name='date_start']" position="before">
+                <field name="work_place_id" string="Work Location" />
+            </xpath>
+            <xpath expr="//group[@name='main_info']">
+                <group string="Others">
+                    <label for="cost_sharing"/>
+                    <div class="o_row" name="cost_sharing">
+                        <field name="cost_sharing" string="Cost Sharing" nolabel="1"/>
                         <span>/ month</span>
                     </div>
                 </xpath>
+              <xpath expr="//group[@name='salary_and_advantages']" position="inside">
+                    <label for="phone_allowance"/>
+                    <div class="o_row" name="phone_allowance">
+                        <field name="phone_allowance" nolabel="1"/>
+                </div>
+              </xpath>
 
                 <xpath expr="//group[@name='main_info']">
                     <group string="Others">
