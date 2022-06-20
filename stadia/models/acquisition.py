@@ -75,7 +75,8 @@ class Acquisition(models.Model):
 
     @api.onchange('date', 'job_id')
     def _compute_name(self):
-        if(not self.job_id):
+        if(not self.job_id or not self.date):
+            self.title = ''
             return
         for record in self:
             record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))

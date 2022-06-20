@@ -3,6 +3,7 @@
     <data noupdate="1">
         <record id="stadia_company" model="res.company">
             <field name="name">Stadia Engineering Works Consultant PLC</field>
+            <field name=""
         </record>
     </data>
 </odoo>
