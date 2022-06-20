@@ -62,4 +62,84 @@
         </t>
 
     </template>
+
+
+    <template id="employee_list">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+                <style>
+                    .table,th,td{
+                    border:1px solid DodgerBlue;
+                    }
+                    th{
+                    font-size:18px;
+                    }
+                    .par{
+                    font-size:70px;
+                    }
+                    .text{
+                    font-size:40px;
+                    }
+                </style>
+                <div class="oe_structure"/>
+                <div class="container-fluid">
+                    <div class="col-lg-12">
+                        <table class="table table-striped">
+                            <tr>
+                                <th colspan="16" class="bg bg-danger text text-center">CURRENT EMPLOYEE LIST</th>
+                            </tr>
+                            <tr>
+                                <th>No.</th>
+                                <th>Pension No.</th>
+                                <th>Full Name</th>
+                                <th>Gender</th>
+                                <th>Employed Date</th>
+                                <th>Position</th>
+                                <th>Date of Birth</th>
+                                <th>Age</th>
+                                <th>Salary</th>
+                                <th>Phone No.</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="docs" t-as="o">
+                                <tr>
+                                    <td>
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="o.pension_no"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="o.name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="o.gender"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="o.first_contract_date"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="o.job_title"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="o.birthday"/>
+                                    </td>
+                                    <td>
+                                        <p t-foreach="o.first_contract_date"
+                                           t-as="rent">
+                                            <t t-esc="'{0:,.2f}'.format(rent.wage)"/>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <t t-esc="o.mobile_phone"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
 </odoo>
