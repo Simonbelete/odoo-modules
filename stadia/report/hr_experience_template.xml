@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="internal_experience">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <h4 style="text-align: center;decoration: underline;">
+                        To whom it may concern.
+                    </h4>
+
+
+                    <t t-foreach="o.resume_line_ids.employee_id" t-as="line">
+                        <table class="table styled-table" border="1">
+                            <tr>
+                                <th>No.</th>
+                                <th>Job Title</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Organization</th>
+                            </tr>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="o.resume_line_ids" t-as="experience"
+                               t-if="line == experience.employee_id">
+                                <tr>
+                                    <td>
+                                        <t t-esc="index"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="experience.name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="experience.date_start"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="experience.date_end"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="experience.organization.name"/>
+                                    </td>
+                                </tr>
+                                <t t-set="index" t-value="index+1"/>
+                            </t>
+                        </table>
+                    </t>
+
+                </t>
+            </t>
+        </t>
+
+    </template>
+</odoo>

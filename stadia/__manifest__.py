@@ -56,6 +56,8 @@
         'report/hiring_promotion_template.xml',
         'report/contract_agreement.xml',
         'report/lateral_transfer.xml',
+        'report/hr_experience_report_id.xml',
+        'report/hr_experience_template.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
@@ -71,7 +73,8 @@
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',
-        'views/asset_menus.xml'
+        'views/asset_menus.xml',
+        'views/hr_resume_line_views.xml'
     ],
     'qweb': [
         'static/src/xml/asset.xml'
