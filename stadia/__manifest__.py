@@ -16,7 +16,8 @@
         'ohrms_loan',
         'prt_report_attachment_preview',
         'report_xlsx',
-        'survey'
+        'survey',
+        'stock'
     ],
     'data': [
         'views/stadia_template.xml',
