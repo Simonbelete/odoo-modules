@@ -100,14 +100,16 @@
         <field name="amount_python_compute">result=-(payslip.tax_dec)</field>
     </record>
 
-    <record id="salary_rule_remaining_leaves" model="hr.salary.rule">
-        <field name="name">Remaining Leaves</field>
+     -->
+
+     <record id="salary_rule_taken_leaves" model="hr.salary.rule">
+        <field name="name">Taken Leaves</field>
         <field name="category_id" ref="REF" />
         <field name="sequence">10</field>
-        <field name="code">RL</field>
+        <field name="code">TL</field>
         <field name="amount_select">code</field>
-        <field name="amount_python_compute">result=(contract.wage / worked_days.WORK100.number_of_days) * payslip.remaining_leaves</field>
-    </record> -->
+        <field name="amount_python_compute">result=(contract.wage / worked_days.WORK100.number_of_days) * payslip.total_taken_leaves</field>
+    </record>
 
     <record id="salary_rule_cost_sharing" model="hr.salary.rule">
         <field name="name">Cost Sharing</field>

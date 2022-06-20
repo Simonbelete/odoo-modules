@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stadia_hr_payslip_fomr" model="ir.ui.view">
+        <field name="name">hr.payslip</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll_community.view_hr_payslip_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <button class="oe_stat_button" icon="fa-clock-o" type="action" name="%(action_promotion)d">
+                    <p>Attendance</p>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

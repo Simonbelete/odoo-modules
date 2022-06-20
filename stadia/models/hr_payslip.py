@@ -9,10 +9,20 @@ class HrPayslip(models.Model):
     tax_dec = fields.Float(compute="_compute_tax_dec")
     # untaken_leave_salary = fields.Float(default=0, compute="_compute_untaken_leave")
     remaining_leaves = fields.Float(related='employee_id.remaining_leaves')
+    # This month taken leave
+    total_taken_leaves = fields.Float(compute="_compute_total_taken_leaves")
     # Calculation values
     unpaid_value = fields.Float(compute="_compute_unpaid_value", default=0)
     absent_attendance_value = fields.Float(compute="_compute_absent_attendance_value", default=0)
     perdime_value = fields.Float(compute="_compute_perdime_value")
+
+    def _compute_total_taken_leaves(self):
+        for record in self:
+            total_days = 0
+            for line in record.worked_days_line_ids:
+                if(line.code == 'GLOBAL'):
+                    total_days += line.number_of_days
+            self.total_taken_leaves = total_days
 
     def _compute_unpaid_value(self):
         for record in self:
