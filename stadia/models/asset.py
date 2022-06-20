@@ -3,13 +3,12 @@ from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields, api, models
-from odoo.exceptions import UserError, ValidationError
-from odoo.tools import float_compare, float_is_zero
 
 class AccountAssetCategory(models.Model):
     _name = 'stadia.asset.category'
 
     name = fields.Char()
+    ifrs_rate = fields.Float(string="Degressive Factor", digits="Asset IFRS Rate")
 
 class AssetDepreciationLine(models.Model):
     _name = 'stadia.asset.depreciation.line'
@@ -29,23 +28,6 @@ class AssetDepreciationLine(models.Model):
                                  readonly=True,
                                  default=lambda self: self.env.company)
 
-    # @api.onchange('depreciated_value')
-    # def depreciation_onchange(self):
-    #     all_depreciation_lines = self.env['stadia.asset.depreciation.line'].search([('asset_id', '=', self.asset_id.id)])
-    #     print('11111111111111111111111111')
-    #     print(all_depreciation_lines)
-    #     print(self.asset_id.id)
-        # residual_amount = all_depreciation_lines[0].depreciated_value
-        # for depreciation_line in all_depreciation_lines:
-        #     print('111111111111111111111111')
-            # print(depreciation_line.sequence)
-            # if(depreciation_line.sequence != 1):
-            #     residual_amount -= depreciation_line.amount 
-            #     depreciation_line.write({
-            #         'remaining_value': residual_amount,
-            #         'depreciated_value': depreciation_line.gross_value - residual_amount,
-            #     })
-
 class AccountAssetAsset(models.Model):
     _name = 'stadia.asset'
     _inherit = ['mail.thread']
@@ -59,7 +41,7 @@ class AccountAssetAsset(models.Model):
     id_t_no = fields.Char(string="ID.T.No.")
     gross_value = fields.Monetary(string='Gross Value', required=True)
     salvage_value = fields.Monetary(string='Salvage Value')
-    ifrs_rate = fields.Float(string="Degressive Factor", required=True)
+    ifrs_rate = fields.Float(string="Degressive Factor", required=True, digits="Asset IFRS Rate")
     depreciation_line_ids = fields.One2many('stadia.asset.depreciation.line', 'asset_id')
     asset_movement_ids = fields.One2many('asset.movement', 'asset_id')
     first_depreciation_date = fields.Date(string="Depreciation Date", required=True)
@@ -75,31 +57,15 @@ class AccountAssetAsset(models.Model):
                                  readonly=True,
                                  default=lambda self: self.env.company)
 
-    # @api.onchange('depreciation_line_ids')
-    # def _onchange_depreciation_line_ids(self):
-    #     residual_amount = self.depreciation_line_ids[0].remaining_value
-    #     for depreciation_line in self.depreciation_line_ids:
-    #         residual_amount -= depreciation_line.amount
-    #         depreciation_line.write({
-    #                 'remaining_value': residual_amount,
-    #                 'depreciated_value': self.gross_value - residual_amount,
-    #             })
-            # if(depreciation_line.sequence != 1):
-            #     print('dddddd')
-            #     print(residual_amount)
-            #     depreciation_line.write({
-            #         'remaining_value': residual_amount,
-            #         'depreciated_value': self.gross_value - residual_amount,
-            #     })
-            # else:
-                 
-
-
     @api.model
     def create(self, vals):
         asset = super(AccountAssetAsset, self.with_context(mail_create_nolog=True)).create(vals)
         asset.sudo().compute_depreciation_board()
         return asset
+
+    @api.onchange('category_id')
+    def _get_category_ifrs_rate(self):
+        self.ifrs_rate= self.category_id.ifrs_rate
 
     def _compute_asset_movement_count(self):
         count = 0

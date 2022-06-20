@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="action_appraisal" model="ir.actions.act_window">
+        <field name="name">All Appraisals</field>
+        <field name="res_model">appraisal.appraisal</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Form -->
+    <record id="form_appraisal" model="ir.ui.view">
+        <field name="name">Appraisal</field>
+        <field name="model">appraisal.appraisal</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <notebook>
+                        <page string="A">
+                            <field name="template_ids">
+                                <tree>
+                                    <field name="name" />
+                                    <field name="parent_id" />
+                                    <control>
+                                        <create string="Add a section" />
+                                    </control>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

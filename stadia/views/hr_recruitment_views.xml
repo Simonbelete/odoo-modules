@@ -5,7 +5,7 @@
         <field name="res_model">hr.applicant</field>
         <field name="view_mode">kanban,tree,form,graph,calendar,pivot</field>
         <!-- <field name="search_view_id" ref="hr_applicant_view_search_bis"/> -->
-        <!-- <field name="context">{'search_default_job_id': [active_id], 'default_job_id': active_id}</field> -->
+        <field name="context">{'search_default_acquisition_id': [active_id]}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_empty_folder">
                 No applications yet
@@ -17,6 +17,17 @@
                 If you install the document management modules, all resumes are indexed automatically,
                 so that you can easily search through their content.
             </p>
+        </field>
+    </record>
+
+    <record id="stadia_hr_application_stage" model="ir.ui.view">
+        <field name="name">hr.recruitment.stage</field>
+        <field name="model">hr.recruitment.stage</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_recruitment_stage_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='job_ids']" position="after">
+                <field name="survey_id" string="Survey" />
+            </xpath>
         </field>
     </record>
 </odoo>

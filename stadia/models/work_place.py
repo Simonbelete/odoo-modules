@@ -1,6 +1,7 @@
 from odoo import fields, api, models
 
 class WorkPlace(models.Model):
+    """ Includes Headoffice and projects names """
     _name = 'stadia.workplace'
 
     name = fields.Char(requried=True)

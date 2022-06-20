@@ -7,7 +7,7 @@
     </record>
 
     <record id="action_asset" model="ir.actions.act_window">
-        <field name="name">Asset Category</field>
+        <field name="name">Asset</field>
         <field name="res_model">stadia.asset</field>
         <field name="view_mode">tree,form</field>
     </record>

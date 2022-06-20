@@ -5,3 +5,4 @@ class PromotionStage(models.Model):
 
     name = fields.Char('Stage Name', required=True)
     sequence = fields.Integer('Sequence', default=10)
+    survey_id = fields.Many2one('survey.survey')
