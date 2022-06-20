@@ -26,6 +26,7 @@
                         <field name="cost_sharing" string="Cost Sharing" nolabel="1"/>
                         <span>/ month</span>
                     </div>
+                </group>
                 </xpath>
               <xpath expr="//group[@name='salary_and_advantages']" position="inside">
                     <label for="phone_allowance"/>
