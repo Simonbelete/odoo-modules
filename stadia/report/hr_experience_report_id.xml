@@ -2,7 +2,7 @@
 <odoo>
     <report
             id="report_employee_experience_report_id"
-            string="Internal Experience"
+            string="Work Experience"
             model="hr.employee"
             report_type="qweb-pdf"
             name="stadia.internal_experience"

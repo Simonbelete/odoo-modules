@@ -31,6 +31,7 @@
         <field name="wage">28105</field>
         <field name="travel_allowance">2200</field>
         <field name="phone_allowance">300</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -123,6 +124,7 @@
         <field name="date_start">2020-03-16</field>
         <field name="wage">3000</field>
         <field name="perdime">256</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -262,6 +264,7 @@
         <field name="date_start">2021-06-07</field>
         <field name="wage">3000</field>
         <field name="perdime">153</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -352,6 +355,7 @@
         <field name="wage">18621</field>
         <field name="phone_allowance">300</field>
         <field name="travel_allowance">2200</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
