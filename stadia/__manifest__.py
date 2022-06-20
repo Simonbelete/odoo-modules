@@ -39,7 +39,6 @@
         'data/education_data.xml',
         'data/workplace_data.xml',
 
-        'report/hr_employee_badge.xml',
         'report/hr_contract_employee_badge.xml',
         'report/header_template.xml',
         'report/stamp_logo_template.xml',
