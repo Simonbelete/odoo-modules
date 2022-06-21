@@ -86,18 +86,20 @@
                     <div class="col-lg-12">
                         <table class="table table-striped">
                             <tr>
-                                <th colspan="16" class="bg bg-danger text text-center">CURRENT EMPLOYEE LIST</th>
+                                <th colspan="16" class="bg bg-danger text text-center">STADIA CURRENT EMPLOYEE LIST</th>
                             </tr>
                             <tr>
                                 <th>No.</th>
-                                <th>Pension No.</th>
                                 <th>Full Name</th>
+                                <th>Pension No.</th>
+                                <th>Tin No.</th>
                                 <th>Gender</th>
                                 <th>Employed Date</th>
+                                <th>Department</th>
                                 <th>Position</th>
-                                <th>Date of Birth</th>
-                                <th>Age</th>
-                                <th>Salary</th>
+                                <th>DOB</th>
+                                <th>Email</th>
+                                <!--                                <th>Salary</th>-->
                                 <th>Phone No.</th>
                             </tr>
                             <t t-set="index" t-value="1"/>
@@ -107,10 +109,13 @@
                                         <t t-esc="index"/>
                                     </td>
                                     <td>
+                                        <t t-esc="o.name"/>
+                                    </td>
+                                    <td>
                                         <t t-esc="o.pension_no"/>
                                     </td>
                                     <td>
-                                        <t t-esc="o.name"/>
+                                        <t t-esc="o.tin_no"/>
                                     </td>
                                     <td>
                                         <t t-esc="o.gender"/>
@@ -119,16 +124,22 @@
                                         <t t-esc="o.first_contract_date"/>
                                     </td>
                                     <td>
+                                        <t t-esc="o.department_id.name"/>
+                                    </td>
+                                    <td>
                                         <t t-esc="o.job_title"/>
                                     </td>
                                     <td>
                                         <t t-esc="o.birthday"/>
                                     </td>
+                                    <!--                                    <td>-->
+                                    <!--                                        <p t-foreach="o.first_contract_date"-->
+                                    <!--                                           t-as="rent">-->
+                                    <!--                                            <t t-esc="'{0:,.2f}'.format(rent.wage)"/>-->
+                                    <!--                                        </p>-->
+                                    <!--                                    </td>-->
                                     <td>
-                                        <p t-foreach="o.first_contract_date"
-                                           t-as="rent">
-                                            <t t-esc="'{0:,.2f}'.format(rent.wage)"/>
-                                        </p>
+                                        <t t-esc="o.work_email"/>
                                     </td>
                                     <td>
                                         <t t-esc="o.mobile_phone"/>
