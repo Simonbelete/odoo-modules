@@ -32,6 +32,7 @@
         <field name="perdime">500</field>
         <field name="phone_allowance">300</field>
         <field name="travel_allowance">2200</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -193,6 +194,7 @@
         <field name="name">Shalom Yeneneh Contract Agreement</field>
         <field name="wage">5000</field>
         <field name="phone_allowance">300</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -334,6 +336,7 @@
         <field name="date_start">2013-05-12</field>
         <field name="wage">2500</field>
         <field name="perdime">289</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -404,6 +407,7 @@
         <field name="name">Emebet Gosaye Contract Agreement</field>
         <field name="wage">3500</field>
         <field name="perdime">280</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -477,6 +481,7 @@
         <field name="date_start">2020-03-12</field>
         <field name="wage">12950</field>
         <field name="perdime">518</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -643,6 +648,7 @@
         <field name="date_start">2005-03-12</field>
         <field name="wage">18228</field>
         <field name="perdime">728</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -716,6 +722,7 @@
         <field name="name">Ayan Husien Contract Agreement</field>
         <field name="date_start">2019-06-13</field>
         <field name="wage">5500</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -783,6 +790,7 @@
         <field name="wage">17100</field>
         <field name="perdime">683</field>
         <field name="phone_allowance">300</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -875,6 +883,7 @@
         <field name="date_start">2016-07-21</field>
         <field name="wage">6941</field>
         <field name="travel_allowance">493</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -973,6 +982,7 @@
         <field name="wage">9050</field>
         <field name="perdime">268</field>
         <field name="travel_allowance">1500</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -1109,6 +1119,7 @@
         <field name="date_start">2019-05-16</field>
         <field name="wage">2500</field>
         <field name="perdime">125</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -1219,6 +1230,7 @@
         <field name="date_start">2022-01-01</field>
         <field name="wage">3700</field>
         <field name="perdime">195</field>
+        <field name="state">open</field>
 
     </record>
 
@@ -1309,6 +1321,7 @@
         <field name="date_start">2020-01-10</field>
         <field name="wage">26000</field>
         <field name="perdime">450</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -1408,6 +1421,7 @@
         <field name="date_start">2018-06-22</field>
         <field name="wage">12674</field>
         <field name="perdime">505</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -1513,6 +1527,7 @@
         <field name="date_start">2020-10-15</field>
         <field name="wage">4000</field>
         <field name="perdime">292</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -1616,6 +1631,7 @@
         <field name="date_start">2021-03-12</field>
         <field name="wage">17157</field>
         <field name="perdime">685</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -1698,6 +1714,7 @@
         <field name="date_start">2021-10-10</field>
         <field name="wage">1869</field>
         <field name="perdime">80</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->

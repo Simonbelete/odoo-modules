@@ -28,12 +28,12 @@
                     </div>
                 </group>
                 </xpath>
-              <xpath expr="//group[@name='salary_and_advantages']" position="inside">
+                <xpath expr="//group[@name='salary_and_advantages']" position="inside">
                     <label for="phone_allowance"/>
                     <div class="o_row" name="phone_allowance">
                         <field name="phone_allowance" nolabel="1"/>
-                </div>
-              </xpath>
+                    </div>
+                </xpath>
 
                 <xpath expr="//group[@name='main_info']">
                     <group string="Others">

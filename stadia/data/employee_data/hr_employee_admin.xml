@@ -31,6 +31,7 @@
         <field name="date_start">2020-10-07</field>
         <field name="wage">9279</field>
         <field name="travel_allowance">2200</field>
+        <field name="state">open</field>
     </record>
 
     <!--SPOUSE INFORMATION-->
@@ -122,6 +123,7 @@
         <field name="date_start">2020-04-18</field>
         <field name="wage">6969</field>
         <field name="travel_allowance">1600</field>
+        <field name="state">open</field>
     </record>
 
     <!--MOTHER INFORMATION-->
@@ -182,6 +184,7 @@
         <field name="wage">12036</field>
         <field name="phone_allowance">300</field>
         <field name="perdime">2200</field>
+        <field name="state">open</field>
     </record>
 
     <!--SPOUSE INFORMATION-->
@@ -264,6 +267,7 @@
         <field name="perdime">0</field>
         <field name="phone_allowance">0</field>
         <field name="travel_allowance">1500</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -343,6 +347,7 @@
         <field name="perdime">268</field>
         <field name="phone_allowance">300</field>
         <field name="travel_allowance">1500</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -486,6 +491,7 @@
         <field name="perdime">268</field>
         <field name="phone_allowance">500</field>
         <field name="travel_allowance">2200</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
@@ -611,6 +617,7 @@
         <field name="wage">6595</field>
         <field name="phone_allowance">200</field>
         <field name="travel_allowance">1550</field>
+        <field name="state">open</field>
     </record>
 
     <!--    EDUCATIONAL INFORMATION-->
