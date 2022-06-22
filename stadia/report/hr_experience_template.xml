@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
+
     <template id="internal_experience">
         <t t-call="web.html_container">
             <t t-call="web.external_layout">
@@ -22,7 +24,68 @@
                     <div class="row mt-3">
                         <table class="table styled-table" border="1">
                             <tr>
-                                <th class="bg bg-danger" colspan="5">Work Experience</th>
+                                <th class="bg bg-danger" colspan="5">Internal Work Experience</th>
+                            </tr>
+                            <tr>
+                                <th>No.</th>
+                                <th>Job Title</th>
+                                <th>From</th>
+                                <th>To</th>
+                            </tr>
+                            <t t-foreach="o.resume_line_ids.employee_id" t-as="line">
+                                <t t-set="index" t-value="1"/>
+                                <t t-foreach="o.resume_line_ids" t-as="experience"
+                                   t-if="line == experience.employee_id">
+                                    <t t-if="not experience.organization">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="index"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="experience.name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="experience.date_start"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="experience.date_end"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="index" t-value="index+1"/>
+                                    </t>
+                                </t>
+                            </t>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+    <template id="external_experience">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="o">
+                    <h4 style="text-align: center;decoration: underline;">
+                        <u>To whom it may concern.</u>
+                    </h4>
+                    <p>Our staff member w/t
+                        <span t-field="o.name"/>
+                        has requested us to write her a letter of confirmation concerning her work experience.
+                        Pursuant to her request, we hereby certify that
+                        <span t-field="o.name"/>
+                        is a permanent employee of
+                        <span t-esc="o.company_id.name"/>
+                        since
+                        her date of employment
+                        <t t-esc="o.first_contract_date"/>
+                        in the following capacities;
+                    </p>
+                    <div class="row mt-3">
+                        <table class="table styled-table" border="1">
+                            <tr>
+                                <th class="bg bg-danger" colspan="5">External Work Experience</th>
                             </tr>
                             <tr>
                                 <th>No.</th>
@@ -35,24 +98,26 @@
                                 <t t-set="index" t-value="1"/>
                                 <t t-foreach="o.resume_line_ids" t-as="experience"
                                    t-if="line == experience.employee_id">
-                                    <tr>
-                                        <td>
-                                            <t t-esc="index"/>
-                                        </td>
-                                        <td>
-                                            <t t-esc="experience.name"/>
-                                        </td>
-                                        <td>
-                                            <t t-esc="experience.date_start"/>
-                                        </td>
-                                        <td>
-                                            <t t-esc="experience.date_end"/>
-                                        </td>
-                                        <td>
-                                            <t t-esc="experience.organization.name"/>
-                                        </td>
-                                    </tr>
-                                    <t t-set="index" t-value="index+1"/>
+                                    <t t-if="experience.organization">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="index"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="experience.name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="experience.date_start"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="experience.date_end"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="experience.organization.name"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="index" t-value="index+1"/>
+                                    </t>
                                 </t>
                             </t>
                         </table>
@@ -60,7 +125,6 @@
                 </t>
             </t>
         </t>
-
     </template>
 
 

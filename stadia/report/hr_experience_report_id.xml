@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <report
-            id="report_employee_experience_report_id"
-            string="Work Experience"
+            id="report_employee_external_experience_report_id"
+            string="External Work Experience"
+            model="hr.employee"
+            report_type="qweb-pdf"
+            name="stadia.external_experience"
+            file="stadia.external_experience"
+    />
+
+    <report
+            id="report_employee_internal_experience_report_id"
+            string="Internal Work Experience"
             model="hr.employee"
             report_type="qweb-pdf"
             name="stadia.internal_experience"
