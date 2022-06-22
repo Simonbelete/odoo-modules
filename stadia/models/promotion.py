@@ -72,13 +72,23 @@ class PromotionStageSurvery(models.Model):
     response_id = fields.Many2one('survey.user_input', "Response", ondelete="set null")
     
     def action_start_survey(self):
+        self.ensure_one()
         if not self.response_id:
             response = self.survey_id._create_answer(user=self.env.user)
             self.response_id = response.id
         else:
             response = self.response_id
-
+        ## TODO: Display user error when stage doesn't have survery selected
         return self.survey_id.action_start_survey(answer=response)
+
+        # for record in self:
+        #     if not record.response_id:
+        #         response = self.survey_id._create_answer(user=record.env.user)
+        #         record.response_id = response.id
+        #     else:
+        #         response = self.response_id
+
+        #     return record.survey_id.action_start_survey(answer=response)
 
     def action_print_survey(self):
         self.ensure_one()

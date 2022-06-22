@@ -52,6 +52,7 @@ class HrApplicantAnswer(models.Model):
     response_id = fields.Many2one('survey.user_input', "Response", ondelete="set null")
 
     def action_start_survey(self):
+        self.ensure_one()
         if not self.response_id:
             response = self.survey_id._create_answer(user=self.env.user)
             self.response_id = response.id
