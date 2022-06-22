@@ -37,7 +37,7 @@ class Acquisition(models.Model):
     # Duties and Responsibilities
     job_description = fields.Html()
     place_department_id = fields.Many2one('hr.department')
-    project_id = fields.Many2one('project.project')
+    work_place_id = fields.Many2one('stadia.workplace')
     
 
     def action_request(self):

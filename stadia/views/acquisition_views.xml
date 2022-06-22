@@ -89,6 +89,7 @@
                             <field name="requested_by" string="Requested By" readonly="True"/>
                             <field name="department_id" string="Department" readonly="True"/>
                             <field name="no_of_recruitment" string="Expected Employees" />	
+                            <field name="work_place_id" string="Work Place" />
                         </group>
                     </group>
                     <group>

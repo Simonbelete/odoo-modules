@@ -24,7 +24,7 @@ class AssetReport(models.AbstractModel):
             for ast in assets:
                 amount = 0
                 residual_amount = ast.gross_value
-                purchase_and_depreciation_days = abs((ast.purchase_date - ast.first_depreciation_date).days)
+                purchase_and_depreciation_days = abs((ast.purchase_date - date.date()).days)
                 if(purchase_and_depreciation_days > 0):
                     rate = (purchase_and_depreciation_days * ast.ifrs_rate)/total_days
                     amount = ast.gross_value * rate
