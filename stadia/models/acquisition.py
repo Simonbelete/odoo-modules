@@ -1,7 +1,6 @@
 from datetime import datetime
 from odoo import fields, api, models
 
-
 class Acquisition(models.Model):
     """ Acquisition Form for hiring or promoting employee """
     _name = 'stadia.acquisition'
@@ -13,17 +12,17 @@ class Acquisition(models.Model):
     acquisition_date = fields.Date(default=datetime.now(), required=True)
     requested_by = fields.Many2one('hr.employee', default=lambda self: self.env.user.employee_id.id)
     job_id = fields.Many2one('hr.job', domain="[('department_id', '=', department_id)]")
-    department_id = fields.Many2one(related="requested_by.department_id")
+    department_id =  fields.Many2one(related="requested_by.department_id")
     state = fields.Selection([
         ('draft', 'Draft'),
         ('requested', 'Requested'),
         ('approved', 'Approved'),
         ('declined', 'Declined'),
         ('done', 'Done')
-    ], default='draft',
-        help="draft - when the acquisition is created"
-             "approved - approved by general manager i.e start recruiting"
-             "declined - GM have not approved the acquisition")
+    ], default='draft', 
+    help="draft - when the acquisition is created"
+        "approved - approved by general manager i.e start recruiting"
+        "declined - GM have not approved the acquisition")
     no_of_recruitment = fields.Integer(default=1)
     note = fields.Text()
     internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
@@ -38,7 +37,8 @@ class Acquisition(models.Model):
     # Duties and Responsibilities
     job_description = fields.Html()
     place_department_id = fields.Many2one('hr.department')
-    project_id = fields.Many2one('project.project')
+    work_place_id = fields.Many2one('stadia.workplace')
+    
 
     def action_request(self):
         """ Request to GM """
@@ -75,33 +75,27 @@ class Acquisition(models.Model):
 
     @api.onchange('date', 'job_id')
     def _compute_name(self):
-<<<<<<< HEAD
-        if (not self.job_id or not self.date):
-=======
-        if(not self.job_id or not self.acquisition_date):
->>>>>>> cd5ac790af8688193d4305e41b63f2d353fdf7f1
-            self.title = ''
-            return
         for record in self:
-            record.title = 'Acquisition of %s department for %s' % (
-            record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
+            if(not record.job_id or not record.acquisition_date):
+                record.title = ''
+            else: 
+                record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
 
     def schedule_activity(self):
         users = self.env.ref('stadia.group_acquisition_admin').users
         for user in users:
-            if (user.active == True):
-                self.activity_schedule('stadia.mail_act_acquisition_approval', user_id=user.id,
-                                       summary='Acquisition Approval', note=f'Please Approve {self.title}')
+            if(user.active == True):
+                self.activity_schedule('stadia.mail_act_acquisition_approval', user_id=user.id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
 
     def schedule_activity_done(self):
         activity = self.env['mail.activity'].search([
-            ('res_id', '=', self.id),
-            ('user_id', '=', self.env.user.id),
+            ('res_id', '=', self.id), 
+            ('user_id', '=', self.env.user.id), 
             ('activity_type_id', '=', self.env.ref('stadia.mail_act_acquisition_approval').id)
-        ])
+            ])
         activity.action_feedback(feedback='Approved')
         other_activity = self.env['mail.activity'].search([
-            ('res_id', '=', self.id),
+            ('res_id', '=', self.id), 
             ('activity_type_id', '=', self.env.ref('stadia.mail_act_acquisition_approval').id)
-        ])
+            ])
         other_activity.unlink()
