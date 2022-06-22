@@ -75,11 +75,11 @@ class Acquisition(models.Model):
 
     @api.onchange('date', 'job_id')
     def _compute_name(self):
-        if(not self.job_id or not self.acquisition_date):
-            self.title = ''
-            return
         for record in self:
-            record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
+            if(not record.job_id or not record.acquisition_date):
+                record.title = ''
+            else: 
+                record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
 
     def schedule_activity(self):
         users = self.env.ref('stadia.group_acquisition_admin').users
