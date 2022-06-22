@@ -43,7 +43,7 @@ class HrApplicant(models.Model):
         self.write({'survey_answer_ids': commands})
 
 
-class HrApplicant(models.Model):
+class HrApplicantAnswer(models.Model):
     _name = 'applicant.answer'
 
     hr_applicant_id = fields.Many2one('hr.applicant')

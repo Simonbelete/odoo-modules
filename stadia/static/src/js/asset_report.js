@@ -3,7 +3,6 @@ odoo.define('asset_report', function (require) {
 
 var core = require('web.core');
 var QWeb = core.qweb;
-var framework = require('web.framework');
 var stock_report_generic = require('stock.stock_report_generic');
 
 

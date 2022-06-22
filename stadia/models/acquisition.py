@@ -75,7 +75,11 @@ class Acquisition(models.Model):
 
     @api.onchange('date', 'job_id')
     def _compute_name(self):
+<<<<<<< HEAD
         if (not self.job_id or not self.date):
+=======
+        if(not self.job_id or not self.acquisition_date):
+>>>>>>> cd5ac790af8688193d4305e41b63f2d353fdf7f1
             self.title = ''
             return
         for record in self:

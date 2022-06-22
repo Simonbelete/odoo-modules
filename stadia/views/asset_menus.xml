@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="asset_menu" name="Asset Management" web_icon="stadia,static/Asset.png" groups="group_base_gm,group_base_hr,group_base_department_head">
+    <menuitem id="asset_menu" name="Asset Management" web_icon="stadia,static/Asset.png" groups="group_base_admin,group_base_gm,group_base_hr,group_base_department_head">
         <menuitem id="assets_menu" name="Assets"  action="action_asset" />
         <menuitem id="asset_types" name="Asset Types" action="action_asset_category" />
         <menuitem id="asset_reporting" name="Asset Reporting" action="action_report_asset" />
