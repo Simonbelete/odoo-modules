@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_template" model="ir.actions.act_window">
+        <field name="name">Appraisal Templates</field>
+        <field name="res_model">ada.appraisal.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Form -->
+    <record id="form_template" model="ir.ui.view">
+        <field name="name">Appraisal Template</field>
+        <field name="model">ada.appraisal.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="question_ids" widget="question_page_one2many" mode="tree,kanban"  nolabel="1">
+                            <tree decoration-bf="is_page">
+                                <field name="sequence" widget="handle"/>
+                                <field name="is_page" invisible="1"/>
+                                <field name="title" />
+                                <control>
+                                    <create name="add_section_control" string="Add a Section" context="{'default_is_page': True}"/>
+                                    <create name="add_question_control" string="Add a question"/>
+                                </control>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+</odoo>
