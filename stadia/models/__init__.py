@@ -20,3 +20,4 @@ from . import hr_employee_family
 from . import hr_employee_education
 from . import hr_resume_line
 from . import hr_loan
+from . import city

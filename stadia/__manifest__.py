@@ -40,6 +40,7 @@
         'data/hr_salary_rule_data.xml',
         'data/education_data.xml',
         'data/workplace_data.xml',
+        'data/city_data.xml',
 
         'data/employee_data/family_relation.xml',
         'data/employee_data/hr_employee_admin.xml',
