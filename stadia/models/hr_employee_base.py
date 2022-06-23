@@ -7,11 +7,6 @@ class HrEmployeeBase(models.AbstractModel):
         return '0000/000/00/000/00'
 
     badge_id_no = fields.Char(string="ID No", copy=False, default=_defaultBadgeIdNo)
-    title = fields.Selection([
-        ('ato', 'Ato'),
-        ('wt', 'W/t'),
-        ('wro', 'W/ro')
-    ], required=True)
     promotion_count = fields.Integer(default=0)
     sub_city_id = fields.Many2one('subcity')
     woreda = fields.Char()

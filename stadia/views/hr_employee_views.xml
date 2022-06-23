@@ -77,13 +77,6 @@
             <xpath expr="//field[@name='mobile_phone']" position="before">
                 <field name="badge_id_no"/>
             </xpath>
-            <xpath expr="//field[@name='mobile_phone']" position="before">
-                <field name="title" string="Title"/>
-            </xpath>
-            <xpath expr="//field[@name='name']" position="before">
-                <field name="title" readonly="True"/> 
-                <span style="margin-left: 10px"></span>
-            </xpath>
             <xpath expr="//page[@name='personal_information']/group/group/field[@name='address_home_id']"
                     position="before">
                 <field name="sub_city_id"/>
