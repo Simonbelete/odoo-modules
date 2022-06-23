@@ -28,7 +28,7 @@
                     </group>
                     <group string="Emergency Contact">
                         <field name="emergency_contact_name" />
-                        <field name="emergency_contact_city_id" />
+                        <field name="emergency_contact_city_id" string="Emergency Contact Sub City"/>
                         <field name="emergency_contact_woreda" />
                         <field name="emergency_contact_house_no" />
                         <field name="emergency_contact_relation_id" />

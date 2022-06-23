@@ -11,6 +11,7 @@ class HrEmployeeBase(models.AbstractModel):
         ('wt', 'W/t'),
         ('wro', 'W/ro')
     ])
+    # city_id = fields.Many2one('stadia.city')
     badge_id_no = fields.Char(string="ID No", copy=False, default=_defaultBadgeIdNo)
     promotion_count = fields.Integer(default=0)
     sub_city_id = fields.Many2one('subcity')

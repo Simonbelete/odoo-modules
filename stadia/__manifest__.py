@@ -65,6 +65,7 @@
         'report/employment_notification.xml',
         'report/acceptance_letter.xml',
         'report/promotion.xml',
+        'report/manpower_report.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',

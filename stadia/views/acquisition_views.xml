@@ -129,4 +129,10 @@
         </field>
     </record>
 
+    <!-- Reporting -->
+    <record id="action_manpower_report" model="ir.actions.client">
+        <field name="name">Manpower Report</field>
+        <field name="tag">stadia_manpower_reg</field>
+    </record>
+
 </odoo>
