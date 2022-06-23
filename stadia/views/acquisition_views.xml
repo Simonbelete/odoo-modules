@@ -96,42 +96,6 @@
                         <field name="note" string="Note" />
                     </group>
                     <notebook>
-                        <page string="Job Specification">
-                            <group name="main_info">
-                                    <group string="Education">
-                                        <label for="education_id"/>
-                                        <div class="o_row" name="education_id">
-                                            <field name="education_id" nolabel="1"/>
-                                        </div>
-                                    </group>
-                                    <group string="Experience">
-                                        <label for="experience_total_year" string="Year of Experience (Total year)"/>
-                                        <div class="o_row" name="experience_total_year">
-                                            <field name="experience_total_year" nolabel="1"/>
-                                        </div>
-                                        <label for="experience_related_job_id" string="Related to the position"/>
-                                        <div class="o_row" name="experience_related_job_id">
-                                            <field name="experience_related_job_id" nolabel="1"/>
-                                        </div>
-                                    </group>
-                                    <group string="Training">
-                                        <label for="training_related_job_id" string="Related to the position"/>
-                                        <div class="o_row" name="training_related_job_id">
-                                            <field name="training_related_job_id" nolabel="1"/>
-                                        </div>
-                                        <label for="training_skills" string="Skills"/>
-                                        <div class="o_row" name="training_skills">
-                                            <field name="training_skills" nolabel="1"/>
-                                        </div>
-                                    </group>
-                            </group>
-                            <group string="JOB DESCRIPTION">
-                                <label for="job_description" string="Duties and Responsibilities"/>
-                                <div class="o_row" name="job_description">
-                                    <field name="job_description" nolabel="1"/>
-                                </div>
-                            </group>
-                        </page>
                         <page string="Internal Applicants">
                             <field name="internal_applicant_ids">
                                 <tree default_order="stage_id.sequence">

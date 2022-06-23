@@ -28,12 +28,6 @@ class Acquisition(models.Model):
     internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
     external_applicant_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
-    # Job Specifications
-    education_id = fields.Many2one('stadia.education')
-    experience_total_year = fields.Integer()
-    experience_related_job_id = fields.Many2one('hr.job')
-    training_related_job_id = fields.Many2one('hr.job')
-    training_skills = fields.Char()
     # Duties and Responsibilities
     job_description = fields.Html()
     place_department_id = fields.Many2one('hr.department')
