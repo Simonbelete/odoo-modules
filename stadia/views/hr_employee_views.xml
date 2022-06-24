@@ -4,8 +4,19 @@
     <record id="stadi_hr_employee_workplace_context" model="ir.actions.act_window">
         <field name="name">Employee Workplace</field>
         <field name="res_model">hr.employee</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,tree</field>
         <field name="context">{'search_default_work_place_id': [active_id]}</field>
+    </record>
+
+    <!-- Search -->
+    <record id="stadi_hr_employee_workplace_context_search" model="ir.ui.view">
+        <field name="name">Employee Workplace</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="work_place_id"/>
+            </search>
+        </field>
     </record>
 
     <record id="stadia_hr_employee_form" model="ir.ui.view">

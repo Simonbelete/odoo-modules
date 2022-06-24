@@ -20,8 +20,9 @@
         <field name="name">Work Locations</field>
         <field name="model">stadia.workplace</field>
         <field name="arch" type="xml">
-            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban" on_create="action_work_place_form" sample="1">
-                <field name="id" />
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban" on_create="stadia.action_work_place_form" sample="1">
+                <field name="id"/>
+                <field name="name"/>
                 <templates>
                     <t t-name="kanban-box">
                        <div>
@@ -39,9 +40,7 @@
                             <div class="container o_kanban_card_content">
                                 <div class="row">
                                     <div class="col-6">
-                                        <button class="btn btn-primary" name="%(stadi_hr_employee_workplace_context)d" type="action"
-                                            context="{'search_default_work_place_id': 1}"
-                                            >
+                                        <button class="btn btn-primary" name="%(stadi_hr_employee_workplace_context)d" type="action">
                                             <field name="employee_count"/> Employees
                                         </button>
                                     </div>

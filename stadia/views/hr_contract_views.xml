@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
+
     <data>
         <record id="stadia_hr_employee_contract_form" model="ir.ui.view">
             <field name="name">hr.contract</field>
