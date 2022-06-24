@@ -11,8 +11,6 @@ class HrEmployee(models.Model):
         last_stage_id = self.env['stadia.promotion.stage'].search([])
         last_stage_id = max(last_stage_id.mapped('sequence'))
         promotions_count = self.env['stadia.promotion'].search_count([('employee_id', '=', self.id), ('stage_id', '=', 'last_stage_id')])
-        print('111111111111111111111111111')
-        print(promotions_count)
         self.promotion_count = promotions_count
 
 
