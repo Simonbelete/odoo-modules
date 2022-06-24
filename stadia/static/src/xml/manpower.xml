@@ -44,7 +44,7 @@
             <label>To:</label>
             <div class="row">
                 <div class="col-lg-6">
-                    <input type="date" class="man_from_to"/>
+                    <input type="date" class="man_to_date"/>
                 </div>
             </div>
         </div>

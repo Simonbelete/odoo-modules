@@ -2,7 +2,7 @@
 <odoo>
 
     <template id="manpower_report_template">
-        <div class="">
+        <div class="man_report_tables">
             <style>
                 .ht-table {
                     border-collapse: collapse;
@@ -32,16 +32,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <t t-foreach="hired" t-as="doc">
+                    <t t-foreach="hired" t-as="doc">
                         <tr>
-                            <td><t t-esc="doc['purchase_date']" /></td>
                             <td><t t-esc="doc['name']" /></td>
-                            <td><t t-esc="doc['reference_no']" /></td>
-                            <td><t t-esc="doc['partner_id']['name']" /></td>
-                            <td><t t-esc="doc['cpv']" /></td>
-                            <td><t t-esc="doc['current_movement_location_id']['name']" /></td>
+                            <td><t t-esc="doc['job_id']['name']" /></td>
+                            <td><t t-esc="doc['contract_id']['wage']" /></td>
+                            <td><t t-esc="doc['contract_id']['perdime']" /></td>
+                            <td><t t-esc="doc['contract_id']['travel_allowance']" /></td>
+                            <td><t t-esc="doc['contract_id']['date_start']" /></td>
                         </tr>
-                    </t> -->
+                    </t>
                 </tbody>
             </table>
 

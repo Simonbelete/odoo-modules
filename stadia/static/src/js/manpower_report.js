@@ -6,13 +6,21 @@ var QWeb = core.qweb;
 var AbstractAction = require('web.AbstractAction');
 
 var manpower_report = AbstractAction.extend({
+  init: function(parent, context) {
+    this._super(parent, context)
+    this.date_from = ''
+    this.date_to = ''
+  },
   get_html: async function() {
+    console.log(this.date_from)
+    console.log(this.date_to)
     const html = await this._rpc({
-      // args: [this.given_context],
+      args: [this.date_from, this.date_to],
       model: 'report.stadia.manpower_report',
       method: 'get_html'
     })
     this.html = html
+
   },
   set_html: function() {
     var self = this;
@@ -31,22 +39,20 @@ var manpower_report = AbstractAction.extend({
   _onchageFromDate: function(ev) {
     var date = $(ev.currentTarget).val()
     if(date){
-      this.given_context.date_from = date;
+      this.date_from = date;
       this._reload();
     }
   },
   _onchageFromTo: function(ev) {
     var date = $(ev.currentTarget).val()
     if(date){
-      this.given_context.date_to = date;
+      this.date_to = date;
       this._reload();
     }
   },
-  _reload: function() {
-    var self = this;
-    return this.get_html().then(function () {
-      self.$('.o_content').append(this.html)
-    })
+  _reload: async function() {
+    await this.get_html()
+    self.$('.man_report_tables').replaceWith(this.html)
   },
 })
 
