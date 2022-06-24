@@ -16,7 +16,9 @@ var manpower_report = AbstractAction.extend({
   },
   set_html: function() {
     var self = this;
-    console.log(this.html)
+    self.$('.o_content').append(QWeb.render('o_control_panel', {widget: self}))
+    self.$('.o_cp_bottom_left').append(QWeb.render('manpower_report_print_button', {widget: self}))
+    self.$('.o_cp_top_right').append(QWeb.render('manpower_report_form', {widget: self}))
     self.$('.o_content').append(this.html)
   },
   start: async function() {

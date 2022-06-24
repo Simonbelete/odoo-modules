@@ -86,6 +86,7 @@
         'views/hr_resume_line_views.xml'
     ],
     'qweb': [
-        'static/src/xml/asset.xml'
+        'static/src/xml/asset.xml',
+        'static/src/xml/manpower.xml'
     ]
 }
