@@ -2,7 +2,103 @@
 <odoo>
 
     <template id="manpower_report_template">
-        <h1>Hellow Manpower</h1>
+        <div class="">
+            <style>
+                .ht-table {
+                    border-collapse: collapse;
+                    border: 1px solid;
+                    width: 100%
+                }
+                .ht-table > tbody, thead > tr > th, td {
+                    border: 1px solid;
+                    padding: 2px;
+                    min-width: 100px;
+                }
+                .ht-table > tbody > tr > th > h6, h5, h4 {
+                    text-align: center;
+                }
+            </style>
+            <h5>Hired</h5>
+            <table style="width: 100%" class="ht-table">
+                <thead>
+                    <tr>
+                        <th>Name of Employee</th>
+                        <th>Position</th>
+                        <th>Basic Salary</th>
+                        <th>Perdime</th>
+                        <th>desert allowance</th>
+                        <th>Project</th>
+                        <th>Date of Hired</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <t t-foreach="hired" t-as="doc">
+                        <tr>
+                            <td><t t-esc="doc['purchase_date']" /></td>
+                            <td><t t-esc="doc['name']" /></td>
+                            <td><t t-esc="doc['reference_no']" /></td>
+                            <td><t t-esc="doc['partner_id']['name']" /></td>
+                            <td><t t-esc="doc['cpv']" /></td>
+                            <td><t t-esc="doc['current_movement_location_id']['name']" /></td>
+                        </tr>
+                    </t> -->
+                </tbody>
+            </table>
+
+            <h5>Lateral Transfer</h5>
+            <table style="width: 100%" class="ht-table">
+                <thead>
+                    <tr>
+                        <th>Name of Employee</th>
+                        <th>Position</th>
+                        <th>Basic Salary</th>
+                        <th>Perdime</th>
+                        <th>desert allowance</th>
+                        <th>Project</th>
+                        <th>Date of Hired</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <t t-foreach="hired" t-as="doc">
+                        <tr>
+                            <td><t t-esc="doc['purchase_date']" /></td>
+                            <td><t t-esc="doc['name']" /></td>
+                            <td><t t-esc="doc['reference_no']" /></td>
+                            <td><t t-esc="doc['partner_id']['name']" /></td>
+                            <td><t t-esc="doc['cpv']" /></td>
+                            <td><t t-esc="doc['current_movement_location_id']['name']" /></td>
+                        </tr>
+                    </t> -->
+                </tbody>
+            </table>
+
+            <h5>Promotion</h5>
+            <table style="width: 100%" class="ht-table">
+                <thead>
+                    <tr>
+                        <th>Name of Employee</th>
+                        <th>Position</th>
+                        <th>Basic Salary</th>
+                        <th>Perdime</th>
+                        <th>desert allowance</th>
+                        <th>Project</th>
+                        <th>Date of Hired</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <t t-foreach="hired" t-as="doc">
+                        <tr>
+                            <td><t t-esc="doc['purchase_date']" /></td>
+                            <td><t t-esc="doc['name']" /></td>
+                            <td><t t-esc="doc['reference_no']" /></td>
+                            <td><t t-esc="doc['partner_id']['name']" /></td>
+                            <td><t t-esc="doc['cpv']" /></td>
+                            <td><t t-esc="doc['current_movement_location_id']['name']" /></td>
+                        </tr>
+                    </t> -->
+                </tbody>
+            </table>
+        </div>
     </template>
 
 </odoo>

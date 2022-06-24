@@ -35,7 +35,7 @@
             <label>From:</label>
             <div class="row">
                 <div class="col-lg-6">
-                    <input type="date" class="s_asset_report_date"/>
+                    <input type="date" class="man_from_date"/>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
             <label>To:</label>
             <div class="row">
                 <div class="col-lg-6">
-                    <input type="date" class="s_asset_report_date"/>
+                    <input type="date" class="man_from_to"/>
                 </div>
             </div>
         </div>
