@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Actions -->
+    <record id="action_work_place_list" model="ir.actions.act_window">
+        <field name="name">Work Locations</field>
+        <field name="res_model">stadia.workplace</field>
+        <field name="view_mode">kanban</field>
+    </record>
+
+    <record id="action_work_place_form" model="ir.actions.act_window">
+        <field name="name">Work Locations</field>
+        <field name="res_model">stadia.workplace</field>
+        <field name="view_mode">form</field>
+    </record>
+
+
+    <!-- Kanban view -->
+    <record id="kanban_work_place" model="ir.ui.view">
+        <field name="name">Work Locations</field>
+        <field name="model">stadia.workplace</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard" on_create="action_work_place_form" sample="1">
+                <templates>
+                    <t t-name="kanban-box">
+                       <div type="action">
+                            <div class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary col-12">
+                                        <a role="button" name="%(action_promotion)d" type="action"><field name="name" /></a>
+                                    </div>
+                                    <field name="is_favorite" widget="boolean_favorite" nolabel="1"/>
+                                    <div class="o_kanban_record_subtitle col-12 text-muted">
+                                        <field name="place_type" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button class="btn btn-primary" name="%(action_promotion)d" type="action">
+                                            <field name="employee_count"/> Employees
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                       </div> 
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem
+        id="work_place_menu"
+        name="Work Location" 
+        parent="hr.menu_hr_root"
+        sequence="25"
+        action="action_work_place_list"/>
+
+</odoo>
