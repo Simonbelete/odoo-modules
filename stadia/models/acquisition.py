@@ -8,10 +8,10 @@ class Acquisition(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'acquisition_date desc'
 
-    title = fields.Char(compute="_compute_name")
+    title = fields.Char(compute="_compute_name", store=True, readonly=False, required=True)
     acquisition_date = fields.Date(default=datetime.now(), required=True)
     requested_by = fields.Many2one('hr.employee', default=lambda self: self.env.user.employee_id.id)
-    job_id = fields.Many2one('hr.job', domain="[('department_id', '=', department_id)]")
+    job_id = fields.Many2one('hr.job', domain="[('department_id', '=', department_id)]", required=True)
     department_id =  fields.Many2one(related="requested_by.department_id")
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -31,9 +31,8 @@ class Acquisition(models.Model):
     # Duties and Responsibilities
     job_description = fields.Html()
     place_department_id = fields.Many2one('hr.department')
-    work_place_id = fields.Many2one('stadia.workplace')
+    work_place_id = fields.Many2one('stadia.workplace', required=True)
     
-
     def action_request(self):
         """ Request to GM """
         self.schedule_activity()

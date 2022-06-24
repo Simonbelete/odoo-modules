@@ -56,11 +56,13 @@
                         string="Approve" 
                         type="object" 
                         class="oe_highlight" 
-                        attrs="{'invisible': [('state', '!=', 'requested')] }"/>
+                        attrs="{'invisible': [('state', '!=', 'requested')] }"
+                        groups="stadia.group_base_gm"/>
                     <button name="action_decline" 
                         string="Decline" 
                         type="object" 
-                        attrs="{'invisible': [('state', '!=', 'requested')] }"/>
+                        attrs="{'invisible': [('state', '!=', 'requested')] }"
+                        groups="stadia.group_base_gm"/>
                     <button name="action_done" 
                         string="Done" 
                         type="object" 
@@ -81,9 +83,9 @@
                     </div>
                     <group>
                         <group>
-                            <field name="title" string="Title" />
-                            <field name="acquisition_date" string="Date" />
-                            <field name="job_id" string="Job Position"/>
+                            <field name="title" string="Title" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="acquisition_date" string="Date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="job_id" string="Job Position" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         </group>
                         <group>
                             <field name="requested_by" string="Requested By" readonly="True"/>
