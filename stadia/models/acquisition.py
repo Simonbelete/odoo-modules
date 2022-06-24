@@ -75,7 +75,7 @@ class Acquisition(models.Model):
                 record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
 
     def schedule_activity(self):
-        users = self.env.ref('stadia.group_acquisition_admin').users
+        users = self.env.ref('stadia.group_base_gm').users
         for user in users:
             if(user.active == True):
                 self.activity_schedule('stadia.mail_act_acquisition_approval', user_id=user.id, summary='Acquisition Approval', note=f'Please Approve {self.title}')
