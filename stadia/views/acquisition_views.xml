@@ -76,9 +76,9 @@
                         </button>
                         <button class="oe_stat_button" icon="fa-paperclip" string="External Applicants" type="action" name="%(stadia_action_hr_job_applications)d"
                             context="{
-                                'search_default_job_id': job_id,
+                                'search_default_acquisition_id': id,
                                 'default_job_id': job_id,
-                                'default_acquisition_id': id
+                                'job_id': job_id
                             }" />
                     </div>
                     <group>
