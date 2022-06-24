@@ -7,10 +7,6 @@ class ManpowerReport(models.AbstractModel):
     @api.model
     def get_html(self, date_from, date_to):
         data = self._get_report_data(date_from, date_to)
-        print('111111111111111111111111111111')
-        print(date_from)
-        print(date_to)
-        print(data)
         return self.env.ref('stadia.manpower_report_template')._render(data)
 
     @api.model
@@ -19,9 +15,9 @@ class ManpowerReport(models.AbstractModel):
         promotion_data = []
         transfer_data = []
         if (date_from and date_to):
-            start_date = datetime.strptime(date_from, '%Y-%m-%d').date()
+            start_date = datetime.now() #datetime.strptime(date_from, '%Y-%m-%d').date()
             end_date = datetime.strptime(date_to, '%Y-%m-%d').date()
-            new_hired_data = self.env['hr.employee'].search([('first_contract_date', '>=', start_date), ('first_contract_date', '<=', end_date)])
+            new_hired_data = self.env['hr.employee'].search([('first_contract_date.', '=', 'ab')])
             # i.e contract signed stage
             last_stage_id = self.env['stadia.promotion.stage'].search([])
             last_stage_id = max(last_stage_id.mapped('sequence'))
