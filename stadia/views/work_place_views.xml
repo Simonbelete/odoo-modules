@@ -20,14 +20,14 @@
         <field name="name">Work Locations</field>
         <field name="model">stadia.workplace</field>
         <field name="arch" type="xml">
-            <kanban class="oe_background_grey o_kanban_dashboard" on_create="action_work_place_form" sample="1">
+            <kanban class="oe_background_grey o_kanban_dashboard o_hr_recruitment_kanban" on_create="action_work_place_form" sample="1">
                 <templates>
                     <t t-name="kanban-box">
-                       <div type="action">
+                       <div>
                             <div class="o_kanban_card_header">
                                 <div class="o_kanban_card_header_title">
                                     <div class="o_primary col-12">
-                                        <a role="button" name="%(action_promotion)d" type="action"><field name="name" /></a>
+                                        <a role="button" name="action_open" type="object"><field name="name" /></a>
                                     </div>
                                     <field name="is_favorite" widget="boolean_favorite" nolabel="1"/>
                                     <div class="o_kanban_record_subtitle col-12 text-muted">

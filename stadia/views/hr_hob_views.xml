@@ -54,6 +54,16 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="o_kanban_card_manage_pane dropdown-menu" role="menu">
+                                <div class="o_kanban_card_manage_section">
+                                    <div role="menuitem"><a name="set_open" type="object">Recruitment Done</a></div>
+                                    <div role="menuitem"><a name="set_recruit" type="object">Start recruitment</a></div>
+                                    <div role="menuitem"><a t-if="widget.editable" name="edit_job" type="edit">Edit</a></div>
+                                </div>
+                                <div role="menuitem" aria-haspopup="true">
+                                    <ul class="oe_kanban_colorpicker" data-field="color" role="menu"/>
+                                </div>
+                            </div>
                             <div class="o_hr_job_boxes">
                                 <a class="o_hr_job_box" name="%(action_promotion)d" type="action"/>
                             </div>
