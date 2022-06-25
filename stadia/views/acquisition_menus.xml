@@ -2,9 +2,15 @@
 <odoo>
 
     <menuitem id="acquisition_menu" 
-    name="Acquistion" 
-    action="acquisition_action" 
-    web_icon="stadia,static/Acquisition.png"
-    groups="group_base_admin,group_base_gm"/>
+        name="Acquistion" 
+        web_icon="stadia,static/Acquisition.png"
+        groups="group_base_admin,group_base_gm,group_base_department_head,group_base_hr">
+        <menuitem id="acquistion_list_menu"
+            name="Acquistions"
+            action="acquisition_action" />
+        <menuitem id="man_power_menu"
+            name="Manpower Report"
+            action="action_manpower_report"/>
+    </menuitem>
 
 </odoo>

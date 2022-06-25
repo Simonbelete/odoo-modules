@@ -1,6 +1,24 @@
 <?xml version="1.0"?>
 <odoo>
 
+    <record id="stadi_hr_employee_workplace_context" model="ir.actions.act_window">
+        <field name="name">Employee Workplace</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">kanban,tree</field>
+        <field name="context">{'search_default_work_place_id': [active_id]}</field>
+    </record>
+
+    <!-- Search -->
+    <record id="stadi_hr_employee_workplace_context_search" model="ir.ui.view">
+        <field name="name">Employee Workplace</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="work_place_id"/>
+            </search>
+        </field>
+    </record>
+
     <record id="stadia_hr_employee_form" model="ir.ui.view">
         <field name="name">hr.employee</field>
         <field name="model">hr.employee</field>
@@ -28,7 +46,7 @@
                     </group>
                     <group string="Emergency Contact">
                         <field name="emergency_contact_name" />
-                        <field name="emergency_contact_city_id" />
+                        <field name="emergency_contact_city_id" string="Emergency Contact Sub City"/>
                         <field name="emergency_contact_woreda" />
                         <field name="emergency_contact_house_no" />
                         <field name="emergency_contact_relation_id" />
@@ -76,13 +94,6 @@
             </xpath>
             <xpath expr="//field[@name='mobile_phone']" position="before">
                 <field name="badge_id_no"/>
-            </xpath>
-            <xpath expr="//field[@name='mobile_phone']" position="before">
-                <field name="title" string="Title"/>
-            </xpath>
-            <xpath expr="//field[@name='name']" position="before">
-                <field name="title" readonly="True"/> 
-                <span style="margin-left: 10px"></span>
             </xpath>
             <xpath expr="//page[@name='personal_information']/group/group/field[@name='address_home_id']"
                     position="before">

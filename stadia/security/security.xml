@@ -22,15 +22,21 @@
     <record id="group_base_gm" model="res.groups">
         <field name="name">General Manager</field>
         <field name="category_id" ref="module_category_base" />
-    </record>
-
-    <record id="group_base_hr" model="res.groups">
-        <field name="name">Human resource</field>
-        <field name="category_id" ref="module_category_base" />
+        <field name="implied_ids" eval="
+            [
+                (4, ref('hr_recruitment.group_hr_recruitment_user'))
+            ]
+            " />
     </record>
 
     <record id="group_base_department_head" model="res.groups">
         <field name="name">Department Head</field>
+        <field name="category_id" ref="module_category_base" />
+    </record>
+
+    <!-- Hr and Admin -->
+    <record id="group_base_hr" model="res.groups">
+        <field name="name">Human resource</field>
         <field name="category_id" ref="module_category_base" />
     </record>
 

@@ -4,6 +4,15 @@
     <record id="promotion_stage_waiting" model="stadia.promotion.stage">
         <field name="name">Initial Qualification</field>
         <field name="sequence">1</field>
+    </record> 
+
+    <record id="promotion_stage_contract_proposal" model="stadia.promotion.stage">
+        <field name="name">Contract Proposal</field>
+        <field name="sequence">2</field>
     </record>
 
+    <record id="promotion_stage_contract_signed" model="stadia.promotion.stage">
+        <field name="name">Contract Signed</field>
+        <field name="sequence">3</field>
+    </record>
 </odoo>

@@ -4,6 +4,15 @@ class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     work_place_id = fields.Many2one(related='contract_id.work_place_id')
+    promotion_count = fields.Integer(default=0, compute="_compute_promotion_count")
+
+    def _compute_promotion_count(self):
+        self.ensure_one()
+        last_stage_id = self.env['stadia.promotion.stage'].search([])
+        last_stage_id = max(last_stage_id.mapped('sequence'))
+        promotions_count = self.env['stadia.promotion'].search_count([('employee_id', '=', self.id), ('stage_id', '=', 'last_stage_id')])
+        self.promotion_count = promotions_count
+
 
     @api.model
     def create(self, values):
@@ -11,7 +20,6 @@ class HrEmployee(models.Model):
         users = self.env.ref('stadia.group_base_system_admin').users
         for user in users:
             if(user.active == True):
-                print('111111111111111111111111111')
                 employee.sudo().activity_schedule('stadia.mail_act_employee_creation', user_id=user.id, summary='Give user acess to odoo', note=f'Please Create credentials for {self.name} with the corresponding credentials')
         return employee
 
@@ -26,6 +34,3 @@ class HrEmployee(models.Model):
     def action_create_user(self):
         """ Check the employee job position and create user base on that"""
         return
-
-    def _compute_promotion_count(self):
-        print('abcd')

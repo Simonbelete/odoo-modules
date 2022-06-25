@@ -8,10 +8,10 @@ class Acquisition(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'acquisition_date desc'
 
-    title = fields.Char(compute="_compute_name")
+    title = fields.Char(compute="_compute_name", store=True, readonly=False, required=True)
     acquisition_date = fields.Date(default=datetime.now(), required=True)
     requested_by = fields.Many2one('hr.employee', default=lambda self: self.env.user.employee_id.id)
-    job_id = fields.Many2one('hr.job', domain="[('department_id', '=', department_id)]")
+    job_id = fields.Many2one('hr.job', domain="[('department_id', '=', department_id)]", required=True)
     department_id =  fields.Many2one(related="requested_by.department_id")
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -28,18 +28,11 @@ class Acquisition(models.Model):
     internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
     external_applicant_ids = fields.One2many('hr.applicant', 'acquisition_id')
 
-    # Job Specifications
-    education_id = fields.Many2one('stadia.education')
-    experience_total_year = fields.Integer()
-    experience_related_job_id = fields.Many2one('hr.job')
-    training_related_job_id = fields.Many2one('hr.job')
-    training_skills = fields.Char()
     # Duties and Responsibilities
     job_description = fields.Html()
     place_department_id = fields.Many2one('hr.department')
-    work_place_id = fields.Many2one('stadia.workplace')
+    work_place_id = fields.Many2one('stadia.workplace', required=True)
     
-
     def action_request(self):
         """ Request to GM """
         self.schedule_activity()
@@ -82,7 +75,7 @@ class Acquisition(models.Model):
                 record.title = 'Acquisition of %s department for %s' % (record.job_id.name, record.acquisition_date.strftime('%d-%B-%Y'))
 
     def schedule_activity(self):
-        users = self.env.ref('stadia.group_acquisition_admin').users
+        users = self.env.ref('stadia.group_base_gm').users
         for user in users:
             if(user.active == True):
                 self.activity_schedule('stadia.mail_act_acquisition_approval', user_id=user.id, summary='Acquisition Approval', note=f'Please Approve {self.title}')

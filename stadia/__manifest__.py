@@ -40,6 +40,7 @@
         'data/hr_salary_rule_data.xml',
         'data/education_data.xml',
         'data/workplace_data.xml',
+        'data/city_data.xml',
 
         'data/employee_data/family_relation.xml',
         'data/employee_data/hr_employee_admin.xml',
@@ -51,7 +52,6 @@
         'report/hr_contract_employee_badge.xml',
         'report/header_template.xml',
         'report/stamp_logo_template.xml',
-        'report/acquisition_job_spec.xml',
         'report/asset_report.xml',
         'report/acquisition_format.xml',
         'report/hiring_promotion_template.xml',
@@ -64,6 +64,7 @@
         'report/employment_notification.xml',
         'report/acceptance_letter.xml',
         'report/promotion.xml',
+        'report/manpower_report.xml',
 
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
@@ -77,6 +78,7 @@
         'views/asset_movement_views.xml',
         'views/account_asset_views.xml',
         'views/hr_loan_views.xml',
+        'views/work_place_views.xml',
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',
@@ -84,6 +86,7 @@
         'views/hr_resume_line_views.xml'
     ],
     'qweb': [
-        'static/src/xml/asset.xml'
+        'static/src/xml/asset.xml',
+        'static/src/xml/manpower.xml'
     ]
 }

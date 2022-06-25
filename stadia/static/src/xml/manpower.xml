@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+
+    <t t-name="manpower_report_print_button">
+        <div>
+            <button type="button" name="action_print_xls_manpower" class="btn btn-primary s_asset_report_print">Print</button>
+        </div>
+    </t>
+
+    <t t-name="o_control_panel">
+        <div class="o_control_panel">
+            <div class="o_cp_top">
+                <div class="o_cp_top_left">
+                    <ol role="navigation" class="breadcrumb">
+                        <li class="breadcrumb-item active">Manpower Report</li>
+                    </ol>
+                </div>
+                <div class="o_cp_top_right">
+
+                </div>
+            </div>
+            <div class="o_cp_bottom">
+                <div class="o_cp_bottom_left">
+
+                </div>
+                <div class="o_cp_bottom_right">
+
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <form class="form-inline" t-name="manpower_report_form">
+        <div class="form-group col-lg-2">
+            <label>From:</label>
+            <div class="row">
+                <div class="col-lg-6">
+                    <input type="date" class="man_from_date"/>
+                </div>
+            </div>
+        </div>
+        <span>-</span>
+        <div class="form-group col-lg-2">
+            <label>To:</label>
+            <div class="row">
+                <div class="col-lg-6">
+                    <input type="date" class="man_to_date"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</templates>

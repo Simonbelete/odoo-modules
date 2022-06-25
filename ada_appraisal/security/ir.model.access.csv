@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_ada_appraisal_template,access_ada_appraisal_template,model_ada_appraisal_template,base.group_user,1,1,1,1
+access_ada_appraisal_question,access_ada_appraisal_question,model_ada_appraisal_question,base.group_user,1,1,1,1

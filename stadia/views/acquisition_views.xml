@@ -56,11 +56,13 @@
                         string="Approve" 
                         type="object" 
                         class="oe_highlight" 
-                        attrs="{'invisible': [('state', '!=', 'requested')] }"/>
+                        attrs="{'invisible': [('state', '!=', 'requested')] }"
+                        groups="stadia.group_base_gm"/>
                     <button name="action_decline" 
                         string="Decline" 
                         type="object" 
-                        attrs="{'invisible': [('state', '!=', 'requested')] }"/>
+                        attrs="{'invisible': [('state', '!=', 'requested')] }"
+                        groups="stadia.group_base_gm"/>
                     <button name="action_done" 
                         string="Done" 
                         type="object" 
@@ -74,16 +76,16 @@
                         </button>
                         <button class="oe_stat_button" icon="fa-paperclip" string="External Applicants" type="action" name="%(stadia_action_hr_job_applications)d"
                             context="{
-                                'search_default_job_id': job_id,
+                                'search_default_acquisition_id': id,
                                 'default_job_id': job_id,
-                                'default_acquisition_id': id
+                                'job_id': job_id
                             }" />
                     </div>
                     <group>
                         <group>
-                            <field name="title" string="Title" />
-                            <field name="acquisition_date" string="Date" />
-                            <field name="job_id" string="Job Position"/>
+                            <field name="title" string="Title" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="acquisition_date" string="Date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="job_id" string="Job Position" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         </group>
                         <group>
                             <field name="requested_by" string="Requested By" readonly="True"/>
@@ -96,42 +98,6 @@
                         <field name="note" string="Note" />
                     </group>
                     <notebook>
-                        <page string="Job Specification">
-                            <group name="main_info">
-                                    <group string="Education">
-                                        <label for="education_id"/>
-                                        <div class="o_row" name="education_id">
-                                            <field name="education_id" nolabel="1"/>
-                                        </div>
-                                    </group>
-                                    <group string="Experience">
-                                        <label for="experience_total_year" string="Year of Experience (Total year)"/>
-                                        <div class="o_row" name="experience_total_year">
-                                            <field name="experience_total_year" nolabel="1"/>
-                                        </div>
-                                        <label for="experience_related_job_id" string="Related to the position"/>
-                                        <div class="o_row" name="experience_related_job_id">
-                                            <field name="experience_related_job_id" nolabel="1"/>
-                                        </div>
-                                    </group>
-                                    <group string="Training">
-                                        <label for="training_related_job_id" string="Related to the position"/>
-                                        <div class="o_row" name="training_related_job_id">
-                                            <field name="training_related_job_id" nolabel="1"/>
-                                        </div>
-                                        <label for="training_skills" string="Skills"/>
-                                        <div class="o_row" name="training_skills">
-                                            <field name="training_skills" nolabel="1"/>
-                                        </div>
-                                    </group>
-                            </group>
-                            <group string="JOB DESCRIPTION">
-                                <label for="job_description" string="Duties and Responsibilities"/>
-                                <div class="o_row" name="job_description">
-                                    <field name="job_description" nolabel="1"/>
-                                </div>
-                            </group>
-                        </page>
                         <page string="Internal Applicants">
                             <field name="internal_applicant_ids">
                                 <tree default_order="stage_id.sequence">
@@ -163,6 +129,12 @@
                 </div>
             </form>
         </field>
+    </record>
+
+    <!-- Reporting -->
+    <record id="action_manpower_report" model="ir.actions.client">
+        <field name="name">Manpower Report</field>
+        <field name="tag">stadia_manpower_reg</field>
     </record>
 
 </odoo>

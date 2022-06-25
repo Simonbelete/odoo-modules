@@ -20,6 +20,11 @@
         <field name="context">{'search_default_acquisition_id': [active_id]}</field>
     </record>
 
+    <record id="action_promotion_inline_form" model="ir.actions.act_window">
+        <field name="name">Employee Promotions</field>
+        <field name="res_model">stadia.promotion</field>
+        <field name="view_mode">form</field>
+    </record>
 
     <record id="promotion_search" model="ir.ui.view">
         <field name="name">stadia.promotion</field>

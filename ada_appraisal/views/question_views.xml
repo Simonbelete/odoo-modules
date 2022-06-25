@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="action_question" model="ir.actions.act_window">
+        <field name="name">Appraisal Question</field>
+        <field name="res_model">ada.appraisal.question</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

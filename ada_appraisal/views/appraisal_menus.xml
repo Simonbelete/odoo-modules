@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem 
+        id="menu_ada_appraisal"
+        name="Appraisal">
+
+        <!-- Config Menu -->
+        <menuitem
+            id="menu_ada_appraisal_config"
+            name="Configuration">
+
+            <menuitem
+                id="menu_ada_appraisal_template"
+                name="Template"
+                action="action_template"/>
+            
+            <menuitem
+                id="menu_ada_appraisal_question"
+                name="Question"
+                action="action_question"/>
+
+        </menuitem>
+
+    </menuitem>
+
+</odoo>
