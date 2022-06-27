@@ -18,7 +18,7 @@
     </record>
 
     <record id="action_abcd" model="ir.actions.act_window">
-        <field name="name">Print Demo</field>
+        <field name="name">Leave Summary</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.leave.report.list</field>
         <field name="view_mode">form</field>
