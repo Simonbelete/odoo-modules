@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_leave_report_list_report" model="ir.actions.report">
+        <field name="name">Leave Summary</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">stadia.leave_report</field>
+        <field name="report_file">leave summary</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_leave_list">
+        <t t-call="web.html_container">
+            <h1>hello</h1>
+        </t>
+    </template>
+</odoo>

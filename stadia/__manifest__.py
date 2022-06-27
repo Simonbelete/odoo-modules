@@ -67,7 +67,7 @@
         'report/acceptance_letter.xml',
         'report/promotion.xml',
         'report/manpower_report.xml',
-        'report/hr_leave_report_list.xml',
+        'report/hr_leave_report_list_report.xml',
         
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
