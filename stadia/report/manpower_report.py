@@ -17,7 +17,7 @@ class ManpowerReport(models.AbstractModel):
         if (date_from and date_to):
             start_date = datetime.now() #datetime.strptime(date_from, '%Y-%m-%d').date()
             end_date = datetime.strptime(date_to, '%Y-%m-%d').date()
-            new_hired_data = self.env['hr.employee'].search([('first_contract_date.', '=', 'ab')])
+            new_hired_data = self.env['hr.employee'].search([])
             # i.e contract signed stage
             last_stage_id = self.env['stadia.promotion.stage'].search([])
             last_stage_id = max(last_stage_id.mapped('sequence'))
