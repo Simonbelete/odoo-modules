@@ -16,4 +16,4 @@ class HrLeaveReportList(models.TransientModel):
             'model': 'hr.employee',
             'form': data
         }
-        return self.env.ref('stadia.hr_leave_report_list_report').report_action(employees)
+        return self.env.ref('stadia.hr_leave_report_list_report').report_action(employees, data=datas)
