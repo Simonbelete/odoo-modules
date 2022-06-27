@@ -4,7 +4,7 @@ from datetime import datetime
 class HrLeaveReportList(models.TransientModel):
     _name = 'hr.leave.report.list'
 
-    date_to = fields.Date(string="Date To", required=True)
+    date_to = fields.Date(string="Date To", required=True, default=datetime.now())
 
     def print_report(self):
         self.ensure_one()
