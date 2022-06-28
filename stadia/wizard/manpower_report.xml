@@ -8,6 +8,7 @@
             <form string="Time Off Summary">
                 <group col="4" colspan="6">
                     <field name="date_from"/>
+                    <newline />
                     <field name="date_to"/>
                 </group>
                 <footer>
