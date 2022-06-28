@@ -119,10 +119,10 @@ class HrLeaveReportListReport(models.AbstractModel):
                 sum_taken_leaves = self.env.cr.fetchall()
 
                 # Check leaves
-                sum_time_off_type = sum_time_off_type[0][0] if sum_time_off_type else 0
-                sum_taken_leaves = sum_taken_leaves[0][0] if sum_taken_leaves else 0
+                sum_time_off_type = sum_time_off_type[0][0] if sum_time_off_type[0][0] else 0
+                sum_taken_leaves = sum_taken_leaves[0][0] if sum_taken_leaves[0][0] else 0
 
-                remaining_leaves = sum_time_off_type[0][0] - sum_taken_leaves[0][0]
+                remaining_leaves = sum_time_off_type - sum_taken_leaves
                 total_annual_leave += remaining_leaves
                 annual_leave_balance = total_annual_leave
                 sheet.write(col, row_t, remaining_leaves)
