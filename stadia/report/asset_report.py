@@ -97,8 +97,6 @@ class AssetReport(models.AbstractModel):
         
         row = 2
         for obj in assets:
-            print('11111111111111111111111111')
-            print(obj['purchase_date'])
             sheet.write(row, 0, obj['purchase_date'].strftime('%m/%d/%Y'))
             sheet.write(row, 1, obj['name'])
             sheet.write(row, 2, obj['reference_no'] if obj['reference_no'] else ' ')

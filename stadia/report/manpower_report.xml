@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Hired Report -->
     <record id="hired_manpower_report" model="ir.actions.report">
         <field name="name">Hired Manpower Report</field>
         <field name="model">hr.employee</field>
         <field name="report_type">xlsx</field>
         <field name="report_name">stadia.hired_manpower_report</field>
         <field name="report_file">hired_manpower_report</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Lateral Transfer -->
+    <record id="lateral_transfer_manpower_report" model="ir.actions.report">
+        <field name="name">Lateral Transfer Manpower Report</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">stadia.lateral_transfer_manpower_report</field>
+        <field name="report_file">lateral_transfer_report</field>
         <field name="binding_type">report</field>
     </record>
 
