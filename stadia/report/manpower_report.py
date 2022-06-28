@@ -2,7 +2,7 @@ from odoo import api, fields, models
 from datetime import datetime
 
 class ManpowerReport(models.AbstractModel):
-    _name = 'report.stadia.manpower_report'
+    _name = 'report.stadia.hired_manpower_report'
     
     @api.model
     def get_html(self, date_from, date_to):

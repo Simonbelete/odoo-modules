@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hired_manpower_report" model="ir.ui.view">
+        <field name="name">hired.manpower.report.form</field>
+        <field name="model">hired.manpower.report</field>
+        <field name="arch" type="xml">
+            <form string="Time Off Summary">
+                <group col="4" colspan="6">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_manpower_wizard" model="ir.actions.act_window">
+        <field name="name">Hired Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hired.manpower.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

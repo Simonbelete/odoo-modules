@@ -50,6 +50,7 @@
         'data/employee_data/asset.xml',
 
         'wizard/hr_leave_report_list.xml',
+        'wizard/manpower_report.xml',
 
         'report/hr_contract_employee_badge.xml',
         'report/header_template.xml',
@@ -86,6 +87,7 @@
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',
         'views/asset_menus.xml',
+        'views/hr_employee_menus.xml',
         'views/hr_resume_line_views.xml'
     ],
     'qweb': [
