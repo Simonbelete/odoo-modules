@@ -2,7 +2,7 @@
 <odoo>
     <record id="hr_leave_report_list_report" model="ir.actions.report">
         <field name="name"></field>
-        <field name="model">hr.employee.dept</field>
+        <field name="model">hr.employee</field>
         <field name="report_type">xlsx</field>
         <field name="report_name">stadia.leave_report</field>
         <field name="report_file">leave_summary</field>
