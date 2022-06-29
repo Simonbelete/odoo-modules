@@ -15,6 +15,51 @@
 
     <template id="promotion_template">
         <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="data">
+                <style>
+                    .s_l_bold_text {
+                        font-weight: 800;
+                    }
+                </style>
+                <t t-call="stadia.letter_header">
+                    <t t-set="ref_no" t-value="data['ref_no']" />
+                    <t t-set="date" t-value="datetime.datetime.now().strftime('%m/%d/%Y')" />
+                    <t t-set="name" t-value="data['employee_id']['name']" />
+                    <t t-set="sub" t-value="'Promotion and Salary Increment'" />
+                </t>
+
+                <div>
+                    <p>Dear <t t-esc="data['employee_id']['name']" /></p>
+                    <p>It is recalled that you have been working as a 
+                        <span class="s_l_bold_text"><t t-esc="data['active_work_place_id']['name']" /></span>
+                        on projects being undertaken by the company. We are pleased to inform you that our company has decided to promote you to a position of: 
+                        <span class="s_l_bold_text"><t t-esc="data['job_id']['name']" /></span>. 
+                    </p>
+                    <p>
+                        Thus, you will earn a monthly gross salary: 
+                        <span class="s_l_bold_text"><t t-esc="data['salary_in_word']" /></span>
+                         effective as of:
+                         <span class="s_l_bold_text"><t t-esc="data['start_date'].strftime('%m/%d/%Y')" /></span>
+                    </p>
+                    <p>
+                        We take this opportunity to express our belief that you will demonstrate your competency with the highest degree of commitment, integrity and team sprit towards the achievement of the firm’s objectives.
+                    </p>
+                    <p>
+                        With regards,
+                    </p>
+                    <p style="margin-top: 100px">
+                        <p>C.C</p>
+                        <ul>
+                            <li>Finance</li>
+                            <li>File</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <!-- <t t-call="stadia.company_footer" /> -->
+            </t>
+        </t>
+        <!-- <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="o">
 
                 <style>
@@ -253,6 +298,6 @@
                     </body>
 
             </t>
-        </t>
+        </t> -->
     </template>
 </odoo>

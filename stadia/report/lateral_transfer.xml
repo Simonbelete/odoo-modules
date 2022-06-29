@@ -37,7 +37,9 @@
                     <p>
                         However, in line with the discussion made with you, the company has transferred you to 
                         <span class="s_l_bold_text"><t t-esc="data['new_work_place']['name']" /></span>
-                        in the capacity of [Insert new position] effective as of 
+                        in the capacity of 
+                        <span class="s_l_bold_text"><t t-esc="data['new_designation_job_id']['name']" /></span>
+                        effective as of 
                         <span class="s_l_bold_text"><t t-esc="data['start_date'].strftime('%m/%d/%Y')" /></span>
                     </p>
                     <p>

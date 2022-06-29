@@ -109,7 +109,7 @@
             }
             .s_l_bold_text {
                 font-weight: 800;
-                font-size: 17px;
+                font-size: 16px;
             }
             .s_l_text_container {
                 display: -webkit-box;
@@ -157,6 +157,39 @@
 
             <div>
                 <t t-call="stadia.stamp_logo_template" />
+            </div>
+        </div>
+    </template>
+
+    <template id="company_footer">
+        <style>
+            .hr1 {
+                border: 3px solid rgb(122, 22, 22);
+            }
+            .main-footer {
+                display: flex;
+                -webkit-flex-direction: row;
+                display: -webkit-box;
+            }
+            .s_footer_container {
+                height: 100vh; 
+                width:100%;
+                margin-top: 100px
+            }
+        </style>
+        <div class="s_footer_container">
+            <div>
+                <hr class="hr1"/>
+                <hr/>
+                <h7 style="text-align: center; color: rgb(247, 15, 15);">
+                    <u>Consultancy On</u>
+                </h7>
+            </div>
+            <div class="main-footer">
+                <div>Transportation</div>
+                <div style="margin-left: 100px">Water Resource Management</div>
+                <div style="margin-left: 100px">Environment</div>
+                <div style="margin-left: 100px">Construction</div>
             </div>
         </div>
     </template>
