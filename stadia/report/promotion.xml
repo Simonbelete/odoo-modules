@@ -160,7 +160,7 @@
                         <div class="badge_box">
                             <div class="fistcolumn" style="margin-left: 0px">
                                 <h6>Ref.No: <t t-esc="o['ref_no']" /></h6>
-                                <h6>Date: <t t-esc="o['date']" /></h6>
+                                <h6>Date:</h6>
                             </div>
 
                             <div class="secondcolumn">
@@ -222,7 +222,7 @@
                                  on projects being undertaken by the company. We are pleased to inform you that our company has decided to promote you 
                                  to a position of: <b><t t-esc="o['job_id']['name']" /></b>. 
                                 <br/>
-                                Thus, you will earn a monthly gross salary: <t t-esc="o['date']" /> effective as of: <t t-esc="o['date']" />
+                                Thus, you will earn a monthly gross salary: effective as of:
                                 <br />
                                 We take this opportunity to express our belief that you will demonstrate your competency with the highest degree of commitment, integrity and team sprit towards the achievement of the firm’s objectives.
                             </p>
