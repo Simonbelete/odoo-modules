@@ -16,7 +16,15 @@
     <template id="lateral_transfer_template">
         <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="data">
-                <t t-call="stadia.stamp_logo_template" />
+                <t t-call="stadia.letter_header">
+                    <t t-set="ref_no" t-value="" />
+                    <t t-set="date" t-value="datetime.datetime.now().strftime('%m/%d/%Y')" />
+                    <t t-set="name" t-value="" />
+                    <t t-set="sub" t-value="'Lateral Transfer'" />
+                </t>
+                <div>
+                    Dear ato
+                </div>
             </t>
         </t>
         <!-- <t t-call="web.basic_layout">

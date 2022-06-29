@@ -92,4 +92,72 @@
             </div>
         </div>
     </template>
+
+    <template id="letter_header">
+        <style>
+            .s_l_container {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+	            -webkit-box-orient: horizontal;
+	            -webkit-box-direction: normal;
+	            -ms-flex-direction: row;
+	            flex-direction: row;
+	            -webkit-box-pack: justify;
+	            -ms-flex-pack: justify;
+	            justify-content: space-between;
+            }
+            .s_l_bold_text {
+                font-weight: 800;
+                font-size: 17px;
+            }
+            .s_l_text_container {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+	            -webkit-box-orient: vertical;
+	            -webkit-box-direction: normal;
+	            -ms-flex-direction: column;
+	            flex-direction: column;
+                gap: 15px;
+            }
+            .s_l_text_container > div {
+                padding: 4px 0;
+            }
+            .s_l_header_left > div {
+                padding-bottom: 80px;
+            }
+        </style>
+        <div class="s_l_container">
+            <div class="s_l_header_left">
+                <div class="s_l_text_container">
+                    <div>
+                        <span class="s_l_bold_text">Ref. No:</span>
+                        <span class="s_l_bold_text"><t t-esc="ref_no" /></span>
+                    </div>
+                    <div>
+                        <span class="s_l_bold_text">Date:</span>
+                        <span class="s_l_bold_text"><t t-esc="date" /></span>
+                    </div>
+                </div>
+                <div class="s_l_text_container">
+                    <div>
+                        <span class="s_l_bold_text">To:</span>
+                        <span class="s_l_bold_text"><t t-esc="name" /></span>
+                        <p class="s_l_bold_text" style="text-decoration: underline; margin-left: 50px">Addia Ababa</p>
+                    </div>
+                </div>
+                <div class="s_l_text_container">
+                    <div>
+                        <span class="s_l_bold_text">Sub:</span>
+                        <span class="s_l_bold_text" style="text-decoration: underline;"><t t-esc="sub" /></span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <t t-call="stadia.stamp_logo_template" />
+            </div>
+        </div>
+    </template>
 </odoo>
