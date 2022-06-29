@@ -53,9 +53,9 @@
         'wizard/manpower_report.xml',
         'wizard/asset_report_wizard.xml',
 
+        'report/component_templates.xml',
         'report/hr_contract_employee_badge.xml',
         'report/header_template.xml',
-        'report/stamp_logo_template.xml',
         'report/asset_report.xml',
         'report/acquisition_format.xml',
         'report/hiring_promotion_template.xml',
