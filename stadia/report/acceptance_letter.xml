@@ -30,7 +30,27 @@
                 <div>
                     <p>Following Our Company’s vacant position notice for the position of: 
                         <span class="s_l_bold_text"><t t-esc="data['job_id']['name']" /></span>
-                        , you have applied and had a successful interview.</p>
+                        , you have applied and had a successful interview.
+                    </p>
+                    <p>
+                        Accordingly, the management of stadia engineering would like to take this opportunity to inform you that the company decided to accept your application for the above position.
+                    </p>
+                    <p>
+                        This is, therefore to inform you to finalize the employment process and commence your duties and responsibilities in the soonest possible time.
+                    </p>
+                    <p>
+                        Looking forward working with you. We believe you would contribute your utmost knowledge and skill towards the company’s aspiration.
+                    </p>
+                    <p>
+                        With regards,
+                    </p>
+                    <p style="margin-top: 100px">
+                        <p>C.C</p>
+                        <ul>
+                            <li>Finance</li>
+                            <li>File</li>
+                        </ul>
+                    </p>
                 </div>
             </t>
         </t>
