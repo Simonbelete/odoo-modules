@@ -38,7 +38,11 @@
                         However, in line with the discussion made with you, the company has transferred you to 
                         <span class="s_l_bold_text"><t t-esc="data['new_work_place']['name']" /></span>
                         in the capacity of [Insert new position] effective as of 
-                        [Insert Month Date, Year]
+                        <span class="s_l_bold_text"><t t-esc="data['start_date'].strftime('%m/%d/%Y')" /></span>
+                    </p>
+                    <p>
+                        You will earn monthly gross salary of ETB
+                        <span class="s_l_bold_text"><t t-esc="data['salary_in_word']" /></span>
                     </p>
                 </div>
             </t>
