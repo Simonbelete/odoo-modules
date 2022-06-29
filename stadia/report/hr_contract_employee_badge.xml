@@ -82,6 +82,7 @@
                     width: 300px;
                     margin-bottom: 24px;
                     margin-left: 5px;
+                    margin-top: 15px;
                 }
                 
                 .badge_issued {
@@ -93,6 +94,7 @@
                     -webkit-box-pack: center;
                     gap: 100px;
                     -webkit-column-gap: 100px;
+                    margin-top: 50px;
                 }
                     
                 </style>
@@ -109,7 +111,6 @@
                         <h5>ID No: <t t-esc="employee_contract['employee_id']['badge_id_no']" /></h5>
                         <h5>Name: 
                             <span class="underline">
-                                <t t-esc="employee_contract.employee_id.title " />
                                 <t t-esc="employee_contract.employee_id.name" />
                             </span>
                         </h5>
@@ -136,7 +137,7 @@
                             <h5>Date Issued</h5>
                             <h5><t t-esc="employee_contract['issued_date']" /></h5>
                         </div>
-                        <div>
+                        <div style="margin-left: 200px">
                             <h5>Expiry Date</h5>
                             <h5><t t-esc="employee_contract['expiry_date']" /></h5>
                         </div>
