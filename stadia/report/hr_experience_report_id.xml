@@ -9,7 +9,6 @@
             file="stadia.internal_experience"
     />
 
-
     <report
             id="report_employee_list_report_id"
             string="Employee List"
@@ -19,5 +18,3 @@
             file="stadia.employee_list"
     />
 </odoo>
-
-

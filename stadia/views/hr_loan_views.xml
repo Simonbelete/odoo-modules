@@ -5,10 +5,16 @@
         <field name="model">hr.loan</field>
         <field name="inherit_id" ref="ohrms_loan.hr_loan_form_view" />
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='department_id']" position="after">
+                <field name="no_months" string="Months" />
+            </xpath>
             <xpath expr="//field[@name='installment']" position="after">
                 <field name="reason" string="Reason" />
                 <field name="guarantor_id" string="Guarantor" />
             </xpath>
+            <!-- <xpath expr="//field[@name='loan_amount']" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </xpath> -->
         </field>
     </record>
 </odoo>

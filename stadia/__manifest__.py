@@ -49,9 +49,13 @@
         'data/employee_data/hr_employee_rcmd.xml',
         'data/employee_data/asset.xml',
 
+        'wizard/hr_leave_report_list.xml',
+        'wizard/manpower_report.xml',
+        'wizard/asset_report_wizard.xml',
+
+        'report/component_templates.xml',
         'report/hr_contract_employee_badge.xml',
         'report/header_template.xml',
-        'report/stamp_logo_template.xml',
         'report/asset_report.xml',
         'report/acquisition_format.xml',
         'report/hiring_promotion_template.xml',
@@ -65,7 +69,8 @@
         'report/acceptance_letter.xml',
         'report/promotion.xml',
         'report/manpower_report.xml',
-
+        'report/hr_leave_report_list_report.xml',
+        
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
         'views/promotion_stage_views.xml',
@@ -83,6 +88,7 @@
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',
         'views/asset_menus.xml',
+        'views/hr_employee_menus.xml',
         'views/hr_resume_line_views.xml'
     ],
     'qweb': [

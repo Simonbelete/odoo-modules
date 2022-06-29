@@ -2,6 +2,11 @@
 
 ## Pre-requests
 
+### Packages
+```$ pip install XlsxWriter ```
+```$ pip install num2words ```
+### Settings
+
 Enable ```Interview Forms``` in settings
 Set Unpaid Leave code to ```UNPAID``` in time off -> Time off types
 Set default working hours to 48hrs i.e resource_calendar_id

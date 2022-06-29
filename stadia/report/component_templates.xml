@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="stamp_logo_template">
+        <style>
+            .s_container {
+                border: 7px solid #FF0000;
+                max-width: 270px;
+                height: auto;
+            }
+            .s_text {
+                font-weight: 800;
+                font-size: 14px;
+                margin: 0;
+            }
+            .s_center {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+            .s_logo_container {
+                border-bottom: 7px solid red;
+                margin-bottom: 5px;
+            }
+            .s_detail_container {
+                border-top: 7px solid red;
+                padding: 10px 5px;
+            }
+            .s_logo {
+                -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+                box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            }
+            .s_detail {
+
+            }
+            .s_text_higlight {
+                color: #B64126;
+            }
+
+            .s_bordered_red_box {
+                border: 6px solid red;
+                padding: 5px;
+                margin-bottom: 4px;
+                max-width: 350px;
+            }
+            
+        </style>
+        <div class="s_container">
+
+            <div class="s_logo_container s_center">
+                <img class="s_logo" src="/stadia/static/stadi_stamp_logo.jpg" style="width: 150px; height: 130px; margin-top: 5px; margin-bottom: 5px;"/>
+                <p class="s_text">Engineering Works Consultant Plc</p>
+            </div>
+
+            <div class="s_detail_container">
+                <p class="s_text_higlight s_text">Head Office</p>
+                <p class="s_text">NB Business Center 9th floor, 
+                    <br />
+                    Room No 901, Near Wuha Limat
+                    <br /> Addis Ababa, Ethiopia
+                </p>
+                <div>
+                    <span class="s_text_higlight s_text">P.O.Box:</span>
+                    <span class="s_text">33900 Addis Ababa</span>
+                </div>
+                <div>
+                    <span class="s_text_higlight s_text">Tel:</span>
+                    <span class="s_text" style="margin-left: 50px">+251-118610631</span>
+                    <p class="s_text" style="margin-left: 75px">+251-118217890</p>
+                </div>
+                <div>
+                    <span class="s_text_higlight s_text">Fax:</span>
+                    <span style="margin-left: 46px" class="s_text">+251-116189537</span>
+                </div>
+                <div>
+                    <p class="s_text">Website</p>
+                    <p class="s_text">www.stadiaconsultancy.com</p>
+                </div>
+                <div>
+                    <span class="s_text">Email:</span>
+                    <span class="s_text">info@stadiaconsultancy.com</span>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="letter_header">
+        <style>
+            .s_l_container {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+	            -webkit-box-orient: horizontal;
+	            -webkit-box-direction: normal;
+	            -ms-flex-direction: row;
+	            flex-direction: row;
+	            -webkit-box-pack: justify;
+	            -ms-flex-pack: justify;
+	            justify-content: space-between;
+            }
+            .s_l_bold_text {
+                font-weight: 800;
+                font-size: 16px;
+            }
+            .s_l_text_container {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+	            -webkit-box-orient: vertical;
+	            -webkit-box-direction: normal;
+	            -ms-flex-direction: column;
+	            flex-direction: column;
+                gap: 15px;
+            }
+            .s_l_text_container > div {
+                padding: 4px 0;
+            }
+            .s_l_header_left > div {
+                padding-bottom: 80px;
+            }
+        </style>
+        <div class="s_l_container">
+            <div class="s_l_header_left">
+                <div class="s_l_text_container">
+                    <div>
+                        <span class="s_l_bold_text">Ref. No:</span>
+                        <span class="s_l_bold_text"><t t-esc="ref_no" /></span>
+                    </div>
+                    <div>
+                        <span class="s_l_bold_text">Date:</span>
+                        <span class="s_l_bold_text"><t t-esc="date" /></span>
+                    </div>
+                </div>
+                <div class="s_l_text_container">
+                    <div>
+                        <span class="s_l_bold_text">To:</span>
+                        <span class="s_l_bold_text"><t t-esc="name" /></span>
+                        <p class="s_l_bold_text" style="text-decoration: underline; margin-left: 50px">Addia Ababa</p>
+                    </div>
+                </div>
+                <div class="s_l_text_container">
+                    <div>
+                        <span class="s_l_bold_text">Sub:</span>
+                        <span class="s_l_bold_text" style="text-decoration: underline;"><t t-esc="sub" /></span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <t t-call="stadia.stamp_logo_template" />
+            </div>
+        </div>
+    </template>
+
+    <template id="company_footer">
+        <style>
+            .hr1 {
+                border: 3px solid rgb(122, 22, 22);
+            }
+            .main-footer {
+                display: flex;
+                -webkit-flex-direction: row;
+                display: -webkit-box;
+            }
+            .s_footer_container {
+                height: 100vh; 
+                width:100%;
+                margin-top: 100px
+            }
+        </style>
+        <div class="s_footer_container">
+            <div>
+                <hr class="hr1"/>
+                <hr/>
+                <h7 style="text-align: center; color: rgb(247, 15, 15);">
+                    <u>Consultancy On</u>
+                </h7>
+            </div>
+            <div class="main-footer">
+                <div>Transportation</div>
+                <div style="margin-left: 100px">Water Resource Management</div>
+                <div style="margin-left: 100px">Environment</div>
+                <div style="margin-left: 100px">Construction</div>
+            </div>
+        </div>
+    </template>
+</odoo>

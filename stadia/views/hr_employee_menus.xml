@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="stadia_hr_reports"
+        name="Reports"
+        parent="hr.menu_hr_root"
+        sequence="26"
+        >
+        <menuitem
+            id="stadia_hr_manpower_report"
+            name="Hired Manpower Report"
+            action="action_manpower_wizard"
+            />
+        <menuitem
+            id="stadia_hr_transfer_manpower_report"
+            name="Lateral Transfer Manpower Report"
+            action="action_lateral_transfer_manpower_wizard"
+            />
+    </menuitem>
+
+</odoo>

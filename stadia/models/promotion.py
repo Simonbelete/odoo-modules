@@ -1,5 +1,6 @@
 from odoo import fields, api, models
 from datetime import datetime
+from num2words import num2words
 
 class Promotion(models.Model):
     """ Internal Employee promotions """
@@ -19,7 +20,7 @@ class Promotion(models.Model):
     ref_no = fields.Char(string="Ref No", copy=False, default=_default_ref_no, required=True)
     # Employee to be promoted
     employee_id = fields.Many2one('hr.employee')
-    date = fields.Date(required=True, default=datetime.now())
+    start_date = fields.Date(required=True, default=datetime.now())
     department_id =  fields.Many2one(related="employee_id.department_id")
     # Previous job id
     job_id = fields.Many2one(related="employee_id.job_id")
@@ -36,7 +37,18 @@ class Promotion(models.Model):
     ], default='promotion')
     new_work_place = fields.Many2one('stadia.workplace')
     survey_answer_ids = fields.One2many('promotion.answer', 'promotion_id')
-    salary = fields.Char()
+    salary = fields.Monetary(default=0)
+    salary_in_word = fields.Char(compute="_compute_salary_in_word")
+    currency_id = fields.Many2one('res.currency', string='Currency', required=True,
+                                  readonly=True,
+        default=lambda self: self.env.user.company_id.currency_id.id)
+    company_id = fields.Many2one('res.company', string='Company', required=True,
+                                 readonly=True,
+                                 default=lambda self: self.env.company)
+
+    def _compute_salary_in_word(self):
+        self.ensure_one()
+        self.salary_in_word = num2words(self.salary)
 
     @api.model
     def create(self, values):

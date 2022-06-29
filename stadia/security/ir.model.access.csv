@@ -23,3 +23,7 @@ access_hr_education,access_hr_education,model_hr_education,base.group_user,1,1,1
 access_promotion_answer,access_promotion_answer,model_promotion_answer,base.group_user,1,1,1,1
 access_applicant_answer,access_applicant_answer,model_applicant_answer,base.group_user,1,1,1,1
 access_city,access_city,model_stadia_city,base.group_user,1,1,1,1
+access_hr_leave_report_list,access_hr_leave_report_list,model_hr_leave_report_list,base.group_user,1,1,1,1
+access_hired_manpower_report,access_hired_manpower_report,model_hired_manpower_report,base.group_user,1,1,1,1
+access_lateral_transfer_manpower_report,access_lateral_transfer_manpower_report,model_lateral_transfer_manpower_report,base.group_user,1,1,1,1
+access_asset_movement_report,access_asset_movement_report,model_asset_movement_report,base.group_user,1,1,1,1

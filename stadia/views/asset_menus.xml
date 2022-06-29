@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="asset_menu" name="Asset Management" web_icon="stadia,static/Asset.png" groups="group_base_admin,group_base_gm,group_base_hr,group_base_department_head">
-        <menuitem id="assets_menu" name="Assets"  action="action_asset" />
-        <menuitem id="asset_types" name="Asset Types" action="action_asset_category" />
-        <menuitem id="asset_reporting" name="Asset Reporting" action="action_report_asset" />
+        <menuitem id="assets_menu" name="Assets"  action="action_asset" sequence="1"/>
+        <menuitem id="asset_movement_menu" name="Asset Movement" action="asset_movement_list_action" sequence="2"/>
+        <menuitem id="asset_types" name="Asset Types" action="action_asset_category" sequence="3" />
+        <menuitem id="asset_reporting" name="Report" sequence="4">
+            <menuitem id="asset_movement_report" name="Asset Movement" action="asset_movement_wizard"/>
+            <menuitem id="asset_depreciation_reporting" name="Asset Deperciation" action="action_report_asset" />
+        </menuitem>
     </menuitem>
 </odoo>

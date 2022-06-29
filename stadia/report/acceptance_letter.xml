@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="employment_notification_print" model="ir.actions.report">
-        <field name="name">Employment Notification</field>
+    <record id="employment_acceptance_print" model="ir.actions.report">
+        <field name="name">Accepatance letter</field>
         <field name="model">hr.applicant</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">stadia.acceptance_letter</field>
@@ -14,7 +14,47 @@
     </record>
 
     <template id="acceptance_letter">
-        <t t-call="web.html_container">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="data">
+                <style>
+                    .s_l_bold_text {
+                        font-weight: 800;
+                    }
+                </style>
+                <t t-call="stadia.letter_header">
+                    <t t-set="ref_no" t-value="data['ref_no']" />
+                    <t t-set="date" t-value="datetime.datetime.now().strftime('%m/%d/%Y')" />
+                    <t t-set="name" t-value="data['partner_name']" />
+                    <t t-set="sub" t-value="'Acceptance Letter'" />
+                </t>
+                <div>
+                    <p>Following Our Company’s vacant position notice for the position of: 
+                        <span class="s_l_bold_text"><t t-esc="data['job_id']['name']" /></span>
+                        , you have applied and had a successful interview.
+                    </p>
+                    <p>
+                        Accordingly, the management of stadia engineering would like to take this opportunity to inform you that the company decided to accept your application for the above position.
+                    </p>
+                    <p>
+                        This is, therefore to inform you to finalize the employment process and commence your duties and responsibilities in the soonest possible time.
+                    </p>
+                    <p>
+                        Looking forward working with you. We believe you would contribute your utmost knowledge and skill towards the company’s aspiration.
+                    </p>
+                    <p>
+                        With regards,
+                    </p>
+                    <p style="margin-top: 100px">
+                        <p>C.C</p>
+                        <ul>
+                            <li>Finance</li>
+                            <li>File</li>
+                        </ul>
+                    </p>
+                </div>
+            </t>
+        </t>
+        <!-- <t t-call="web.html_container">
             <t t-call="web.basic_layout">
                 <t t-foreach="docs" t-as="data">
                     <style>
@@ -253,6 +293,6 @@
 
                 </t>
             </t>
-        </t>
+        </t> -->
     </template>
 </odoo>
