@@ -51,6 +51,7 @@
 
         'wizard/hr_leave_report_list.xml',
         'wizard/manpower_report.xml',
+        'wizard/asset_report_wizard.xml',
 
         'report/hr_contract_employee_badge.xml',
         'report/header_template.xml',

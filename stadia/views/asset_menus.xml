@@ -4,6 +4,9 @@
         <menuitem id="assets_menu" name="Assets"  action="action_asset" />
         <menuitem id="asset_movement_menu" name="Asset Movement" action="asset_movement_list_action"/>
         <menuitem id="asset_types" name="Asset Types" action="action_asset_category" />
-        <menuitem id="asset_reporting" name="Asset Reporting" action="action_report_asset" />
+        <menuitem id="asset_reporting" name="Report" sequence="25">
+            <menuitem id="asset_movement_report" name="Asset Movement" action="asset_movement_wizard"/>
+            <menuitem id="asset_depreciation_reporting" name="Asset Deperciation" action="action_report_asset" />
+        </menuitem>
     </menuitem>
 </odoo>
