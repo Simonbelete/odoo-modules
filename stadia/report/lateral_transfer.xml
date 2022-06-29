@@ -16,6 +16,11 @@
     <template id="lateral_transfer_template">
         <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="data">
+                <style>
+                    .s_l_bold_text {
+                        font-weight: 800;
+                    }
+                </style>
                 <t t-call="stadia.letter_header">
                     <t t-set="ref_no" t-value="" />
                     <t t-set="date" t-value="datetime.datetime.now().strftime('%m/%d/%Y')" />
@@ -23,7 +28,18 @@
                     <t t-set="sub" t-value="'Lateral Transfer'" />
                 </t>
                 <div>
-                    Dear ato
+                    <p>Dear <t t-esc="data['employee_id']['name']" /></p>
+                    <p>It is to be recalled that you have been working on the 
+                        <span class="s_l_bold_text"><t t-esc="data['active_work_place_id']['name']" /></span>
+                        in the capacity of 
+                        <span class="s_l_bold_text"><t t-esc="data['job_id']['name']" /></span>.
+                    </p>
+                    <p>
+                        However, in line with the discussion made with you, the company has transferred you to 
+                        <span class="s_l_bold_text"><t t-esc="data['new_work_place']['name']" /></span>
+                        in the capacity of [Insert new position] effective as of 
+                        [Insert Month Date, Year]
+                    </p>
                 </div>
             </t>
         </t>
