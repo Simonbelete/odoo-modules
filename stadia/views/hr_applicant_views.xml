@@ -17,6 +17,9 @@
             <xpath expr="//field[@name='email_from']" position="before">
                <field name="ref_no" />
             </xpath>
+            <xpath expr="//field[@name='source_id']" position="after">
+                <field name="work_place_id" />
+             </xpath>
             <xpath expr="//field[@name='partner_name']" position="after">
                 <h5 class="o_row">
                     <div>
