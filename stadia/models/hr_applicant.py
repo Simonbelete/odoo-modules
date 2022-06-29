@@ -1,4 +1,5 @@
 from odoo import fields, api, models
+from num2words import num2words
 
 class HrRecruitmentStage(models.Model):
     _inherit = 'hr.recruitment.stage'
@@ -9,6 +10,9 @@ class HrApplicant(models.Model):
     """ Inherited modes to add is the applicant type is recommendation or not"""
     _inherit = 'hr.applicant'
 
+    def _default_work_place_id(self):
+        return self.env['stadia.workplace'].search([('name', '=', 'Head Office')], limit=1)
+
     def _default_ref_no(self):
         return self.env['ir.sequence'].next_by_code('ref.no.sequence')
 
@@ -16,6 +20,12 @@ class HrApplicant(models.Model):
     recommended_by = fields.Many2one('hr.employee')
     acquisition_id = fields.Many2one('stadia.acquisition', domain="[('state', '=', 'approved')]", required=True)
     survey_answer_ids = fields.One2many('applicant.answer', 'hr_applicant_id')
+    work_place_id = fields.Many2one('stadia.workplace', default=_default_work_place_id)
+    salary_proposed_in_word = fields.Char(compute="_compute_salary_proposed_in_word")
+
+    def _compute_salary_proposed_in_word(self):
+        self.ensure_one()
+        self.salary_proposed_in_word = num2words(self.salary_proposed)
 
     @api.onchange('partner_name')
     def onchange_applicants_name(self):

@@ -2,19 +2,63 @@
 <odoo>
     <record id="employment_notification_print" model="ir.actions.report">
         <field name="name">Employment Notification</field>
-        <field name="model">hr.contract</field>
+        <field name="model">hr.applicant</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">stadia.employment_notification_template</field>
         <field name="report_file">employment_notification_template</field>
         <field name="print_report_name">'Employment Notification - %s' % (object.id)</field>
         <field name="paperformat_id" ref="paperformat_euro_lowmargin"/>
         <!-- model_[model name] -->
-        <field name="binding_model_id" ref="model_hr_contract"/>
+        <field name="binding_model_id" ref="model_hr_applicant"/>
         <field name="binding_type">report</field>
     </record>
 
     <template id="employment_notification_template">
-        <t t-call="web.html_container">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="data">
+                <style>
+                    .s_l_bold_text {
+                        font-weight: 800;
+                    }
+                </style>
+                <t t-call="stadia.letter_header">
+                    <t t-set="ref_no" t-value="data['ref_no']" />
+                    <t t-set="date" t-value="datetime.datetime.now().strftime('%m/%d/%Y')" />
+                    <t t-set="name" t-value="data['partner_name']" />
+                    <t t-set="sub" t-value="'Employment Notification'" />
+                </t>
+                <div>
+                    <p>Dear <t t-esc="data['partner_name']" /></p>
+                    <p>
+                        We are pleased to inform you that our company has decided to employ you for the position of 
+                        <t t-esc="data['job_id']['name']" />
+                        on the Consultancy Service for Continuation of Construction Supervision of
+                        <t t-esc="data['work_place_id']['name']" />
+                    </p>
+                    <p>
+                        You will earn a monthly gross salary of
+                        <span class="s_l_bold_text"><t t-esc="data['salary_proposed_in_word']" />.</span>
+                    </p>
+                    <p>
+                        effective as of 
+                        <span class="s_l_bold_text"><t t-esc="data['availability']" /></span>. 
+                        The first 60 working days would be a probation period.
+                    </p>
+                    <p>We take this opportunity to express our belief that you will demonstrate your competency with the highest degree of commitment, integrity and team sprit towards the achievement of the project’s objectives.</p>
+                    <p>
+                        With regards,
+                    </p>
+                    <p style="margin-top: 100px">
+                        <p>C.C</p>
+                        <ul>
+                            <li>Finance</li>
+                            <li>File</li>
+                        </ul>
+                    </p>
+                </div>
+            </t>
+        </t>
+        <!-- <t t-call="web.html_container">
             <t t-call="web.basic_layout">
                 <t t-foreach="docs" t-as="data">
                     <style>
@@ -257,7 +301,7 @@
                     </body>
                 </t>
             </t>
-        </t>
+        </t> -->
 
     </template>
 

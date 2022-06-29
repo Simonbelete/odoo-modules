@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="employment_notification_print" model="ir.actions.report">
-        <field name="name">Employment Notification</field>
+    <record id="employment_acceptance_print" model="ir.actions.report">
+        <field name="name">Employment Accepatance letter</field>
         <field name="model">hr.applicant</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">stadia.acceptance_letter</field>
