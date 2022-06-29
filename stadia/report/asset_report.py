@@ -2,6 +2,27 @@ import xlsxwriter
 from datetime import datetime
 from odoo import api, models
 
+class AssetMovementReport(models.AbstractModel):
+    _name = 'report.stadia.asset_movement_report'
+    _inherit = 'report.report_xlsx.abstract'
+
+    def generate_xlsx_report(self, workbook, data, partners):
+        sheet = workbook.add_worksheet()
+
+        # Set up some formats to use.
+        bold = workbook.add_format({'bold': True})
+
+        start_date = data['form']['date_from']
+        start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
+        end_date = data['form']['date_to']
+        end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
+
+        sheet.write(0, 0, 'Date')
+
+        # Get id of asset that have movment btweeen the dates (instead of looping through all assets)
+
+
+
 class AssetReport(models.AbstractModel):
     _name = 'report.stadia.asset_report'
     _inherit = 'report.report_xlsx.abstract'
@@ -121,3 +142,5 @@ class AssetReport(models.AbstractModel):
     def get_asset_category(self):
         asset_categories = self.env['stadia.asset.category'].search([])
         return asset_categories
+
+

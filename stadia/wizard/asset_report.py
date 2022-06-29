@@ -7,4 +7,11 @@ class AssetMovementReportWizard(models.TransientModel):
     date_to = fields.Date(required=True)
 
     def print_report(self):
-        return True
+        self.ensure_one()
+        [data] = self.read()
+        datas = {
+            'ids': [],
+            'model': 'stadia.asset',
+            'form': data
+        }
+        return self.env.ref('stadia.asset_movmenet_report').report_action([], data=datas)

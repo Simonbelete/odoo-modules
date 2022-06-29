@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- Asset Movement -->
+    <record id="asset_movmenet_report" model="ir.actions.report">
+        <field name="name">Asset Movement Report</field>
+        <field name="model">stadia.asset</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">stadia.asset_movement_report</field>
+        <field name="report_file">asset_movement_report</field>
+        <field name="binding_type">report</field>
+    </record>
+
+
     <record id="stadia_job_spec_print_xls" model="ir.actions.report">
         <field name="name">Fixed Assets Schedule</field>
         <field name="model">stadia.asset</field>
