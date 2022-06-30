@@ -84,6 +84,7 @@
         'views/account_asset_views.xml',
         'views/hr_loan_views.xml',
         'views/work_place_views.xml',
+        'views/hr_attendance_view.xml',
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',
