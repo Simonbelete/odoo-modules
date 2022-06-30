@@ -76,6 +76,13 @@
             <form>
                 <header>
                     <field name="stage_id" widget="statusbar" options="{'clickable': '1'}" />
+                    <button name="action_open_hr_contract_form" 
+                        string="Create Contract" 
+                        type="object" 
+                        class="oe_highlight" 
+                        context="{
+                            'wage': salary
+                        }"/>
                 </header>
                 <sheet>
                     <div class="oe_title">

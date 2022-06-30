@@ -74,6 +74,21 @@ class Promotion(models.Model):
         stage_ids = stages._search([],order=order)
         return stages.browse(stage_ids)
 
+    def action_open_hr_contract_form(self):
+        return {
+            'res_model': 'hr.contract',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'view_id': self.env.ref('stadia.stadia_hr_employee_contract_form').id,
+            'target': 'self',
+            'context': {
+                'default_wage': self.salary,
+                'default_employee_id': self.employee_id.id,
+                'default_job_id': self.new_designation_job_id.id
+            }
+        }
+
 
 class PromotionStageSurvery(models.Model):
     _name = 'promotion.answer'

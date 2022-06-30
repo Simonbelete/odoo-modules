@@ -30,3 +30,12 @@ class HrContract(models.Model):
 
     def _compute_expiry_date(self):
         self.expiry_date = datetime.now() + relativedelta(years=1)
+
+    # Override default
+    @api.depends('employee_id')
+    def _compute_employee_contract(self):
+        for contract in self.filtered('employee_id'):
+            # contract.job_id = contract.employee_id.job_id
+            contract.department_id = contract.employee_id.department_id
+            contract.resource_calendar_id = contract.employee_id.resource_calendar_id
+            contract.company_id = contract.employee_id.company_id
