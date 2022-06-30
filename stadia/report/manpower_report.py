@@ -67,7 +67,7 @@ class LateralTransferManpowerReport(models.AbstractModel):
         # i.e contract signed stage
         last_stage_id = self.env['stadia.promotion.stage'].search([])
         last_stage_id = max(last_stage_id.mapped('sequence'))
-        promotions = self.env['stadia.promotion'].search([('id', '=', last_stage_id), ('promotion_type', '=', 'transfer')])
+        promotions = self.env['stadia.promotion'].search([('stage_id', '=', last_stage_id), ('promotion_type', '=', 'transfer')])
 
         sheet.write(0, 0, 'Name of Employe', bold)
         sheet.write(0, 1, 'Position', bold)
@@ -81,13 +81,13 @@ class LateralTransferManpowerReport(models.AbstractModel):
         col = 1
         for promotion in promotions:
             # Check the employee has signed a contract
-            contract_count = self.env['hr.contract'].search_count([('employee_id', '=', promotion.employee_id), ('date_start', '>=', promotion.date), ('state', '=', 'open')])
+            contract_count = self.env['hr.contract'].search_count([('employee_id', '=', promotion.employee_id.id), ('date_start', '>=', promotion.start_date), ('state', '=', 'open')])
             sheet.write(col, 0, promotion.employee_id.name)
             sheet.write(col, 1, promotion.employee_id.job_id.name)
             sheet.write(col, 2, promotion.employee_id.contract_id.wage)
             sheet.write(col, 3, promotion.employee_id.contract_id.perdime)
             sheet.write(col, 4, '')
             sheet.write(col, 4, '')
-            sheet.write(col, 4, promotion.new_work_place)
-            sheet.write(col, 4, promotion.date)
+            sheet.write(col, 4, promotion.new_work_place.name)
+            sheet.write(col, 4, promotion.start_date)
             col += 1
