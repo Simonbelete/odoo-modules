@@ -4,7 +4,7 @@
     <menuitem id="acquisition_menu" 
         name="Acquistion" 
         web_icon="stadia,static/Acquisition.png"
-        groups="group_base_admin,group_base_gm,group_base_department_head,group_base_hr">
+        groups="group_base_admin,group_base_gm,group_base_department_head,group_base_hr,group_base_secretary">
         <menuitem id="acquistion_list_menu"
             name="Acquistions"
             action="acquisition_action" />

@@ -91,3 +91,46 @@ class LateralTransferManpowerReport(models.AbstractModel):
             sheet.write(col, 4, promotion.new_work_place.name)
             sheet.write(col, 4, promotion.start_date)
             col += 1
+
+class PromotionManpowerReport(models.AbstractModel):
+    _name = 'report.stadia.promotion_manpower_report'
+    _inherit = 'report.report_xlsx.abstract'
+    
+    def generate_xlsx_report(self, workbook, data, partners):
+        sheet = workbook.add_worksheet()
+
+        # Set up some formats to use.
+        bold = workbook.add_format({'bold': True})
+
+        start_date = data['form']['date_from']
+        start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
+        end_date = data['form']['date_to']
+        end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
+
+        # i.e contract signed stage
+        last_stage_id = self.env['stadia.promotion.stage'].search([])
+        last_stage_id = max(last_stage_id.mapped('sequence'))
+        promotions = self.env['stadia.promotion'].search([('stage_id', '=', last_stage_id), ('promotion_type', '=', 'promotion')])
+
+        sheet.write(0, 0, 'Name of Employe', bold)
+        sheet.write(0, 1, 'Position', bold)
+        sheet.write(0, 2, 'Basic Salary', bold)
+        sheet.write(0, 3, 'Perdime', bold)
+        sheet.write(0, 4, 'Desert Allowance', bold)
+        sheet.write(0, 5, 'Transfer From', bold)
+        sheet.write(0, 6, 'Transfer To', bold)
+        sheet.write(0, 7, 'Transfer Date', bold)
+
+        col = 1
+        for promotion in promotions:
+            # Check the employee has signed a contract
+            contract_count = self.env['hr.contract'].search_count([('employee_id', '=', promotion.employee_id.id), ('date_start', '>=', promotion.start_date), ('state', '=', 'open')])
+            sheet.write(col, 0, promotion.employee_id.name)
+            sheet.write(col, 1, promotion.employee_id.job_id.name)
+            sheet.write(col, 2, promotion.employee_id.contract_id.wage)
+            sheet.write(col, 3, promotion.employee_id.contract_id.perdime)
+            sheet.write(col, 4, '')
+            sheet.write(col, 4, '')
+            sheet.write(col, 4, promotion.new_work_place.name)
+            sheet.write(col, 4, promotion.start_date)
+            col += 1

@@ -55,4 +55,31 @@
         <field name="target">new</field>
     </record>
 
+     <!-- Promotion -->
+     <record id="view_promotion_manpower_report" model="ir.ui.view">
+        <field name="name">promotion.manpower.report.form</field>
+        <field name="model">promotion.manpower.report</field>
+        <field name="arch" type="xml">
+            <form string="Time Off Summary">
+                <group col="4" colspan="6">
+                    <field name="date_from"/>
+                    <newline />
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_promotion_manpower_wizard" model="ir.actions.act_window">
+        <field name="name">Promotion Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">promotion.manpower.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
 </odoo>

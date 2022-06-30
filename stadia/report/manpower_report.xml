@@ -21,6 +21,16 @@
         <field name="binding_type">report</field>
     </record>
 
+    <!-- Promotion Transfer -->
+    <record id="promotion_abc_manpower_report" model="ir.actions.report">
+        <field name="name">Promotion Manpower Report</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">stadia.promotion_manpower_report</field>
+        <field name="report_file">promotion_report</field>
+        <field name="binding_type">report</field>
+    </record>
+
     <template id="manpower_report_template">
         <div class="man_report_tables">
             <style>

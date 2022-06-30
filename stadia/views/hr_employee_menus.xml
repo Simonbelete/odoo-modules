@@ -13,6 +13,11 @@
             action="action_manpower_wizard"
             />
         <menuitem
+            id="stadia_hr_promotion_manpower_report"
+            name="Promotion Manpower Report"
+            action="action_promotion_manpower_wizard"
+            />
+        <menuitem
             id="stadia_hr_transfer_manpower_report"
             name="Lateral Transfer Manpower Report"
             action="action_lateral_transfer_manpower_wizard"
