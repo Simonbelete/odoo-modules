@@ -975,7 +975,7 @@
 
     <!--    CONTRACT INFORMATION-->
 
-    <record id="hr_contract_bekele_kebede" model="hr.contract">
+    <!-- <record id="hr_contract_bekele_kebede" model="hr.contract">
         <field name="employee_id" ref="hr_employee_bekele_kebede"/>
         <field name="name">Bekele Kebede Contract Agreement</field>
         <field name="date_start">2021-03-12</field>
@@ -983,7 +983,7 @@
         <field name="perdime">268</field>
         <field name="travel_allowance">1500</field>
         <field name="state">open</field>
-    </record>
+    </record> -->
 
     <!--    EDUCATIONAL INFORMATION-->
     <record id="employee_family_bekele_kebede_education" model="hr.education">
