@@ -1,5 +1,6 @@
 from odoo import api, models
 from datetime import datetime, time, timedelta
+from xlsxwriter.utility import xl_rowcol_to_cell
 
 class AttendacneReport(models.AbstractModel):
     _name = 'report.stadia.attendance_report'
@@ -10,9 +11,11 @@ class AttendacneReport(models.AbstractModel):
 
         bold = workbook.add_format({'bold': True})
         yellow = workbook.add_format({'bg_color': '#FCD5B5'})
+        yellow.set_border(style=1)
         center = workbook.add_format()
         center.set_align('center')
         center.set_align('vcenter')
+        center.set_border(style=1)
         border = workbook.add_format()
         border.set_border(style=1)
         table_header_format = workbook.add_format()
@@ -40,15 +43,15 @@ class AttendacneReport(models.AbstractModel):
 
         # Tables header
         table_start_row = header_row + 1
-        sheet.merge_range(table_start_row, 0, table_start_row + 3, 0, 'S.No', table_header_format)
-        sheet.merge_range(table_start_row, 1, table_start_row + 3, 1, 'Name', table_header_format)
-        sheet.merge_range(table_start_row + 1, total_col + 3, table_start_row + 1, total_col + 8, 'Total', table_header_format)
-        sheet.write(table_start_row + 2, total_col + 3, 'P', center)
-        sheet.write(table_start_row + 2, total_col + 4, 'S', center)
-        sheet.write(table_start_row + 2, total_col + 5, 'T', center)
-        sheet.write(table_start_row + 2, total_col + 6, 'L', center)
-        sheet.write(table_start_row + 2, total_col + 7, 'A', center)
-        sheet.write(table_start_row + 2, total_col + 8, 'Total', center)
+        sheet.merge_range(table_start_row, 0, table_start_row + 2, 0, 'S.No', table_header_format)
+        sheet.merge_range(table_start_row, 1, table_start_row + 2, 1, 'Name', table_header_format)
+        sheet.merge_range(table_start_row , total_col + 3, table_start_row, total_col + 8, 'Total', table_header_format)
+        sheet.write(table_start_row + 1, total_col + 3, 'P', center)
+        sheet.write(table_start_row + 1, total_col + 4, 'S', center)
+        sheet.write(table_start_row + 1, total_col + 5, 'T', center)
+        sheet.write(table_start_row + 1, total_col + 6, 'L', center)
+        sheet.write(table_start_row + 1, total_col + 7, 'A', center)
+        sheet.write(table_start_row + 1, total_col + 8, 'Total', center)
 
         # Sizes
         sheet.set_column(0, 0, 5)
@@ -60,7 +63,7 @@ class AttendacneReport(models.AbstractModel):
         sheet.set_column(total_col + 7, total_col + 7, 5)
         sheet.set_column(total_col + 8, total_col + 8, 5)
 
-        data_start_row = table_start_row + 4
+        data_start_row = table_start_row + 3
         col = data_start_row
         # Write Headers
         is_header_written = False
@@ -69,12 +72,25 @@ class AttendacneReport(models.AbstractModel):
             delta = timedelta(days=1)
             date_start = start_date
 
-            sheet.write(col, 0, col - table_start_row + 1)
-            sheet.write(col, 1, employee.name)
-
+            sheet.write(col, 0, col - data_start_row + 1, border)
+            sheet.write(col, 1, employee.name, border)
+            f = '=COUNTIF(%s:%s,%s)' % (xl_rowcol_to_cell(col, 2), xl_rowcol_to_cell(col, total_col + 2) , xl_rowcol_to_cell(table_start_row + 1, total_col + 3))
+            sheet.write_formula(col, total_col + 3, f, border, '')
+            f = '=COUNTIF(%s:%s,%s)' % (xl_rowcol_to_cell(col, 2), xl_rowcol_to_cell(col, total_col + 2) , xl_rowcol_to_cell(table_start_row + 1, total_col + 4))
+            sheet.write_formula(col, total_col + 4, f, border, '')
+            f = '=COUNTIF(%s:%s,%s)' % (xl_rowcol_to_cell(col, 2), xl_rowcol_to_cell(col, total_col + 2) , xl_rowcol_to_cell(table_start_row + 1, total_col + 5))
+            sheet.write_formula(col, total_col + 5, f, border, '')
+            f = '=COUNTIF(%s:%s,%s)' % (xl_rowcol_to_cell(col, 2), xl_rowcol_to_cell(col, total_col + 2) , xl_rowcol_to_cell(table_start_row + 1, total_col + 6))
+            sheet.write_formula(col, total_col + 6, f, border, '')
+            f = '=COUNTIF(%s:%s,%s)' % (xl_rowcol_to_cell(col, 2), xl_rowcol_to_cell(col, total_col + 2), xl_rowcol_to_cell(table_start_row + 1, total_col + 7))
+            sheet.write_formula(col, total_col + 7, f, border, '')
+            f = '=COUNTA(%s:%s)' % (xl_rowcol_to_cell(col, 2), xl_rowcol_to_cell(col, total_col + 2))
+            sheet.write_formula(col, total_col + 8, f, border, '')
+            
             row = 2
             while date_start <= end_date:
                 color = workbook.add_format()
+                color.set_border(style=1)
                 current_date = date_start
                 current_date_time = datetime.combine(current_date, datetime.min.time())
                 current_end_date_time = datetime.combine(current_date, datetime.max.time())
@@ -94,9 +110,8 @@ class AttendacneReport(models.AbstractModel):
        
                 # Write Header
                 if(not is_header_written):
-                    sheet.merge_range(table_start_row, row, table_start_row + 3, row, current_date.strftime('%d'), table_header_format)
+                    sheet.merge_range(table_start_row, row, table_start_row + 2, row, current_date.strftime('%d'), table_header_format)
                     sheet.set_column(table_start_row, row, 3)
-                    total_col += 1
 
                 # Convert or add up
                 total_leave_hours = 0
@@ -123,3 +138,5 @@ class AttendacneReport(models.AbstractModel):
 
             is_header_written = True
             col += 1
+
+        workbook.close()
