@@ -15,7 +15,24 @@
         <field name="arch" type="xml">
             <search>
                 <field name="work_place_id"/>
+                <!-- <group string="Address">
+                    <filter name="sub_city_id" string="Sub City" context="{'group_by': 'sub_city_id'}"/>
+                </group> -->
             </search>
+        </field>
+    </record>
+
+    <!-- Inherited from base hr employe view Search -->
+    <record id="stadia_base_hr_employee_search" model="ir.ui.view">
+        <field name="name">hr.employee.inherited</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <group string="Address">
+                    <filter name="sub_city_id" string="Sub City" context="{'group_by': 'sub_city_id'}"/>
+                </group>
+            </xpath>
         </field>
     </record>
 
