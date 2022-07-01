@@ -13,8 +13,6 @@ class HrAttendance(models.Model):
     reason_for_change = fields.Char()
 
     def write(self, vals):
-        print('111111111111111111111111111')
-        print(vals)
         if(not 'reason_for_change' in vals):
             raise UserError('Please enter the reason for changes')
         else:
