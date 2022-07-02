@@ -41,10 +41,9 @@
                 <field name="employee_id"/>
                 <field name="job_id"/>
                 <field name="acquisition_id"/>
-                <filter name="acquisition_id" string="Acquistion" context="{'group_by': 'acquisition_id'}" />
+                <filter name="stage_id" string="Stage" context="{'group_by': 'stage_id'}" />
                 <filter name="job_id" string="Previous Job" context="{'group_by': 'job_id'}" />
                 <filter name="new_designation_job_id" string="New Job" context="{'group_by': 'new_designation_job_id'}" />
-                <filter name="stage_id" string="Stage" context="{'group_by': 'stage_id'}" />
                 <filter name="active_work_place_id" string="Work Place/Project" context="{'group_by': 'active_work_place_id'}" />
                 <filter name="new_work_place" string="Transfered Work Place/Project" context="{'group_by': 'new_work_place'}" />
             </search>
