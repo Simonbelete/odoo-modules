@@ -97,7 +97,7 @@ class AllManpowerReport(models.AbstractModel):
         # i.e contract signed stage
         last_stage_id = self.env['stadia.promotion.stage'].search([])
         last_stage_id = max(last_stage_id.mapped('sequence'))
-        promotions = self.env['stadia.promotion'].search([('stage_id', '=', last_stage_id), ('promotion_type', '=', 'transfer')])
+        lateral_transfer = self.env['stadia.promotion'].search([('stage_id', '=', last_stage_id), ('promotion_type', '=', 'transfer')])
 
         row += 1
         sheet.write(row, 0, 'Lateral Transfer')
@@ -115,6 +115,36 @@ class AllManpowerReport(models.AbstractModel):
 
         row = row + 1
         c = 1
+        for transfer in lateral_transfer:
+            # Check the employee has signed a contract
+            contract_count = self.env['hr.contract'].search_count([('employee_id', '=', transfer.employee_id.id), ('date_start', '=', transfer.start_date), ('state', '=', 'open')])
+            style = border
+            if(contract_count == 0):
+                style = workbook.add_format()
+                style.set_border(style=1)
+                style.set_bg_color('#66666')
+            sheet.write(row, 0, c, style)
+            sheet.write(row, 1, transfer.employee_id.name, style)
+            sheet.write(row, 2, transfer.employee_id.job_id.name, style)
+            sheet.write(row, 3, transfer.salary, style)
+            sheet.write(row, 4, transfer.perdime, style)
+            sheet.write(row, 5, '', style)
+            sheet.write(row, 6, transfer.active_work_place_id.name if transfer.active_work_place_id else '', style)
+            sheet.write(row, 7, transfer.new_work_place.name, style)
+            sheet.write(row, 8, transfer.start_date.strftime('%m/%d/%Y'), style)
+            row += 1
+            c += 1
+
+        ####################################
+        ## Promtion
+        ####################################
+        row += 1
+        sheet.merge_range(row, 0, row, max_col -1, 'Promotion', border)
+        
+        promotions = self.env['stadia.promotion'].search([('stage_id', '=', last_stage_id), ('promotion_type', '=', 'promotion')])
+
+        row = row + 1
+        c = 1
         for promotion in promotions:
             # Check the employee has signed a contract
             contract_count = self.env['hr.contract'].search_count([('employee_id', '=', promotion.employee_id.id), ('date_start', '=', promotion.start_date), ('state', '=', 'open')])
@@ -126,14 +156,15 @@ class AllManpowerReport(models.AbstractModel):
             sheet.write(row, 0, c, style)
             sheet.write(row, 1, promotion.employee_id.name, style)
             sheet.write(row, 2, promotion.employee_id.job_id.name, style)
-            sheet.write(row, 3, promotion.employee_id.contract_id.wage, style)
-            sheet.write(row, 4, promotion.employee_id.contract_id.perdime, style)
+            sheet.write(row, 3, promotion.salary, style)
+            sheet.write(row, 4, promotion.perdime, style)
             sheet.write(row, 5, '', style)
             sheet.write(row, 6, promotion.active_work_place_id.name if promotion.active_work_place_id else '', style)
             sheet.write(row, 7, promotion.new_work_place.name, style)
             sheet.write(row, 8, promotion.start_date.strftime('%m/%d/%Y'), style)
             row += 1
             c += 1
+
 
 class ManpowerReport(models.AbstractModel):
     _name = 'report.stadia.hired_manpower_report'
