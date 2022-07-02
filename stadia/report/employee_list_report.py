@@ -74,7 +74,10 @@ class EmployeeListReport(models.AbstractModel):
             sheet.write(row, 13, employee.bank_account_id.acc_number)
             sheet.write(row, 14, employee.gender)
             sheet.write(row, 15, employee.marital)
-            sheet.write(row, 16, employee.birthday)
+            if(employee.birthday):
+                sheet.write(row, 16, employee.birthday.strftime('%m/%d/%Y'))
+            else:
+                sheet.write(row, 16, '')
             sheet.write(row, 17, employee.country_id.name)
             sheet.write(row, 18, employee.pin)
             row += 1
