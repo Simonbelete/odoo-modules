@@ -120,6 +120,11 @@
                                     <field name="salary" string="Salary" nolabel="1"/>
                                     <span>/ month</span>
                                 </div>
+                                <label for="perdime"/>
+                                <div class="o_row" name="perdime">
+                                    <field name="perdime" string="Perdime" nolabel="1"/>
+                                    <span>/ month</span>
+                                </div>
                                 <label for="allowance"/>
                                 <div class="o_row" name="allowance">
                                     <field name="allowance" string="Allowance" nolabel="1"/>
