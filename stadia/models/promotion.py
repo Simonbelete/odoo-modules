@@ -112,10 +112,6 @@ class Promotion(models.Model):
         }
 
     def action_open_employee(self):
-        print('11111111111111111')
-        print('11111111111111111')
-        print('11111111111111111')
-        print('11111111111111111')
         return {
             'name': 'Employee',
             'type': 'ir.actions.act_window',
