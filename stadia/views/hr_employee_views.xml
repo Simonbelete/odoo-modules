@@ -32,6 +32,7 @@
                 <group string="Address">
                     <filter name="work_place_id" string="Project" context="{'group_by': 'work_place_id'}" />
                     <filter name="sub_city_id" string="Sub City" context="{'group_by': 'sub_city_id'}"/>
+                    <filter name="gender" string="Gender" context="{'group_by': 'gender'}"/>
                 </group>
             </xpath>
         </field>
