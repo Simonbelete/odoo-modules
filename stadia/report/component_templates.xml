@@ -193,4 +193,33 @@
             </div>
         </div>
     </template>
+
+    <template id="date_from_to_template">
+        <style>
+            .s_label {
+                font-weight: bold;
+                font-size: 13px;
+            }
+            .s_input_line {
+                border: 0;
+                border-bottom: 1px solid #000;
+                margin-bottom: 6px;
+                font-size: 13px;
+            }  
+        </style>
+        <table>
+            <tr>
+                <td><label class="s_label">Date:-</label></td>
+                <td><input class="s_input_line" type="text" t-att-value="datetime.datetime.now().strftime('%m/%d/%Y')" /></td>
+            </tr>
+            <tr>
+                <td><label class="s_label">From:-</label></td>
+                <td><input class="s_input_line" t-att-value="from_text" /></td>
+            </tr>
+            <tr>
+                <td><label class="s_label">To:-</label></td>
+                <td><input class="s_input_line" type="text" t-att-value="'General Manger'"/></td>
+            </tr>
+        </table>
+    </template>
 </odoo>

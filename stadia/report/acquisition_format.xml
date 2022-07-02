@@ -29,10 +29,23 @@
     <template id="stadia_requisition_format_template">
         <t t-call="web.basic_layout">
             <style>
-
+                .s_label {
+                    font-weight: bold;
+                }
+                .s_input_line {
+                    border: 0;
+                    border-bottom: 2px solid #000;
+                    margin-bottom: 17px;
+                }   
             </style>
             <div>
-                <t t-call="stadia.stadia_header_template_1" />
+                <t t-call="stadia.stadia_header_template_1">
+                    <t t-set="title" t-value="'HR Requisition Format'" />
+                    <t t-set="header" t-value="'HR Acquisition Format'" />
+                </t>
+                <t t-call="stadia.date_from_to_template">
+                    <t t-set="from_text" t-value="'To Dept'" />
+                </t>
             </div>
         </t>
     </template>
