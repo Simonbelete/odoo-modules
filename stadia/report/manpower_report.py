@@ -36,6 +36,7 @@ class ManpowerReport(models.AbstractModel):
         date_format.set_border(style=1)
 
         max_col = 9
+        max_row = 3
         left_cols = math.floor(max_col * 0.25)
         center_cols = math.ceil(max_col * 0.5)
         right_cols = math.floor(max_col * 0.25)
@@ -49,35 +50,43 @@ class ManpowerReport(models.AbstractModel):
         sheet.set_row(2, 50)
         sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date 111 - 2222', date_format)
 
-        start_row = 3
         # Get the employees from contract id
-
         employees = self.sudo().env['hr.employee'].search([('contract_id', '!=', False)])
 
+        sheet.write(max_row + 1, 0, 'No', bold)
+        sheet.write(max_row + 1, 1, 'Name of Employe', bold)
+        sheet.write(max_row + 1, 2, 'Position', bold)
+        sheet.write(max_row + 1, 3, 'Basic Salary', bold)
+        sheet.write(max_row + 1, 4, 'Perdime', bold)
+        sheet.write(max_row + 1, 5, 'Desert Allowance', bold)
+        sheet.write(max_row + 1, 6, 'Project', bold)
+        sheet.write(max_row + 1, 7, 'Date of Hired', bold)
 
+        # Sizes
+        sheet.set_column(0, 0,  5)
+        sheet.set_column(1, 1, 30)
+        sheet.set_column(2, 2, 20)
+        sheet.set_column(3, 3, 20)
+        sheet.set_column(4, 4, 20)
+        sheet.set_column(5, 5, 20)
+        sheet.set_column(6, 6, 20)
+        sheet.set_column(7, 7, 20)
 
-        sheet.write(start_row, 0, 'Name of Employe', bold)
-        sheet.write(start_row, 1, 'Position', bold)
-        sheet.write(start_row, 2, 'Basic Salary', bold)
-        sheet.write(start_row, 3, 'Perdime', bold)
-        sheet.write(start_row, 4, 'Desert Allowance', bold)
-        sheet.write(start_row, 5, 'Project', bold)
-        sheet.write(start_row, 6, 'Date of Hired', bold)
-
-        col = start_row + 1
+        col = max_row + 2
         for employee in employees:             
             ## TODO: improve efficiency
             if(not employee.first_contract_date):
                 continue
 
             if(employee.first_contract_date >= start_date and employee.first_contract_date <= end_date):
-                sheet.write(col, 0, employee.name)
-                sheet.write(col, 1, employee.job_id.name)
-                sheet.write(col, 2, employee.contract_id.wage)
-                sheet.write(col, 3, employee.contract_id.perdime)
-                sheet.write(col, 4, '')
-                sheet.write(col, 5, employee.contract_id.work_place_id.name)
-                sheet.write(col, 6, employee.first_contract_date.strftime('%m/%d/%Y'))
+                sheet.write(col, 0, col - max_row - 2)
+                sheet.write(col, 1, employee.name)
+                sheet.write(col, 2, employee.job_id.name)
+                sheet.write(col, 3, employee.contract_id.wage)
+                sheet.write(col, 4, employee.contract_id.perdime)
+                sheet.write(col, 5, '')
+                sheet.write(col, 6, employee.contract_id.work_place_id.name)
+                sheet.write(col, 7, employee.first_contract_date.strftime('%m/%d/%Y'))
                 col += 1
 
 class LateralTransferManpowerReport(models.AbstractModel):
