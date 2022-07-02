@@ -4,8 +4,8 @@
         <field name="name">HR Acquisition Format</field>
         <field name="model">hr.applicant</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">stadia.hiring_promotion_template</field>
-        <field name="report_file">hiring_promotion_template</field>
+        <field name="report_name">stadia.stadia_requisition_hireing_format_template</field>
+        <field name="report_file">stadia_requisition_hireing_format_template</field>
         <field name="print_report_name">'HR Job Specification format - %s' % (object.id)</field>
         <field name="paperformat_id" ref="paperformat_euro_lowmargin"/>
         <!-- model_[model name] -->
@@ -25,6 +25,161 @@
         <field name="binding_model_id" ref="model_stadia_promotion"/>
         <field name="binding_type">report</field>
     </record>
+
+    <template id="stadia_requisition_hireing_format_template">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="data">
+            <style>
+                .s_label {
+                    font-weight: bold;
+                }
+                .s_input_line {
+                    border: 0;
+                    border-bottom: 2px solid #000;
+                    margin-bottom: 17px;
+                }   
+            </style>
+            <div>
+                <t t-call="stadia.stadia_header_template_1">
+                    <t t-set="title" t-value="'HR Requisition Format'" />
+                    <t t-set="header" t-value="'HR Acquisition Format'" />
+                </t>
+                <t t-call="stadia.date_from_to_template">
+                    <t t-set="from_text" t-value="'To Dept'" />
+                </t>
+                <div style="border: 1px solid black; margin-top:50px; padding: 10px">
+                    <h3 style="text-decoration: underline; text-align: left;">Hiring</h3>
+                    <div style="margin-top: 50px">
+                        <div>
+                            <label>Name</label>
+                            <input type="text" style="width: 140px" class="s_input_line" t-att-value="data['partner_name']['name'].split()[0]"/>
+                            <label>Father Name</label>
+                            <input type="text" style="width: 140px" class="s_input_line" t-att-value="data['partner_name']['name'].split()[1] if data['partner_name']['name'].split()[1] else ''"/>
+                            <label>Grand Father Name</label>
+                            <input type="text" style="width: 140px" class="s_input_line" t-att-value="data['partner_name']['name'].split()[2] if data['partner_name']['name'].split()[2] else ''"/>
+                        </div>
+                        <div>
+                            <label>Specialized in</label>
+                            <input type="text" style="width: 80%" class="s_input_line" />
+                        </div>
+                        <div>
+                            <span>
+                                <span>Year of Experience (Total year)</span>
+                                <input type="text" class="s_input_line jst-line" />
+                            </span>
+                            <span>
+                                <span>(Related to the position)</span>
+                                <input type="text" style="width: 100px" class="s_input_line jst-line"  />
+                            </span>
+                        </div>
+                        <div>
+                            <label>Postion</label>
+                            <input type="text" style="width: 80%" class="s_input_line" t-att-value="data['job_id']['name']" />
+                        </div>
+                        <div>
+                            <label>Project</label>
+                            <input type="text" style="width: 80%" class="s_input_line" t-att-value="data['work_place_id']['name']" />
+                        </div>
+                        <div>
+                            <label>Salary</label>
+                            <input type="text" style="width: 100px" class="s_input_line" t-att-value="data['salary_proposed']" />
+                            <label>In Word</label>
+                            <input type="text" style="width: 60%" class="s_input_line" t-att-value="data['salary_proposed_in_word']"/>
+                        </div>
+                        <div>
+                            <label>per diem</label>
+                            <input type="text" class="s_input_line" />
+                            <label>In Word</label>
+                            <input type="text" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Allowance</label>
+                            <input type="text" class="s_input_line" />
+                            <label>In Word</label>
+                            <input type="text" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Transport Allowance</label>
+                            <input type="text" class="s_input_line" />
+                            <label>In Word</label>
+                            <input type="text" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Effective Date</label>
+                            <input type="text" style="width: 60%" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Tin Number</label>
+                            <input type="text" style="width: 60%" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Account Number</label>
+                            <input type="text" style="width: 60%" class="s_input_line" />
+                        </div>
+                    </div>
+                </div>
+
+                <div style="border: 1px solid black; margin-top:50px; padding: 10px">
+                    <h3 style="text-decoration: underline; text-align: left;">Transfer/Promotion</h3>
+                    <div style="margin-top: 50px">
+                        <div>
+                            <label>Name</label>
+                            <input type="text" style="width: 140px" class="s_input_line" />
+                            <label>Father Name</label>
+                            <input type="text" style="width: 140px" class="s_input_line" />
+                            <label>Grand Father Name</label>
+                            <input type="text" style="width: 140px" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Pervious Project</label>
+                            <input type="text" style="width: 60%" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Position</label>
+                            <input type="text" style="width: 60%" class="s_input_line"/>
+                        </div>
+                        <div>
+                            <label>New Project</label>
+                            <input type="text" style="width: 60%" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Position</label>
+                            <input type="text" style="width: 60%" class="s_input_line"/>
+                        </div>
+                        <div>
+                            <label>Salary</label>
+                            <input type="text" style="width: 100px" class="s_input_line" />
+                            <label>In Word</label>
+                            <input type="text" style="width: 60%" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>per diem</label>
+                            <input type="text" class="s_input_line"/>
+                            <label>In Word</label>
+                            <input type="text" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Allowance</label>
+                            <input type="text" class="s_input_line" />
+                            <label>In Word</label>
+                            <input type="text" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Transport Allowance</label>
+                            <input type="text" class="s_input_line" />
+                            <label>In Word</label>
+                            <input type="text" class="s_input_line" />
+                        </div>
+                        <div>
+                            <label>Effective Date</label>
+                            <input type="text" style="width: 60%" class="s_input_line" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </t>
+        </t>
+    </template>
 
     <template id="stadia_requisition_format_template">
         <t t-call="web.basic_layout">
