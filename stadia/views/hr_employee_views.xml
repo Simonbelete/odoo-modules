@@ -100,7 +100,7 @@
                 <button string="Generate id" type="object" name="action_generate_badge_id" />
             </xpath>
             <xpath expr="//div[@class='oe_button_box']" position="inside">
-                <button class="oe_stat_button" icon="fa-trophy" type="action" name="%(action_promotion)d">
+                <button class="oe_stat_button" icon="fa-trophy" type="action" name="%(action_promotion_by_employee)d" context="{'search_default_employee_id': id}">
                     <field name="promotion_count" string="Employee Promotion" widget="statinfo" />
                 </button>
             </xpath>
