@@ -102,11 +102,7 @@
                             <field name="start_date" />
                             <field name="new_designation_job_id" string="New Designation job" />
                             <field name="new_work_place" string="Transferred Work Place" />
-                            <label for="salary"/>
-                            <div class="o_row" name="salary">
-                                <field name="salary" string="Salary" nolabel="1"/>
-                                <span>/ month</span>
-                            </div>
+                            
                         </group>
                     </group>
                     <notebook>
@@ -115,6 +111,25 @@
                                 <field name="department_id" />
                                 <field name="job_id" />
                                 <field name="active_work_place_id" />
+                            </group>
+                        </page>
+                        <page string="Salary Information">
+                            <group>
+                                <label for="salary"/>
+                                <div class="o_row" name="salary">
+                                    <field name="salary" string="Salary" nolabel="1"/>
+                                    <span>/ month</span>
+                                </div>
+                                <label for="allowance"/>
+                                <div class="o_row" name="allowance">
+                                    <field name="allowance" string="Allowance" nolabel="1"/>
+                                    <span>/ month</span>
+                                </div>
+                                <label for="transport_allowance"/>
+                                <div class="o_row" name="transport_allowance">
+                                    <field name="transport_allowance" string="Transport Allowance" nolabel="1"/>
+                                    <span>/ month</span>
+                                </div>
                             </group>
                         </page>
                         <page string="Survey">

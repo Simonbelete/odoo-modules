@@ -72,6 +72,9 @@
                 -ms-flex-direction: column;
                 flex-direction: column;
             }
+            .s_img_border {
+                border: 1px solid gray;
+            }
         </style>
         <div class="s_center">
             <table class="ht-table">
@@ -79,7 +82,7 @@
                     <th style="width: 200px;"><t t-esc="title" /></th>
                     <th>
                         <div style="position: relative;">
-                            <span><img style="height: 60px; width: 60px;" src="/stadia/static/stadi_stamp_logo.jpg" /></span>
+                            <span><img style="height: 60px; width: 60px;" class="s_img_border" src="/stadia/static/stadi_stamp_logo.jpg" /></span>
                             <span class="s_t_text">Stadia Engineering Works Consultant Plc.</span>
                         </div>
                     </th>
