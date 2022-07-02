@@ -31,4 +31,43 @@
             </tr>
         </table>
     </template>
+
+    <template id="stadia_header_template_1">
+        <style>
+            .ht-table {
+                border-collapse: collapse;
+                border-top: 2px solid #C0C0C0;
+                border-bottom: 3px solid black;
+                border-left: 2px solid #C0C0C0;
+                border-right: 2px solid #C0C0C0;
+                width: 100%
+            }
+            .ht-table > tbody > tr > th {
+                border: 1px solid;
+                padding: 2px;
+                min-width: 100px;
+            }
+            .ht-table > tbody > tr > th > h6, h5, h4 {
+                text-align: center;
+            }
+            .s_t_text {
+                position: absolute;
+                bottom: 0;
+                font-size: 20px;
+                font-weigth: 500;
+                width: 400px
+            }
+        </style>
+        <table class="ht-table">
+            <tr>
+                <th style="width: 200px;">HR Requisition Format</th>
+                <th>
+                    <div style="position: relative;">
+                        <span><img style="height: 60px; width: 60px;" src="/stadia/static/stadi_stamp_logo.jpg" /></span>
+                        <span class="s_t_text">Stadia Engineering Works Consultant Plc.</span>
+                    </div>
+                </th>
+            </tr>
+        </table>
+    </template>
 </odoo>

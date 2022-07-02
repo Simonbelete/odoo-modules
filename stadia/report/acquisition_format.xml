@@ -13,4 +13,28 @@
         <field name="binding_type">report</field>
     </record>
 
+    <record id="acquisition_format_promotion_print" model="ir.actions.report">
+        <field name="name">HR Acquisition Format</field>
+        <field name="model">stadia.promotion</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">stadia.stadia_requisition_format_template</field>
+        <field name="report_file">stadia_requisition_format_template</field>
+        <field name="print_report_name">'HR requisition format - %s' % (object.id)</field>
+        <field name="paperformat_id" ref="paperformat_euro_lowmargin"/>
+        <!-- model_[model name] -->
+        <field name="binding_model_id" ref="model_stadia_promotion"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="stadia_requisition_format_template">
+        <t t-call="web.basic_layout">
+            <style>
+
+            </style>
+            <div>
+                <t t-call="stadia.stadia_header_template_1" />
+            </div>
+        </t>
+    </template>
+
 </odoo>
