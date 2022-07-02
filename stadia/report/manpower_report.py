@@ -1,3 +1,4 @@
+import math
 from odoo import api, fields, models
 from datetime import datetime
 
@@ -21,19 +22,49 @@ class ManpowerReport(models.AbstractModel):
         end_date = data['form']['date_to']
         end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
 
+        header_format = workbook.add_format()
+        header_format.set_font_size(15)
+        header_format.set_bold()
+        header_format.set_align('center')
+        header_format.set_align('vcenter')
+        header_format.set_border(style=1)
+        date_format = workbook.add_format()
+        date_format.set_font_size(10)
+        date_format.set_bold()
+        date_format.set_align('center')
+        date_format.set_align('vcenter')
+        date_format.set_border(style=1)
+
+        max_col = 9
+        left_cols = math.floor(max_col * 0.25)
+        center_cols = math.ceil(max_col * 0.5)
+        right_cols = math.floor(max_col * 0.25)
+
+        sheet.merge_range(0, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(1, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(2, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
+        sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
+        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Report', header_format)
+        sheet.set_row(2, 50)
+        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date 111 - 2222', date_format)
+
+        start_row = 3
         # Get the employees from contract id
 
         employees = self.sudo().env['hr.employee'].search([('contract_id', '!=', False)])
 
-        sheet.write(0, 0, 'Name of Employe', bold)
-        sheet.write(0, 1, 'Position', bold)
-        sheet.write(0, 2, 'Basic Salary', bold)
-        sheet.write(0, 3, 'Perdime', bold)
-        sheet.write(0, 4, 'Desert Allowance', bold)
-        sheet.write(0, 5, 'Project', bold)
-        sheet.write(0, 6, 'Date of Hired', bold)
 
-        col = 1
+
+        sheet.write(start_row, 0, 'Name of Employe', bold)
+        sheet.write(start_row, 1, 'Position', bold)
+        sheet.write(start_row, 2, 'Basic Salary', bold)
+        sheet.write(start_row, 3, 'Perdime', bold)
+        sheet.write(start_row, 4, 'Desert Allowance', bold)
+        sheet.write(start_row, 5, 'Project', bold)
+        sheet.write(start_row, 6, 'Date of Hired', bold)
+
+        col = start_row + 1
         for employee in employees:             
             ## TODO: improve efficiency
             if(not employee.first_contract_date):

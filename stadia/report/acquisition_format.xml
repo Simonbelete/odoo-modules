@@ -52,7 +52,7 @@
                     <div style="margin-top: 50px">
                         <div>
                             <label>Name</label>
-                            <input type="text" style="width: 140px" class="s_input_line" t-att-value="data['partner_name']['name'].split()[0]"/>
+                            <input type="text" style="width: 140px" class="s_input_line" t-att-value="data['partner_name']['name'].split()[0] if data['partner_name']['name'].split()[0] else data['partner_name']['name']"/>
                             <label>Father Name</label>
                             <input type="text" style="width: 140px" class="s_input_line" t-att-value="data['partner_name']['name'].split()[1] if data['partner_name']['name'].split()[1] else ''"/>
                             <label>Grand Father Name</label>
