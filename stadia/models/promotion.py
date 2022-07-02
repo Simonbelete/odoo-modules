@@ -25,7 +25,7 @@ class Promotion(models.Model):
     # Previous job id
     job_id = fields.Many2one(related="employee_id.job_id")
     # Active previous work location
-    active_work_place_id = fields.Many2one(related="employee_id.contract_id.work_place_id")
+    active_work_place_id = fields.Many2one(related="employee_id.contract_id.work_place_id", store=True)
     stage_id = fields.Many2one('stadia.promotion.stage', group_expand="_read_group_state_ids", default=_default_stage_id)
     acquisition_id = fields.Many2one('stadia.acquisition', domain="[('state', '=', 'approved')]")
     recommended_by = fields.Many2one('hr.employee')
