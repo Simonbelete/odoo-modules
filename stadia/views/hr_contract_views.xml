@@ -4,7 +4,17 @@
         <field name="name">Employee Contract</field>
         <field name="res_model">hr.contract</field>
         <field name="view_mode">form</field>
-        <field name="context">{'search_default_wage': [wage], 'search_default_employee_id': [employee_id], 'search_default_job_id': [job_id]}</field>
+        <field name="context">
+            {
+                'search_default_wage': [wage], 
+                'search_default_employee_id': [employee_id], 
+                'search_default_job_id': [job_id],
+                'search_default_date_start': [date_start],
+                'search_default_perdime': [perdime],
+                'search_default_other_allowance': [other_allowance],
+                'search_default_transport_allowance': [transport_allowance]
+            }
+        </field>
     </record>
 
     <record id="stadia_contract_search_view" model="ir.ui.view">

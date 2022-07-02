@@ -106,7 +106,8 @@ class Promotion(models.Model):
                 'default_job_id': self.new_designation_job_id.id,
                 'default_date_start': self.start_date,
                 'default_perdime': self.perdime,
-                
+                'default_other_allowance': self.allowance,
+                'default_transport_allowance': self.transport_allowance
             }
         }
 
