@@ -3,7 +3,7 @@
     <record id="action_promotion_non_filter" model="ir.actions.act_window">
         <field name="name">Promotions</field>
         <field name="res_model">stadia.promotion</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <record id="action_promotion" model="ir.actions.act_window">
@@ -66,10 +66,30 @@
         <field name="model">stadia.promotion</field>
         <field name="arch" type="xml">
             <kanban default_group_by="stage_id">
+                <field name="recommended_by" />
                 <templates>
                     <t t-name="kanban-box">
                         <div t-attf-class="oe_kanban_global_click">
-                            <field name="employee_id" />
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <b><field name="employee_id" /></b>
+                                        <i class="o_kanban_record_title"><field name="acquisition_id"/></i><br/>
+                                        <div class="o_kanban_record_subtitle text-muted">
+                                            <b>From:-</b><field name="job_id"/>
+                                            <br />
+                                            <b>To:-</b><field name="new_designation_job_id"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom mt4">
+                                    <div class="oe_kanban_bottom_right o_primary">
+                                        <a role="button" style="color: #7c7bad;" name="action_open_employee">
+                                            <field name="recommended_by" />   
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </t>
                 </templates>

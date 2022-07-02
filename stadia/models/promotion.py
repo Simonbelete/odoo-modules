@@ -111,6 +111,18 @@ class Promotion(models.Model):
             }
         }
 
+    def action_open_employee(self):
+        print('11111111111111111')
+        print('11111111111111111')
+        print('11111111111111111')
+        print('11111111111111111')
+        return {
+            'name': 'Employee',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hr.employee',
+            'res_id': self.employee_id.id,
+            'view_mode': 'form'
+        }
 
 class PromotionStageSurvery(models.Model):
     _name = 'promotion.answer'
