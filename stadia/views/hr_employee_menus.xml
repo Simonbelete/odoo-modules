@@ -8,6 +8,11 @@
         sequence="26"
         >
         <menuitem
+            id="stadia_hr_all_manpower_report"
+            name="Manpower Report"
+            action="action_all_manpower_wizard"
+            />
+        <menuitem
             id="stadia_hr_manpower_report"
             name="Hired Manpower Report"
             action="action_manpower_wizard"

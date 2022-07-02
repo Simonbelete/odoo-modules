@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- All Manpower Report Wizard -->
+    <record id="view_all_manpower_wizard" model="ir.ui.view">
+        <field name="name">all.manpower.report.form</field>
+        <field name="model">all.manpower.report</field>
+        <field name="arch" type="xml">
+            <form string="All Manpower report">
+                <group col="4" colspan="6">
+                    <field name="date_from"/>
+                    <newline />
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_all_manpower_wizard" model="ir.actions.act_window">
+        <field name="name">Manpower Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">all.manpower.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
     <!-- Hired Wizard -->
     <record id="view_hired_manpower_report" model="ir.ui.view">
         <field name="name">hired.manpower.report.form</field>
