@@ -72,6 +72,7 @@
         'report/manpower_report.xml',
         'report/hr_leave_report_list_report.xml',
         'report/attendance_report.xml',
+        'report/employee_list_repot.xml',
         
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
