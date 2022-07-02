@@ -57,17 +57,35 @@
                 font-weigth: 500;
                 width: 400px
             }
+            .s_center {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
         </style>
-        <table class="ht-table">
-            <tr>
-                <th style="width: 200px;">HR Requisition Format</th>
-                <th>
-                    <div style="position: relative;">
-                        <span><img style="height: 60px; width: 60px;" src="/stadia/static/stadi_stamp_logo.jpg" /></span>
-                        <span class="s_t_text">Stadia Engineering Works Consultant Plc.</span>
-                    </div>
-                </th>
-            </tr>
-        </table>
+        <div class="s_center">
+            <table class="ht-table">
+                <tr>
+                    <th style="width: 200px;"><t t-esc="title" /></th>
+                    <th>
+                        <div style="position: relative;">
+                            <span><img style="height: 60px; width: 60px;" src="/stadia/static/stadi_stamp_logo.jpg" /></span>
+                            <span class="s_t_text">Stadia Engineering Works Consultant Plc.</span>
+                        </div>
+                    </th>
+                </tr>
+            </table>
+            <h4 style="margin-top: 30px; font-weight: 800;"><t t-esc="header" /></h4>
+        </div>
     </template>
 </odoo>
