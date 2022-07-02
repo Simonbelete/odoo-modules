@@ -41,19 +41,16 @@
             <xpath expr="//field[@name='job_id']" position="attributes">
                 <attribute name="required">True</attribute>
             </xpath>
-            <xpath expr="//group[@name='main_info']">
-                <group string="Others">
-                    <label for="cost_sharing"/>
-                    <div class="o_row" name="cost_sharing">
-                        <field name="cost_sharing" string="Cost Sharing" nolabel="1"/>
+                <xpath expr="//group[@name='allowances']" position="inside">
+                    <label for="transport_allowance"/>
+                    <div class="o_row" name="transport_allowance">
+                        <field name="transport_allowance" string="Transport Allowance" nolabel="1"/>
                         <span>/ month</span>
                     </div>
-                </group>
-                </xpath>
-                <xpath expr="//group[@name='salary_and_advantages']" position="inside">
                     <label for="phone_allowance"/>
                     <div class="o_row" name="phone_allowance">
-                        <field name="phone_allowance" nolabel="1"/>
+                        <field name="phone_allowance" string="Phone Allowance" nolabel="1"/>
+                        <span>/ month</span>
                     </div>
                 </xpath>
 

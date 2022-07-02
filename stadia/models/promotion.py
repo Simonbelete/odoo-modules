@@ -103,7 +103,10 @@ class Promotion(models.Model):
             'context': {
                 'default_wage': self.salary,
                 'default_employee_id': self.employee_id.id,
-                'default_job_id': self.new_designation_job_id.id
+                'default_job_id': self.new_designation_job_id.id,
+                'default_date_start': self.start_date,
+                'default_perdime': self.perdime,
+                
             }
         }
 

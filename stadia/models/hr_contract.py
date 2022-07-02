@@ -16,10 +16,11 @@ class HrContract(models.Model):
     # Per day perdime
     perdime = fields.Monetary(default=0)
     cost_sharing = fields.Monetary(default=0)
-    phone_allowance = fields.Monetary(string="Phone Allowance")
+    phone_allowance = fields.Monetary(default=0, string="Phone Allowance")
     perdime = fields.Monetary(default = 0)
     cost_sharing = fields.Monetary(default = 0)
     work_place_id = fields.Many2one('stadia.workplace', required=True, default=_default_work_place_id)
+    transport_allowance = fields.Monetary(default=0)
 
     # For printing
     issued_date = fields.Date(compute="_compute_issued_date")
