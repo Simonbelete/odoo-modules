@@ -3,7 +3,8 @@
 
     <menuitem id="promotion_menu" 
         name="Promotion" 
-        web_icon="stadia,static/promotion.png">
+        web_icon="stadia,static/promotion.png"
+        groups="group_base_department_head,group_base_gm,group_base_admin,group_base_hr,group_base_secretary">
         <menuitem id="Applications" sequence="1">
             <menuitem id="promotion_by_job"
                 name="By Job Positions"

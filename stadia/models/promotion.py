@@ -25,7 +25,7 @@ class Promotion(models.Model):
     # Previous job id
     job_id = fields.Many2one(related="employee_id.job_id")
     # Active previous work location
-    active_work_place_id = fields.Many2one(related="employee_id.contract_id.work_place_id")
+    active_work_place_id = fields.Many2one(related="employee_id.contract_id.work_place_id", store=True)
     stage_id = fields.Many2one('stadia.promotion.stage', group_expand="_read_group_state_ids", default=_default_stage_id)
     acquisition_id = fields.Many2one('stadia.acquisition', domain="[('state', '=', 'approved')]")
     recommended_by = fields.Many2one('hr.employee')
@@ -39,6 +39,12 @@ class Promotion(models.Model):
     survey_answer_ids = fields.One2many('promotion.answer', 'promotion_id')
     salary = fields.Monetary(default=0)
     salary_in_word = fields.Char(compute="_compute_salary_in_word")
+    perdime = fields.Monetary(default=0)
+    perdime_in_word = fields.Char(compute="_compute_perdime_in_word")
+    allowance = fields.Monetary(default=0)
+    allowance_in_word = fields.Char(compute="_compute_allowance_in_word")
+    transport_allowance = fields.Monetary(default=0)
+    transport_allowance_in_word = fields.Char(compute="_compute_transport_allowance_in_word")
     currency_id = fields.Many2one('res.currency', string='Currency', required=True,
                                   readonly=True,
         default=lambda self: self.env.user.company_id.currency_id.id)
@@ -49,6 +55,18 @@ class Promotion(models.Model):
     def _compute_salary_in_word(self):
         self.ensure_one()
         self.salary_in_word = num2words(self.salary)
+
+    def _compute_perdime_in_word(self):
+        self.ensure_one()
+        self.perdime_in_word = num2words(self.perdime)
+
+    def _compute_allowance_in_word(self):
+        self.ensure_one()
+        self.allowance_in_word = num2words(self.allowance)
+
+    def _compute_transport_allowance_in_word(self):
+        self.ensure_one()
+        self.transport_allowance_in_word = num2words(self.transport_allowance)
 
     @api.model
     def create(self, values):
@@ -73,6 +91,25 @@ class Promotion(models.Model):
     def _read_group_state_ids(self, stages, domain, order):
         stage_ids = stages._search([],order=order)
         return stages.browse(stage_ids)
+
+    def action_open_hr_contract_form(self):
+        return {
+            'res_model': 'hr.contract',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'view_id': self.env.ref('stadia.stadia_hr_employee_contract_form').id,
+            'target': 'self',
+            'context': {
+                'default_wage': self.salary,
+                'default_employee_id': self.employee_id.id,
+                'default_job_id': self.new_designation_job_id.id,
+                'default_date_start': self.start_date,
+                'default_perdime': self.perdime,
+                'default_other_allowance': self.allowance,
+                'default_transport_allowance': self.transport_allowance
+            }
+        }
 
 
 class PromotionStageSurvery(models.Model):

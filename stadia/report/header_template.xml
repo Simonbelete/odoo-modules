@@ -31,4 +31,64 @@
             </tr>
         </table>
     </template>
+
+    <template id="stadia_header_template_1">
+        <style>
+            .ht-table {
+                border-collapse: collapse;
+                border-top: 2px solid #C0C0C0;
+                border-bottom: 3px solid black;
+                border-left: 2px solid #C0C0C0;
+                border-right: 2px solid #C0C0C0;
+                width: 100%
+            }
+            .ht-table > tbody > tr > th {
+                border: 1px solid;
+                padding: 2px;
+                min-width: 100px;
+            }
+            .ht-table > tbody > tr > th > h6, h5, h4 {
+                text-align: center;
+            }
+            .s_t_text {
+                position: absolute;
+                bottom: 0;
+                font-size: 20px;
+                font-weigth: 500;
+                width: 400px
+            }
+            .s_center {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+            .s_img_border {
+                border: 1px solid gray;
+            }
+        </style>
+        <div class="s_center">
+            <table class="ht-table">
+                <tr>
+                    <th style="width: 200px;"><t t-esc="title" /></th>
+                    <th>
+                        <div style="position: relative;">
+                            <span><img style="height: 60px; width: 60px;" class="s_img_border" src="/stadia/static/stadi_stamp_logo.jpg" /></span>
+                            <span class="s_t_text">Stadia Engineering Works Consultant Plc.</span>
+                        </div>
+                    </th>
+                </tr>
+            </table>
+            <h4 style="margin-top: 30px; font-weight: 800;"><t t-esc="header" /></h4>
+        </div>
+    </template>
 </odoo>

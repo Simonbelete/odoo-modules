@@ -3,7 +3,7 @@ from odoo import fields, api, models
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
-    work_place_id = fields.Many2one(related='contract_id.work_place_id')
+    work_place_id = fields.Many2one(related='contract_id.work_place_id', store=True)
     promotion_count = fields.Integer(default=0, compute="_compute_promotion_count")
 
     def _compute_promotion_count(self):

@@ -60,7 +60,7 @@
             <kanban default_group_by="stage_id">
                 <templates>
                     <t t-name="kanban-box">
-                        <div>
+                        <div t-attf-class="oe_kanban_global_click">
                             <field name="employee_id" />
                         </div>
                     </t>
@@ -76,6 +76,13 @@
             <form>
                 <header>
                     <field name="stage_id" widget="statusbar" options="{'clickable': '1'}" />
+                    <button name="action_open_hr_contract_form" 
+                        string="Create Contract" 
+                        type="object" 
+                        class="oe_highlight" 
+                        context="{
+                            'wage': salary
+                        }"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -95,11 +102,7 @@
                             <field name="start_date" />
                             <field name="new_designation_job_id" string="New Designation job" />
                             <field name="new_work_place" string="Transferred Work Place" />
-                            <label for="salary"/>
-                            <div class="o_row" name="salary">
-                                <field name="salary" string="Salary" nolabel="1"/>
-                                <span>/ month</span>
-                            </div>
+                            
                         </group>
                     </group>
                     <notebook>
@@ -108,6 +111,30 @@
                                 <field name="department_id" />
                                 <field name="job_id" />
                                 <field name="active_work_place_id" />
+                            </group>
+                        </page>
+                        <page string="Salary Information">
+                            <group>
+                                <label for="salary"/>
+                                <div class="o_row" name="salary">
+                                    <field name="salary" string="Salary" nolabel="1"/>
+                                    <span>/ month</span>
+                                </div>
+                                <label for="perdime"/>
+                                <div class="o_row" name="perdime">
+                                    <field name="perdime" string="Perdime" nolabel="1"/>
+                                    <span>/ month</span>
+                                </div>
+                                <label for="allowance"/>
+                                <div class="o_row" name="allowance">
+                                    <field name="allowance" string="Allowance" nolabel="1"/>
+                                    <span>/ month</span>
+                                </div>
+                                <label for="transport_allowance"/>
+                                <div class="o_row" name="transport_allowance">
+                                    <field name="transport_allowance" string="Transport Allowance" nolabel="1"/>
+                                    <span>/ month</span>
+                                </div>
                             </group>
                         </page>
                         <page string="Survey">

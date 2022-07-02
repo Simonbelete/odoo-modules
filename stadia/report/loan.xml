@@ -36,7 +36,7 @@
                             width: 70%;
                         }
                         .s_label {
-                            font-weight: bold;
+                            <!-- font-weight: bold; -->
                             font-size: 16px;
                             padding-right: 10px
                         }

@@ -72,7 +72,7 @@ class HrPayslip(models.Model):
                 total_wage.tax_dec = total_wage.contract_id.wage * 0.35 - 1500
 
     @api.model
-    def get_worked_day_lines(self, contracts, date_from, date_to, attendances_lists):
+    def get_worked_day_lines(self, contracts, date_from, date_to):
         """
         @param contract: Browse record of contracts
         @return: returns a list of dict containing the input that should be applied for the given contract between date_from and date_to
@@ -129,6 +129,13 @@ class HrPayslip(models.Model):
                 'number_of_hours': -work_data['hours'],
                 'contract_id': contract.id
             }
+            start_date = datetime.combine(date_from, time.min)
+            end_date = datetime.combine(date_to, time.max)
+            attendances_lists = self.env['hr.attendance'].search([
+                ('employee_id', '=', self.employee_id.id),
+                ('check_in', '>=', start_date),
+                ('check_out', '<=', end_date)
+            ])
             # Tab in Tab out attendace
             if attendances_lists:
                 worked_hours = 0
@@ -193,14 +200,7 @@ class HrPayslip(models.Model):
         #computation of the salary input
         contracts = self.env['hr.contract'].browse(contract_ids)
         if contracts:
-            start_date = datetime.combine(date_from, time.min)
-            end_date = datetime.combine(date_to, time.max)
-            attendances = self.env['hr.attendance'].search([
-                ('employee_id', '=', self.employee_id.id),
-                ('check_in', '>=', start_date),
-                ('check_out', '<=', end_date)
-            ])
-            worked_days_line_ids = self.get_worked_day_lines(contracts, date_from, date_to, attendances)
+            worked_days_line_ids = self.get_worked_day_lines(contracts, date_from, date_to)
             worked_days_lines = self.worked_days_line_ids.browse([])
             for r in worked_days_line_ids:
                 worked_days_lines += worked_days_lines.new(r)

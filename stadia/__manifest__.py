@@ -52,6 +52,7 @@
         'wizard/hr_leave_report_list.xml',
         'wizard/manpower_report.xml',
         'wizard/asset_report_wizard.xml',
+        'wizard/attendance_report.xml',
 
         'report/component_templates.xml',
         'report/hr_contract_employee_badge.xml',
@@ -70,6 +71,7 @@
         'report/promotion.xml',
         'report/manpower_report.xml',
         'report/hr_leave_report_list_report.xml',
+        'report/attendance_report.xml',
         
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
@@ -84,6 +86,7 @@
         'views/account_asset_views.xml',
         'views/hr_loan_views.xml',
         'views/work_place_views.xml',
+        'views/hr_attendance_view.xml',
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',

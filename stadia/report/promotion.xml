@@ -33,7 +33,7 @@
                     <p>It is recalled that you have been working as a 
                         <span class="s_l_bold_text"><t t-esc="data['active_work_place_id']['name']" /></span>
                         on projects being undertaken by the company. We are pleased to inform you that our company has decided to promote you to a position of: 
-                        <span class="s_l_bold_text"><t t-esc="data['job_id']['name']" /></span>. 
+                        <span class="s_l_bold_text"><t t-esc="data['new_designation_job_id']['name']" /></span>. 
                     </p>
                     <p>
                         Thus, you will earn a monthly gross salary: 

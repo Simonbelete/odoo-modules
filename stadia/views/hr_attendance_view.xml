@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="stadia_view_attendance_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.attendance.tree.inherit.stadia</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='worked_hours']" position="after">
+                <field name="reason_for_change" string="Reason for change"/>
+            </xpath>
+            <tree position="attributes">
+                <attribute name="edit">1</attribute>
+                <attribute name="editable">bottom</attribute>
+            </tree>
+        </field>
+    </record>
+</odoo> 
