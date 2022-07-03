@@ -176,6 +176,7 @@
                                     <field name="stage_id" />
                                     <field name="survey_id" />
                                     <field name="response_id" />
+                                    <field name="partner_id" />
                                     <button string="Start/Edit Survey" class="oe_highlight" type="object" name="action_start_survey" />
                                     <button string="Consult Survey" type="object" name="action_print_survey" />
                                 </tree>

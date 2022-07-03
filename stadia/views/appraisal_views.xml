@@ -1,4 +1,150 @@
 <?xml version="1.0"?>
 <odoo>
 
+    <!-- Appraisal -->
+    <record id="action_stadia_appraisal_appraisal" model="ir.actions.act_window">
+        <field name="name">Appraisal</field>
+        <field name="res_model">stadia.appraisal</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!-- Templates -->
+    <record id="action_stadia_appraisal_template" model="ir.actions.act_window">
+        <field name="name">Appraisal Templates</field>
+        <field name="res_model">stadia.appraisal.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="form_stadia_appraisal_template" model="ir.ui.view">
+        <field name="name">Appraisal Template</field>
+        <field name="model">stadia.appraisal.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Staff preformance appraisal"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <notebook>
+                            <page string="Question">
+                                <field name="question_ids" widget="question_page_one2many" mode="tree,kanban">
+                                    <tree decoration-bf="is_section">
+                                        <field name="sequence"  widget="handle"/>
+                                        <field name="name" string="Question" />
+                                        <field name="is_section" invisible="1"/>
+                                        <control>
+                                            <create name="add_section_control" string="Add a Section" context="{'default_is_section': True}" />
+                                            <create name="add_question_control" string="Add a Question" />
+                                        </control>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Questions -->
+    <record id="action_stadia_appraisal_question" model="ir.actions.act_window">
+        <field name="name">Appraisal Question</field>
+        <field name="res_model">stadia.appraisal.question</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="form_stadia_appraisla_question" model="ir.ui.view">
+        <field name="name">Appraisal Question</field>
+        <field name="model">stadia.appraisal.question</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" string="Question" />
+                        <field name="answer_ids">
+                            <tree>
+                                <field name="sequence" widget="handle" />
+                                <field name="name" />
+                                <field name="description" />
+                                <field name="weight" />
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Answers -->
+    <record id="action_stadia_appraisal_answer" model="ir.actions.act_window">
+        <field name="name">Appraisal Answer</field>
+        <field name="res_model">stadia.appraisal.answer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_stadia_appraisal_answer" model="ir.ui.view">
+        <field name="name">Appraisal Answer</field>
+        <field name="model">stadia.appraisal.answer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" string="Answer" />
+                        <field name="description" />
+                        <field name="weight" />
+                        <field name="sequence" />
+                        <field name="question_id" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Menus -->
+    <menuitem 
+        id="stadia_appraisal_menu"
+        name="Appraisal">
+        <menuitem 
+            id="stadia_appraisal_appraisal_menu" 
+            name="Appraisal" 
+            action="action_stadia_appraisal_appraisal"
+            sequence="1"/>
+        <menuitem
+            id="stadia_appraisal_config_menu"
+            name="Configruration"
+            sequence="2">
+            <menuitem
+                id="stadia_appraisal_template_menu"
+                name="Template"
+                action="action_stadia_appraisal_template" />
+            <menuitem
+                id="stadia_appraisal_question_menu"
+                name="Questions"
+                action="action_stadia_appraisal_question" />
+            <menuitem
+                id="stadia_appraisal_answer_menu"
+                name="Answer"
+                action="action_stadia_appraisal_answer" />
+        </menuitem>
+    </menuitem>
+
 </odoo>

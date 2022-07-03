@@ -93,7 +93,8 @@
         'views/regularization_menus.xml',
         'views/asset_menus.xml',
         'views/hr_employee_menus.xml',
-        'views/hr_resume_line_views.xml'
+        'views/hr_resume_line_views.xml',
+        'views/appraisal_views.xml'
     ],
     'qweb': [
         'static/src/xml/asset.xml',

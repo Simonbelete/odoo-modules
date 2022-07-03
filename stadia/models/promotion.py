@@ -127,6 +127,7 @@ class PromotionStageSurvery(models.Model):
     stage_id = fields.Many2one('stadia.promotion.stage')
     survey_id = fields.Many2one(related='stage_id.survey_id')
     response_id = fields.Many2one('survey.user_input', "Response", ondelete="set null")
+    partner_id = fields.Many2one(related="response_id.partner_id")
     
     def action_start_survey(self):
         self.ensure_one()
