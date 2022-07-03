@@ -1,7 +1,7 @@
 import uuid
 from odoo import fields, api, models
 
-class Appraisal(models.Model):
+class StadiaAppraisal(models.Model):
     _name = 'stadia.appraisal'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     
@@ -9,9 +9,11 @@ class Appraisal(models.Model):
         return str(uuid.uuid4())
 
     employee_id = fields.Many2one('hr.employee', required=True)
+    template_id = fields.Many2one('stadia.appraisal.template')
     # uuid for url parameter
     # instead of using id as a url parament we use generated uuid
     token = fields.Char('Token', default=lambda self: self._get_default_token(), copy=False)
+    user_answer_ids = fields.One2many('stadia.user.appraisal.answer', 'appraisal_id')
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done')
@@ -26,6 +28,27 @@ class Appraisal(models.Model):
             'url': '/appraisal'
         }
 
+    @api.model
+    def create(self, vals):
+        """ Populate answers with the give template """
+        res = super(StadiaAppraisal, self).create(vals)
+        res.sudo()._populate_user_answers()   
+        return res
+
+    def _populate_user_answers(self):
+        self.ensure_one()
+        questions = self.template_id.question_ids
+
+        user_answers = []
+        for question in questions:
+            val = {
+                'appraisal_id': self.id,
+                'question_id': question.id,
+                'answer_selection_id': False
+            }
+            user_answers.append((0, False, val))
+
+        self.write({'user_answer_ids': user_answers})
 
 class AppraisalTemplate(models.Model):
     _name = 'stadia.appraisal.template'
@@ -43,11 +66,11 @@ class AppraisalQuestion(models.Model):
     name = fields.Char(required=True)
     sequence = fields.Integer(default=10)
     is_section = fields.Boolean('Is Section')
-    weight = fields.Integer(required=True, default=0)
     answer_ids = fields.One2many('stadia.appraisal.answer', 'question_id')
 
 
 class AppraisalAnsweres(models.Model):
+    """ Appraisal Questions's Selection """
     _name = 'stadia.appraisal.answer'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
@@ -56,3 +79,12 @@ class AppraisalAnsweres(models.Model):
     weight = fields.Integer(required=True, default=0)
     sequence = fields.Integer(default=10)
     question_id = fields.Many2one('stadia.appraisal.question')
+
+
+class UserAppraisalAnser(models.Model):
+    _name = 'stadia.user.appraisal.answer'
+
+    appraisal_id = fields.Many2one('stadia.appraisal')
+    question_id = fields.Many2one('stadia.appraisal.question')
+    answer_selection_id = fields.Many2one('stadia.appraisal.answer')
+    

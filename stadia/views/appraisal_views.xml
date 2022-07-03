@@ -38,7 +38,18 @@
                 <sheet>
                     <group>
                         <field name="employee_id" />
+                        <field name="template_id" />
                     </group>
+                    <notebook>
+                        <page string="Questions" >
+                            <field name="user_answer_ids">
+                                <tree>
+                                    <field name="question_id" />
+                                    <field name="answer_selection_id" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -110,7 +121,6 @@
                                 <field name="sequence" widget="handle" />
                                 <field name="name" />
                                 <field name="description" />
-                                <field name="weight" />
                             </tree>
                         </field>
                     </group>
