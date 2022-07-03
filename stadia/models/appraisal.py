@@ -1,14 +1,30 @@
+import uuid
 from odoo import fields, api, models
 
 class Appraisal(models.Model):
     _name = 'stadia.appraisal'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     
-    survey_id = fields.Many2one('survey.survey')
+    def _get_default_token(self):
+        return str(uuid.uuid4())
+
+    employee_id = fields.Many2one('hr.employee', required=True)
+    # uuid for url parameter
+    # instead of using id as a url parament we use generated uuid
+    token = fields.Char('Token', default=lambda self: self._get_default_token(), copy=False)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done')
     ])
+
+    def action_start_appraisal(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_url',
+            'name': 'Start Appraisal',
+            'target': 'self',
+            'url': '/appraisal'
+        }
 
 
 class AppraisalTemplate(models.Model):

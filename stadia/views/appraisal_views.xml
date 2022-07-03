@@ -8,6 +8,42 @@
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
+    <record id="kanban_appraisal_view" model="ir.ui.view">
+        <field name="name">Appraisal</field>
+        <field name="model">stadia.appraisal</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div>
+                            <field name="employee_id" />
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="form_appraisal_view" model="ir.ui.view">
+        <field name="name">Appraisal</field>
+        <field name="model">stadia.appraisal</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start_appraisal"
+                        type="object"
+                        class="oe_highlight"
+                        string="Start Assement" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="employee_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <!-- Templates -->
     <record id="action_stadia_appraisal_template" model="ir.actions.act_window">
         <field name="name">Appraisal Templates</field>
