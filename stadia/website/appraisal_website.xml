@@ -3,7 +3,64 @@
 
     <template id="website_appraisal_template">
         <t t-call="website.layout">
-            <h1>Hello World</h1>
+            <div class="container o_survey_form d-flex flex-column mb-5">
+                <div class="o_survey_nav pt16 mb-2">
+                    <div class="container m-0 p-0">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <h1 class="o_survey_main_title pt-4" t-field="appraisal.template_id.name"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="d-flex flex-grow-1 align-items-center">
+                    <div class="o_survey_form_content w-100">
+                        <t t-foreach="appraisal.user_answer_ids" t-as="data">
+                            <t t-if="data.question_id.is_section == True">
+                                <h3 style="text-align:center; font-weight: bold; margin: 2px" t-field="data.question_id.name" />
+                                <hr />
+                            </t>
+                            <t t-if="data.question_id.is_section == False">
+                                <div class="js_question-wrapper pb-4">
+                                    <div class="mb-4">
+                                        <h4 t-field="data.question_id.name"/>
+                                    </div>
+                                    <div class="row o_survey_form_choice">
+                                        <div class="col-lg-12 d-flex flex-wrap">
+                                            <t t-foreach="data.question_id.answer_ids" t-as="selection">
+                                                <label class="mr-2 mb-2 py-1 px-3">
+                                                    <span t-field="selection.name" />
+                                                    <input type="radio" />
+                                                </label>
+                                            </t>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div style="font-size: 12px;">Total Score</div>
+                                        <div style="font-size: 12px;">Average Score</div>
+                                    </div>
+                                </div>
+                            </t>
+                        </t>
+
+                        <!-- Score -->
+                        <div style="font-weight: bold; font-size: 16px; padding-bottom: 20px">
+                            <div>
+                                <span>Total Score:</span>
+                                <span><t t-esc="final_total_score" /></span>
+                            </div>
+                            <div>
+                                <span>Average Total Score:</span>
+                                <span><t t-esc="final_total_avg_score" /></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" value="submit" class="btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
         </t>
     </template>
 

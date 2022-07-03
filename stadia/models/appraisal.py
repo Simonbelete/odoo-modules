@@ -25,7 +25,7 @@ class StadiaAppraisal(models.Model):
             'type': 'ir.actions.act_url',
             'name': 'Start Appraisal',
             'target': 'self',
-            'url': '/appraisal'
+            'url': '/appraisal/%s' % str(self.token)
         }
 
     @api.model
@@ -79,7 +79,6 @@ class AppraisalAnsweres(models.Model):
     weight = fields.Integer(required=True, default=0)
     sequence = fields.Integer(default=10)
     question_id = fields.Many2one('stadia.appraisal.question')
-
 
 class UserAppraisalAnser(models.Model):
     _name = 'stadia.user.appraisal.answer'
