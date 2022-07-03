@@ -15,7 +15,7 @@
             <kanban>
                 <templates>
                     <t t-name="kanban-box">
-                        <div>
+                        <div t-attf-class="oe_kanban_global_click">
                             <field name="employee_id" />
                         </div>
                     </t>
