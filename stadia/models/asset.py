@@ -76,6 +76,9 @@ class AccountAssetAsset(models.Model):
 
     def compute_depreciation_board(self):
         self.ensure_one()
+
+        if(self.ifrs_rate == 0):
+            return
     
         # total_days = (self.first_depreciation_date.year % 4) and 365 or 366
         total_days = 360

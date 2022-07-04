@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="stadia_employee_list_report" model="ir.actions.report">
+        <field name="name">Employee Details</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">stadia.employees_list_report</field>
+        <field name="report_file">stadia employee lists</field>
+        <field name="binding_model_id" ref="model_hr_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -5,7 +5,7 @@
         <menuitem id="asset_movement_menu" name="Asset Movement" action="asset_movement_list_action" sequence="2"/>
         <menuitem id="asset_types" name="Asset Types" action="action_asset_category" sequence="3" />
         <menuitem id="asset_reporting" name="Report" sequence="4">
-            <menuitem id="asset_movement_report" name="Asset Movement" action="asset_movement_wizard"/>
+            <!-- <menuitem id="asset_movement_report" name="Asset Movement" action="asset_movement_wizard"/> -->
             <menuitem id="asset_depreciation_reporting" name="Asset Deperciation" action="action_report_asset" />
         </menuitem>
     </menuitem>

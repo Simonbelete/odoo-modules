@@ -17,7 +17,8 @@
         'prt_report_attachment_preview',
         'report_xlsx',
         'survey',
-        'stock'
+        'stock',
+        'website'
     ],
     'data': [
         'views/stadia_template.xml',
@@ -41,6 +42,7 @@
         'data/education_data.xml',
         'data/workplace_data.xml',
         'data/city_data.xml',
+        'data/appraisal_data.xml',
 
         'data/employee_data/family_relation.xml',
         'data/employee_data/hr_employee_admin.xml',
@@ -72,12 +74,12 @@
         'report/manpower_report.xml',
         'report/hr_leave_report_list_report.xml',
         'report/attendance_report.xml',
+        'report/employee_list_repot.xml',
         
         'views/hr_recruitment_views.xml',
         'views/promotion_views.xml',
         'views/promotion_stage_views.xml',
         'views/acquisition_views.xml',
-        'views/hr_employee_views.xml',
         'views/hr_hob_views.xml',
         'views/hr_applicant_views.xml',
         'views/regularization_views.xml',
@@ -90,9 +92,13 @@
         'views/acquisition_menus.xml',
         'views/promotion_menus.xml',
         'views/regularization_menus.xml',
+        'views/hr_employee_views.xml',
         'views/asset_menus.xml',
         'views/hr_employee_menus.xml',
-        'views/hr_resume_line_views.xml'
+        'views/hr_resume_line_views.xml',
+        'views/appraisal_views.xml',
+
+        'website/appraisal_website.xml'
     ],
     'qweb': [
         'static/src/xml/asset.xml',

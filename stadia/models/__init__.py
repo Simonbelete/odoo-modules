@@ -21,3 +21,4 @@ from . import hr_employee_education
 from . import hr_resume_line
 from . import hr_loan
 from . import city
+from . import appraisal

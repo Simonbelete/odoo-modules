@@ -111,6 +111,14 @@ class Promotion(models.Model):
             }
         }
 
+    def action_open_employee(self):
+        return {
+            'name': 'Employee',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hr.employee',
+            'res_id': self.employee_id.id,
+            'view_mode': 'form'
+        }
 
 class PromotionStageSurvery(models.Model):
     _name = 'promotion.answer'
@@ -119,6 +127,7 @@ class PromotionStageSurvery(models.Model):
     stage_id = fields.Many2one('stadia.promotion.stage')
     survey_id = fields.Many2one(related='stage_id.survey_id')
     response_id = fields.Many2one('survey.user_input', "Response", ondelete="set null")
+    partner_id = fields.Many2one(related="response_id.partner_id")
     
     def action_start_survey(self):
         self.ensure_one()

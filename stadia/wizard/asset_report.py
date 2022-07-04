@@ -9,6 +9,7 @@ class AssetMovementReportWizard(models.TransientModel):
     def print_report(self):
         self.ensure_one()
         [data] = self.read()
+        data['asset'] = self.env.context.get('active_ids', [])
         datas = {
             'ids': [],
             'model': 'stadia.asset',

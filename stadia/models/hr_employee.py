@@ -5,12 +5,18 @@ class HrEmployee(models.Model):
 
     work_place_id = fields.Many2one(related='contract_id.work_place_id', store=True)
     promotion_count = fields.Integer(default=0, compute="_compute_promotion_count")
+    asset_count = fields.Integer(default=0, compute="_compute_asset_count")
+
+    def _compute_asset_count(self):
+        self.ensure_one()
+        asset_count = self.env['stadia.asset'].search_count([('current_movement_employee_id', '=', self.id)])
+        self.asset_count = asset_count
 
     def _compute_promotion_count(self):
         self.ensure_one()
         last_stage_id = self.env['stadia.promotion.stage'].search([])
         last_stage_id = max(last_stage_id.mapped('sequence'))
-        promotions_count = self.env['stadia.promotion'].search_count([('employee_id', '=', self.id), ('stage_id', '=', 'last_stage_id')])
+        promotions_count = self.env['stadia.promotion'].search_count([('employee_id', '=', self.id), ('stage_id', '=', last_stage_id)])
         self.promotion_count = promotions_count
 
 

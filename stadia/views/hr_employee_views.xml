@@ -32,6 +32,7 @@
                 <group string="Address">
                     <filter name="work_place_id" string="Project" context="{'group_by': 'work_place_id'}" />
                     <filter name="sub_city_id" string="Sub City" context="{'group_by': 'sub_city_id'}"/>
+                    <filter name="gender" string="Gender" context="{'group_by': 'gender'}"/>
                 </group>
             </xpath>
         </field>
@@ -100,8 +101,11 @@
                 <button string="Generate id" type="object" name="action_generate_badge_id" />
             </xpath>
             <xpath expr="//div[@class='oe_button_box']" position="inside">
-                <button class="oe_stat_button" icon="fa-trophy" type="action" name="%(action_promotion)d">
+                <button class="oe_stat_button" icon="fa-trophy" type="action" name="%(action_promotion_by_employee)d" context="{'search_default_employee_id': id}">
                     <field name="promotion_count" string="Employee Promotion" widget="statinfo" />
+                </button>
+                <button class="oe_stat_button" icon="fa-arrows-h" type="action" name="%(action_asset_by_employee)d" context="{'search_default_current_movement_employee_id': id}">
+                    <field name="asset_count" string="Assets" widget="statinfo" />
                 </button>
             </xpath>
             <xpath expr="//field[@name='department_id']" position="attributes">
