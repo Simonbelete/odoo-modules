@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <!-- ======================================================= -->
     <!-- Answer Selections -->
+    <!-- ======================================================= -->
+
+    <!-- Knowledge -->
     <record id="appraisal_selection_severely_lacking_in_knowledge" model="stadia.appraisal.answer">
         <field name="name">Severely lacking in knowledge</field>
         <field name="weight">1</field>
@@ -31,10 +36,52 @@
         <field name="sequence">5</field>
     </record>
 
+    <!-- Quantity -->
+    <record id="appraisal_selection_q_1" model="stadia.appraisal.answer">
+        <field name="name">Usually below acceptable standard</field>
+        <field name="weight">1</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="appraisal_selection_q_2" model="stadia.appraisal.answer">
+        <field name="name">Barely acceptable level of output. A slow worker.</field>
+        <field name="weight">2</field>
+        <field name="sequence">2</field>
+    </record>
+
+    <record id="appraisal_selection_q_3" model="stadia.appraisal.answer">
+        <field name="name">Satisfactory. Meets expectations of average output</field>
+        <field name="weight">3</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <record id="appraisal_selection_q_4" model="stadia.appraisal.answer">
+        <field name="name">Usually exceeds the norm. A fast worker</field>
+        <field name="weight">4</field>
+        <field name="sequence">4</field>
+    </record>
+
+    <record id="appraisal_selection_q_5" model="stadia.appraisal.answer">
+        <field name="name">Exceptional producer. Generates maximal output</field>
+        <field name="weight">5</field>
+        <field name="sequence">5</field>
+    </record>
+
+    <!-- ======================================================= -->
     <!-- Question -->
+    <!-- ======================================================= -->
+
+    <!-- Knowledge -->
     <record id="appraisal_question_knowledge" model="stadia.appraisal.question">
         <field name="name">KNOWLEDGE</field>
         <field name="description">The blending of job-related education, skills and experience</field>
+        <field name="is_section">True</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <record id="appraisal_question_knowledge_1" model="stadia.appraisal.question">
+        <field name="name">Employee's educational backgrounds related to job</field>
+        <field name="sequence">2</field>
         <field name="answer_ids" eval="[
             (4, ref('appraisal_selection_severely_lacking_in_knowledge')),
             (4, ref('appraisal_knw_deficinences')),
@@ -43,7 +90,51 @@
             (4, ref('appraisal_knw_understands_why'))
         ]" />
     </record>
-    
+
+    <record id="appraisal_question_knowledge_2" model="stadia.appraisal.question">
+        <field name="name">Employee's skills related to job</field>
+        <field name="sequence">3</field>
+        <field name="answer_ids" eval="[
+            (4, ref('appraisal_selection_severely_lacking_in_knowledge')),
+            (4, ref('appraisal_knw_deficinences')),
+            (4, ref('appraisal_knw_understand_job_routine')),
+            (4, ref('appraisal_knw_complete_understand')),
+            (4, ref('appraisal_knw_understands_why'))
+        ]" />
+    </record>
+
+    <record id="appraisal_question_knowledge_3" model="stadia.appraisal.question">
+        <field name="name">Employee's experience related to job</field>
+        <field name="sequence">4</field>
+        <field name="answer_ids" eval="[
+            (4, ref('appraisal_selection_severely_lacking_in_knowledge')),
+            (4, ref('appraisal_knw_deficinences')),
+            (4, ref('appraisal_knw_understand_job_routine')),
+            (4, ref('appraisal_knw_complete_understand')),
+            (4, ref('appraisal_knw_understands_why'))
+        ]" />
+    </record>
+
+    <!-- QUANTITY -->
+    <record id="appraisal_question_quantity" model="stadia.appraisal.question">
+        <field name="name">QUANTITY</field>
+        <field name="description">Level of satisfactory output generated per unit of time</field>
+        <field name="is_section">True</field>
+        <field name="sequence">5</field>
+    </record>
+
+    <record id="appraisal_question_quantity_1" model="stadia.appraisal.question">
+        <field name="name">Employee's experience related to job</field>
+        <field name="sequence">6</field>
+        <field name="answer_ids" eval="[
+            (4, ref('appraisal_selection_q_1')),
+            (4, ref('appraisal_selection_q_2')),
+            (4, ref('appraisal_selection_q_3')),
+            (4, ref('appraisal_selection_q_4')),
+            (4, ref('appraisal_selection_q_5'))
+        ]" />
+    </record>
+
 
     <!-- Template -->
     <!-- <record id="stadia_appraisal_preformance_template" model="stadia.appraisal.template">
