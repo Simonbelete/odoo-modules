@@ -40,7 +40,7 @@ class AssetMovement(models.Model):
         self.write({'state': 'approved', 'previous_movement_id': self.asset_id.current_movement_id})
         id = self.id
         asset_id = self.asset_id.id
-        asset = self.env['account.asset.asset'].search([('id', '=', asset_id)])
+        asset = self.env['stadia.asset'].search([('id', '=', asset_id)])
         asset.write({'current_movement_id': id})
         self.schedule_activity_done()
 
