@@ -12,6 +12,36 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <!-- Search -->
+    <record id="stadia_asset_search" model="ir.ui.view">
+        <field name="name">Asset Search</field>
+        <field name="model">stadia.asset</field>
+        <field name="arch" type="xml">
+            <search>
+                <group>
+                    <filter name="category_id" string="Category" context="{'group_by': 'category_id'}" />
+                    <filter name="partner_id" string="Supplier Name" context="{'group_by': 'partner_id'}" />
+                    <filter name="purchase_date" string="Purchase Date" context="{'group_by': 'purchase_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Tree -->
+    <record id="stadia_asset_tree" model="ir.ui.view">
+        <field name="name">Asset</field>
+        <field name="model">stadia.asset</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="id_t_no" />
+                <field name="category_id" />
+                <field name="partner_id" />
+                <field name="purchase_date" />
+            </tree>
+        </field>
+    </record>
+
     <!-- Account Asset -->
     <record id="asset_form"  model="ir.ui.view">
         <field name="name">Assets</field>
