@@ -5,6 +5,12 @@ class HrEmployee(models.Model):
 
     work_place_id = fields.Many2one(related='contract_id.work_place_id', store=True)
     promotion_count = fields.Integer(default=0, compute="_compute_promotion_count")
+    asset_count = fields.Integer(default=0, compute="_compute_asset_count")
+
+    def _compute_asset_count(self):
+        self.ensure_one()
+        asset_count = self.env['stadia.asset'].search_count([('current_movement_employee_id', '=', self.id)])
+        self.asset_count = asset_count
 
     def _compute_promotion_count(self):
         self.ensure_one()

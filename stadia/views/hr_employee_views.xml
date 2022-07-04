@@ -104,6 +104,9 @@
                 <button class="oe_stat_button" icon="fa-trophy" type="action" name="%(action_promotion_by_employee)d" context="{'search_default_employee_id': id}">
                     <field name="promotion_count" string="Employee Promotion" widget="statinfo" />
                 </button>
+                <button class="oe_stat_button" icon="fa-arrows-h" type="action" name="%(action_asset_by_employee)d" context="{'search_default_current_movement_employee_id': id}">
+                    <field name="asset_count" string="Assets" widget="statinfo" />
+                </button>
             </xpath>
             <xpath expr="//field[@name='department_id']" position="attributes">
                 <attribute name="required">True</attribute>

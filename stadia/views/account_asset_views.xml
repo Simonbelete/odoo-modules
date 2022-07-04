@@ -12,12 +12,20 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="action_asset_by_employee" model="ir.actions.act_window">
+        <field name="name">Asset</field>
+        <field name="res_model">stadia.asset</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_current_movement_employee_id': [active_id]}</field>
+    </record>
+
     <!-- Search -->
     <record id="stadia_asset_search" model="ir.ui.view">
         <field name="name">Asset Search</field>
         <field name="model">stadia.asset</field>
         <field name="arch" type="xml">
             <search>
+                <field name="current_movement_employee_id" />
                 <group>
                     <filter name="category_id" string="Category" context="{'group_by': 'category_id'}" />
                     <filter name="partner_id" string="Supplier Name" context="{'group_by': 'partner_id'}" />
