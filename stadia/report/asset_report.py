@@ -1,4 +1,5 @@
 import xlsxwriter
+import math
 from datetime import datetime
 from odoo import api, models
 
@@ -17,10 +18,77 @@ class AssetMovementReport(models.AbstractModel):
         end_date = data['form']['date_to']
         end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
 
-        sheet.write(0, 0, 'Date')
+        bold = workbook.add_format({'bold': True})
+        bold.set_border(style=1)
+        header_format = workbook.add_format()
+        header_format.set_font_size(15)
+        header_format.set_bold()
+        header_format.set_align('center')
+        header_format.set_align('vcenter')
+        header_format.set_border(style=1)
+        date_format = workbook.add_format()
+        date_format.set_font_size(10)
+        date_format.set_bold()
+        date_format.set_align('center')
+        date_format.set_align('vcenter')
+        date_format.set_border(style=1) 
+        assset_style = workbook.add_format({'bg_color': '#edeff1'})
 
-        # Get id of asset that have movment btweeen the dates (instead of looping through all assets)
+        # Header
+        max_col = 5
+        max_row = 3
+        left_cols = math.floor(max_col * 0.25)
+        center_cols = math.ceil(max_col * 0.5)
+        right_cols = math.floor(max_col * 0.25)
 
+        sheet.merge_range(0, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(1, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(2, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
+        sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
+        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'EMPLOYMENT, TRANSFER, TERMINATION REPORT', header_format)
+        sheet.set_row(2, 50)
+        # sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
+        sheet.write(2, max_col - right_cols + 1, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
+
+        sheet.write(max_row + 1, 0, 'No', bold)
+        sheet.write(max_row + 1, 1, 'STA No', bold)
+        # sheet.write(max_row + 1, 2, 'S/N', bold)
+        sheet.write(max_row + 1, 2, 'Description/Item', bold)
+        sheet.write(max_row + 1, 3, 'Location', bold)
+        sheet.write(max_row + 1, 4, 'Employee', bold)
+
+        # Sizes
+        sheet.set_column(0, 0, 5)
+        sheet.set_column(1, 1, 30)
+        sheet.set_column(2, 2, 20)
+        sheet.set_column(3, 3, 20)
+        sheet.set_column(4, 4, 30)
+
+        asset_ids = data['form']['asset']
+
+        row = max_row + 2
+        c = 1
+        for asset_id in asset_ids:
+            asset = self.env['stadia.asset'].search([('id', '=', asset_id)])
+            movements = self.env['asset.movement'].search([
+                ('asset_id', '=', asset_id)
+                # ('date', '>=', start_date),
+                # ('date', '<=', end_date)
+            ])
+            sheet.write(row, 0, c, assset_style)
+            sheet.write(row, 1, asset.id_t_no, assset_style)
+            sheet.merge_range(row, 2, row, 4, asset.name, assset_style)
+
+        
+            for movement in movements:
+                row += 1
+                sheet.write(row, 3, movement.location_id.name if movement.location_id else '')
+                sheet.write(row, 4, movement.employee_id.name if movement.employee_id else '')
+                # sheet.merge_range(row, 0, row, 3, movement.location_id.name)
+
+            row += 1
+            c += 1
 
 
 class AssetReport(models.AbstractModel):
