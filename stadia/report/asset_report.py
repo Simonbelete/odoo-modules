@@ -73,8 +73,9 @@ class AssetMovementReport(models.AbstractModel):
             asset = self.env['stadia.asset'].search([('id', '=', asset_id)])
             movements = self.env['asset.movement'].search([
                 ('asset_id', '=', asset_id)
-                # ('date', '>=', start_date),
-                # ('date', '<=', end_date)
+                ('state', '=', 'approved'),
+                ('date', '>=', start_date),
+                ('date', '<=', end_date)
             ])
             sheet.write(row, 0, c, assset_style)
             sheet.write(row, 1, asset.id_t_no, assset_style)
