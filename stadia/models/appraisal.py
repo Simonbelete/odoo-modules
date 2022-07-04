@@ -64,9 +64,11 @@ class AppraisalQuestion(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(required=True)
+    description = fields.Html()
     sequence = fields.Integer(default=10)
     is_section = fields.Boolean('Is Section')
-    answer_ids = fields.One2many('stadia.appraisal.answer', 'question_id')
+    # Selctions Answers
+    answer_ids = fields.Many2many('stadia.appraisal.answer')
 
 
 class AppraisalAnsweres(models.Model):
@@ -78,7 +80,7 @@ class AppraisalAnsweres(models.Model):
     description = fields.Text()
     weight = fields.Integer(required=True, default=0)
     sequence = fields.Integer(default=10)
-    question_id = fields.Many2one('stadia.appraisal.question')
+    # question_id = fields.Many2many('stadia.appraisal.question')
 
 class UserAppraisalAnser(models.Model):
     _name = 'stadia.user.appraisal.answer'
