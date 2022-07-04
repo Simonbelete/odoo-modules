@@ -25,6 +25,8 @@
         <field name="res_model">asset.movement.report</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
+        <field name="binding_model_id" ref="stadia.asset" />
+        <field name="binding_type">report</field>
     </record>
 
 </odoo>
