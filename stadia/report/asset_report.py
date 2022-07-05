@@ -51,7 +51,7 @@ class AssetMovementReport(models.AbstractModel):
         # sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
         sheet.write(2, max_col - right_cols + 1, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
 
-        sheet.write(max_row + 1, 0, 'No', bold)
+        sheet.write(max_row + 1, 0, 'Date', bold)
         sheet.write(max_row + 1, 1, 'STA No', bold)
         # sheet.write(max_row + 1, 2, 'S/N', bold)
         sheet.write(max_row + 1, 2, 'Description/Item', bold)
@@ -69,27 +69,34 @@ class AssetMovementReport(models.AbstractModel):
 
         row = max_row + 2
         c = 1
-        for asset_id in asset_ids:
-            asset = self.env['stadia.asset'].search([('id', '=', asset_id)])
-            movements = self.env['asset.movement'].search([
-                ('asset_id', '=', asset_id),
-                ('state', '=', 'approved'),
-                ('date', '>=', start_date),
-                ('date', '<=', end_date)
-            ])
-            sheet.write(row, 0, c, assset_style)
-            sheet.write(row, 1, asset.id_t_no, assset_style)
-            sheet.merge_range(row, 2, row, 4, asset.name, assset_style)
+
+        asset_movments = self.env['asset.movement'].search([('id', 'in', asset_ids)]) 
+
+        for asset_movement in asset_movments:
+            sheet.write()
+            row += 1
+
+        # for asset_id in asset_ids:
+        #     asset = self.env['stadia.asset'].search([('id', '=', asset_id)])
+        #     movements = self.env['asset.movement'].search([
+        #         ('asset_id', '=', asset_id),
+        #         ('state', '=', 'approved'),
+        #         ('date', '>=', start_date),
+        #         ('date', '<=', end_date)
+        #     ])
+        #     sheet.write(row, 0, c, assset_style)
+        #     sheet.write(row, 1, asset.id_t_no, assset_style)
+        #     sheet.merge_range(row, 2, row, 4, asset.name, assset_style)
 
         
-            for movement in movements:
-                row += 1
-                sheet.write(row, 3, movement.location_id.name if movement.location_id else '')
-                sheet.write(row, 4, movement.employee_id.name if movement.employee_id else '')
-                # sheet.merge_range(row, 0, row, 3, movement.location_id.name)
+        #     for movement in movements:
+        #         row += 1
+        #         sheet.write(row, 3, movement.location_id.name if movement.location_id else '')
+        #         sheet.write(row, 4, movement.employee_id.name if movement.employee_id else '')
+        #         # sheet.merge_range(row, 0, row, 3, movement.location_id.name)
 
-            row += 1
-            c += 1
+        #     row += 1
+        #     c += 1
 
 
 class AssetReport(models.AbstractModel):

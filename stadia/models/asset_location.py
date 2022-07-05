@@ -7,3 +7,4 @@ class AssetLocation(models.Model):
     ]
 
     name = fields.Char(required=True)
+    is_store = fields.Boolean()

@@ -11,6 +11,7 @@
                     <newline />
                     <field name="date_to"/>
                     <newline />
+                    <field name="is_store" string="Issued"/>
                 </group>
                 <footer>
                     <button name="print_report" string="Print" type="object" class="btn-primary"/>

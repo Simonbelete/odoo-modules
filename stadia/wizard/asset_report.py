@@ -5,6 +5,7 @@ class AssetMovementReportWizard(models.TransientModel):
 
     date_from = fields.Date(required=True)
     date_to = fields.Date(required=True)
+    is_store = fields.Boolean()
 
     def print_report(self):
         self.ensure_one()
