@@ -222,6 +222,8 @@ class PayrollRepotRun(models.AbstractModel):
     def generate_xlsx_report(self, workbook, data, partners):
         sheet = workbook.add_worksheet()
 
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+
         bold = workbook.add_format({'bold': True, 'text_wrap': True})
         bold.set_border(style=2)
         bold.set_rotation(90)
@@ -242,23 +244,24 @@ class PayrollRepotRun(models.AbstractModel):
         date_format.set_align('vcenter')
         date_format.set_border(style=1)
 
-        max_col = 9
+        max_col = 18
         max_row = 3
         left_cols = math.floor(max_col * 0.25)
         center_cols = math.ceil(max_col * 0.5)
         right_cols = math.floor(max_col * 0.25)
 
+        payslip_id = data['context']['active_id']
+        batch_payslip = self.env['hr.payslip.run'].search([('id', '=', payslip_id)])
+
         sheet.merge_range(0, 0, 0, left_cols - 1, '', header_format)
         sheet.merge_range(1, 0, 0, left_cols - 1, '', header_format)
         sheet.merge_range(2, 0, 0, left_cols - 1, '', header_format)
+        sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
         sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
         sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
         sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'EMPLOYMENT, TRANSFER, TERMINATION REPORT', header_format)
         sheet.set_row(2, 50)
-        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % ('', ''), date_format)
-
-        payslip_id = data['context']['active_id']
-        batch_payslip = self.env['hr.payslip.run'].search([('id', '=', payslip_id)])
+        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % (batch_payslip.date_start.strftime('%m/%d/%Y'), batch_payslip.date_end.strftime('%m/%d/%Y')), date_format)
 
         sheet.write(max_row + 2, 0, 'No', bold)
         sheet.write(max_row + 2, 1, 'Name of Employee', bold)
@@ -298,9 +301,12 @@ class PayrollRepotRun(models.AbstractModel):
         sheet.set_column(13, 13, 10)
         sheet.set_column(14, 14, 10)
         sheet.set_column(15, 15, 10)
+        sheet.set_column(16, 16, 10)
+        sheet.set_column(16, 17, 10)
         sheet.set_column(16, 16, 5)
 
         row = max_row + 3
+        start_row = row
         c = 1
         for payslip in batch_payslip.slip_ids:
 
@@ -373,3 +379,48 @@ class PayrollRepotRun(models.AbstractModel):
             
             row += 1
             c += 1
+
+        sheet.merge_range(row, 0, row, 3, 'Total', border)
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 4), xl_rowcol_to_cell(row - 1, 4))
+        sheet.write_formula(row, 4, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 5), xl_rowcol_to_cell(row - 1, 5))
+        sheet.write_formula(row, 5, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 6), xl_rowcol_to_cell(row - 1, 6))
+        sheet.write_formula(row, 6, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 7), xl_rowcol_to_cell(row - 1, 7))
+        sheet.write_formula(row, 7, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 8), xl_rowcol_to_cell(row - 1, 8))
+        sheet.write_formula(row, 8, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 9), xl_rowcol_to_cell(row - 1, 9))
+        sheet.write_formula(row, 9, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 10), xl_rowcol_to_cell(row - 1, 10))
+        sheet.write_formula(row, 10, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 11), xl_rowcol_to_cell(row - 1, 11))
+        sheet.write_formula(row, 11, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 12), xl_rowcol_to_cell(row - 1, 12))
+        sheet.write_formula(row, 12, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 13), xl_rowcol_to_cell(row - 1, 13))
+        sheet.write_formula(row, 13, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 14), xl_rowcol_to_cell(row - 1, 14))
+        sheet.write_formula(row, 14, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 15), xl_rowcol_to_cell(row - 1, 15))
+        sheet.write_formula(row, 15, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 16), xl_rowcol_to_cell(row - 1, 16))
+        sheet.write_formula(row, 16, f, border, '')
+
+        f = '=SUM(%s:%s)' % (xl_rowcol_to_cell(start_row, 17), xl_rowcol_to_cell(row - 1, 17))
+        sheet.write_formula(row, 17, f, border, '')
+
+        sheet.write(row, 18, '', border)
