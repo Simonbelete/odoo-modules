@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="stadia_asset_location_store" model="asset.location">
+        <field name="name">STORE</field>
+        <field name="is_store">True</field>
+    </record>
+</odoo>

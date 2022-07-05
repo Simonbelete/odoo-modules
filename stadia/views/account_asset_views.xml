@@ -6,6 +6,12 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="action_asset_location" model="ir.actions.act_window">
+        <field name="name">Asset Location</field>
+        <field name="res_model">asset.location</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
     <record id="action_asset" model="ir.actions.act_window">
         <field name="name">Asset</field>
         <field name="res_model">stadia.asset</field>
@@ -26,7 +32,12 @@
         <field name="arch" type="xml">
             <search>
                 <field name="current_movement_employee_id" />
+                <searchpanel>
+                    <field name="current_movement_location_id" />
+                </searchpanel>
                 <group>
+                    <filter name="current_movement_location_id" string="Location" context="{'group_by': 'current_movement_location_id'}" />
+                    <filter name="current_movement_employee_id" string="Employee" context="{'group_by': 'current_movement_employee_id'}" />
                     <filter name="category_id" string="Category" context="{'group_by': 'category_id'}" />
                     <filter name="partner_id" string="Supplier Name" context="{'group_by': 'partner_id'}" />
                     <filter name="purchase_date" string="Purchase Date" context="{'group_by': 'purchase_date'}" />
@@ -109,6 +120,9 @@
                                 <field name="current_movement_location_id" string="Location"/>
                                 <field name="current_movement_employee_id" string="Employee"/>
                             </group>
+                            <group>
+
+                            </group>
                         </page>
                     </notebook>
                 </sheet>
@@ -126,4 +140,5 @@
         <field name="tag">stadia_asset_reg</field>
         <!-- <field name="context" eval="{'model': 'report.stadia.asset_report'}" /> -->
     </record>
+
 </odoo>

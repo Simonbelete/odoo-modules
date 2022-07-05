@@ -44,6 +44,7 @@
         'data/workplace_data.xml',
         'data/city_data.xml',
         'data/appraisal_data.xml',
+        'data/asset_data.xml',
 
         'data/employee_data/family_relation.xml',
         'data/employee_data/hr_employee_admin.xml',

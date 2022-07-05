@@ -38,7 +38,8 @@ class AccountAssetAsset(models.Model):
     reference_no = fields.Char()
     partner_id = fields.Many2one('res.partner', string='Supplier Name')
     cpv = fields.Char(string='Accounts Ref')
-    id_t_no = fields.Char(string="ID.T.No.")
+    id_t_no = fields.Char(string="STA No")
+    sn_no = fields.Char(string='S/N')
     gross_value = fields.Monetary(string='Gross Value', required=True)
     salvage_value = fields.Monetary(string='Salvage Value')
     ifrs_rate = fields.Float(string="Degressive Factor", required=True, digits="Asset IFRS Rate")
@@ -47,8 +48,8 @@ class AccountAssetAsset(models.Model):
     first_depreciation_date = fields.Date(string="Depreciation Date", required=True)
     # Holds approved asset movement
     current_movement_id = fields.Many2one('asset.movement')
-    current_movement_location_id = fields.Many2one(related="current_movement_id.location_id")
-    current_movement_employee_id = fields.Many2one(related="current_movement_id.employee_id")
+    current_movement_location_id = fields.Many2one(related="current_movement_id.location_id", store=True)
+    current_movement_employee_id = fields.Many2one(related="current_movement_id.employee_id", store=True)
     asset_movement_count = fields.Integer(compute='_compute_asset_movement_count')
     currency_id = fields.Many2one('res.currency', string='Currency', required=True,
                                   readonly=True,

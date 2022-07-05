@@ -29,4 +29,61 @@
         <field name="binding_type">report</field>
     </record>
 
+    <!-- Reporting -->
+
+    <!-- Issured to store -->
+    <record id="view_issued_report_wizard" model="ir.ui.view">
+        <field name="name">asset.movement.issued.report.form</field>
+        <field name="model">asset.movement.issued.report</field>
+        <field name="arch" type="xml">
+            <form string="Issued Report">
+                <group col="4" colspan="6">
+                    <field name="date_from"/>
+                    <newline />
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_asset_issued_wizard" model="ir.actions.act_window">
+        <field name="name">Asset Issued Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">asset.movement.issued.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- To Store -->
+
+    <record id="view_returned_report_wizard" model="ir.ui.view">
+        <field name="name">asset.movement.returned.report.form</field>
+        <field name="model">asset.movement.returned.report</field>
+        <field name="arch" type="xml">
+            <form string="Issued Report">
+                <group col="4" colspan="6">
+                    <field name="date_from"/>
+                    <newline />
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_asset_returned_wizard" model="ir.actions.act_window">
+        <field name="name">Asset Returned Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">asset.movement.returned.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
 </odoo>

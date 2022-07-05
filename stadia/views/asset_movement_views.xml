@@ -20,7 +20,19 @@
         <field name="model">asset.movement</field>
         <field name="arch" type="xml">
             <search>
+                <field name="ref_no" />
+                <field name="location_id" />
+                <field name="employee_id" />
                 <field name="asset_id" />
+                <filter string="Movement Date" name="date_filter" date="date" default_period="last_month"/>
+                <filter string="Today" name="Today" domain="[('date', '=', datetime.datetime.today())]"/>
+                <group>
+                    <filter name="date" string="Date" context="{'group_by': 'date'}" />
+                    <filter name="location_id" string="Location" context="{'group_by': 'location_id'}" />
+                    <filter name="employee_id" string="Employee" context="{'group_by': 'employee_id'}" />
+                    <filter name="previous_movement_location_id" string="Previous Location" context="{'group_by': 'previous_movement_location_id'}" />
+                    <filter name="previous_movement_employee_id" string="Previous Employee" context="{'group_by': 'previous_movement_employee_id'}" />
+                </group>
             </search>
         </field>
     </record>
@@ -51,6 +63,7 @@
                 <sheet>
                     <group>
                         <group>
+                            <field name="ref_no" />
                             <field name="asset_id"/>
                             <field name="date" />
                         </group>
@@ -84,6 +97,7 @@
         <field name="model">asset.movement</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="ref_no" />
                 <field name="asset_id" />
                 <field name="location_id" />
                 <field name="employee_id" />
