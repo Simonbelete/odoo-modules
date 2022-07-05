@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- Salary Structure -->
-    <record id="hr_payroll_community.structure_base" model="hr.payroll.structure">
-        <field name="code">BASE</field>
-        <field name="name">Base for new structures</field>
-        <field eval="[(6, 0, [
-            ref('hr_payroll_community.hr_rule_basic'), 
-            ref('hr_payroll_community.hr_rule_taxable'),
-            ref('hr_payroll_community.hr_rule_net'), 
-            ref('salary_rule_unpaid'), 
-            ref('salary_rule_perdime'),
-            ref('salary_rule_transport_allowance'),
-            ref('salary_rule_pension'),
-            ref('salary_rule_tax'),
-            ref('salary_rule_taken_leaves'),
-            ref('salary_rule_cost_sharing'),
-            ref('salary_rule_other'),
-            ref('ohrms_loan.hr_rule_loan'),
-            ref('salary_rule_overtime'),
-            ref('salary_rule_taxable_income')
-
-        ])]" name="rule_ids"/>
-        <field name="company_id" ref="base.main_company"/>
-    </record>
-
     <record id="hr_payroll_community.hr_rule_basic" model="hr.salary.rule">
         <field name="name">Basic Salary</field>
         <field name="sequence" eval="1"/>
@@ -133,5 +109,14 @@
         <field name="amount_select">code</field>
         <field name="amount_python_compute">result=categories.BASIC + inputs.OV</field>
     </record>
+
+    <!-- Salary Structure -->
+    <record id="hr_payroll_community.structure_base" model="hr.payroll.structure">
+        <field name="code">BASE</field>
+        <field name="name">Base for new structures</field>
+        <field eval="[(6, 0, [ref('hr_payroll_community.hr_rule_basic'), ref('hr_payroll_community.hr_rule_taxable'),ref('hr_payroll_community.hr_rule_net'), ref('salary_rule_unpaid'), ref('salary_rule_perdime'),ref('salary_rule_transport_allowance'),ref('salary_rule_pension'),ref('salary_rule_tax'),ref('salary_rule_taken_leaves'),ref('salary_rule_cost_sharing'),ref('salary_rule_other'),ref('ohrms_loan.hr_rule_loan'),ref('salary_rule_overtime'),ref('salary_rule_taxable_income')])]" name="rule_ids"/>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
 
 </odoo>
