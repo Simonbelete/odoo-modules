@@ -8,6 +8,8 @@
             <menuitem id="asset_location" name="Location" action="action_asset_location" />
         </menuitem>
         <menuitem id="asset_reporting" name="Report" sequence="4">
+            <menuitem id="asset_report_move_issued" name="Issued" action="action_asset_issued_wizard" />
+            <menuitem id="asset_report_move_returned" name="Returned" action="action_asset_returned_wizard" />
             <!-- <menuitem id="asset_movement_report" name="Asset Movement" action="asset_movement_wizard"/> -->
             <menuitem id="asset_depreciation_reporting" name="Asset Deperciation" action="action_report_asset" />
         </menuitem>

@@ -25,6 +25,8 @@ class AssetMovement(models.Model):
     ], default='draft')
     note = fields.Text()
     date = fields.Date(default=datetime.today())
+    qty = fields.Integer(default=1)
+    remark = fields.Char()
 
     location_id = fields.Many2one('asset.location')
     employee_id = fields.Many2one('hr.employee')
