@@ -9,4 +9,14 @@
         <field name="binding_model_id" ref="model_hr_payslip"/>
         <field name="binding_type">report</field>
     </record>
+
+    <record id="report_payroll_run_list" model="ir.actions.report">
+        <field name="name">Payroll</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">stadia.payroll_report_run</field>
+        <field name="report_file">batches_payroll</field>
+        <field name="binding_model_id" ref="hr_payroll_community.model_hr_payslip_run"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>
