@@ -294,7 +294,9 @@ class AssetMovementIssuedReport(models.AbstractModel):
         store_location = self.env['asset.location'].search([('is_store', '=', True)])
         asset_movements = self.env['asset.movement'].search([
             ('state', '=', 'approved'),
-            ('previous_movement_location_id', 'in', store_location.ids)
+            ('previous_movement_location_id', 'in', store_location.ids),
+            ('date', '>=', start_date),
+            ('date', '<=', end_date)
         ])
 
         row = max_row + 2
