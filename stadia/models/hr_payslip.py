@@ -15,6 +15,15 @@ class HrPayslip(models.Model):
     unpaid_value = fields.Float(compute="_compute_unpaid_value", default=0)
     absent_attendance_value = fields.Float(compute="_compute_absent_attendance_value", default=0)
     perdime_value = fields.Float(compute="_compute_perdime_value")
+    # Net Worked days
+    net_worked_days = fields.Float(compute="_compute_net_worked_days")
+
+    def _compute_net_worked_days(self):
+        for record in self:
+            total = 0
+            for line in record.worked_days_line_ids:
+                total += line.number_of_days
+            record.net_worked_days = total
 
     def _compute_total_taken_leaves(self):
         for record in self:

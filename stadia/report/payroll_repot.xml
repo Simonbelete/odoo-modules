@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="report_payroll_list" model="ir.actions.report">
-        <field name="name"></field>
+        <field name="name">Payroll</field>
         <field name="model">hr.payslip</field>
         <field name="report_type">xlsx</field>
         <field name="report_name">stadia.payroll_report</field>

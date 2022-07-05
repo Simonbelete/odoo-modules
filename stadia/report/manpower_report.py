@@ -52,7 +52,7 @@ class AllManpowerReport(models.AbstractModel):
         employees = self.sudo().env['hr.employee'].search([('contract_id', '!=', False)])
 
         sheet.write(max_row + 1, 0, 'No', bold)
-        sheet.write(max_row + 1, 1, 'Name of Employe', bold)
+        sheet.write(max_row + 1, 1, 'Name of Employee', bold)
         sheet.write(max_row + 1, 2, 'Position', bold)
         sheet.write(max_row + 1, 3, 'Basic Salary', bold)
         sheet.write(max_row + 1, 4, 'Perdime', bold)
