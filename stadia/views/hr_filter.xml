@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
+    <record id="hr_employee_view_search_inherit1" model="ir.ui.view">
+        <field name="name">hr.employee.view.search.inherit1</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Employee"
+                       filter_domain="['|', ('mobile_phone', 'ilike', self), ('name', 'ilike', self)]"/>
+                <field name="name" string="Employee"
+                       filter_domain="['|', ('work_phone', 'ilike', self), ('name', 'ilike', self)]"/>
+
+            </search>
+        </field>
+    </record>
+
     <record id="hr_employee_view_search_inherit" model="ir.ui.view">
         <field name="name">hr.employee.view.search.inherit</field>
         <field name="model">hr.employee</field>
@@ -28,9 +44,6 @@
                 <searchpanel>
                     <field name="sub_city_id" enable_counters="1"/>
                 </searchpanel>
-                <search>
-                    <field name="work_phone" string="phone"/>
-                </search>
             </data>
         </field>
     </record>
