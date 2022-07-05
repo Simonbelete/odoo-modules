@@ -10,6 +10,7 @@
                     <field name="date_from"/>
                     <newline />
                     <field name="date_to"/>
+                    <newline />
                 </group>
                 <footer>
                     <button name="print_report" string="Print" type="object" class="btn-primary"/>

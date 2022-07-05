@@ -47,8 +47,8 @@ class AccountAssetAsset(models.Model):
     first_depreciation_date = fields.Date(string="Depreciation Date", required=True)
     # Holds approved asset movement
     current_movement_id = fields.Many2one('asset.movement')
-    current_movement_location_id = fields.Many2one(related="current_movement_id.location_id")
-    current_movement_employee_id = fields.Many2one(related="current_movement_id.employee_id")
+    current_movement_location_id = fields.Many2one(related="current_movement_id.location_id", store=True)
+    current_movement_employee_id = fields.Many2one(related="current_movement_id.employee_id", store=True)
     asset_movement_count = fields.Integer(compute='_compute_asset_movement_count')
     currency_id = fields.Many2one('res.currency', string='Currency', required=True,
                                   readonly=True,

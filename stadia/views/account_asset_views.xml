@@ -26,7 +26,12 @@
         <field name="arch" type="xml">
             <search>
                 <field name="current_movement_employee_id" />
+                <searchpanel>
+                    <field name="current_movement_location_id" />
+                </searchpanel>
                 <group>
+                    <filter name="current_movement_location_id" string="Location" context="{'group_by': 'current_movement_location_id'}" />
+                    <filter name="current_movement_employee_id" string="Employee" context="{'group_by': 'current_movement_employee_id'}" />
                     <filter name="category_id" string="Category" context="{'group_by': 'category_id'}" />
                     <filter name="partner_id" string="Supplier Name" context="{'group_by': 'partner_id'}" />
                     <filter name="purchase_date" string="Purchase Date" context="{'group_by': 'purchase_date'}" />
