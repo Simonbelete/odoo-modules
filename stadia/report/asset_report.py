@@ -72,7 +72,7 @@ class AssetMovementReport(models.AbstractModel):
         for asset_id in asset_ids:
             asset = self.env['stadia.asset'].search([('id', '=', asset_id)])
             movements = self.env['asset.movement'].search([
-                ('asset_id', '=', asset_id)
+                ('asset_id', '=', asset_id),
                 ('state', '=', 'approved'),
                 ('date', '>=', start_date),
                 ('date', '<=', end_date)

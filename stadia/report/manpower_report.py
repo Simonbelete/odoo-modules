@@ -243,7 +243,7 @@ class ManpowerReport(models.AbstractModel):
                 continue
 
             if(employee.first_contract_date >= start_date and employee.first_contract_date <= end_date):
-                sheet.write(col, 0, col - max_row - 2)
+                sheet.write(col, 0, col - max_row - 1)
                 sheet.write(col, 1, employee.name)
                 sheet.write(col, 2, employee.job_id.name)
                 sheet.write(col, 3, employee.contract_id.wage)
