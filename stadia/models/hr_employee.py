@@ -7,6 +7,7 @@ class HrEmployee(models.Model):
     work_place_id = fields.Many2one(related='contract_id.work_place_id', store=True)
     promotion_count = fields.Integer(default=0, compute="_compute_promotion_count")
     asset_count = fields.Integer(default=0, compute="_compute_asset_count")
+    fields_of_spec = fields.Many2one('hr.specialization', string="Fields Of Specialization")
 
     def _compute_asset_count(self):
         self.ensure_one()
@@ -51,3 +52,8 @@ class HrEmployee(models.Model):
     #     if name:
     #         domain = ['|', ('name', operator, name), ('mobile_phone', operator, name)]
     #     return self._search(domain + args, limit=limit, access_rights_uid=name_get_uid)
+
+
+class FieldsOfspecialization(models.Model):
+    _name = 'hr.specialization'
+    _description = "specialization"
