@@ -1,3 +1,5 @@
+import os
+import math
 from odoo import api, models
 from datetime import datetime, time, timedelta
 from xlsxwriter.utility import xl_rowcol_to_cell
@@ -24,6 +26,18 @@ class AttendacneReport(models.AbstractModel):
         table_header_format.set_bold()
         table_header_format.set_font_size(13)
         table_header_format.set_border(style=1)
+        header_format = workbook.add_format()
+        header_format.set_font_size(15)
+        header_format.set_bold()
+        header_format.set_align('center')
+        header_format.set_align('vcenter')
+        header_format.set_border(style=1)
+        date_format = workbook.add_format()
+        date_format.set_font_size(10)
+        date_format.set_bold()
+        date_format.set_align('center')
+        date_format.set_align('vcenter')
+        date_format.set_border(style=1) 
 
         employee_ids = data['form']['emp']
         start_date = datetime.strptime(data['form']['date_from'], '%Y-%m-%d').date()
@@ -32,17 +46,34 @@ class AttendacneReport(models.AbstractModel):
         total_row = len(employee_ids) + 3
         total_col = (end_date - start_date).days
 
-        # Logo Header
-        header_row = 5
-        header_format = workbook.add_format()
-        header_format.set_font_size(15)
-        header_format.set_bold()
-        half_row = abs(int((total_row - 13)/2))
+        dir_path = os.path.dirname(os.path.realpath(__file__))
         
-        sheet.merge_range(0, half_row, 0, half_row + 15, 'Stadia Engineering Works Consultant Plc', header_format)
+        # Header
+        max_col = total_col + 8
+        max_row = 3
+        left_cols = math.floor(max_col * 0.25)
+        center_cols = math.ceil(max_col * 0.5)
+        right_cols = math.floor(max_col * 0.25)
+
+        sheet.merge_range(0, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(1, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(2, 0, 0, left_cols - 1, '', header_format)
+        sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
+        sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
+        sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
+        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Attendance Sheet', header_format)
+        sheet.set_row(2, 50)
+        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
+        # sheet.write(2, max_col - right_cols + 1, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
+
+        # Logo Header
+        # header_row = 5
+        # half_row = abs(int((total_row - 13)/2))
+        
+        # sheet.merge_range(0, half_row, 0, half_row + 15, 'Stadia Engineering Works Consultant Plc', header_format)
 
         # Tables header
-        table_start_row = header_row + 1
+        table_start_row = max_row + 1
         sheet.merge_range(table_start_row, 0, table_start_row + 2, 0, 'S.No', table_header_format)
         sheet.merge_range(table_start_row, 1, table_start_row + 2, 1, 'Name', table_header_format)
         sheet.merge_range(table_start_row , total_col + 3, table_start_row, total_col + 8, 'Total', table_header_format)
