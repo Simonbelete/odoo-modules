@@ -10,8 +10,11 @@ class AttendacneReport(models.AbstractModel):
     def generate_xlsx_report(self, workbook, data, partners):
         sheet = workbook.add_worksheet()
 
-        bold = workbook.add_format({'bold': True})
-        bold.set_border(style=1)
+        bold = workbook.add_format({'bold': True, 'text_wrap': True})
+        bold.set_border(style=2)
+        bold.set_rotation(90)
+        bold.set_align('center')
+        bold.set_align('vcenter')
         border = workbook.add_format()
         border.set_border(style=1)
         header_format = workbook.add_format()
@@ -63,9 +66,9 @@ class AttendacneReport(models.AbstractModel):
         sheet.write(max_row + 2, 16, 'Sign.', bold)
 
         # Sizes
-        sheet.set_row(max_row + 2, max_row + 2, 50)
+        sheet.set_row(max_row + 2, 120)
         sheet.set_column(0, 0, 5)
-        sheet.set_column(1, 1, 20)
+        sheet.set_column(1, 1, 25)
         sheet.set_column(2, 2, 20)
         sheet.set_column(3, 3, 5)
         sheet.set_column(4, 4, 10)
@@ -82,7 +85,7 @@ class AttendacneReport(models.AbstractModel):
         sheet.set_column(15, 15, 10)
         sheet.set_column(16, 16, 5)
 
-        row = max_row + 2
+        row = max_row + 3
         c = 1
         for payslip_id in payslip_ids:
             payslip = self.env['hr.payslip'].search([('id', '=', payslip_id)])
@@ -90,24 +93,61 @@ class AttendacneReport(models.AbstractModel):
             sheet.write(row, 0, c, border)
             sheet.write(row, 1, payslip.employee_id.name, border)
             sheet.write(row, 2, payslip.contract_id.job_id.name, border)
-            sheet.write(row, 3, payslip.contract_id.job_id.name, border)
 
             work100 = 0
             ov_amount = 0
+            basic_amount = 0
+            gross_amount = 0
+            transport_allowance_amount = 0
+            perdime_amount = 0
+            pension_amount = 0
+            other_amount = 0
+            total_deducation = 0
+            net_amount = 0
 
             for line in payslip.worked_days_line_ids:
                 work100 += line.number_of_days
                 
-
             for line in payslip.input_line_ids:
                 if(line.code == 'OV'):
                     ov_amount = line.number_of_days
 
-            sheet.write(row, 4, work100, border)
-            sheet.write(row, 5, payslip.contract_id.wage, border)
-            sheet.write(row, 5, payslip.contract_id.transport_allowance, border)
-            sheet.write(row, 5, payslip.contract_id.perdime, border)
-            sheet.write(row, 6, ov_amount, border)
+            for line in payslip.line_ids:
+                if(line.code == 'BASIC'):
+                    basic_amount = line.amount
+                if(line.code == 'TRA'):
+                    transport_allowance_amount = line.amount
+                if(line.code == 'PD'):
+                    perdime_amount = line.amount
+                if(line.code == 'PE'):
+                    pension_amount = line.amount
+                if(line.code == 'OT'):
+                    other_amount = line.amount
+                if(line.code == 'NET'):
+                    net_amount = line.amount
+                
+
+
+            # Calc
+            gross_amount = basic_amount + transport_allowance_amount + perdime_amount
+            total_deducation = payslip.tax_dec + pension_amount + other_amount
+
+            sheet.write(row, 3, work100, border)
+            sheet.write(row, 4, basic_amount, border)
+            sheet.write(row, 5, transport_allowance_amount, border)
+            sheet.write(row, 6, perdime_amount, border)
+            sheet.write(row, 7, ov_amount, border)
+            sheet.write(row, 8, gross_amount, border)
+            f = '=%s+%s' % (xl_rowcol_to_cell(row, 5), xl_rowcol_to_cell(row, 8))
+            sheet.write_formula(row, 9, f, border, '')
+            sheet.write(row, 10, payslip.tax_dec, border)
+            sheet.write(row, 11, pension_amount, border)
+            sheet.write(row, 12, '', border)
+            sheet.write(row, 13, other_amount, border)
+            sheet.write(row, 14, total_deducation, border)
+            sheet.write(row, 15, net_amount, border)
+            f = '=%s*0.11' % (xl_rowcol_to_cell(row, 4))
+            sheet.write_formula(row, 16, f, border, '')
             
             row += 1
             c += 1

@@ -37,6 +37,7 @@
         'data/hr_job_data.xml',
         'data/subcity_data.xml',
         'data/promotion_data.xml',
+        'data/hr_holidays_data.xml',
         'data/hr_salary_rule_category_data.xml',
         'data/hr_salary_rule_data.xml',
         'data/education_data.xml',

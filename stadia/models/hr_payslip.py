@@ -36,7 +36,7 @@ class HrPayslip(models.Model):
     def _compute_unpaid_value(self):
         for record in self:
             for line in record.worked_days_line_ids:
-                if(line.code == 'UNPAID'):
+                if(line.code == 'LWP'):
                     self.unpaid_value = abs(self.contract_id.wage/30 * line.number_of_days)
                 else:
                     self.unpaid_value = 0
@@ -116,7 +116,7 @@ class HrPayslip(models.Model):
                 if work_hours:
                     current_leave_struct['number_of_days'] += hours / work_hours
 
-                if(holiday.holiday_status_id.code == 'UNPAID'):
+                if(holiday.holiday_status_id.code == 'LWP'):
                     current_leave_struct['number_of_hours'] = -current_leave_struct['number_of_hours']
                     current_leave_struct['number_of_days'] = -current_leave_struct['number_of_days']
 
