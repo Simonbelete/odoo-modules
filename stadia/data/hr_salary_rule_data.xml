@@ -17,7 +17,8 @@
             ref('salary_rule_taken_leaves'),
             ref('salary_rule_cost_sharing'),
             ref('salary_rule_other'),
-            ref('ohrms_loan.hr_rule_loan')
+            ref('ohrms_loan.hr_rule_loan'),
+            ref('salary_rule_taxable_income)
 
         ])]" name="rule_ids"/>
         <field name="company_id" ref="base.main_company"/>
@@ -34,7 +35,7 @@
     </record>
 
     <record id="salary_rule_unpaid" model="hr.salary.rule">
-        <field name="name">Unpaid time off</field>
+        <field name="name">Leave without pay</field>
         <field name="category_id" ref="hr_payroll_community.DED" />
         <field name="sequence">5</field>
         <field name="code">LWP</field>
@@ -110,6 +111,15 @@
         <field name="category_id" ref="hr_payroll_community.ALW" />
         <field name="sequence">10</field>
         <field name="code">OV</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result=inputs.OV</field>
+    </record>
+
+    <record id="salary_rule_other" model="hr.salary.rule">
+        <field name="name">Other</field>
+        <field name="category_id" ref="hr_payroll_community.DED" />
+        <field name="sequence">10</field>
+        <field name="code">OT</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">result=inputs.OV</field>
     </record>
