@@ -59,11 +59,12 @@ class AttendacneReport(models.AbstractModel):
         sheet.write(max_row + 2, 9, 'Taxable Income', bold)
         sheet.write(max_row + 2, 10, 'Pension contribution from employee 7%', bold)
         sheet.write(max_row + 2, 11, 'Absent', bold)
-        sheet.write(max_row + 2, 12, 'Other', bold)
-        sheet.write(max_row + 2, 13, 'Total Deductions', bold)
-        sheet.write(max_row + 2, 14, 'Net Pay', bold)
-        sheet.write(max_row + 2, 15, 'Pension contribution from employer 11%', bold)
-        sheet.write(max_row + 2, 16, 'Sign.', bold)
+        sheet.write(max_row + 2, 12, 'Loan', bold)
+        sheet.write(max_row + 2, 13, 'Other', bold)
+        sheet.write(max_row + 2, 14, 'Total Deductions', bold)
+        sheet.write(max_row + 2, 15, 'Net Pay', bold)
+        sheet.write(max_row + 2, 16, 'Pension contribution from employer 11%', bold)
+        sheet.write(max_row + 2, 17, 'Sign.', bold)
 
         # Sizes
         sheet.set_row(max_row + 2, 120)
@@ -104,6 +105,8 @@ class AttendacneReport(models.AbstractModel):
             other_amount = 0
             total_deducation = 0
             net_amount = 0
+            taxable_income = 0
+            loan_amount = 0
 
             for line in payslip.worked_days_line_ids:
                 work100 += line.number_of_days
@@ -125,12 +128,13 @@ class AttendacneReport(models.AbstractModel):
                     other_amount = line.amount
                 if(line.code == 'NET'):
                     net_amount = line.amount
-                
-
-
+                if(line.code == 'TI'):
+                    taxable_income = line.amount
+                if(line.code == 'LO'):
+                    loan_amount = line.amount
             # Calc
             gross_amount = basic_amount + transport_allowance_amount + perdime_amount
-            total_deducation = payslip.tax_dec + pension_amount + other_amount
+            total_deducation = payslip.tax_dec + pension_amount + other_amount + loan_amount
 
             sheet.write(row, 3, work100, border)
             sheet.write(row, 4, basic_amount, border)
@@ -138,16 +142,16 @@ class AttendacneReport(models.AbstractModel):
             sheet.write(row, 6, perdime_amount, border)
             sheet.write(row, 7, ov_amount, border)
             sheet.write(row, 8, gross_amount, border)
-            f = '=%s+%s' % (xl_rowcol_to_cell(row, 5), xl_rowcol_to_cell(row, 8))
-            sheet.write_formula(row, 9, f, border, '')
+            sheet.write(row, 9, taxable_income, border)
             sheet.write(row, 10, payslip.tax_dec, border)
-            sheet.write(row, 11, pension_amount, border)
-            sheet.write(row, 12, '', border)
+            sheet.write(row, 11, '', border)
+            sheet.write(row, 12, loan_amount, border)
             sheet.write(row, 13, other_amount, border)
             sheet.write(row, 14, total_deducation, border)
             sheet.write(row, 15, net_amount, border)
             f = '=%s*0.11' % (xl_rowcol_to_cell(row, 4))
             sheet.write_formula(row, 16, f, border, '')
+            sheet.write(row, 15, '', border)
             
             row += 1
             c += 1

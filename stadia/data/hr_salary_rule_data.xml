@@ -75,7 +75,7 @@
         <field name="sequence">9</field>
         <field name="code">PE</field>
         <field name="amount_select">code</field>
-        <field name="amount_python_compute">result=-(contract.wage * 0.07)</field>
+        <field name="amount_python_compute">result=-(categories.BASIC * 0.07)</field>
     </record>
 
     <record id="salary_rule_tax" model="hr.salary.rule">
@@ -114,13 +114,13 @@
         <field name="amount_python_compute">result=inputs.OV</field>
     </record>
 
-    <record id="salary_rule_other" model="hr.salary.rule">
-        <field name="name">Other</field>
+    <record id="salary_rule_taxable_income" model="hr.salary.rule">
+        <field name="name">Taxable Income</field>
         <field name="category_id" ref="hr_payroll_community.DED" />
-        <field name="sequence">10</field>
-        <field name="code">OT</field>
+        <field name="sequence">11</field>
+        <field name="code">TI</field>
         <field name="amount_select">code</field>
-        <field name="amount_python_compute">result=inputs.OV</field>
+        <field name="amount_python_compute">result=categories.BASIC + inputs.OV</field>
     </record>
 
 </odoo>

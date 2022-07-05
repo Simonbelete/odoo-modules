@@ -16,6 +16,7 @@ class HrPayslip(models.Model):
     absent_attendance_value = fields.Float(compute="_compute_absent_attendance_value", default=0)
     perdime_value = fields.Float(compute="_compute_perdime_value")
     # Net Worked days
+    # includes LWP, absent attendance
     net_worked_days = fields.Float(compute="_compute_net_worked_days")
 
     def _compute_net_worked_days(self):
@@ -65,20 +66,25 @@ class HrPayslip(models.Model):
 
     def _compute_tax_dec(self):
         for total_wage in self:
-            if total_wage.contract_id.wage >= 0 and total_wage.contract_id.wage <= 600:
+            # Get Taxable income
+            taxable_income = 0
+            for line in self.line_ids:
+                if(line.code == 'TI'):
+                    taxable_income = line.amount
+            if taxable_income >= 0 and taxable_income <= 600:
                 total_wage.tax_dec = 0
-            elif total_wage.contract_id.wage > 600 and total_wage.contract_id.wage <= 1650:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.1 - 60
-            elif total_wage.contract_id.wage > 1650 and total_wage.contract_id.wage <= 3200:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.15 - 142.5
-            elif total_wage.contract_id.wage > 3200 and total_wage.contract_id.wage <= 5250:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.2 - 302.5
-            elif total_wage.contract_id.wage > 5250 and total_wage.contract_id.wage <= 7800:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.25 - 565
-            elif total_wage.contract_id.wage > 7800 and total_wage.contract_id.wage <= 10900:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.3 - 955
-            elif total_wage.contract_id.wage > 10900:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.35 - 1500
+            elif taxable_income > 600 and taxable_income <= 1650:
+                total_wage.tax_dec = taxable_income * 0.1 - 60
+            elif taxable_income > 1650 and taxable_income <= 3200:
+                total_wage.tax_dec = taxable_income * 0.15 - 142.5
+            elif taxable_income > 3200 and taxable_income <= 5250:
+                total_wage.tax_dec = taxable_income * 0.2 - 302.5
+            elif taxable_income > 5250 and taxable_income <= 7800:
+                total_wage.tax_dec = taxable_income * 0.25 - 565
+            elif taxable_income > 7800 and taxable_income <= 10900:
+                total_wage.tax_dec = taxable_income * 0.3 - 955
+            elif taxable_income > 10900:
+                total_wage.tax_dec = taxable_income * 0.35 - 1500
 
     @api.model
     def get_worked_day_lines(self, contracts, date_from, date_to):

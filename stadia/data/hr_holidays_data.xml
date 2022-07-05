@@ -11,7 +11,7 @@
         <field name="request_unit">hour</field>
         <field name="unpaid" eval="True"/>
         <field name="validity_start" eval="time.strftime('%Y-01-01')"/>
-        <field name="leave_notif_subtype_id" ref="mt_leave_unpaid"/>
+        <field name="leave_notif_subtype_id" ref="hr_holidays.mt_leave_unpaid"/>
         <field name="responsible_id" ref="base.user_admin"/>
     </record>
 </odoo>
