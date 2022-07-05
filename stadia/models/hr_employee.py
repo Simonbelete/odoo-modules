@@ -1,6 +1,11 @@
 from odoo import fields, api, models
 
 
+class FieldsOfSpecialization(models.Model):
+    _name = 'hr.specialization'
+    _description = "specialization"
+
+
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
@@ -52,8 +57,3 @@ class HrEmployee(models.Model):
     #     if name:
     #         domain = ['|', ('name', operator, name), ('mobile_phone', operator, name)]
     #     return self._search(domain + args, limit=limit, access_rights_uid=name_get_uid)
-
-
-class FieldsOfspecialization(models.Model):
-    _name = 'hr.specialization'
-    _description = "specialization"
