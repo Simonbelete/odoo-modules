@@ -12,7 +12,7 @@ class AssetMovement(models.Model):
     def _compute_previous_movement_id(self):
         self.previous_movement_id = self.asset_id.current_movement_id
 
-    ref_no = fields.Char()
+    ref_no = fields.Char(required=True)
     asset_id = fields.Many2one('stadia.asset', required=True)
     previous_movement_id = fields.Many2one('asset.movement', store=True, compute=_compute_previous_movement_id)
     previous_movement_location_id = fields.Many2one(related='previous_movement_id.location_id', store=True)
