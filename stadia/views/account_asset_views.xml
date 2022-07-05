@@ -114,6 +114,9 @@
                                 <field name="current_movement_location_id" string="Location"/>
                                 <field name="current_movement_employee_id" string="Employee"/>
                             </group>
+                            <group>
+                                
+                            </group>
                         </page>
                     </notebook>
                 </sheet>

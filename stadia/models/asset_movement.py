@@ -14,8 +14,8 @@ class AssetMovement(models.Model):
 
     asset_id = fields.Many2one('stadia.asset', required=True)
     previous_movement_id = fields.Many2one('asset.movement', store=True, compute=_compute_previous_movement_id)
-    previous_movement_location_id = fields.Many2one(related='previous_movement_id.location_id')
-    previous_movement_employee_id = fields.Many2one(related='previous_movement_id.employee_id')
+    previous_movement_location_id = fields.Many2one(related='previous_movement_id.location_id', store=True)
+    previous_movement_employee_id = fields.Many2one(related='previous_movement_id.employee_id', store=True)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('requested', 'Requested'),

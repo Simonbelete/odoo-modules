@@ -21,10 +21,14 @@
         <field name="arch" type="xml">
             <search>
                 <field name="asset_id" />
-                <filter string="Order From Date" name="date"/>
-                <!-- domain="[('date_field_from_model', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('date_field_from_model', '&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/> -->
+                <filter string="Movement Date" name="date_filter" date="date" default_period="last_month"/>
+                <filter string="Today" name="Today" domain="[('date', '=', datetime.datetime.today())]"/>
                 <group>
                     <filter name="date" string="Date" context="{'group_by': 'date'}" />
+                    <filter name="location_id" string="Location" context="{'group_by': 'location_id'}" />
+                    <filter name="employee_id" string="Employee" context="{'group_by': 'employee_id'}" />
+                    <filter name="previous_movement_location_id" string="Previous Location" context="{'group_by': 'previous_movement_location_id'}" />
+                    <filter name="previous_movement_employee_id" string="Previous Employee" context="{'group_by': 'previous_movement_employee_id'}" />
                 </group>
             </search>
         </field>
