@@ -55,7 +55,6 @@
         'wizard/manpower_report.xml',
         'wizard/asset_report_wizard.xml',
         'wizard/attendance_report.xml',
-        'wizard/payroll_report_wizard.xml',
 
         'report/component_templates.xml',
         'report/hr_contract_employee_badge.xml',

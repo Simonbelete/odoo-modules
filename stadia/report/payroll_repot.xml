@@ -6,6 +6,7 @@
         <field name="report_type">xlsx</field>
         <field name="report_name">stadia.payroll_report</field>
         <field name="report_file">payroll_report</field>
+        <field name="binding_model_id" ref="model_hr_payslip"/>
         <field name="binding_type">report</field>
     </record>
 </odoo>
