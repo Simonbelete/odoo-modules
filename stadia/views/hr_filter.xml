@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <record id="hr_employee_view_search_male_employee" model="ir.ui.view">
+        <field name="name">hr.employee.view.search.male.employee</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//filter[@name='message_needaction']" position="after">
+                    <separator/>
+                    <filter string="Male Employee" name="male_employee"
+                            domain="[('gender', '=', 'male')]"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
     <record id="hr_employee_view_search_female_employee" model="ir.ui.view">
         <field name="name">hr.employee.view.search.female.employee</field>
         <field name="model">hr.employee</field>
@@ -10,20 +25,6 @@
                     <separator/>
                     <filter string="Female Employee" name="female_employee"
                             domain="[('gender', '=', 'female')]"/>
-                    <separator/>
-                    <filter string="Male Employee" name="male_employee"
-                            domain="[('gender', '=', 'male')]"/>
-                    <separator/>
-                    <filter string="Married Employee" name="married_employee"
-                            domain="[('marital', '=', 'married')]"/>
-
-                    <separator/>
-                    <filter string="Single Employee" name="single_employee"
-                            domain="[('marital', '=', 'single')]"/>
-
-                    <separator/>
-                    <filter string="Divorced Employee" name="divorced_employee"
-                            domain="[('marital', '=', 'divorced')]"/>
                 </xpath>
             </data>
         </field>
@@ -59,12 +60,7 @@
             <searchpanel>
                 <field name="coach_id" enable_counters="1"/>
             </searchpanel>
-            <searchpanel>
-                <field name="fields_of_spec" enable_counters="1"/>
-            </searchpanel>
 
         </field>
     </record>
-
-
 </odoo>

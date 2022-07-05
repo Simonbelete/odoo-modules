@@ -1,16 +1,5 @@
 from odoo import fields, api, models
 
-
-class FieldsOfSpecialization(models.Model):
-    _name = 'field.specialization'
-    _description = "Specialization"
-
-
-class EmployeeSpecialization(models.Model):
-    _inherit = 'hr.employee'
-    fields_of_spec = fields.Many2one('field.specialization', string="Field of Specialization")
-
-
 class EducationalInformation(models.Model):
     _name = "hr.education"
     _description = "Employee Educational Information"
