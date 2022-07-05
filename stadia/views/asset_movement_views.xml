@@ -20,6 +20,7 @@
         <field name="model">asset.movement</field>
         <field name="arch" type="xml">
             <search>
+                <field name="ref_no" />
                 <field name="asset_id" />
                 <filter string="Movement Date" name="date_filter" date="date" default_period="last_month"/>
                 <filter string="Today" name="Today" domain="[('date', '=', datetime.datetime.today())]"/>
@@ -93,6 +94,7 @@
         <field name="model">asset.movement</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="ref_no" />
                 <field name="asset_id" />
                 <field name="location_id" />
                 <field name="employee_id" />
