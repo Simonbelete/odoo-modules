@@ -97,7 +97,6 @@
         'views/hr_employee_menus.xml',
         'views/hr_resume_line_views.xml',
         'views/appraisal_views.xml',
-        'views/hr_filter.xml',
 
         'website/appraisal_website.xml'
     ],
