@@ -52,7 +52,7 @@ class AllManpowerReport(models.AbstractModel):
         employees = self.sudo().env['hr.employee'].search([('contract_id', '!=', False)])
 
         sheet.write(max_row + 1, 0, 'No', bold)
-        sheet.write(max_row + 1, 1, 'Name of Employe', bold)
+        sheet.write(max_row + 1, 1, 'Name of Employee', bold)
         sheet.write(max_row + 1, 2, 'Position', bold)
         sheet.write(max_row + 1, 3, 'Basic Salary', bold)
         sheet.write(max_row + 1, 4, 'Perdime', bold)
@@ -243,7 +243,7 @@ class ManpowerReport(models.AbstractModel):
                 continue
 
             if(employee.first_contract_date >= start_date and employee.first_contract_date <= end_date):
-                sheet.write(col, 0, col - max_row - 2)
+                sheet.write(col, 0, col - max_row - 1)
                 sheet.write(col, 1, employee.name)
                 sheet.write(col, 2, employee.job_id.name)
                 sheet.write(col, 3, employee.contract_id.wage)

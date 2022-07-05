@@ -18,6 +18,20 @@ class StadiaAppraisal(models.Model):
         ('draft', 'Draft'),
         ('done', 'Done')
     ])
+    total_score = fields.Float(compute="_compute_total_score")
+    total_average_score = fields.Float(compute="_compute_average_score")
+
+    def _compute_total_score(self):
+        self.ensure_one()
+        total = 0
+        count = 0
+        for ans in self.user_answer_ids:
+            total += ans.answer_selection_id.weight
+            count += 1
+
+        self.total_score = total
+        self.total_average_score = total / count
+        
 
     def action_start_appraisal(self):
         self.ensure_one()

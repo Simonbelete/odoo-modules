@@ -15,6 +15,16 @@ class HrPayslip(models.Model):
     unpaid_value = fields.Float(compute="_compute_unpaid_value", default=0)
     absent_attendance_value = fields.Float(compute="_compute_absent_attendance_value", default=0)
     perdime_value = fields.Float(compute="_compute_perdime_value")
+    # Net Worked days
+    # includes LWP, absent attendance
+    net_worked_days = fields.Float(compute="_compute_net_worked_days")
+
+    def _compute_net_worked_days(self):
+        for record in self:
+            total = 0
+            for line in record.worked_days_line_ids:
+                total += line.number_of_days
+            record.net_worked_days = total
 
     def _compute_total_taken_leaves(self):
         for record in self:
@@ -27,7 +37,7 @@ class HrPayslip(models.Model):
     def _compute_unpaid_value(self):
         for record in self:
             for line in record.worked_days_line_ids:
-                if(line.code == 'UNPAID'):
+                if(line.code == 'LWP'):
                     self.unpaid_value = abs(self.contract_id.wage/30 * line.number_of_days)
                 else:
                     self.unpaid_value = 0
@@ -56,20 +66,34 @@ class HrPayslip(models.Model):
 
     def _compute_tax_dec(self):
         for total_wage in self:
-            if total_wage.contract_id.wage >= 0 and total_wage.contract_id.wage <= 600:
+            # Get Taxable income
+            taxable_income = 0
+            overtime = 0
+
+            total = 0
+            for line in total_wage.worked_days_line_ids:
+                total += line.number_of_days
+
+            for iline in total_wage.input_line_ids:
+                if(iline.code == 'OV'):
+                    overtime += iline.amount
+
+            taxable_income = total_wage.contract_id.wage/30 * total + overtime
+
+            if taxable_income >= 0 and taxable_income <= 600:
                 total_wage.tax_dec = 0
-            elif total_wage.contract_id.wage > 600 and total_wage.contract_id.wage <= 1650:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.1 - 60
-            elif total_wage.contract_id.wage > 1650 and total_wage.contract_id.wage <= 3200:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.15 - 142.5
-            elif total_wage.contract_id.wage > 3200 and total_wage.contract_id.wage <= 5250:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.2 - 302.5
-            elif total_wage.contract_id.wage > 5250 and total_wage.contract_id.wage <= 7800:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.25 - 565
-            elif total_wage.contract_id.wage > 7800 and total_wage.contract_id.wage <= 10900:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.3 - 955
-            elif total_wage.contract_id.wage > 10900:
-                total_wage.tax_dec = total_wage.contract_id.wage * 0.35 - 1500
+            elif taxable_income > 600 and taxable_income <= 1650:
+                total_wage.tax_dec = taxable_income * 0.1 - 60
+            elif taxable_income > 1650 and taxable_income <= 3200:
+                total_wage.tax_dec = taxable_income * 0.15 - 142.5
+            elif taxable_income > 3200 and taxable_income <= 5250:
+                total_wage.tax_dec = taxable_income * 0.2 - 302.5
+            elif taxable_income > 5250 and taxable_income <= 7800:
+                total_wage.tax_dec = taxable_income * 0.25 - 565
+            elif taxable_income > 7800 and taxable_income <= 10900:
+                total_wage.tax_dec = taxable_income * 0.3 - 955
+            elif taxable_income > 10900:
+                total_wage.tax_dec = taxable_income * 0.35 - 1500
 
     @api.model
     def get_worked_day_lines(self, contracts, date_from, date_to):
@@ -107,7 +131,7 @@ class HrPayslip(models.Model):
                 if work_hours:
                     current_leave_struct['number_of_days'] += hours / work_hours
 
-                if(holiday.holiday_status_id.code == 'UNPAID'):
+                if(holiday.holiday_status_id.code == 'LWP'):
                     current_leave_struct['number_of_hours'] = -current_leave_struct['number_of_hours']
                     current_leave_struct['number_of_days'] = -current_leave_struct['number_of_days']
 
