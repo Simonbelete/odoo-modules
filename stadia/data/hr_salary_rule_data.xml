@@ -18,7 +18,8 @@
             ref('salary_rule_cost_sharing'),
             ref('salary_rule_other'),
             ref('ohrms_loan.hr_rule_loan'),
-            ref('salary_rule_taxable_income)
+            ref('salary_rule_overtime'),
+            ref('salary_rule_taxable_income')
 
         ])]" name="rule_ids"/>
         <field name="company_id" ref="base.main_company"/>
@@ -127,7 +128,7 @@
     <record id="salary_rule_taxable_income" model="hr.salary.rule">
         <field name="name">Taxable Income</field>
         <field name="category_id" ref="hr_payroll_community.DED" />
-        <field name="sequence">11</field>
+        <field name="sequence">2</field>
         <field name="code">TI</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">result=categories.BASIC + inputs.OV</field>

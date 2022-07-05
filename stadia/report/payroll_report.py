@@ -57,14 +57,15 @@ class AttendacneReport(models.AbstractModel):
         sheet.write(max_row + 2, 7, 'Over time', bold)
         sheet.write(max_row + 2, 8, 'Gross salary', bold)
         sheet.write(max_row + 2, 9, 'Taxable Income', bold)
-        sheet.write(max_row + 2, 10, 'Pension contribution from employee 7%', bold)
-        sheet.write(max_row + 2, 11, 'Absent', bold)
-        sheet.write(max_row + 2, 12, 'Loan', bold)
-        sheet.write(max_row + 2, 13, 'Other', bold)
-        sheet.write(max_row + 2, 14, 'Total Deductions', bold)
-        sheet.write(max_row + 2, 15, 'Net Pay', bold)
-        sheet.write(max_row + 2, 16, 'Pension contribution from employer 11%', bold)
-        sheet.write(max_row + 2, 17, 'Sign.', bold)
+        sheet.write(max_row + 2, 10, 'Income Tax', bold)
+        sheet.write(max_row + 2, 11, 'Pension contribution from employee 7%', bold)
+        sheet.write(max_row + 2, 12, 'Absent', bold)
+        sheet.write(max_row + 2, 13, 'Loan', bold)
+        sheet.write(max_row + 2, 14, 'Other', bold)
+        sheet.write(max_row + 2, 15, 'Total Deductions', bold)
+        sheet.write(max_row + 2, 16, 'Net Pay', bold)
+        sheet.write(max_row + 2, 17, 'Pension contribution from employer 11%', bold)
+        sheet.write(max_row + 2, 18, 'Sign.', bold)
 
         # Sizes
         sheet.set_row(max_row + 2, 120)
@@ -134,7 +135,7 @@ class AttendacneReport(models.AbstractModel):
                     loan_amount = line.amount
             # Calc
             gross_amount = basic_amount + transport_allowance_amount + perdime_amount
-            total_deducation = payslip.tax_dec + pension_amount + other_amount + loan_amount
+            total_deducation = abs(payslip.tax_dec) + abs(payslip.tax_dec) + abs(pension_amount) + abs(other_amount) + abs(loan_amount)
 
             sheet.write(row, 3, work100, border)
             sheet.write(row, 4, basic_amount, border)
@@ -144,14 +145,15 @@ class AttendacneReport(models.AbstractModel):
             sheet.write(row, 8, gross_amount, border)
             sheet.write(row, 9, taxable_income, border)
             sheet.write(row, 10, payslip.tax_dec, border)
-            sheet.write(row, 11, '', border)
-            sheet.write(row, 12, loan_amount, border)
-            sheet.write(row, 13, other_amount, border)
-            sheet.write(row, 14, total_deducation, border)
-            sheet.write(row, 15, net_amount, border)
+            sheet.write(row, 11, pension_amount, border)
+            sheet.write(row, 12, '', border)
+            sheet.write(row, 13, loan_amount, border)
+            sheet.write(row, 14, other_amount, border)
+            sheet.write(row, 15, total_deducation, border)
+            sheet.write(row, 16, net_amount, border)
             f = '=%s*0.11' % (xl_rowcol_to_cell(row, 4))
-            sheet.write_formula(row, 16, f, border, '')
-            sheet.write(row, 15, '', border)
+            sheet.write_formula(row, 17, f, border, '')
+            sheet.write(row, 18, '', border)
             
             row += 1
             c += 1

@@ -68,9 +68,18 @@ class HrPayslip(models.Model):
         for total_wage in self:
             # Get Taxable income
             taxable_income = 0
-            for line in self.line_ids:
-                if(line.code == 'TI'):
-                    taxable_income = line.amount
+            overtime = 0
+
+            total = 0
+            for line in total_wage.worked_days_line_ids:
+                total += line.number_of_days
+
+            for iline in total_wage.input_line_ids:
+                if(iline.code == 'OV'):
+                    overtime += iline.amount
+
+            taxable_income = self.contract_id.wage/30 * total + overtime
+
             if taxable_income >= 0 and taxable_income <= 600:
                 total_wage.tax_dec = 0
             elif taxable_income > 600 and taxable_income <= 1650:
