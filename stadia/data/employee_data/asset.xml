@@ -12,7 +12,7 @@
     <record id="stadia_asset_movement_off_001_012" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_off_001_012"/>
         <field name="employee_id" ref="hr_employee_zenash_fonja"/>
-        <!-- <field name="state">approved</field> -->
+        <field name="state">approved</field>
     </record>
 
     <!--    BEMNET ASSET INFORMATION-->

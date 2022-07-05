@@ -21,6 +21,11 @@
         <field name="arch" type="xml">
             <search>
                 <field name="asset_id" />
+                <filter string="Order From Date" name="date"/>
+                <!-- domain="[('date_field_from_model', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('date_field_from_model', '&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/> -->
+                <group>
+                    <filter name="date" string="Date" context="{'group_by': 'date'}" />
+                </group>
             </search>
         </field>
     </record>
