@@ -28,6 +28,13 @@ class AssetMovement(models.Model):
     location_id = fields.Many2one('asset.location')
     employee_id = fields.Many2one('hr.employee')
 
+    @api.model
+    def create(self, vals):
+        res = super(AssetMovement, self).create(vals)
+        if(vals['state'] == 'approved'):
+            res.sudo().action_approve()
+        return res
+
     def action_request(self):
         users = self.env.ref('stadia.group_base_hr').users
         for user in users:
