@@ -1,4 +1,5 @@
 import math
+import os
 from odoo import api, fields, models
 from datetime import datetime
 
@@ -39,9 +40,12 @@ class AllManpowerReport(models.AbstractModel):
         center_cols = math.ceil(max_col * 0.5)
         right_cols = math.floor(max_col * 0.25)
 
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+
         sheet.merge_range(0, 0, 0, left_cols - 1, '', header_format)
         sheet.merge_range(1, 0, 0, left_cols - 1, '', header_format)
         sheet.merge_range(2, 0, 0, left_cols - 1, '', header_format)
+        sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
         sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
         sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
         sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'EMPLOYMENT, TRANSFER, TERMINATION REPORT', header_format)
@@ -165,6 +169,37 @@ class AllManpowerReport(models.AbstractModel):
             row += 1
             c += 1
 
+        ####################################
+        ## Active False
+        ####################################
+        row += 1
+        sheet.merge_range(row, 0, row, max_col -1, 'Termination', border)
+        
+        employees = self.sudo().env['hr.employee'].search([
+            ('active', '=', False),
+            ('departure_date', '>=', start_date),
+            ('departure_date', '<=', end_date)
+        ])
+
+        row = row + 1
+        c = 1
+        for promotion in employees:
+            sheet.write(row, 0, c, border)
+            sheet.write(row, 1, employee.name, border)
+            sheet.write(row, 2, '', border)
+            # sheet.write(row, 2, employee.job_id.name, border)
+            sheet.write(row, 3, employee.contract_id.wage, border)
+            # sheet.write(row, 4, employee.contract_id.perdime, border)
+            sheet.write(row, 4, '', border)
+            sheet.write(row, 5, '', border)
+            # sheet.write(row, 6, employee.contract_id.work_place_id.name, border)
+            sheet.write(row, 6, '', border)
+            if(employee.departure_date):
+                sheet.write(row, 7, employee.departure_date.strftime('%m/%d/%Y'), border)
+            else:
+                sheet.write(row, 7, '', border)
+            row += 1
+            c += 1
 
 class ManpowerReport(models.AbstractModel):
     _name = 'report.stadia.hired_manpower_report'
