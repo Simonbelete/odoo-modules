@@ -149,20 +149,23 @@ class AttendacneReport(models.AbstractModel):
                 for day, hours, leave in leaves:
                     total_leave_hours += hours
 
-                if(attendance):
-                    if(attendance.regularization):
-                        sheet.write(col, row, 'S', color)
-                    else:
-                        sheet.write(col, row, 'P', color)
-                elif(total_leave_hours > 4):
-                    # Considered as full day work
-                    sheet.write(col, row, 'L', color)
-                elif(total_leave_hours == 4):
-                    # Half day leave
-                    # TODO: type of remark
-                    sheet.write(col, row, 'LH', color)
+                if(current_date.weekday() in weekend):
+                    sheet.write(col, row, 'P', color)
                 else:
-                    sheet.write(col, row, 'A', color)
+                    if(attendance):
+                        if(attendance.regularization):
+                            sheet.write(col, row, 'S', color)
+                        else:
+                            sheet.write(col, row, 'P', color)
+                    elif(total_leave_hours > 4):
+                        # Considered as full day work
+                        sheet.write(col, row, 'L', color)
+                    elif(total_leave_hours == 4):
+                        # Half day leave
+                        # TODO: type of remark
+                        sheet.write(col, row, 'LH', color)
+                    else:
+                        sheet.write(col, row, 'A', color)
 
                 row += 1
                 date_start += delta
