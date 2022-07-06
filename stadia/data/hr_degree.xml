@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_degree_degree" model="hr.degree">
+        <field name="name">Degree</field>
+    </record>
+
+    <record id="hr_degree_diploma" model="hr.degree">
+        <field name="name">Diploma</field>
+    </record>
+
+    <record id="hr_degree_certificate" model="hr.degree">
+        <field name="name">Certificate</field>
+    </record>
+
+    <record id="hr_degree_ma" model="hr.degree">
+        <field name="name">M.A</field>
+    </record>
+</odoo>
