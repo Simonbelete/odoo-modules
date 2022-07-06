@@ -240,9 +240,12 @@ class ManpowerReport(models.AbstractModel):
         center_cols = math.ceil(max_col * 0.5)
         right_cols = math.floor(max_col * 0.25)
 
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+
         sheet.merge_range(0, 0, 0, left_cols - 1, '', header_format)
         sheet.merge_range(1, 0, 0, left_cols - 1, '', header_format)
         sheet.merge_range(2, 0, 0, left_cols - 1, '', header_format)
+        sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
         sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
         sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
         sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Report', header_format)
@@ -303,21 +306,67 @@ class LateralTransferManpowerReport(models.AbstractModel):
         end_date = data['form']['date_to']
         end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
 
+        header_format = workbook.add_format()
+        header_format.set_font_size(15)
+        header_format.set_bold()
+        header_format.set_align('center')
+        header_format.set_align('vcenter')
+        header_format.set_border(style=1)
+        date_format = workbook.add_format()
+        date_format.set_font_size(10)
+        date_format.set_bold()
+        date_format.set_align('center')
+        date_format.set_align('vcenter')
+        date_format.set_border(style=1)
+
+        max_col = 9
+        max_row = 3
+        left_cols = math.floor(max_col * 0.25)
+        center_cols = math.ceil(max_col * 0.5)
+        right_cols = math.floor(max_col * 0.25)
+
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+
+        sheet.merge_range(0, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(1, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(2, 0, 0, left_cols - 1, '', header_format)
+        sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
+        sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
+        sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
+        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Report', header_format)
+        sheet.set_row(2, 50)
+        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
+
         # i.e contract signed stage
         last_stage_id = self.env['stadia.promotion.stage'].search([])
         last_stage_id = max(last_stage_id.mapped('sequence'))
-        promotions = self.env['stadia.promotion'].search([('stage_id', '=', last_stage_id), ('promotion_type', '=', 'transfer')])
+        promotions = self.env['stadia.promotion'].search([
+            ('stage_id', '=', last_stage_id), 
+            ('promotion_type', '=', 'transfer'),
+            ('start_date', '>=', start_date),
+            ('start_date', '<=', end_date),
+            ])
 
-        sheet.write(0, 0, 'Name of Employe', bold)
-        sheet.write(0, 1, 'Position', bold)
-        sheet.write(0, 2, 'Basic Salary', bold)
-        sheet.write(0, 3, 'Perdime', bold)
-        sheet.write(0, 4, 'Desert Allowance', bold)
-        sheet.write(0, 5, 'Transfer From', bold)
-        sheet.write(0, 6, 'Transfer To', bold)
-        sheet.write(0, 7, 'Transfer Date', bold)
+        sheet.write(max_row + 1, 0, 'Name of Employe', bold)
+        sheet.write(max_row + 1, 1, 'Position', bold)
+        sheet.write(max_row + 1, 2, 'Basic Salary', bold)
+        sheet.write(max_row + 1, 3, 'Perdime', bold)
+        sheet.write(max_row + 1, 4, 'Desert Allowance', bold)
+        sheet.write(max_row + 1, 5, 'Transfer From', bold)
+        sheet.write(max_row + 1, 6, 'Transfer To', bold)
+        sheet.write(max_row + 1, 7, 'Transfer Date', bold)
 
-        col = 1
+        # Sizes
+        sheet.set_column(0, 0,  5)
+        sheet.set_column(1, 1, 30)
+        sheet.set_column(2, 2, 20)
+        sheet.set_column(3, 3, 20)
+        sheet.set_column(4, 4, 20)
+        sheet.set_column(5, 5, 20)
+        sheet.set_column(6, 6, 20)
+        sheet.set_column(7, 7, 20)
+
+        col = max_row + 2
         for promotion in promotions:
             # Check the employee has signed a contract
             contract_count = self.env['hr.contract'].search_count([('employee_id', '=', promotion.employee_id.id), ('date_start', '>=', promotion.start_date), ('state', '=', 'open')])
@@ -346,21 +395,62 @@ class PromotionManpowerReport(models.AbstractModel):
         end_date = data['form']['date_to']
         end_date = datetime.strptime(end_date, '%Y-%m-%d').date()
 
+        header_format = workbook.add_format()
+        header_format.set_font_size(15)
+        header_format.set_bold()
+        header_format.set_align('center')
+        header_format.set_align('vcenter')
+        header_format.set_border(style=1)
+        date_format = workbook.add_format()
+        date_format.set_font_size(10)
+        date_format.set_bold()
+        date_format.set_align('center')
+        date_format.set_align('vcenter')
+        date_format.set_border(style=1)
+
+        max_col = 9
+        max_row = 3
+        left_cols = math.floor(max_col * 0.25)
+        center_cols = math.ceil(max_col * 0.5)
+        right_cols = math.floor(max_col * 0.25)
+
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+
+        sheet.merge_range(0, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(1, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(2, 0, 0, left_cols - 1, '', header_format)
+        sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
+        sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
+        sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
+        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Report', header_format)
+        sheet.set_row(2, 50)
+        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
+
+
         # i.e contract signed stage
         last_stage_id = self.env['stadia.promotion.stage'].search([])
         last_stage_id = max(last_stage_id.mapped('sequence'))
         promotions = self.env['stadia.promotion'].search([('stage_id', '=', last_stage_id), ('promotion_type', '=', 'promotion')])
 
-        sheet.write(0, 0, 'Name of Employe', bold)
-        sheet.write(0, 1, 'Position', bold)
-        sheet.write(0, 2, 'Basic Salary', bold)
-        sheet.write(0, 3, 'Perdime', bold)
-        sheet.write(0, 4, 'Desert Allowance', bold)
-        sheet.write(0, 5, 'Transfer From', bold)
-        sheet.write(0, 6, 'Transfer To', bold)
-        sheet.write(0, 7, 'Transfer Date', bold)
+        sheet.write(max_row + 1, 0, 'Name of Employe', bold)
+        sheet.write(max_row + 1, 1, 'Position', bold)
+        sheet.write(max_row + 1, 2, 'Basic Salary', bold)
+        sheet.write(max_row + 1, 3, 'Perdime', bold)
+        sheet.write(max_row + 1, 4, 'Desert Allowance', bold)
+        sheet.write(max_row + 1, 5, 'Transfer From', bold)
+        sheet.write(max_row + 1, 6, 'Transfer To', bold)
+        sheet.write(max_row + 1, 7, 'Transfer Date', bold)
 
-        col = 1
+        sheet.set_column(0, 0,  5)
+        sheet.set_column(1, 1, 30)
+        sheet.set_column(2, 2, 20)
+        sheet.set_column(3, 3, 20)
+        sheet.set_column(4, 4, 20)
+        sheet.set_column(5, 5, 20)
+        sheet.set_column(6, 6, 20)
+        sheet.set_column(7, 7, 20)
+
+        col = max_row + 2
         for promotion in promotions:
             # Check the employee has signed a contract
             contract_count = self.env['hr.contract'].search_count([('employee_id', '=', promotion.employee_id.id), ('date_start', '>=', promotion.start_date), ('state', '=', 'open')])

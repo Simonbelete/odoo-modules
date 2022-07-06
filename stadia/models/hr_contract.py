@@ -21,6 +21,7 @@ class HrContract(models.Model):
     cost_sharing = fields.Monetary(default = 0)
     work_place_id = fields.Many2one('stadia.workplace', required=True, default=_default_work_place_id)
     transport_allowance = fields.Monetary(default=0)
+    desert_allowance = fields.Monetary(default=0)
 
     # For printing
     issued_date = fields.Date(compute="_compute_issued_date")

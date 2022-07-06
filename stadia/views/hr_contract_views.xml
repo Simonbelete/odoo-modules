@@ -61,6 +61,11 @@
                     <div class="o_row" name="phone_allowance">
                         <field name="phone_allowance" string="Phone Allowance" nolabel="1"/>
                         <span>/ month</span>
+                    </div> 
+                    <label for="desert_allowance"/>
+                    <div class="o_row" name="desert_allowance">
+                        <field name="desert_allowance" string="Desert Allowance" nolabel="1"/>
+                        <span>/ month</span>
                     </div>
                 </xpath>
 
