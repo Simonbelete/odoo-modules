@@ -250,7 +250,7 @@ class ManpowerReport(models.AbstractModel):
         sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
         sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Hired Report', header_format)
         sheet.set_row(2, 50)
-        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date 111 - 2222', date_format)
+        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
 
         # Get the employees from contract id
         employees = self.sudo().env['hr.employee'].search([('contract_id', '!=', False)])
