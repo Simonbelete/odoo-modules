@@ -129,7 +129,7 @@ class AllManpowerReport(models.AbstractModel):
                 style.set_bg_color('#66666')
             sheet.write(row, 0, c, style)
             sheet.write(row, 1, transfer.employee_id.name, style)
-            sheet.write(row, 2, transfer.employee_id.job_id.name, style)
+            sheet.write(row, 2, transfer.new_designation_job_id.name, style)
             sheet.write(row, 3, transfer.salary, style)
             sheet.write(row, 4, transfer.perdime, style)
             sheet.write(row, 5, '', style)
@@ -159,7 +159,7 @@ class AllManpowerReport(models.AbstractModel):
                 style.set_bg_color('#66666')
             sheet.write(row, 0, c, style)
             sheet.write(row, 1, promotion.employee_id.name, style)
-            sheet.write(row, 2, promotion.employee_id.job_id.name, style)
+            sheet.write(row, 2, promotion.new_designation_job_id.name, style)
             sheet.write(row, 3, promotion.salary, style)
             sheet.write(row, 4, promotion.perdime, style)
             sheet.write(row, 5, '', style)
@@ -248,7 +248,7 @@ class ManpowerReport(models.AbstractModel):
         sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
         sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
         sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
-        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Report', header_format)
+        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Hired Report', header_format)
         sheet.set_row(2, 50)
         sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date 111 - 2222', date_format)
 
@@ -333,7 +333,7 @@ class LateralTransferManpowerReport(models.AbstractModel):
         sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
         sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
         sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
-        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Report', header_format)
+        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Lateral Transfer Report', header_format)
         sheet.set_row(2, 50)
         sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
 
@@ -357,7 +357,7 @@ class LateralTransferManpowerReport(models.AbstractModel):
         sheet.write(max_row + 1, 7, 'Transfer Date', bold)
 
         # Sizes
-        sheet.set_column(0, 0,  5)
+        sheet.set_column(0, 0,  30)
         sheet.set_column(1, 1, 30)
         sheet.set_column(2, 2, 20)
         sheet.set_column(3, 3, 20)
@@ -371,7 +371,7 @@ class LateralTransferManpowerReport(models.AbstractModel):
             # Check the employee has signed a contract
             contract_count = self.env['hr.contract'].search_count([('employee_id', '=', promotion.employee_id.id), ('date_start', '>=', promotion.start_date), ('state', '=', 'open')])
             sheet.write(col, 0, promotion.employee_id.name)
-            sheet.write(col, 1, promotion.employee_id.job_id.name)
+            sheet.write(col, 1, promotion.new_designation_job_id.name)
             sheet.write(col, 2, promotion.employee_id.contract_id.wage)
             sheet.write(col, 3, promotion.employee_id.contract_id.perdime)
             sheet.write(col, 4, '')
@@ -422,7 +422,7 @@ class PromotionManpowerReport(models.AbstractModel):
         sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
         sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
         sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
-        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Report', header_format)
+        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Promotion Report', header_format)
         sheet.set_row(2, 50)
         sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % (start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')), date_format)
 
@@ -441,7 +441,7 @@ class PromotionManpowerReport(models.AbstractModel):
         sheet.write(max_row + 1, 6, 'Transfer To', bold)
         sheet.write(max_row + 1, 7, 'Transfer Date', bold)
 
-        sheet.set_column(0, 0,  5)
+        sheet.set_column(0, 0,  30)
         sheet.set_column(1, 1, 30)
         sheet.set_column(2, 2, 20)
         sheet.set_column(3, 3, 20)
@@ -455,7 +455,7 @@ class PromotionManpowerReport(models.AbstractModel):
             # Check the employee has signed a contract
             contract_count = self.env['hr.contract'].search_count([('employee_id', '=', promotion.employee_id.id), ('date_start', '>=', promotion.start_date), ('state', '=', 'open')])
             sheet.write(col, 0, promotion.employee_id.name)
-            sheet.write(col, 1, promotion.employee_id.job_id.name)
+            sheet.write(col, 1, promotion.new_designation_job_id.name)
             sheet.write(col, 2, promotion.employee_id.contract_id.wage)
             sheet.write(col, 3, promotion.employee_id.contract_id.perdime)
             sheet.write(col, 4, '')
