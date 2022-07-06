@@ -11,10 +11,12 @@ class HrAttendance(models.Model):
     attendance_date = fields.Date(default=datetime.today())
     regularization = fields.Boolean(string="Regularization")
     reason_for_change = fields.Char()
+    regularization_id = fields.Many2one('stadia.attendance')
+    category_id = fields.Many2one(related="regularization_id.category_id")
 
-    def write(self, vals):
-        if(not 'reason_for_change' in vals):
-            raise UserError('Please enter the reason for changes')
-        else:
-            res = super(HrAttendance, self).write(vals)
-            return res
+    # def write(self, vals):
+    #     if(not 'reason_for_change' in vals):
+    #         raise UserError('Please enter the reason for changes')
+    #     else:
+    #         res = super(HrAttendance, self).write(vals)
+    #         return res
