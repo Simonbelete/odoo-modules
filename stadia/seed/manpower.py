@@ -1,5 +1,6 @@
 import csv
 import xmlrpc.client
+from numpy import NaN
 import pandas as pd
 from datetime import datetime
 
@@ -56,45 +57,65 @@ df = pd.read_excel('manpower.xlsx')
 
 for index, row in df.iterrows():
     print(row['Name of Employee'])
-    job =  models.execute_kw(db, uid, password, 'hr.job', 'search', [[['name', '=', row['Position'].strip()]]])
-    department =  models.execute_kw(db, uid, password, 'hr.department', 'search', [[['name', '=', row['Department'].strip()]]])
+
+    job = models.execute_kw(db, uid, password, 'hr.job', 'search', [[['name', '=', str(row['Position']).strip()]]])
+    department =  models.execute_kw(db, uid, password, 'hr.department', 'search', [[['name', '=', str(row['Department']).strip()]]])
     salary_structure = models.execute_kw(db, uid, password, 'hr.payroll.structure', 'search', [[['name', '=', 'Base for new structures']]])
-    work_place = models.execute_kw(db, uid, password, 'stadia.workplace', 'search', [[['name', '=', row['Project'].strip()]]])
-    education = models.execute_kw(db, uid, password, 'hr.field.study', 'search', [[['name', '=', row['Education'].strip()]]])
+    work_place = models.execute_kw(db, uid, password, 'stadia.workplace', 'search', [[['name', '=', str(row['Project']).strip()]]])
+    degree = models.execute_kw(db, uid, password, 'hr.degree', 'search', [[['name', '=', str(row['Education']).strip()]]])
+    education = models.execute_kw(db, uid, password, 'hr.field.study', 'search', [[['name', '=', str(row['Specialized  in']).strip()]]])
+
+    if(not degree):
+        if(str(row['Education']).strip()):
+            degree =  models.execute_kw(db, uid, password, 'hr.degree', 'create', [{'name': str(row['Education']).strip() }])
+        else:
+            degree = None
+    else:
+        degree = degree[0]
 
     if(not education):
-        if(row['Education'].strip()):
-            education =  models.execute_kw(db, uid, password, 'hr.field.study', 'create', [{'name':row['Education'].strip()}])
+        education
+        if(str(row['Specialized  in']).strip()):
+            education =  models.execute_kw(db, uid, password, 'hr.field.study', 'create', [{'name': str(row['Specialized  in']).strip()}])
         else:
             education = None
+    else:
+        education = education[0]
 
     if(not work_place):
-        work_place = models.execute_kw(db, uid, password, 'hr.department', 'create', [{'name': row['Project'].strip()}])
-
-    if(not job):
-        job[0] = models.execute_kw(db, uid, password, 'hr.job', 'create', [{'name': row['Position'].strip(), 'department_id': department[0]}])
+        work_place = models.execute_kw(db, uid, password, 'stadia.workplace', 'create', [{'name': str(row['Project']).strip()}])
+    else:
+        work_place = work_place[0]
 
     print(department)
-    print(job)
+
+    if(not job):
+        job = models.execute_kw(db, uid, password, 'hr.job', 'create', [{'name': str(row['Position']).strip(), 'department_id': department[0]}])
+    else:
+        job = job[0]
 
     employee = models.execute_kw(db, uid, password, 'hr.employee', 'create', [{
-        'name': row['Name of Employee'].strip(),
-        'gender': row['Gender'].strip().lower(),
-        'job_id': job[0],
+        'name': str(row['Name of Employee']).strip(),
+        'gender': str(row['Gender']).strip().lower(),
+        'job_id': job,
         'department_id': department[0],
-        'degree_id': education[0],
+        'degree_id': degree,
+        'education_id': education,
         'mobile_phone': str(row['Employee Phone number']).strip()
     }])
 
-    # employee_contract = models.execute_kw(db, uid, password, 'hr.employee', 'create', [{
-    #     'name': '%s Contract Agreement' % row['Name of Employee'].strip(),
-    #     'gender': employee[0],
-    #     'job_id': job[0],
-    #     'department_id': department[0],
-    #     'struct_id': salary_structure[0],
-    #     'work_place_id': work_place[0],
-    #     'date_start': datetime.strptime(row['Date of Employment'].strip(), '%m-%d-%Y').date(),
-    #     'wage': float(row['Basic salary'].strip()),
-    #     'transport_allowance': float(row['Transport Allowance'].strip()),
-    #     'perdime': float(row['Perdiem'].strip()),
-    # }])
+    print(str(row['Date of Employment']))
+    print('-----------------')
+
+
+    employee_contract = models.execute_kw(db, uid, password, 'hr.contract', 'create', [{
+        'name': '%s Contract Agreement' % row['Name of Employee'].strip(),
+        'job_id': job,
+        'department_id': department[0],
+        'struct_id': salary_structure[0],
+        'work_place_id': work_place,
+        'date_start': row['Date of Employment'].strftime('%Y-%m-%d') if row['Date of Employment'] else '', #datetime.strptime(row['Date of Employment'], '%Y-%m-%d').strftime('%Y-%m-%d') if isinstance(row['Date of Employment'], str) else row['Date of Employment'].strftime('%Y-%m-%d'),
+        'wage': float(row['Basic salary']),
+        'transport_allowance': float(row['Transport Allowance']),
+        'perdime': float(row['Perdiem']) if row['Perdiem'] else 0,
+    }])

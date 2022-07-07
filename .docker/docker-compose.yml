@@ -21,8 +21,8 @@ services:
       - './postgresql/db:/var/lib/postgresql/data'
     ports:
       - '5432:5432'
-    networks:
-      - odoo_modules
+    # networks:
+    #   - odoo_modules
   mailhog:
     image: odoo_modules/mailhog
     container_name: odoo_modules_mailhog
@@ -34,3 +34,22 @@ services:
       - '8025:8025'
     networks:
       - odoo_modules
+  odoo:
+    image: odoo_modules/odoo
+    depends_on:
+      - postgresql
+    container_name: odoo_modules_odoo
+    build:
+      context: ./odoo
+      dockerfile: ./Dockerfile
+    environment:
+      - HOST=postgresql
+      - USER=odoo_user
+      - PASSWORD=superuser_pass
+    # volumes:
+      # - '../:/mnt/extra-addons'
+      # - '../.docker/odoo/config:/etc/odoo'
+    ports:
+      - '8069:8069'
+    # networks:
+    #   - odoo_modules
