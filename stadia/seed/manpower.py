@@ -10,6 +10,18 @@ common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
 uid = common.authenticate(db, user, password, {})
 models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 
-id = models.execute_kw(db, uid, password, 'res.partner', 'create', [{'name': "New Partner"}])
+# id = models.execute_kw(db, uid, password, 'res.partner', 'create', [{'name': "New Partner"}])
 
-print(id)
+with open('manpower.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if(line_count == 0):
+            continue
+        
+        employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'create', [{
+            'name': row[1].strip(),
+            'gender': row[2].strip() 
+        }])
+        print()
+        line_count += 1
