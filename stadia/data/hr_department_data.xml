@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="hr_department_gm" model="hr.department">
-        <field name="name">General Manager</field>
-    </record>
-
-    <record id="hr_department_it" model="hr.department">
-        <field name="name">IT Department</field>
-    </record>
-
-    <record id="hr_department_rcmd" model="hr.department">
-        <field name="name">Subversion (RCMD)</field>
+    <record id="hr_department_management" model="hr.department">
+        <field name="name">Management</field>
     </record>
 
     <record id="hr_department_design" model="hr.department">
         <field name="name">Design</field>
     </record>
 
-    <record id="hr_departmentd_highway" model="hr.department">
-        <field name="name">Highway</field>
+    <record id="hr_department_rcmd" model="hr.department">
+        <field name="name">Subversion (RCMD)</field>
     </record>
 
-    <record id="hr_departmentdata_laboratory" model="hr.department">
-        <field name="name">Laboratory</field>
-    </record>
-
-<record id="hr_department_geotechnical_engineering" model="hr.department">
-        <field name="name">Geotechnical Engineering, Material Testing and Payment Design</field>
+    <record id="stadia_hr_department_project_formulation" model="hr.department">
+        <field name="name">Project Formulation</field>
     </record>
 
     <record id="stadia_hr_department_admin_and_finance" model="hr.department">
@@ -38,8 +26,16 @@
         <field name="parent_id" ref="stadia_hr_department_admin_and_finance" />
     </record>
 
-    <record id="stadia_hr_department_project_formulation" model="hr.department">
-        <field name="name">Project Formulation</field>
+    <record id="hr_departmentdata_laboratory" model="hr.department">
+        <field name="name">Material Laboratory</field>
+    </record>
+
+    <record id="hr_departmentdata_building" model="hr.department">
+        <field name="name">Building</field>
+    </record>
+
+    <record id="hr_departmentdata_design" model="hr.department">
+        <field name="name">Design</field>
     </record>
 
 </odoo>

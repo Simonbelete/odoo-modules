@@ -12,16 +12,23 @@ models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 
 # id = models.execute_kw(db, uid, password, 'res.partner', 'create', [{'name': "New Partner"}])
 
+########################################
+# Refs and data cleaning
+# Departments
+
+
 with open('manpower.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
         if(line_count == 0):
             continue
-        
+
         employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'create', [{
             'name': row[1].strip(),
-            'gender': row[2].strip() 
+            'gender': row[2].strip(),
+            'job_id': 1
         }])
-        print()
+        print(employee_id)
+        break
         line_count += 1
