@@ -10,7 +10,7 @@
     </record>
 
     <record id="hr_department_rcmd" model="hr.department">
-        <field name="name">Subversion (RCMD)</field>
+        <field name="name">RCMD</field>
     </record>
 
     <record id="stadia_hr_department_project_formulation" model="hr.department">

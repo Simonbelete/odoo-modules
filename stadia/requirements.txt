@@ -1,2 +1,3 @@
 XlsxWriter
 num2words
+xlrd
