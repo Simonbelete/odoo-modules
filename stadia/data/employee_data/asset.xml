@@ -29,7 +29,7 @@
     <record id="stadia_asset_movement_coa_001_079" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_coa_001_079"/>
         <field name="employee_id" ref="hr_employee_bemnet_tesgaye"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    KIBEBE ASSET-->
@@ -46,7 +46,7 @@
     <record id="stadia_asset_movement_coa_001_079" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_ofe-001-007"/>
         <field name="employee_id" ref="hr_employee_kibebe_simie"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    NATNAIL ASSET-->
@@ -63,7 +63,7 @@
     <record id="stadia_asset_movement_coa_001_079" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-032"/>
         <field name="employee_id" ref="hr_employee_natnail_tamru"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    GETAMESAY ASSET-->
@@ -79,7 +79,7 @@
     <record id="stadia_asset_movement_coa_005-033" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_005-033"/>
         <field name="employee_id" ref="hr_employee_getamesay_dejene"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Hilen Asset-->
@@ -95,7 +95,7 @@
     <record id="stadia_asset_movement_off-003-008" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_003-008"/>
         <field name="employee_id" ref="hr_employee_hilen_taye"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Hayat Asset-->
@@ -111,7 +111,7 @@
     <record id="stadia_asset_movement_off-001-048" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-048"/>
         <field name="employee_id" ref="hr_employee_hayat_aweil"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Meseret Asset-->
@@ -127,7 +127,7 @@
     <record id="stadia_asset_movement_off-001-048" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-040"/>
         <field name="employee_id" ref="hr_employee_meseret_fikade"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Endalk Asset-->
@@ -144,7 +144,7 @@
     <record id="stadia_asset_movement_OFE-001-050" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-050"/>
         <field name="employee_id" ref="hr_employee_endalk_fentie"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Tseganesh Asset-->
@@ -160,7 +160,7 @@
     <record id="stadia_asset_movement_OFF-002-047" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_002-047"/>
         <field name="employee_id" ref="hr_employee_tsegenesh_leta"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Nuhamin Asset-->
@@ -176,7 +176,7 @@
     <record id="stadia_asset_movement_OFF-001-066" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-066"/>
         <field name="employee_id" ref="hr_employee_nuhamin_demeke"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Meskerem Asset-->
@@ -192,7 +192,7 @@
     <record id="stadia_asset_movement_COA-001-009" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-009"/>
         <field name="employee_id" ref="hr_employee_meskerem_berhanu"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
     <!--Tigireda Asset-->
     <record id="stadia_asset_001-029" model="stadia.asset">
@@ -207,7 +207,7 @@
     <record id="stadia_asset_movement_COA-001-029" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-029"/>
         <field name="employee_id" ref="hr_employee_tigireda_abebe"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Kuratu Asset-->
@@ -223,7 +223,7 @@
     <record id="stadia_asset_movement_COA-001-006" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-006"/>
         <field name="employee_id" ref="hr_employee_kuratu_kasahun"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Shalom Asset-->
@@ -239,7 +239,7 @@
     <record id="stadia_asset_movement_COA_001-046" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-046"/>
         <field name="employee_id" ref="hr_contract_shalom_yeneneh"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Bruktawit Asset-->
@@ -255,7 +255,7 @@
     <record id="stadia_asset_movement_COA_002-097" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_002-097"/>
         <field name="employee_id" ref="hr_employee_bruktawit_teshome"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Emebet Asset-->
@@ -271,7 +271,7 @@
     <record id="stadia_asset_movement_COA_001-025" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-025"/>
         <field name="employee_id" ref="hr_employee_emebet_gosaye"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Dawit Asset-->
@@ -287,7 +287,7 @@
     <record id="stadia_asset_movement_COA_001-037" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-037"/>
         <field name="employee_id" ref="hr_employee_dawit_gebre"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Abel Asset-->
@@ -303,7 +303,7 @@
     <record id="stadia_asset_movement_COA_001-037" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_001-020"/>
         <field name="employee_id" ref="hr_employee_abel_melese"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <record id="stadia_asset_new" model="stadia.asset">
@@ -318,7 +318,7 @@
     <record id="stadia_asset_movement_new" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_new"/>
         <field name="employee_id" ref="hr_employee_ayan_husien"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Selamawit Asset-->
@@ -334,7 +334,7 @@
     <record id="stadia_asset_movement_coa-001-049" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_coa-001-049"/>
         <field name="employee_id" ref="hr_employee_selamawit_ashagrie"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <record id="stadia_asset_coa-001-027" model="stadia.asset">
@@ -349,7 +349,7 @@
     <record id="stadia_asset_movement_coa-001-027" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_coa-001-027"/>
         <field name="employee_id" ref="hr_employee_dereje_girma"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Endalkachew Asset-->
@@ -365,7 +365,7 @@
     <record id="stadia_asset_movement_coa-001-26" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_coa-off-001-26"/>
         <field name="employee_id" ref="hr_employee_endalkachew_zemen"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <record id="stadia_asset_coa-off-001-027" model="stadia.asset">
@@ -380,7 +380,7 @@
     <record id="stadia_asset_movement_coa-off-001-027" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_coa-off-001-027"/>
         <field name="employee_id" ref="hr_employee_adyam_selemon"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Hagose Asset-->
@@ -396,7 +396,7 @@
     <record id="stadia_asset_movement_coa-001-38" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_coa-001-38"/>
         <field name="employee_id" ref="hr_employee_hagose_kidanemariyam"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Wondosen Asset-->
@@ -412,7 +412,7 @@
     <record id="stadia_asset_movement_coa-001-082" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_coa-001-082"/>
         <field name="employee_id" ref="hr_employee_wondosen_tilahun"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Alemnesh Asset-->
@@ -428,7 +428,7 @@
     <record id="stadia_asset_movement_com-001-036" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_com-001-036"/>
         <field name="employee_id" ref="hr_employee_alemnesh_mebratu"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Yonathan Asset-->
@@ -444,7 +444,7 @@
     <record id="stadia_asset_movement_0fe-002-008" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_com-0fe-002-008"/>
         <field name="employee_id" ref="hr_employee_yonathan_gizaw"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
     <!--    Beawit Asset-->
@@ -460,7 +460,7 @@
     <record id="stadia_asset_movement-002-008" model="asset.movement">
         <field name="asset_id" ref="stadia_asset_com-002-008"/>
         <field name="employee_id" ref="hr_employee_bezawit_tesfaye"/>
-       <!-- <field name="state">approved</field> -->
+       <field name="state">approved</field>
     </record>
 
 </odoo>

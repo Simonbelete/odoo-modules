@@ -22,6 +22,8 @@ class HrApplicant(models.Model):
     survey_answer_ids = fields.One2many('applicant.answer', 'hr_applicant_id')
     work_place_id = fields.Many2one('stadia.workplace', default=_default_work_place_id)
     salary_proposed_in_word = fields.Char(compute="_compute_salary_proposed_in_word")
+    year_of_experience = fields.Integer()
+    year_of_experience_relate_to_job = fields.Integer()
 
     def _compute_salary_proposed_in_word(self):
         self.ensure_one()

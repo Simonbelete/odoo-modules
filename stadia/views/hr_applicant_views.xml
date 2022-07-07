@@ -47,6 +47,10 @@
         <field name="model">hr.applicant</field>
         <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form" />
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='department_id']" position="after">
+                <field name="year_of_experience" />
+                <field name="year_of_experience_relate_to_job" />
+            </xpath>
             <xpath expr="//field[@name='description']" position="after">
                 <notebook>
                     <page string="Survey">

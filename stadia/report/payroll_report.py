@@ -47,7 +47,7 @@ class PayrollRepot(models.AbstractModel):
         sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
         sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'EMPLOYMENT, TRANSFER, TERMINATION REPORT', header_format)
         sheet.set_row(2, 50)
-        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, '', date_format)
+        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Payroll Report', date_format)
 
         payslip_ids = data['context']['active_ids']
 
@@ -259,7 +259,7 @@ class PayrollRepotRun(models.AbstractModel):
         sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
         sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
         sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
-        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'EMPLOYMENT, TRANSFER, TERMINATION REPORT', header_format)
+        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Payroll Repot', header_format)
         sheet.set_row(2, 50)
         sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s - %s' % (batch_payslip.date_start.strftime('%m/%d/%Y'), batch_payslip.date_end.strftime('%m/%d/%Y')), date_format)
 

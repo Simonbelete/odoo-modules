@@ -29,10 +29,20 @@
         <field name="inherit_id" ref="hr.view_employee_filter" />
         <field name="arch" type="xml">
             <xpath expr="//search" position="inside">
+                <field name="education_id" />
+                <field name="year_of_experience" />
+                <field name="year_of_experience_relate_to_job" />
+                <field name="mobile_phone" />
+                <field name="work_phone" />
                 <group string="Address">
                     <filter name="work_place_id" string="Project" context="{'group_by': 'work_place_id'}" />
                     <filter name="sub_city_id" string="Sub City" context="{'group_by': 'sub_city_id'}"/>
                     <filter name="gender" string="Gender" context="{'group_by': 'gender'}"/>
+                    <filter name="education_id" string="Specialized In" context="{'group_by': 'education_id'}"/>
+                    <filter name="degree_id" string="Education" context="{'group_by': 'degree_id'}"/>
+                    <filter name="year_of_experience" string="Year of experience" context="{'group_by': 'year_of_experience'}"/>
+                    <filter name="year_of_experience_relate_to_job" string="Year of Experience Related to position" context="{'group_by': 'year_of_experience_relate_to_job'}"/>
+                    <filter name="marital" string="Marital" context="{'group_by': 'marital'}"/>
                 </group>
             </xpath>
         </field>
@@ -84,6 +94,12 @@
                             <field name="certificate"/>
                         </tree>
                     </field>
+                    <field name="education_id" string="Specialized In" />
+                    <field name="degree_id" string="Education" />
+                </group>
+                <group string="Experience">
+                    <field name="year_of_experience" string="Year of Experience" />
+                    <field name="year_of_experience_relate_to_job" string="Year of Experience Related to the position" />
                 </group>
                 <group string="Family">
                     <field name="family_ids">

@@ -1,6 +1,8 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from datetime import datetime
+import os
+import math
 
 class HrLeaveReportListReport(models.AbstractModel):
     _name = 'report.stadia.leave_report'
@@ -25,6 +27,27 @@ class HrLeaveReportListReport(models.AbstractModel):
         center = workbook.add_format({'align': 'center'})
         superscript = workbook.add_format({'font_script': 1})
 
+        header_format = workbook.add_format()
+        header_format.set_font_size(15)
+        header_format.set_bold()
+        header_format.set_align('center')
+        header_format.set_align('vcenter')
+        header_format.set_border(style=1)
+        date_format = workbook.add_format()
+        date_format.set_font_size(10)
+        date_format.set_bold()
+        date_format.set_align('center')
+        date_format.set_align('vcenter')
+        date_format.set_border(style=1)
+
+        max_col = 11
+        max_row = 3
+        left_cols = math.floor(max_col * 0.25)
+        center_cols = math.ceil(max_col * 0.5)
+        right_cols = math.floor(max_col * 0.25)
+
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+
         employee_ids = data['form']['emp']
         date_to =  data['form']['date_to']
         date_max = datetime.strptime(date_to, '%Y-%m-%d')
@@ -33,46 +56,56 @@ class HrLeaveReportListReport(models.AbstractModel):
         ## and sor them by end or start date ('validity_stop')
         time_off_types = self.env['hr.leave.type'].search([('validity_stop', '<=', date_max)])
 
+        sheet.merge_range(0, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(1, 0, 0, left_cols - 1, '', header_format)
+        sheet.merge_range(2, 0, 0, left_cols - 1, '', header_format)
+        sheet.insert_image(0, 0, '%s/stadia_plain_logo.png' % dir_path, {'x_scale': 0.6, 'y_scale': 0.4})
+        sheet.merge_range(0, left_cols, 0, max_col, 'ስታድያ የምህንድስና ስራዎች ኃላ/የተ/የግ/ማህበር', header_format)
+        sheet.merge_range(1, left_cols, 1, max_col, 'STADIA Engineering Works Consultant PLC', header_format)
+        sheet.merge_range(2, left_cols, 2, max_col - right_cols, 'Hired Report', header_format)
+        sheet.set_row(2, 50)
+        sheet.merge_range(2, max_col - right_cols + 1, 2, max_col, 'Date:- %s' % (date_max.strftime('%m/%d/%Y')), date_format)
+
         # Headers
         row = 0
-        sheet.write(0, row, 'Name of Employee', bold)
+        sheet.write(max_row + 1, row, 'Name of Employee', bold)
         sheet.set_column(0, row, 50)
         row += 1
-        sheet.write(0, row, 'Department', bold)
+        sheet.write(max_row + 1, row, 'Department', bold)
         sheet.set_column(0, row, 50)
         row += 1
-        sheet.write(0, row, 'Project', bold)
+        sheet.write(max_row + 1, row, 'Project', bold)
         sheet.set_column(0, row, 50)
         row += 1
-        sheet.write(0, row, 'Position', bold)
+        sheet.write(max_row + 1, row, 'Position', bold)
         sheet.set_column(0, row, 50)
         row += 1
-        sheet.write(0, row, 'Date of Employeement', bold)
+        sheet.write(max_row + 1, row, 'Date of Employeement', bold)
         sheet.set_column(0, row, 30)
         row += 1
-        sheet.write(0, row, 'End date', bold)
+        sheet.write(max_row + 1, row, 'End date', bold)
         sheet.set_column(0, row, 30)
 
         for time_off_type in time_off_types:
             row += 1
-            sheet.write(0, row, time_off_type.name, bold)
+            sheet.write(max_row + 1, row, time_off_type.name, bold)
 
         row += 1
         total_annual_leave_row = row
-        sheet.write(0, row, 'Total Annual Leave', bold)
+        sheet.write(max_row + 1, row, 'Total Annual Leave', bold)
         sheet.set_column(0, row, 20)
 
         row += 1
         total_used_row = row
-        sheet.write(0, row, 'Total used in the year', bold)
+        sheet.write(max_row + 1, row, 'Total used in the year', bold)
         sheet.set_column(0, row, 20)
 
         row += 1
         annual_leave_balance_row = row
-        sheet.write(0, row, 'Annual Leave balance', bold)
+        sheet.write(max_row + 1, row, 'Annual Leave balance', bold)
         sheet.set_column(0, row, 20)
 
-        col = 1
+        col = max_row + 2
         row = 0
         for emp_id in employee_ids:
             total_annual_leave = 0

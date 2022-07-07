@@ -6,7 +6,8 @@
         <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='worked_hours']" position="after">
-                <field name="reason_for_change" string="Reason for change"/>
+                <field name="reason_for_change" required="True" string="Reason for change"/>
+                <field name="category_id" string="Category"/>
             </xpath>
             <tree position="attributes">
                 <attribute name="edit">1</attribute>

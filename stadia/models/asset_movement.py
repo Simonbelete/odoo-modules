@@ -12,7 +12,7 @@ class AssetMovement(models.Model):
     def _compute_previous_movement_id(self):
         self.previous_movement_id = self.asset_id.current_movement_id
 
-    ref_no = fields.Char(required=True)
+    ref_no = fields.Char()
     asset_id = fields.Many2one('stadia.asset', required=True)
     previous_movement_id = fields.Many2one('asset.movement', store=True, compute=_compute_previous_movement_id)
     previous_movement_location_id = fields.Many2one(related='previous_movement_id.location_id', store=True)
@@ -27,6 +27,8 @@ class AssetMovement(models.Model):
     date = fields.Date(default=datetime.today())
     qty = fields.Integer(default=1)
     remark = fields.Char()
+    asset_id_t_no = fields.Char(related='asset_id.id_t_no')
+
 
     location_id = fields.Many2one('asset.location')
     employee_id = fields.Many2one('hr.employee')
@@ -34,8 +36,9 @@ class AssetMovement(models.Model):
     @api.model
     def create(self, vals):
         res = super(AssetMovement, self).create(vals)
-        if(vals['state'] == 'approved'):
-            res.sudo().action_approve()
+        if ('state' in vals):
+            if(vals['state'] == 'approved'):
+                res.sudo().action_approve()
         return res
 
     def action_request(self):

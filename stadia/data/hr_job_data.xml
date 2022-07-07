@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="stadia_hr_job_gm" model="hr.job">
+        <field name="name">General Manager</field>
+        <field name="department_id" ref="hr_department_management"/>
+    </record>
+
     <record id="stadia_hr_job_admin_accountant" model="hr.job">
         <field name="name">Accountant</field>
         <field name="department_id" ref="stadia_hr_department_finance"/>
@@ -8,7 +13,7 @@
 
     <record id="stadia_hr_job_admin_it" model="hr.job">
         <field name="name">IT Person</field>
-        <field name="department_id" ref="hr_department_it"/>
+        <field name="department_id" ref="stadia_hr_department_admin_and_finance"/>
     </record>
 
     <record id="stadia_hr_job_admin_driver" model="hr.job">

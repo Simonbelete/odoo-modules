@@ -1,5 +1,15 @@
 from odoo import fields, api, models
 
+class HrField(models.Model):
+    _name = 'hr.field.study'
+
+    name = fields.Char(required=True)
+
+class HrDegree(models.Model):
+    _name = 'hr.degree'
+
+    name = fields.Char(required=True)
+
 class HrEmployeeBase(models.AbstractModel):
     _inherit = 'hr.employee.base'
 
@@ -26,6 +36,11 @@ class HrEmployeeBase(models.AbstractModel):
     emergency_contact_relation_id = fields.Many2one('hr.employee.relation')
     education_ids = fields.One2many('hr.education', 'employee_id')
     joining_date = fields.Date(string='Joining Date', help="Employee joining date computed from the contract start date",compute='_compute_joining', store=True)
+    education_id = fields.Many2one('hr.field.study', string="Specialized In")
+    degree_id = fields.Many2one('hr.degree')
+    year_of_experience = fields.Integer()
+    year_of_experience_relate_to_job = fields.Integer()
+    
 
     def action_generate_badge_id(self):
         next_code = self.env['ir.sequence'].next_by_code('badge.no.sequence')
