@@ -47,13 +47,6 @@
         'data/asset_data.xml',
         'data/hr_degree.xml',
 
-        'data/employee_data/family_relation.xml',
-        'data/employee_data/hr_employee_admin.xml',
-        'data/employee_data/hr_employee_design.xml',
-        'data/employee_data/hr_employee_project_for.xml',
-        'data/employee_data/hr_employee_rcmd.xml',
-        'data/employee_data/asset.xml',
-
         'wizard/hr_leave_report_list.xml',
         'wizard/manpower_report.xml',
         'wizard/asset_report_wizard.xml',
