@@ -21,7 +21,7 @@ services:
       - './postgresql/db:/var/lib/postgresql/data'
     ports:
       - '5432:5432'
-    restart: always
+    # restart: always
     # networks:
     #   - odoo_modules
   mailhog:
@@ -52,6 +52,6 @@ services:
       - '../.docker/odoo/config:/etc/odoo'
     ports:
       - '8069:8069'
-    restart: always
+    # restart: always
     # networks:
     #   - odoo_modules
