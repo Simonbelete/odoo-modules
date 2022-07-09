@@ -27,6 +27,10 @@ for index, row in df.iterrows():
     sta_no = str(row['ID.T.No.']).strip()
     ifrs_rate = float(row['ifrs_rate'])
     gross_value = float(row['Cost'])
+    purchase_date = row['Date of Purchase'].strftime('%Y-%m-%d')
+
+    print(sta_no)
+    print(row['Date of Purchase'])
 
     # Create or search supplier name in res.partner
     partner_id = models.execute_kw(db, uid, password, 'stadia.asset.category', 'search', [[['name', '=', partner_name]]])
@@ -38,29 +42,30 @@ for index, row in df.iterrows():
     else:
         partner_id = partner_id[0]
 
-    location_id = models.execute_kw(db, uid, password, 'asset.location', 'search', [[['name', '=', location_name]]])
-    if(len(location_id) == 0):
-        location_id = models.execute_kw(db, uid, password, 'asset.location', 'create', [{
-            'name': location_name,
-        }])
-    else:
-        location_id = location_id[0]
-
-    employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'search', [[['name', '=', employee_name]]])
-    if(len(employee_id) == 0):
-        print('%s Employee Not Found' % employee_name)
-        break
-    else:
-        employee_id = employee_id[0]
-
-    asset = models.execute_kw(db, uid, password, 'hr.employee', 'create', [{
+    asset = models.execute_kw(db, uid, password, 'stadia.asset', 'create', [{
         'name': description,
+        'purchase_date': purchase_date,
         'category_id': category_id,
         'partner_id': partner_id,
         'reference_no': ref_no,
-        'location': 'location_id',
-        'employee_id': employee_id,
         'id_t_no': sta_no,
         'ifrs_rate': ifrs_rate,
         'gross_value': gross_value
     }])
+
+    # location_id = models.execute_kw(db, uid, password, 'asset.location', 'search', [[['name', '=', location_name]]])
+    # if(len(location_id) == 0):
+    #     location_id = models.execute_kw(db, uid, password, 'asset.location', 'create', [{
+    #         'name': location_name,
+    #     }])
+    # else:
+    #     location_id = location_id[0]
+
+    # employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'search', [[['name', '=', employee_name]]])
+    # if(len(employee_id) == 0):
+    #     print('%s Employee Not Found' % employee_name)
+    #     break
+    # else:
+    #     employee_id = employee_id[0]
+
+    print('---------------------------------')
