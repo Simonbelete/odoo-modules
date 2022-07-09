@@ -2,56 +2,12 @@ import csv
 import xmlrpc.client
 from numpy import NaN
 import pandas as pd
-from datetime import datetime
-
-url = 'http://localhost:8069'
-db = 'stadia'
-user = 'admin'
-password = '354c68c9432e839044c3206e0a2412814329175e'
+from datetime import datetime, date
+from db_conf import *
 
 common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
 uid = common.authenticate(db, user, password, {})
 models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
-
-# id = models.execute_kw(db, uid, password, 'res.partner', 'create', [{'name': "New Partner"}])
-
-########################################
-# Refs and data cleaning
-# Departments
-
-
-# with open('manpower.csv') as csv_file:
-#     csv_reader = csv.reader(csv_file, delimiter=',')
-#     line_count = 0
-#     job =  models.execute_kw(db, uid, password, 'hr.department', 'search', [[['name', '=', 'Management']]])
-#     employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'create', [{
-#             'name': 'Ababe',
-#             'gender': 'male',
-#             'job_id': job[0],
-#             # 'department_id': (1, False, 1)
-#         }])
-#     # job_id = models.execute_kw(db, uid, password, 'hr.employee', 'write', [{
-#     #         'job_id': 
-#     #     }])
-#     print(job)
-#     print(employee_id)
-
-    # for row in csv_reader:
-    #     if(line_count == 0):
-    #         continue
-        
-    #     if(line_count > 1):
-    #         break
-        
-    #     print('1111111111111111111')
-
-    #     employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'create', [{
-    #         'name': row[1].strip(),
-    #         'gender': row[2].strip(),
-    #         'job_id': 1
-    #     }])
-    #     print(employee_id)
-    #     line_count += 1
 
 df = pd.read_excel('manpower.xlsx')
 
@@ -107,15 +63,19 @@ for index, row in df.iterrows():
     print(str(row['Date of Employment']))
     print('-----------------')
 
+    start_date = row['Date of Employment'].strftime('%Y-%m-%d') if isinstance(row['Date of Employment'], date) else date(1999, 1, 1).strftime('%Y-%m-%d')
+
 
     employee_contract = models.execute_kw(db, uid, password, 'hr.contract', 'create', [{
+        'employee_id': employee,
         'name': '%s Contract Agreement' % row['Name of Employee'].strip(),
         'job_id': job,
         'department_id': department[0],
         'struct_id': salary_structure[0],
         'work_place_id': work_place,
-        'date_start': row['Date of Employment'].strftime('%Y-%m-%d') if row['Date of Employment'] else '', #datetime.strptime(row['Date of Employment'], '%Y-%m-%d').strftime('%Y-%m-%d') if isinstance(row['Date of Employment'], str) else row['Date of Employment'].strftime('%Y-%m-%d'),
+        'date_start': start_date, #datetime.strptime(row['Date of Employment'], '%Y-%m-%d').strftime('%Y-%m-%d') if isinstance(row['Date of Employment'], str) else row['Date of Employment'].strftime('%Y-%m-%d'),
         'wage': float(row['Basic salary']),
         'transport_allowance': float(row['Transport Allowance']),
         'perdime': float(row['Perdiem']) if row['Perdiem'] else 0,
+        'state': 'open'
     }])
