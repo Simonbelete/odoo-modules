@@ -1,6 +1,7 @@
 /odoo/
 apps/*
 abc_manufacturing/
+.~lock.*
 
 .docker/postgresql/db/
 
