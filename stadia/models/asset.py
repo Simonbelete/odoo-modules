@@ -1,8 +1,19 @@
 import calendar
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
+from odoo import fields, api, models, _
+from odoo.exceptions import ValidationError
 
-from odoo import fields, api, models
+class AssetLocation(models.Model):
+    _name = 'asset.location'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _sql_constraints = [
+        ('name_unique', 'unique (name)', 'Asset location name already exists' )
+    ]
+
+    name = fields.Char(required=True)
+    is_store = fields.Boolean()
+
 
 class AccountAssetCategory(models.Model):
     _name = 'stadia.asset.category'
