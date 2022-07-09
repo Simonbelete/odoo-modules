@@ -51,7 +51,8 @@ for index, row in df.iterrows():
         'reference_no': ref_no,
         'id_t_no': sta_no,
         'ifrs_rate': ifrs_rate,
-        'gross_value': gross_value
+        'gross_value': gross_value,
+        'cpv': cpv
     }])
 
     amount = float(row['Deperciation Amount'])
