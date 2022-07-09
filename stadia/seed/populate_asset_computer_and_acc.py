@@ -53,19 +53,25 @@ for index, row in df.iterrows():
         'gross_value': gross_value
     }])
 
-    # location_id = models.execute_kw(db, uid, password, 'asset.location', 'search', [[['name', '=', location_name]]])
-    # if(len(location_id) == 0):
-    #     location_id = models.execute_kw(db, uid, password, 'asset.location', 'create', [{
-    #         'name': location_name,
-    #     }])
-    # else:
-    #     location_id = location_id[0]
+    employee_id = None
+    location_id = None
 
-    # employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'search', [[['name', '=', employee_name]]])
-    # if(len(employee_id) == 0):
-    #     print('%s Employee Not Found' % employee_name)
-    #     break
-    # else:
-    #     employee_id = employee_id[0]
+    if(len(location_name) < 1 and len(employee_name) < 1):
+        continue
+
+    if(len(location_name) > 0 and location_name == 'STORE'):
+        location_id = models.execute_kw(db, uid, password, 'asset.location', 'search', [[['name', '=', location_name]]])
+        location_id = location_id[0]
+    elif (len(location_name) > 0):
+        location_id = models.execute_kw(db, uid, password, 'asset.location', 'search', [[['name', '=', location_name]]])
+        if(len(location_id) == 0):
+            location_id = models.execute_kw(db, uid, password, 'asset.location', 'create', [{
+                'name': location_name,
+            }])
+        else:
+            location_id = location_id[0]
+        
+        employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'search', [[['name', '=', employee_name]]])
+        employee_id = employee_id[0]
 
     print('---------------------------------')
