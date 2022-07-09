@@ -1,6 +1,7 @@
 import csv
 import xmlrpc.client
 import pandas as pd
+from datetime import datetime, date
 
 url = 'http://localhost:8069'
 db = 'rd-demo'
@@ -53,25 +54,38 @@ for index, row in df.iterrows():
         'gross_value': gross_value
     }])
 
-    employee_id = None
-    location_id = None
+    amount = float(row['Deperciation Amount'])
+    acc_amount = float(row['ACC. Depreciation   /IFRS'])
+    remaining_value = float(row['NBV/IFRS'])
 
-    if(len(location_name) < 1 and len(employee_name) < 1):
-        continue
+    asset_depreciation = models.execute_kw(db, uid, password, 'stadia.asset.depreciation.line', 'create', [{
+        'sequence': 1,
+        'asset_id': asset,
+        'amount': amount,
+        'depreciated_value': acc_amount,
+        'depreciation_date': date(2021, 9, 11).strftime('%Y-%m-%d'),
+        'remaining_value': remaining_value
+    }])
 
-    if(len(location_name) > 0 and location_name == 'STORE'):
-        location_id = models.execute_kw(db, uid, password, 'asset.location', 'search', [[['name', '=', location_name]]])
-        location_id = location_id[0]
-    elif (len(location_name) > 0):
-        location_id = models.execute_kw(db, uid, password, 'asset.location', 'search', [[['name', '=', location_name]]])
-        if(len(location_id) == 0):
-            location_id = models.execute_kw(db, uid, password, 'asset.location', 'create', [{
-                'name': location_name,
-            }])
-        else:
-            location_id = location_id[0]
+    # employee_id = None
+    # location_id = None
+
+    # if(len(location_name) < 1 and len(employee_name) < 1):
+    #     continue
+
+    # if(len(location_name) > 0 and location_name == 'STORE'):
+    #     location_id = models.execute_kw(db, uid, password, 'asset.location', 'search', [[['name', '=', location_name]]])
+    #     location_id = location_id[0]
+    # elif (len(location_name) > 0):
+    #     location_id = models.execute_kw(db, uid, password, 'asset.location', 'search', [[['name', '=', location_name]]])
+    #     if(len(location_id) == 0):
+    #         location_id = models.execute_kw(db, uid, password, 'asset.location', 'create', [{
+    #             'name': location_name,
+    #         }])
+    #     else:
+    #         location_id = location_id[0]
         
-        employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'search', [[['name', '=', employee_name]]])
-        employee_id = employee_id[0]
+    #     employee_id = models.execute_kw(db, uid, password, 'hr.employee', 'search', [[['name', '=', employee_name]]])
+    #     employee_id = employee_id[0]
 
     print('---------------------------------')
