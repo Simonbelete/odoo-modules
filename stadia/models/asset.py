@@ -57,7 +57,7 @@ class AccountAssetAsset(models.Model):
     ifrs_rate = fields.Float(string="Degressive Factor", required=True, digits="Asset IFRS Rate")
     depreciation_line_ids = fields.One2many('stadia.asset.depreciation.line', 'asset_id')
     asset_movement_ids = fields.One2many('asset.movement', 'asset_id')
-    first_depreciation_date = fields.Date(string="Depreciation Date", required=True)
+    first_depreciation_date = fields.Date(string="Depreciation Date")
     # Holds approved asset movement
     current_movement_id = fields.Many2one('asset.movement')
     current_movement_location_id = fields.Many2one(related="current_movement_id.location_id", store=True)
