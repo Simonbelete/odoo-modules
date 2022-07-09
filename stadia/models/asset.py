@@ -25,8 +25,6 @@ class AccountAssetCategory(models.Model):
 class AssetDepreciationLine(models.Model):
     _name = 'stadia.asset.depreciation.line'
 
-    # For development remove on main
-    days = fields.Float()
     sequence = fields.Integer(required=True)
     asset_id = fields.Many2one('stadia.asset')
     amount = fields.Monetary(string='Current Depreciation', required=True)

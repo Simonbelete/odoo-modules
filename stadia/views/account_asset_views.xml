@@ -152,7 +152,6 @@
                             <field name="depreciation_line_ids">
                                 <tree editable="top">
                                     <field name="depreciation_date" readonly="1"/>
-                                    <field name="days" readonly="1"/>
                                     <field name="amount" widget="monetary" string="Depreciation" readonly="1" />
                                     <field name="depreciated_value"/>
                                     <field name="remaining_value" readonly="1" widget="monetary" string="Residual"/>
