@@ -3,11 +3,7 @@ import xmlrpc.client
 from numpy import NaN
 import pandas as pd
 from datetime import datetime
-
-url = 'http://localhost:8069'
-db = 'stadia'
-user = 'admin'
-password = '354c68c9432e839044c3206e0a2412814329175e'
+from db_conf import *
 
 common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
 uid = common.authenticate(db, user, password, {})
