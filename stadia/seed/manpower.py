@@ -67,6 +67,7 @@ for index, row in df.iterrows():
 
 
     employee_contract = models.execute_kw(db, uid, password, 'hr.contract', 'create', [{
+        'employee_id': employee,
         'name': '%s Contract Agreement' % row['Name of Employee'].strip(),
         'job_id': job,
         'department_id': department[0],
@@ -76,4 +77,5 @@ for index, row in df.iterrows():
         'wage': float(row['Basic salary']),
         'transport_allowance': float(row['Transport Allowance']),
         'perdime': float(row['Perdiem']) if row['Perdiem'] else 0,
+        'state': 'open'
     }])
