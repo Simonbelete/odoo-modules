@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <!-- Assset Category -->
     <record id="action_asset_category" model="ir.actions.act_window">
         <field name="name">Asset Category</field>
         <field name="res_model">stadia.asset.category</field>
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="form_stadia_asset_category" model="ir.ui.view">
+        <field name="name">Asset Category</field>
+        <field name="model">stadia.asset.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="ifrs_rate" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Asset Location -->
     <record id="action_asset_location" model="ir.actions.act_window">
         <field name="name">Asset Location</field>
         <field name="res_model">asset.location</field>

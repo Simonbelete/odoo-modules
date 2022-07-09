@@ -6,6 +6,7 @@ from odoo import fields, api, models
 
 class AccountAssetCategory(models.Model):
     _name = 'stadia.asset.category'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char()
     ifrs_rate = fields.Float(string="Degressive Factor", digits="Asset IFRS Rate")
