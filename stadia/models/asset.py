@@ -47,7 +47,7 @@ class AccountAssetAsset(models.Model):
     name = fields.Char(required=True)
     category_id = fields.Many2one('stadia.asset.category')
     purchase_date = fields.Date(required=True)
-    reference_no = fields.Char()
+    reference_no = fields.Char(string="Reference no")
     partner_id = fields.Many2one('res.partner', string='Supplier Name')
     cpv = fields.Char(string='Accounts Ref')
     id_t_no = fields.Char(string="STA No")
