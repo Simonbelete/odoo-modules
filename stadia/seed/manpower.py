@@ -3,7 +3,7 @@ import xmlrpc.client
 from numpy import NaN
 import pandas as pd
 from datetime import datetime, date
-from db_conf import *
+from db_conf import url, db, user, password
 
 common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
 uid = common.authenticate(db, user, password, {})
