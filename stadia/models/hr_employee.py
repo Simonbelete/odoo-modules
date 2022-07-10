@@ -46,10 +46,13 @@ class HrEmployeeBase(models.AbstractModel):
     year_of_experience = fields.Integer()
     year_of_experience_relate_to_job = fields.Integer()
     
-
     def action_generate_badge_id(self):
+        self.ensure_one()
+        work_place_code = 'UN'
+        if(self.contract_id and self.contract_id.work_place_id):
+            work_place_code = self.contract_id.work_place_id.name[0:2].upper()
         next_code = self.env['ir.sequence'].next_by_code('badge.no.sequence')
-        id_no = 'STAD/SID/HO/%s' % next_code
+        id_no = 'STAD/SID/%s/%s' % (work_place_code, next_code)
         previous_id_no = self.badge_id_no
         self.write({'badge_id_no': id_no})
         # Write to log not incase on accidentally clicked
