@@ -111,7 +111,6 @@ for index, row in df.iterrows():
     employee_contract = models.execute_kw(db, uid, password, 'hr.contract', 'create', [{
         'name': '%s Contract Agreement' % row['Name of Employee'].strip(),
         'job_id': job,
-        'state': 'open',
         'department_id': department[0],
         'struct_id': salary_structure[0],
         'work_place_id': work_place,
