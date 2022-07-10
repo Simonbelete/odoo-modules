@@ -28,12 +28,6 @@ class HrEmployeeBase(models.AbstractModel):
     def _defaultBadgeIdNo(self):
         return '0000/000/00/000/00'
 
-    title = fields.Selection([
-        ('ato', 'Ato'),
-        ('wt', 'W/t'),
-        ('wro', 'W/ro')
-    ])
-    # city_id = fields.Many2one('stadia.city')
     badge_id_no = fields.Char(string="ID No", copy=False, default=_defaultBadgeIdNo)
     sub_city_id = fields.Many2one('subcity')
     woreda = fields.Char()
