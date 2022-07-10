@@ -92,7 +92,6 @@
         'views/work_place_views.xml',
         'views/asset_menus.xml',
         'views/hr_employee_menus.xml',
-        'views/hr_resume_line_views.xml',
         'views/appraisal_views.xml',
 
         'website/appraisal_website.xml'
