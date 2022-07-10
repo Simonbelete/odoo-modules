@@ -1,11 +1,23 @@
 import calendar
 from datetime import date, datetime
 from dateutil.relativedelta import relativedelta
+from odoo import fields, api, models, _
+from odoo.exceptions import ValidationError
 
-from odoo import fields, api, models
+class AssetLocation(models.Model):
+    _name = 'asset.location'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _sql_constraints = [
+        ('name_unique', 'unique (name)', 'Asset location name already exists' )
+    ]
+
+    name = fields.Char(required=True)
+    is_store = fields.Boolean()
+
 
 class AccountAssetCategory(models.Model):
     _name = 'stadia.asset.category'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char()
     ifrs_rate = fields.Float(string="Degressive Factor", digits="Asset IFRS Rate")
@@ -13,8 +25,6 @@ class AccountAssetCategory(models.Model):
 class AssetDepreciationLine(models.Model):
     _name = 'stadia.asset.depreciation.line'
 
-    # For development remove on main
-    days = fields.Float()
     sequence = fields.Integer(required=True)
     asset_id = fields.Many2one('stadia.asset')
     amount = fields.Monetary(string='Current Depreciation', required=True)
@@ -35,7 +45,7 @@ class AccountAssetAsset(models.Model):
     name = fields.Char(required=True)
     category_id = fields.Many2one('stadia.asset.category')
     purchase_date = fields.Date(required=True)
-    reference_no = fields.Char()
+    reference_no = fields.Char(string="Reference no")
     partner_id = fields.Many2one('res.partner', string='Supplier Name')
     cpv = fields.Char(string='Accounts Ref')
     id_t_no = fields.Char(string="STA No")
@@ -45,7 +55,7 @@ class AccountAssetAsset(models.Model):
     ifrs_rate = fields.Float(string="Degressive Factor", required=True, digits="Asset IFRS Rate")
     depreciation_line_ids = fields.One2many('stadia.asset.depreciation.line', 'asset_id')
     asset_movement_ids = fields.One2many('asset.movement', 'asset_id')
-    first_depreciation_date = fields.Date(string="Depreciation Date", required=True)
+    first_depreciation_date = fields.Date(string="Depreciation Date")
     # Holds approved asset movement
     current_movement_id = fields.Many2one('asset.movement')
     current_movement_location_id = fields.Many2one(related="current_movement_id.location_id", store=True)
@@ -61,7 +71,7 @@ class AccountAssetAsset(models.Model):
     @api.model
     def create(self, vals):
         asset = super(AccountAssetAsset, self.with_context(mail_create_nolog=True)).create(vals)
-        asset.sudo().compute_depreciation_board()
+        # asset.sudo().compute_depreciation_board()
         return asset
 
     @api.onchange('category_id')

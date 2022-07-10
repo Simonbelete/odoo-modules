@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="stadia_asset_location_store" model="asset.location">
-        <field name="name">STORE</field>
-        <field name="is_store">True</field>
-    </record>
+    <data noupdate="0">
+        
+        <!-- Asset Category -->
+        <record id="stadia_asset_category_computer_and_acc" model="stadia.asset.category">
+            <field name="name">Computer and Related Accessories</field>
+            <field name="ifrs_rate">0.143</field>
+        </record>
+
+        <record id="stadia_asset_category_furniture_and_equipment" model="stadia.asset.category">
+            <field name="name">Furniture and Equipment</field>
+            <field name="ifrs_rate">0.1</field>
+        </record>
+
+        <record id="stadia_asset_category_surveying_equipment" model="stadia.asset.category">
+            <field name="name">Machineries and Equipments (Surveying Equipment)</field>
+            <field name="ifrs_rate">0.1</field>
+        </record>
+
+        <record id="stadia_asset_category_laboratory_equipments" model="stadia.asset.category">
+            <field name="name">Laboratory Equipments</field>
+            <field name="ifrs_rate">0.1</field>
+        </record>
+
+        <record id="stadia_asset_category_laboratory_equipments" model="stadia.asset.category">
+            <field name="name">Laboratory Equipments</field>
+            <field name="ifrs_rate">0.1</field>
+        </record>
+
+        <record id="stadia_asset_category_motor_vehicles" model="stadia.asset.category">
+            <field name="name">Motor Vehicles</field>
+            <field name="ifrs_rate">0.1</field>
+        </record>
+
+        <!-- Asset Locations -->
+        <record id="stadia_asset_location_store" model="asset.location">
+            <field name="name">STORE</field>
+            <field name="is_store">True</field>
+        </record>
+
+    </data>
+
 </odoo>
