@@ -2,11 +2,7 @@ import csv
 import xmlrpc.client
 import pandas as pd
 from datetime import datetime, date
-
-url = 'http://localhost:8069'
-db = 'rd-demo'
-user = 'admin'
-password = 'cc8f5a3c2ceecb9b0ce65f4e71aee6cfc07a8105'
+from db_conf import url, db, user, password
 
 common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
 uid = common.authenticate(db, user, password, {})
