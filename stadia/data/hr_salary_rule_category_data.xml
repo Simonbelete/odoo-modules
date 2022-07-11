@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="REF" model="hr.salary.rule.category">
-        <field name="name">Reference</field>
-        <field name="code">REF</field>
-    </record>
+    <data noupdate="1">
+
+        <record id="REF" model="hr.salary.rule.category">
+            <field name="name">Reference</field>
+            <field name="code">REF</field>
+        </record>
+
+    </data>
 </odoo>
