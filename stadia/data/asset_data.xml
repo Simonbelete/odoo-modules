@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <data noupdate="0">
+    <data noupdate="1">
         
         <!-- Asset Category -->
         <record id="stadia_asset_category_computer_and_acc" model="stadia.asset.category">

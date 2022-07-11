@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="hr_department_management" model="hr.department">
-        <field name="name">Management</field>
-    </record>
+    <data noupdate="1">
 
-    <record id="hr_department_design" model="hr.department">
-        <field name="name">Design</field>
-    </record>
+        <record id="hr_department_management" model="hr.department">
+            <field name="name">Management</field>
+        </record>
 
-    <record id="hr_department_rcmd" model="hr.department">
-        <field name="name">RCMD</field>
-    </record>
+        <record id="hr_department_design" model="hr.department">
+            <field name="name">Design</field>
+        </record>
 
-    <record id="stadia_hr_department_project_formulation" model="hr.department">
-        <field name="name">Project Formulation</field>
-    </record>
+        <record id="hr_department_rcmd" model="hr.department">
+            <field name="name">RCMD</field>
+        </record>
 
-    <record id="stadia_hr_department_admin_and_finance" model="hr.department">
-        <field name="name">Administration and Finance</field>
-    </record>
+        <record id="stadia_hr_department_project_formulation" model="hr.department">
+            <field name="name">Project Formulation</field>
+        </record>
 
-    <record id="stadia_hr_department_finance" model="hr.department">
-        <field name="name">Finance</field>
-        <field name="parent_id" ref="stadia_hr_department_admin_and_finance" />
-    </record>
+        <record id="stadia_hr_department_admin_and_finance" model="hr.department">
+            <field name="name">Administration and Finance</field>
+        </record>
 
-    <record id="hr_departmentdata_laboratory" model="hr.department">
-        <field name="name">Material Laboratory</field>
-    </record>
+        <record id="stadia_hr_department_finance" model="hr.department">
+            <field name="name">Finance</field>
+            <field name="parent_id" ref="stadia_hr_department_admin_and_finance" />
+        </record>
 
-    <record id="hr_departmentdata_building" model="hr.department">
-        <field name="name">Building</field>
-    </record>
+        <record id="hr_departmentdata_laboratory" model="hr.department">
+            <field name="name">Material Laboratory</field>
+        </record>
 
-    <record id="hr_departmentdata_design" model="hr.department">
-        <field name="name">Design</field>
-    </record>
+        <record id="hr_departmentdata_building" model="hr.department">
+            <field name="name">Building</field>
+        </record>
+
+        <record id="hr_departmentdata_design" model="hr.department">
+            <field name="name">Design</field>
+        </record>
+
+    </data>
 
 </odoo>

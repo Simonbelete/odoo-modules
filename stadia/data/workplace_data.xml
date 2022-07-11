@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="workplace_headoffice" model="stadia.workplace">
-        <field name="name">Head Office</field>
-    </record>
+    <data noupdate="1">
+        
+        <record id="workplace_headoffice" model="stadia.workplace">
+            <field name="name">Head Office</field>
+        </record>
+
+    </data>
 </odoo>
