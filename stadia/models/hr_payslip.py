@@ -1,5 +1,5 @@
 import babel
-from datetime import date, time, datetime
+from datetime import date, time, datetime, timedelta
 from pytz import timezone
 from odoo import fields, api, models, tools, _
 
@@ -186,6 +186,11 @@ class HrPayslip(models.Model):
                 worked_attendances['number_of_days'] = worked_hours/8
                 worked_attendances['number_of_hours'] = worked_hours
 
+                # Add Sunday to tab in and tab out attendace
+                no_sundays = self._count_sunday(start_date, end_date)
+                worked_attendances['number_of_days'] = worked_attendances['number_of_days'] + no_sundays
+                worked_attendances['number_of_hours'] = worked_attendances['number_of_hours'] + (no_sundays * 8)
+
                 # Calculate not worked attendaces
                 worked_attendances['number_of_days'] = -(attendances['number_of_days'] - worked_attendances['number_of_days'])
                 worked_attendances['number_of_hours'] = -(attendances['number_of_hours'] - worked_attendances['number_of_hours'])
@@ -195,6 +200,18 @@ class HrPayslip(models.Model):
             res.extend(leaves.values())
         return res
 
+    def _count_sunday(self, start, end):
+        start_date = start
+        delta = timedelta(days=1)
+        weekend = set([6]) # Sunday
+        count = 0
+        while start_date <= end:
+            current_date = start_date
+            if(current_date.weekday() in weekend):
+                count += 1
+            start_date += delta
+
+        return count
 
     @api.onchange('employee_id', 'date_from', 'date_to')
     def onchange_employee(self):
