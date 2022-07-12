@@ -22,12 +22,7 @@
             <field name="name">Laboratory Equipments</field>
             <field name="ifrs_rate">0.1</field>
         </record>
-
-        <record id="stadia_asset_category_laboratory_equipments" model="stadia.asset.category">
-            <field name="name">Laboratory Equipments</field>
-            <field name="ifrs_rate">0.1</field>
-        </record>
-
+        
         <record id="stadia_asset_category_motor_vehicles" model="stadia.asset.category">
             <field name="name">Motor Vehicles</field>
             <field name="ifrs_rate">0.1</field>

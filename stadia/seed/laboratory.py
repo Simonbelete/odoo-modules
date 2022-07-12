@@ -13,7 +13,7 @@ df = pd.read_excel('laboratory.xlsx')
 for index, row in df.iterrows():
     print(row['Description'])
 
-    category_id = models.execute_kw(db, uid, password, 'stadia.asset.category', 'search', [[['name', '=', 'Furniture and Equipment']]])
+    category_id = models.execute_kw(db, uid, password, 'stadia.asset.category', 'search', [[['name', '=', 'Laboratory Equipments']]])
     category_id = category_id[0]
     description = str(row['Description']).strip()
     ref_no = str(row['Reference no']).strip()
