@@ -8,9 +8,6 @@
         <menuitem id="acquistion_list_menu"
             name="Acquisitions"
             action="acquisition_action" />
-        <!-- <menuitem id="man_power_menu"
-            name="Manpower Report"
-            action="action_manpower_report"/> -->
     </menuitem>
 
 </odoo>
