@@ -2,11 +2,11 @@
 <odoo>
 
     <menuitem id="acquisition_menu" 
-        name="Acquistion" 
+        name="Acquisition" 
         web_icon="stadia,static/Acquisition.png"
         groups="group_base_admin,group_base_gm,group_base_department_head,group_base_hr,group_base_secretary">
         <menuitem id="acquistion_list_menu"
-            name="Acquistions"
+            name="Acquisitions"
             action="acquisition_action" />
         <!-- <menuitem id="man_power_menu"
             name="Manpower Report"
