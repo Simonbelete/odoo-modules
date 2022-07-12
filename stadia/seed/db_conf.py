@@ -1,4 +1,4 @@
-url = 'http://localhost:8069'
-db = 'rd-demo'
+url = 'http://192.168.100.26:8069'
+db = 'stadia_local'
 user = 'admin'
-password = 'cc8f5a3c2ceecb9b0ce65f4e71aee6cfc07a8105'
+password = '60214fa48766990738e32333ff00daca380c33b6'
