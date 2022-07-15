@@ -27,6 +27,7 @@ class Acquisition(models.Model):
     note = fields.Text()
     internal_applicant_ids = fields.One2many('stadia.promotion', 'acquisition_id')
     external_applicant_ids = fields.One2many('hr.applicant', 'acquisition_id')
+    active = fields.Boolean("Active", default=True)
 
     # Duties and Responsibilities
     job_description = fields.Html()

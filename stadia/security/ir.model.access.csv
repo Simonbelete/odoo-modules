@@ -39,3 +39,5 @@ access_asset_movement_issued_report,access_asset_movement_issued_report,model_as
 access_asset_movement_returned_report,access_asset_movement_returned_report,model_asset_movement_returned_report,base.group_user,1,1,1,1
 access_hr_degree,access_hr_degree,model_hr_degree,base.group_user,1,1,1,1
 access_hr_field_study,access_hr_field_study,model_hr_field_study,base.group_user,1,1,1,1
+
+access_stadia_acquisition_acquisitor,access_stadia_acquisition_acquisitor,model_stadia_acquisition,group_acquistion_acquisitor,1,1,1,1

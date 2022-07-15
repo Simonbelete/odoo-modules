@@ -96,31 +96,8 @@
                     </group>
                     <group>
                         <field name="note" string="Note" />
+                        <field name="active" invisible="True"/>
                     </group>
-                    <notebook>
-                        <page string="Internal Applicants">
-                            <field name="internal_applicant_ids">
-                                <tree default_order="stage_id.sequence">
-                                    <field name="recommended_by" string="Recommended By"/>
-                                    <field name="employee_id" />
-                                    <field name="active" />
-                                    <field name="stage_id" />
-                                </tree>
-                            </field>
-                        </page>
-                        <page string="External Applicants">
-                            <field name="external_applicant_ids" widget="many2many">
-                                <tree >
-                                    <field name="recommended_by" />
-                                    <field name="name" />
-                                    <field name="partner_name" />
-                                    <field name="email_from" />
-                                    <field name="stage_id" />
-                                    <field name="active" />
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
