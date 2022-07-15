@@ -3,7 +3,7 @@
     "summary": "Odoo Basic Backend Theme",
     "version": "0.1.0",
     "category": "Themes/Backend",
-    "license": "MIT",
+    "license": "",
     "author": "Simon Belete",
     "website": "https://simonbelete.com",
     "contributors": [
@@ -12,5 +12,8 @@
     "depends": [
         "base_setup"
     ],
-    "application": False
+    "application": False,
+    "data": [
+        "template/assets.xml"
+    ]
 }
