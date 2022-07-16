@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    
+    <t t-extend="Menu">
+        <t t-jquery=".o_menu_brand" t-operation="before">
+            <div class="oma_brand">
+                <a href="#" role="menuitem">
+                  <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt=""/>
+                </a>
+              </div>
+        </t>
+    </t>
+
+    <t t-extend="AppsMenu">
+        <t t-jquery=".full &gt; i" t-operation="attributes">
+            <attribute name="class">fa fa-lg fa-bars</attribute>
+        </t>
+    </t>
+
+</templates>

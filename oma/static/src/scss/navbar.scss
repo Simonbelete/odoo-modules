@@ -1,3 +1,15 @@
-.o_main_navbar {
-    background: red;
+.oma_brand {
+    display: block;
+    float: left;
+    padding: 0 12px 0 16px;
+    margin-right: 60px;
+    margin-left: 20px;
+    line-height: $o-navbar-height;
+    * > img {
+        max-height: 20px;
+    }
 }
+
+.o_main_navbar {
+}
+

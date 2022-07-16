@@ -15,5 +15,8 @@
     "application": False,
     "data": [
         "template/assets.xml"
+    ],
+    "qweb": [
+        "static/src/xml/*.xml"
     ]
 }
