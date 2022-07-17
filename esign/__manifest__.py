@@ -14,5 +14,8 @@
     ],
     "application": True,
     "data": [
+        "template/assets.xml",
+
+        "views/esign_views.xml"
     ]
 }

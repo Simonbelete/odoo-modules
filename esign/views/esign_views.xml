@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <record id="esign_edit_pdf_action" model="ir.actions.client">
+        <field name="name">esign.edit.pdf.action</field>
+        <field name="tag">esign_pdf_edit_reg</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem 
+        id="esign_main_menu"
+        name="E-Sign"
+        action="esign_edit_pdf_action" />
+
+</odoo>
