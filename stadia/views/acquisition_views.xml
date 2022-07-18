@@ -96,7 +96,6 @@
                     </group>
                     <group>
                         <field name="note" string="Note" />
-                        <field name="active" invisible="True"/>
                     </group>
                 </sheet>
                 <div class="oe_chatter">
