@@ -85,7 +85,6 @@
                     Works Consultant Plc, having its registered office at 9th floor, NB Building, near Wuha Limat, Addis Ababa,
                     Ethiopia,
                     hereinafter referred to as the “Employer”, and
-                    <t t-esc="data['employee_id']['title']" />
                     <input type="text" class="jst-line" t-att-value="data['employee_id']['name']"/>
                     , address: Sub city <input type="text" class="jst-line" t-att-value="data['employee_id']['sub_city_id']['name']"/> Wereda <input type="text" class="jst-line" t-att-value="data['employee_id']['woreda']"/>,
                     House

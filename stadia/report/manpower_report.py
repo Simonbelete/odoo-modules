@@ -88,7 +88,7 @@ class AllManpowerReport(models.AbstractModel):
                 sheet.write(row, 2, employee.job_id.name, border)
                 sheet.write(row, 3, employee.contract_id.wage, border)
                 sheet.write(row, 4, employee.contract_id.perdime, border)
-                sheet.write(row, 5, '', border)
+                sheet.write(row, 5, employee.contract_id.desert_allowance, border)
                 sheet.write(row, 6, employee.contract_id.work_place_id.name, border)
                 sheet.write(row, 7, employee.first_contract_date.strftime('%m/%d/%Y'), border)
                 row += 1
@@ -286,7 +286,7 @@ class ManpowerReport(models.AbstractModel):
                 sheet.write(col, 2, employee.job_id.name)
                 sheet.write(col, 3, employee.contract_id.wage)
                 sheet.write(col, 4, employee.contract_id.perdime)
-                sheet.write(col, 5, '')
+                sheet.write(col, 5, employee.contract_id.desert_allowance)
                 sheet.write(col, 6, employee.contract_id.work_place_id.name)
                 sheet.write(col, 7, employee.first_contract_date.strftime('%m/%d/%Y'))
                 col += 1
