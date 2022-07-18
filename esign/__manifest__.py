@@ -17,5 +17,8 @@
         "template/assets.xml",
 
         "views/esign_views.xml"
+    ],
+    "qweb": [
+        "static/src/xml/esing.xml"
     ]
 }

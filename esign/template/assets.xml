@@ -3,7 +3,8 @@
 
     <template id="assets_backend" name="Backend Assets" inherit_id="web.assets_backend">
         <xpath expr="//script[last()]" position="after">
-            <script type="text/javascript" src="https://unpkg.com/browse/pdfjs-dist@2.14.305/build/pdf.worker.js" />
+            <script type="text/javascript" src="esign/static/src/libs/pdfjs/pdf.js" />
+            <script type="text/javascript" src="esign/static/src/libs/pdfjs/pdf.worker.js" />
             <script type="text/javascript" src="esign/static/src/js/pdf_edit.js" />
         </xpath>
     </template>
