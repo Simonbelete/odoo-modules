@@ -4,7 +4,7 @@
     <t t-name="esing_body">
         <div class="esing_body">
             <h1>Body</h1>
-            <iframe id="pdf-js-viewer"></iframe>
+            <canvas id="pdf-js-viewer"></canvas>
         </div>
     </t>
 
