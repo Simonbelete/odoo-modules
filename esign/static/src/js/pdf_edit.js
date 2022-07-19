@@ -33,25 +33,42 @@ var pdf_edit = AbstractAction.extend({
     var loadingTask = pdfjsLib.getDocument(url);
     loadingTask.promise.then(function(pdf) {
 
-      var pageNumber = 1;
-      pdf.getPage(pageNumber).then(function(page) {
+      var page_num = 1;
+      pdf.getPage(page_num).then(function(page) {
+        
         var scale = 1.5;
-        var viewport = page.getViewport({scale: scale});
-
-        var canvas = document.getElementById('pdf-js-viewer');
+        var viewport = page.getViewport(scale);
+        var canvas = $('#pdf-js-viewer')[0];
         var context = canvas.getContext('2d');
         canvas.height = viewport.height;
         canvas.width = viewport.width;
 
-        // Render PDF page into canvas context
-        var renderContext = {
-          canvasContext: context,
-          viewport: viewport
-        };
-        var renderTask = page.render(renderContext);
-        renderTask.promise.then(function () {
-          console.log('Page rendered');
+        var canvasOffset = $(canvas).offset();
+        var $textLayerDiv = $('#text-layer').css({
+            height : viewport.height+'px',
+            width : viewport.width+'px',
+            top : canvasOffset.top,
+            left : canvasOffset.left
         });
+
+        page.render({
+            canvasContext : context,
+            viewport : viewport
+        });
+
+        page.getTextContent().then(function(textContent){
+           console.log( textContent );
+            var textLayer = new pdfjsViewer.TextLayerBuilder({
+                textLayerDiv : $textLayerDiv.get(0),
+                pageIndex : page_num - 1,
+                viewport : viewport
+            });
+
+            textLayer.setTextContent(textContent);
+            textLayer.render();
+        });
+        
+
       })
     });
 
