@@ -4,6 +4,7 @@ odoo.define('esign.pdf_edit', function (require) {
 var core = require('web.core');
 var QWeb = core.qweb;
 var AbstractAction = require('web.AbstractAction');
+// const { jsPDF } = require("jspdf");
 
 var pdf_edit = AbstractAction.extend({
 	start: function () {
@@ -13,10 +14,16 @@ var pdf_edit = AbstractAction.extend({
 		
 		var url = 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf';
 
-    var loadingTask = pdfjsLib.getDocument('esign/static/src/js/helloworld.pdf');
-    loadingTask.promise.then(function(pdf) {
-      // you can now use *pdf* here
-    });
+
+    const doc = new jspdf.jsPDF();
+
+    doc.text("Hello world!", 10, 10);
+    doc.save("a4.pdf")
+
+    // var loadingTask = pdfjsLib.getDocument('esign/static/src/js/helloworld.pdf');
+    // loadingTask.promise.then(function(pdf) {
+    //   // you can now use *pdf* here
+    // });
 
 		// End
 
