@@ -61,7 +61,8 @@ var pdf_edit = AbstractAction.extend({
             var textLayer = new pdfjsViewer.TextLayerBuilder({
                 textLayerDiv : $textLayerDiv.get(0),
                 pageIndex : page_num - 1,
-                viewport : viewport
+                viewport : viewport,
+                eventBus: new pdfjsViewer.EventBus()
             });
 
             textLayer.setTextContent(textContent);

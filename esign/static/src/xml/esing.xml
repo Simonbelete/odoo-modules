@@ -5,6 +5,7 @@
         <div class="esing_body">
             <h1>Body</h1>
             <canvas id="pdf-js-viewer"></canvas>
+            <div id="text-layer" class="textLayer"></div>
         </div>
     </t>
 
