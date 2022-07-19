@@ -9,6 +9,7 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js" integrity="sha512-dw+7hmxlGiOvY3mCnzrPT5yoUwN/MRjVgYV7HGXqsiXnZeqsw1H9n9lsnnPu4kL2nx2bnrjFcuWK+P3lshekwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js" integrity="sha512-fahFaRPTP2xrdxAbzgG31V4Vr+Ga/hp4gQu3ZBq83bhKO10NoWfTJ20OWg9ufEyT1Y4ZyCuh9wLHY9CHi6l95Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf_viewer.min.js" integrity="sha512-x+RmXhJTdSyOC9nVUvKVwtTsfTFtsbWPNeTuI3OlA7kLvyxG39BiWaT5VU5xENbHq25k3KFPdGR5OcO2/LTxOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
             <script type="text/javascript" src="esign/static/src/js/pdf_edit.js" />
         </xpath>
     </template>
