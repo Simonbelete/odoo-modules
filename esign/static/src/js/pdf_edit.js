@@ -11,50 +11,50 @@ var pdf_edit = AbstractAction.extend({
 		self.$('.o_content').append(QWeb.render('esing_body', {widget: self}))
 		console.log('Started')
 		
-		// pdfjsLib.GlobalWorkerOptions.workerSrc =
-		// 'esign/static/src/libs/pdfjs/pdf.worker.js';
-		var url = 'helloworld.pdf';
-		// loadingTask.promise.then(function(pdf) {
-		// // you can now use *pdf* here
-		// });
+		var url = 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf';
 
-		const loadingTask = pdfjsLib.getDocument(url);
-  (async () => {
-    const pdf = await loadingTask.promise;
-    //
-    // Fetch the first page
-    //
-    const page = await pdf.getPage(1);
-    const scale = 1.5;
-    const viewport = page.getViewport({ scale });
-    // Support HiDPI-screens.
-    const outputScale = window.devicePixelRatio || 1;
+// Loaded via <script> tag, create shortcut to access PDF.js exports.
+var pdfjsLib = window['pdfjs-dist/build/pdf'];
 
-    //
+// The workerSrc property shall be specified.
+pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+
+// Asynchronous download of PDF
+var loadingTask = pdfjsLib.getDocument(url);
+loadingTask.promise.then(function(pdf) {
+  console.log('PDF loaded');
+  
+  // Fetch the first page
+  var pageNumber = 1;
+  pdf.getPage(pageNumber).then(function(page) {
+    console.log('Page loaded');
+    
+    var scale = 1.5;
+    var viewport = page.getViewport({scale: scale});
+
     // Prepare canvas using PDF page dimensions
-    //
-    const canvas = document.getElementById("the-canvas");
-    const context = canvas.getContext("2d");
+    var canvas = document.getElementById('the-canvas');
+    var context = canvas.getContext('2d');
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
 
-    canvas.width = Math.floor(viewport.width * outputScale);
-    canvas.height = Math.floor(viewport.height * outputScale);
-    canvas.style.width = Math.floor(viewport.width) + "px";
-    canvas.style.height = Math.floor(viewport.height) + "px";
-
-    const transform = outputScale !== 1 
-      ? [outputScale, 0, 0, outputScale, 0, 0] 
-      : null;
-
-    //
     // Render PDF page into canvas context
-    //
-    const renderContext = {
+    var renderContext = {
       canvasContext: context,
-      transform,
-      viewport,
+      viewport: viewport
     };
-    page.render(renderContext);
-  })();
+    var renderTask = page.render(renderContext);
+    renderTask.promise.then(function () {
+      console.log('Page rendered');
+    });
+  });
+}, function (reason) {
+  // PDF loading error
+  console.error(reason);
+});
+
+		// End
+
 	}
 });
 
