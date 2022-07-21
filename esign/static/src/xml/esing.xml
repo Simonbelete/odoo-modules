@@ -3,9 +3,15 @@
 
     <t t-name="esing_body">
         <div class="esing_body">
-            <h1>Body</h1>
-            <canvas id="pdf-js-viewer"></canvas>
-            <div id="text-layer" class="textLayer"></div>
+            <!-- <iframe src="esign/static/src/html/pdf_viewer.html"></iframe> -->
+            <!-- <h1>Body</h1>
+            <div id="drag_button" style="width: 150px; height: 150px; padding: 0.5em;" class="ui-widget-content">
+                <p>Drag me around</p>
+            </div>
+            -->
+            <!-- <div id="text-layer" class="textLayer"></div> -->
+            <!-- <canvas id="pdf-js-viewer"></canvas> -->
+            <div id="container"></div>
         </div>
     </t>
 

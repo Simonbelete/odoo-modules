@@ -3,7 +3,7 @@
 
     <template id="assets_frontend" name="Frontend Assets" inherit_id="web.assets_frontend">
         <xpath expr="//script[last()]" position="after">
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+            <script type="text/javascript" src="esign/static/src/js/pdf_front.js" />
         </xpath>
     </template>
 
