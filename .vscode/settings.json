@@ -1,5 +1,9 @@
 {
     "python.analysis.extraPaths": [
         "./stadia/seed"
-    ]
+    ],
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 2500,
+        "editor.tabSize": 4
+    }
 }
