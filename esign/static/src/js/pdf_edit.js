@@ -4,7 +4,6 @@ odoo.define('esign.pdf_edit', function (require) {
 var core = require('web.core');
 var QWeb = core.qweb;
 var AbstractAction = require('web.AbstractAction');
-// const { jsPDF } = require("jspdf");
 
 var pdf_edit = AbstractAction.extend({
 	start: function () {
