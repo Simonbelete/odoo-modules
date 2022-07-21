@@ -16,6 +16,8 @@
     "data": [
         "template/assets.xml",
 
+        "security/ir.model.access.csv",
+
         "views/esign_views.xml"
     ],
     "qweb": [
