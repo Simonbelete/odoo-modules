@@ -9,76 +9,120 @@ var AbstractAction = require('web.AbstractAction');
 var pdf_edit = AbstractAction.extend({
 	start: function () {
 		var self = this;
-		self.$('.o_content').append(QWeb.render('esing_body', {widget: self}))
-		console.log('Started')
+
+    
+
+		// self.$('.o_content').append(QWeb.render('esing_body', {widget: self}))
+		// console.log('Started')
 		
-		var url = 'esign/static/src/js/helloworld.pdf';
+    // // 698
+    // // 330
 
-    var loadingTask = pdfjsLib.getDocument(url);
-    loadingTask.promise.then(function(pdf) {
-      var pageNumber = 1;
-      pdf.getPage(pageNumber).then(function(page) {
-        console.log('Page loaded');
+    // $( function() {
+    //   $( "#drag_button" ).draggable({
+    //     drag: function() {
+    //       var offset = $('#drag_button').offset();
+    //       var xPos = offset.left;
+    //       var yPos = offset.top;
+    //       console.log(xPos);
+    //       console.log(yPos);
+    //       console.log('----------------------')
+    //     }
+    //   })
+    //   $('#container').droppable()
+    // } );
 
-        var container = $('#container')[0];
+		// var url = 'esign/static/src/js/helloworld.pdf';
+
+    // var loadingTask = pdfjsLib.getDocument(url);
+    // loadingTask.promise.then(function(pdf) {
+    //   var pageNumber = 1;
+    //   pdf.getPage(pageNumber).then(function(page) {
+    //     console.log('Page loaded');
+
+    //     var container = $('#container')[0];
         
-        var scale = 1.5;
-        var viewport = page.getViewport({scale: scale});
-        var div = document.createElement("div");
+    //     var scale = 1.5;
+    //     var viewport = page.getViewport({scale: scale});
+    //     var div = document.createElement("div");
 
-         // Set id attribute with page-#{pdf_page_number} format
-         div.setAttribute("id", "page-" + (page.pageIndex + 1));
+    //      // Set id attribute with page-#{pdf_page_number} format
+    //      div.setAttribute("id", "page-" + (page.pageIndex + 1));
 
-         // This will keep positions of child elements as per our needs
-         div.setAttribute("style", "position: relative");
+    //      // This will keep positions of child elements as per our needs
+    //      div.setAttribute("style", "position: relative");
  
-         // Append div within div#container
-         container.appendChild(div);
+    //      // Append div within div#container
+    //      container.appendChild(div);
 
-        // Create a new Canvas element
-        var canvas = document.createElement("canvas");
-        var context = canvas.getContext('2d');
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+    //     // Create a new Canvas element
+    //     var canvas = document.createElement("canvas");
+    //     var context = canvas.getContext('2d');
+    //     canvas.height = viewport.height;
+    //     canvas.width = viewport.width;
 
-        // Append Canvas within div#page-#{pdf_page_number}
-        div.appendChild(canvas);
+    //     // Append Canvas within div#page-#{pdf_page_number}
+    //     div.appendChild(canvas);
 
-        // Render PDF page into canvas context
-        var renderContext = {
-          canvasContext: context,
-          viewport: viewport
-        };
-        var renderTask = page.render(renderContext);
-        renderTask.promise.then(function () {
-          // Get text-fragments
-          return page.getTextContent();
-        }).then(function(textContent) {
-           // Create div which will hold text-fragments
-          var textLayerDiv = document.createElement("div");
+    //     // Render PDF page into canvas context
+    //     var renderContext = {
+    //       canvasContext: context,
+    //       viewport: viewport
+    //     };
+    //     var renderTask = page.render(renderContext);
+    //     renderTask.promise.then(function () {
+    //       // Get text-fragments
+    //       return page.getTextContent();
+    //     }).then(function(textContent) {
+    //        // Create div which will hold text-fragments
+    //       var textLayerDiv = document.createElement("div");
 
-          // Set it's class to textLayer which have required CSS styles
-          textLayerDiv.setAttribute("class", "textLayer");
+    //       // Set it's class to textLayer which have required CSS styles
+    //       textLayerDiv.setAttribute("class", "textLayer");
 
-          // Append newly created div in `div#page-#{pdf_page_number}`
-          div.appendChild(textLayerDiv);
+    //       // Append newly created div in `div#page-#{pdf_page_number}`
+    //       div.appendChild(textLayerDiv);
 
-          // Create new instance of TextLayerBuilder class
-          var textLayer = new pdfjsViewer.TextLayerBuilder({
-            textLayerDiv: textLayerDiv, 
-            pageIndex: page.pageIndex,
-            viewport: viewport,
-            eventBus: new pdfjsViewer.EventBus()
-          });
+    //       // Create new instance of TextLayerBuilder class
+    //       var textLayer = new pdfjsViewer.TextLayerBuilder({
+    //         textLayerDiv: textLayerDiv, 
+    //         pageIndex: page.pageIndex,
+    //         viewport: viewport,
+    //         eventBus: new pdfjsViewer.EventBus()
+    //       });
 
-          // Set text-fragments
-          textLayer.setTextContent(textContent);
+    //       // Set text-fragments
+    //       textLayer.setTextContent(textContent);
 
-          // Render text-fragments
-          textLayer.render();
-        })
-      });
-    })
+    //       // Render text-fragments
+    //       textLayer.render();
+    //     })
+
+    //     const doc = new jspdf.jsPDF();
+
+    //     console.log($('#container')[0])
+
+    //     // doc.html('<div>Hellow world</div>', {
+    //     //   x: 10,
+    //     //   y: 10
+    //     // })
+
+    //     window.html2canvas = jspdf.html2canvas;
+    //     doc.html(document.body, {
+    //       callback: function (doc) {
+    //         doc.save();
+    //       },
+    //       x: 10,
+    //       y: 10
+    //    })
+
+    //     doc.text("Hello world!", 20, 30);
+    //     // doc.save()
+
+    //     div.appendChild($('#drag_button')[0])
+    //   });
+    // })
+
 
 
     // const doc = new jspdf.jsPDF();

@@ -11,6 +11,10 @@
             -->
             <!-- <div id="text-layer" class="textLayer"></div> -->
             <!-- <canvas id="pdf-js-viewer"></canvas> -->
+            <div id="hmtl_eg">this element</div>
+            <div id="drag_button" style="width: 150px; height: 150px; padding: 0.5em; z-index: 999" class="ui-widget-content">
+                <p>Drag me around</p>
+            </div>
             <div id="container"></div>
         </div>
     </t>
