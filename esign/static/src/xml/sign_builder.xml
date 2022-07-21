@@ -3,6 +3,7 @@
 
     <t t-name="sign_builder_body">
         <h1>Sign Builder</h1>
+        <div id="container"></div>
     </t>
 
 </templates>
