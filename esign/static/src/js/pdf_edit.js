@@ -10,7 +10,17 @@ var pdf_edit = AbstractAction.extend({
 	start: function () {
 		var self = this;
 
-    
+		const doc = new jspdf.jsPDF('p', 'pt', 'letter');
+		doc.html(document.body, {
+			callback: function (pdf) {
+				var iframe = document.createElement('iframe');
+				iframe.setAttribute('style', 'position:absolute;right:0; top:0; bottom:0; height:100%; width:500px');
+				document.body.appendChild(iframe);
+				iframe.src = pdf.output('datauristring');
+			}
+		});
+
+		// doc.html('<h1>Hello</h1>')
 
 		// self.$('.o_content').append(QWeb.render('esing_body', {widget: self}))
 		// console.log('Started')
