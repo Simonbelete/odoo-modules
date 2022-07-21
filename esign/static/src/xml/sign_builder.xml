@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+
+    <t t-name="sign_builder_body">
+        <h1>Sign Builder</h1>
+    </t>
+
+</templates>

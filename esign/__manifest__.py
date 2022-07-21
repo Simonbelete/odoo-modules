@@ -21,6 +21,6 @@
         "views/esign_views.xml"
     ],
     "qweb": [
-        "static/src/xml/esing.xml"
+        "static/src/xml/*.xml"
     ]
 }
