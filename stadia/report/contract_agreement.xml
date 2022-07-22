@@ -87,24 +87,10 @@
             </style>
             <t t-foreach="docs" t-as="data">
                <div>
-                    <div class="s_center">
-                        <table class="ht-table">
-                            <tr>
-                                <th style="width: 200px;"><t t-esc="title" /></th>
-                                <th>
-                                    <div style="position: relative;">
-                                        <span><img style="height: 60px; width: 60px;" class="s_img_border" src="/stadia/static/stadi_stamp_logo.jpg" /></span>
-                                        <span class="s_t_text">Stadia Engineering Works Consultant Plc.</span>
-                                    </div>
-                                </th>
-                            </tr>
-                        </table>
-                        <h6 style="margin-top: 30px; font-weight: 800; text-decoration: underline;"><t t-esc="header" /></h6>
-                    </div>
-                    <!-- <t t-call="stadia.stadia_header_template_1">
+                    <t t-call="stadia.stadia_header_template_1">
                         <t t-set="title" t-value="'EMPLOYEMENT AGREEMENT'" />
                         <t t-set="header" t-value="'EMPLOYEMENT AGREEMENT'" />
-                    </t> -->
+                    </t>
                     <ol class="c_ol_list" style="margin: 0px 10px; font-size: 16px">
                         <li>
                             This permanent employment is made and entered into this <b><t t-esc="data['date_start'].strftime('%m/%d/%Y')" /></b> by and between, 
