@@ -160,9 +160,15 @@
                                     <ul>
                                         <li>The Employer shall pay the Employee a gross monthly contract amount of 
                                             ETB <span class="s_input_line" t-esc="data['wage']"/>, <span class="s_input_line" t-esc="data['wage_in_word']"/> monthly,
-                                            Perdime ETB <span class="s_input_line" t-esc="data['perdime']"/>, <span class="s_input_line" t-esc="data['perdime_in_word']"/> per day ,
-                                            Transport Allowance ETB <span class="s_input_line" t-esc="data['transport_allowance']"/>, <span class="s_input_line" t-esc="data['transport_allowance_in_word']"/> per day ,
-                                            Desert Allowance ETB <span class="s_input_line" t-esc="data['desert_allowance']"/>, <span class="s_input_line" t-esc="data['desert_allowance_in_word']"/> per day ,
+                                            <t t-if="data['perdime'] != 0">
+                                                Perdime ETB <span class="s_input_line" t-esc="data['perdime']"/>, <span class="s_input_line" t-esc="data['perdime_in_word']"/> per day ,
+                                            </t>
+                                            <t t-if="data['transport_allowance'] != 0">
+                                                Transport Allowance ETB <span class="s_input_line" t-esc="data['transport_allowance']"/>, <span class="s_input_line" t-esc="data['transport_allowance_in_word']"/> per day ,
+                                            </t>
+                                            <t t-if="data['desert_allowance'] != 0">
+                                                Desert Allowance ETB <span class="s_input_line" t-esc="data['desert_allowance']"/>, <span class="s_input_line" t-esc="data['desert_allowance_in_word']"/> per day ,
+                                            </t>
                                         </li>
                                     </ul>
                                 </li>
