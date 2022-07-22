@@ -51,8 +51,6 @@
                 text-align: center;
             }
             .s_t_text {
-                position: absolute;
-                bottom: 0;
                 font-size: 20px;
                 font-weigth: 500;
                 width: 400px
@@ -82,7 +80,7 @@
                     <th style="width: 200px;"><t t-esc="title" /></th>
                     <th>
                         <div style="position: relative;">
-                            <span><img style="height: 60px; width: 60px;" class="s_img_border" src="/stadia/static/stadi_stamp_logo.jpg" /></span>
+                            <span><img style="height: 60px; width: 60px;" class="s_img_border" src="/stadia/static/stadia_logo.jpg" /></span>
                             <span class="s_t_text">Stadia Engineering Works Consultant Plc.</span>
                         </div>
                     </th>
