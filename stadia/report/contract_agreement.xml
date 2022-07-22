@@ -108,7 +108,7 @@
                         <li>
                             Whereas the Employer desires to assign the Employee as a
                             <span class="s_input_line" t-esc="data['job_id']['name']"/>
-                            with a written permanent employment contract to undertake the duties and responsibilities of the Highway Engineer included in the Service Contract document. 
+                            with a written permanent employment contract to undertake the duties and responsibilities of the <span class="s_input_line" t-esc="data['job_id']['name']"/> included in the Service Contract document. 
                         </li>
                         <li>
                             Now, therefore, the Employer and the Employee, for the consideration herein specified, agree as follows.
