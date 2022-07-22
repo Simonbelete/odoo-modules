@@ -85,7 +85,59 @@
                                     TYPICAL ROLES AND RESPONSIBILITY
                                     <!-- Resposible list -->
                                     <ul>
-                                        <li>sdfsdf</li>
+                                        <t t-if="data['job_id']['name'] == 'Team leader'">
+                                            <t t-call="team_leader_role" />
+                                        </t>
+                                        <t t-if="data['job_id']['name'] == 'Contract Engineer'">
+                                           <t t-call="contract_engineer_role" />
+                                        </t> 
+                                        <t t-if="data['job_id']['name'] == 'Junior Contract Engineer'">
+                                            <li>
+                                                Assis Contract Engineers in preparation of
+                                                <ul>
+                                                    <t>Expression of Interest and Proposals </t>
+                                                    <t>Design Invoices</t>
+                                                    <t>Technical Specifications, Bill of Quantities and Cost Estimate</t>
+                                                    <t>Others as required</t>
+                                                </ul>
+                                            </li>
+                                        </t>
+                                        <t t-if="data['job_id']['name'] == 'Senior Contract Engineer'">
+                                           <t t-call="stadia.senior_contract_engineer_role" />
+                                        </t>
+                                        <t t-if="data['job_id']['name'] == 'Administration and Finance Head'">
+                                            <t t-call="stadia.administration_and_finance_head_role" />
+                                        </t>
+                                        <t t-if="data['job_id']['name'] == 'Accountant'">
+                                            <t t-call="stadia.accountant_role" />
+                                        </t>
+                                        <t t-if="data['job_id']['name'] == 'Cashier'">
+                                            <t t-call="stadia.cashier_role" />
+                                        </t> 
+                                        <t t-if="data['job_id']['name'] == 'Driver'">
+                                            <t t-call="stadia.driver_role" />
+                                        </t>
+                                        <t t-if="data['job_id']['name'] == 'Administration and Finance Head'">
+                                            <t t-call="stadia.finance_section_head_role" />
+                                        </t>
+                                        <t t-if="data['job_id']['name'] == 'Guard and Finance Head'">
+                                            <t t-call="stadia.guard_role" />
+                                        </t> 
+                                        <t t-if="data['job_id']['name'] == 'Janitor'">
+                                            <t t-call="stadia.janitor_role" />
+                                        </t>
+                                        <t t-if="data['job_id']['name'] == 'Messenger'">
+                                            <t t-call="stadia.messenger_role" />
+                                        </t> 
+                                        <t t-if="data['job_id']['name'] == 'Administration and Finance Secretary'">
+                                            <t t-call="stadia.secretary_role" />
+                                        </t>
+                                        <t t-if="data['job_id']['name'] == 'Secretary'">
+                                            <t t-call="stadia.secretary_role" />
+                                        </t>
+                                        <t t-if="data['job_id']['name'] == 'Store keeper'">
+                                            <t t-call="stadia.store_role" />
+                                        </t>
                                     </ul>
                                     <!-- End of responsibel list -->
                                 </li>
@@ -107,7 +159,10 @@
                                     CONTRACT AMOUNT
                                     <ul>
                                         <li>The Employer shall pay the Employee a gross monthly contract amount of 
-                                            ETB <span class="s_input_line" t-esc="data['wage']"/>, <span class="s_input_line" t-esc="data['wage_in_word']"/> per day. 
+                                            ETB <span class="s_input_line" t-esc="data['wage']"/>, <span class="s_input_line" t-esc="data['wage_in_word']"/> monthly,
+                                            Perdime ETB <span class="s_input_line" t-esc="data['perdime']"/>, <span class="s_input_line" t-esc="data['perdime_in_word']"/> per day ,
+                                            Transport Allowance ETB <span class="s_input_line" t-esc="data['transport_allowance']"/>, <span class="s_input_line" t-esc="data['transport_allowance_in_word']"/> per day ,
+                                            Desert Allowance ETB <span class="s_input_line" t-esc="data['desert_allowance']"/>, <span class="s_input_line" t-esc="data['desert_allowance_in_word']"/> per day ,
                                         </li>
                                     </ul>
                                 </li>

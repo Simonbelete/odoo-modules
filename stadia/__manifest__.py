@@ -53,6 +53,7 @@
         'wizard/attendance_report.xml',
 
         'report/component_templates.xml',
+        'report/contract_roles.xml',
         'report/hr_contract_employee_badge.xml',
         'report/header_template.xml',
         'report/asset_report.xml',

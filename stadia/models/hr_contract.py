@@ -15,18 +15,32 @@ class HrContract(models.Model):
     ref_no = fields.Char(string="Ref No", copy=False, default=_default_ref_no)
     # Per day perdime
     perdime = fields.Monetary(default=0)
+    perdime_in_word = fields.Char(compute="_compute_perdime_in_word")
     cost_sharing = fields.Monetary(default=0)
     phone_allowance = fields.Monetary(default=0, string="Phone Allowance")
-    perdime = fields.Monetary(default = 0)
     cost_sharing = fields.Monetary(default = 0)
     work_place_id = fields.Many2one('stadia.workplace', required=True) #, default=_default_work_place_id)
     transport_allowance = fields.Monetary(default=0)
+    transport_allowance_in_word = fields.Char(compute="_compute_transport_allowance_in_word")
     desert_allowance = fields.Monetary(default=0)
+    desert_allowance_in_word = fields.Char(compute="_compute_desert_allowance_in_word")
     wage_in_word = fields.Char(compute="_compute_wage_in_word")
 
     # For printing
     issued_date = fields.Date(compute="_compute_issued_date")
     expiry_date = fields.Date(compute="_compute_expiry_date")
+
+    def _compute_transport_allowance_in_word(self):
+        self.ensure_one()
+        self.transport_allowance_in_word = num2words(self.transport_allowance)
+
+    def _compute_perdime_in_word(self):
+        self.ensure_one()
+        self.perdime_in_word = num2words(self.perdime)
+
+    def _compute_desert_allowance_in_word(self):
+        self.ensure_one()
+        self.desert_allowance_in_word = num2words(self.desert_allowance)
 
     def _compute_wage_in_word(self):
         self.ensure_one()

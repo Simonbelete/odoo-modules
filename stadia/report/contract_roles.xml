@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="store_role">
+        <li>Receives materials, supplies, and equipment delivered on purchase orders; inspects incoming materials for conformity to purchase orders and checks for shortages, damages, or other discrepancies; </li>
+        <li>Stores materials and supplies in the warehouse;</li>
+        <li>Issues and deliver goods upon receipt of authorized delivery order from the administrative officer.</li>
+        <li>Assures that freight driver’s identity and trailers clearness before goods are loaded for shipment. </li>
+        <li>Prepares payment request for casual laborers for loading/unloading expenses.</li>
+        <li>Issues sacks and rejected good to be sold from store by preparing SIV.</li>
+        <li>Makes sure that clean grains are not taken out with reject ones.</li>
+        <li>Follow up that warehouse doors and windows are strong and lockable.</li>
+        <li>Follow up items that can be easily picked be kept in locked boxes in the store.</li>
+        <li>Ensures that warehouse and the surrounding are clean and safe.</li>
+        <li>Control the availability of updated firefighting equipment’s in the store and train all concerned staff on how to use it.</li>
+        <li>Post “NO SMOKING” and other precaution signs wherever required.</li>
+        <li>Notifies to his/her supervisor, when there is breakage, shortage etc. upon delivery of goods ordered.</li>
+        <li>Through perpetual inspection, reports on goods that are damaged, obsolete etc. so that appropriate action shall be taken timely.</li>
+        <li>Maintains and updates a separate “BIN CARD” each items in store and keeps them in order.</li>
+        <li>Protects the company’s properties and goods from theft, damage, breakage etc. as a result of negligence, exposure to bad weather etc.</li>
+        <li>Strive to minimize goods handling costs by establishing floor lay-outs and shelves and put received goods at the right place and in orderly manner.</li>
+        <li>Establish an equilibrium stock level by considering Economic order level, lead time and sales and usage of items in consultation with the finance and administration manager.</li>
+        <li>Reports to the administrative officer the level of the stock items in store at least once in a week and as may be necessary.</li>
+        <li>Performs other tasks as assigned by his/her immediate supervisor.  </li>
+    </template>
+    <template id="secretary_role">
+        <li>Planning work to make efficient use of time</li>
+        <li>Finalizing reports for submission by formatting, combining, printing, duplicating </li>
+        <li>Keeping recording and controlling all type of reports </li>
+        <li>Communicate with client counterpart about CV’s replacement process </li>
+        <li>Arrange mobilization letter</li>
+        <li>Keeping work station, tools equipment’s, supplies neat and orderly</li>
+        <li>Receiving office calls and scheduling appointments</li>
+        <li>Handling incoming and outgoing telephone calls politely</li>
+        <li>Processing incoming and outgoing mails </li>
+        <li>Facilitating meeting </li>
+        <li>Making travel arrangements </li>
+        <li>Typing correspondences</li>
+        <li>In addition to PC, operating different types of office machines i.e. facsimiles, scanners...</li>
+        <li>Taking dictation and transcribe them appropriately</li>
+        <li>Managing the files and records of the company by applying efficient filling system</li>
+        <li>communicating harmoniously with colleagues, supervisors, subordinates and customers</li>
+        <li>Assist the Department in arranging events</li>
+        <li>Producing mail able correspondences</li>
+        <li>Operating different types of office machines</li>
+        <li>Taking dictation and transcribe them appropriately</li>
+        <li>Managing the files and records of the company by applying efficient filling system</li>
+        <li>Supervising office workers, summarizing employee's appraisal forms</li>
+        <li>communicating harmoniously with colleagues, supervisors, subordinates and customers</li>
+        <li>Office arrangement </li>
+        <li>Any other duties and responsibilities as assigned by the respective staffs</li>
+    </template>
+    <template id="messenger_role">
+        <li>>Securely delivers packages, documents, written and verbal messages, and other items to intended location or recipient in a timely manner.</li>
+        <li>>Manages incoming mail so that it is opened, sorted, and distributed in a professional and timely manner.</li>
+        <li>>Processes outgoing letter.</li>
+        <li>>Plans the most efficient and expedient delivery route from place to place; organizes deliveries accordingly.</li>
+        <li>>Obtains required signatures and/or payments at time of delivery.</li>
+        <li>>Maintains accurate records related to the receipt and delivery of packages, documents, messages, and other items, including tracking time of and parties to the delivery.</li>
+        <li>>May perform office, clerical, and other related duties as assigned.</li>
+        <li>>Performs other related duties as assigned.</li>
+    </template>
+    <template id="janitor_role">
+        <li>Dust and polish all windows, chairs, tables and all equipment’s.</li>
+        <li>Sweeping floors with brushes or dust control mops. </li>
+        <li>Mopping floors with wet or damp mops. </li>
+        <li>Using electrically powered pick up machines. </li>
+        <li>Emptying waste bins or similar receptacles, transporting waste material to designated
+    collection points. </li>
+    </template>
+    <template id="guard_role">
+        <li>Inspect and control</li>
+        <li>Receive get pass for items delivered or mobilized out of the compound </li>
+        <li>Check all staffs at the time of entrance and leave</li>
+        <li>Respect time at the time of change with your partner</li>
+        <li>Check all right are working and Switch on</li>
+        <li>Check all door and windows are locked</li>
+    </template>
+    <template id="finance_section_head_role">
+        <li>Check payroll preparation for all the projects that is prepared by other finance staff</li>
+        <li>Check amounts collected against VAT sales invoices for each collection Ensure and follow-up settlements of suspense vouchers in time</li>
+        <li>Ensure and follow-up settlements of suspense vouchers in time</li>
+        <li>Check amounts collected against VAT sales invoices for each collection</li>
+        <li>Prepare payments for terminated employees after clearance was submitted by the respective employee</li>
+        <li>Prepare bank reconciliations for CBE, Abyssinia bank, Awash and Buna Bank at the end of the month </li>
+        <li>Prepare financial statements quarterly, semi- annually and yearly. </li>
+        <li>Assist in the implementation of financial control system.</li>
+        <li> Prepare journal vouchers and posting to the proper accounts </li>
+        <li>check Fixed Asset inventory summary.</li>
+        <li>Take assignments of others when necessary and for the absence of concerned bodies and other financial activities and assignments assigned by immediate boss</li>
+    </template>
+    <template id="driver_role">
+        <li>Perform daily inspections on all assigned vehicles, at the beginning of each shift.</li>
+        <li>Ascertain that all vehicles are properly cleaned and maintained, and that any need for repairs is outlined and reported.</li>
+        <li>Obtain orders for transporting people (staff members) or things to different locations, and ensure that they are carried out properly.</li>
+        <li>Receive items and documents for transport, and ensure that they are safely transported to their destinations.</li>
+        <li>Transport people to their destinations.</li>
+        <li>Perform both preventive and regular maintenance on assigned vehicles, and ensure that proper service is performed.</li>
+    </template>
+    <template id="cashier_role">
+        <li>Prepare cheque payment vouchers after the procedures are fulfilled</li>
+        <li>When petty cash fund reaches 25%, request replenishment and submit the vouchers with supporting documents such as receipts, invoices, PR, GRN and others</li>
+        <li>Perform payments to Inland Revenue</li>
+        <li>Make deposits to bank intact and in time Prepare bank draft, CPO and make bank transfer</li>
+        <li>Collect and issue cash receipt vouchers for collections from different sources other than Sales</li>
+        <li>Prepare and update Fixed Asset inventory summary.</li>
+        <li>Follow-up insurance affairs Take assignments of others when necessary and for the absence of concerned bodies and other financial activities and assignments assigned by immediate boss.</li>
+    </template>
+    <template id="team_leader_role">
+        <li>Act as Liaison with ERA and facilitate consultation with stakeholders</li>
+        <li>Shall involve with full responsibility for tasks and sub-tasks of the TOR</li>
+        <li>Coordinate and direct the entire execution of the project </li>
+        <li>Mobilize the design team and author the inception report </li>
+        <li>Organize the quality' management plan by allocation of tasks to the design team members and program the work</li>
+        <li>Monitor the progress of the work and prepare progress reports</li>
+        <li>Accomplish series tasks of the methodology</li>
+        <li>Undertake the overall responsibility for the performance of the work to the appropriate standard of technical excellence</li>
+        <li>>Oversee the input of other key personnel and arrange for specialist input as necessary</li>
+        <li>>Coordinate the efforts of the design team to ensure that the final design of the road is optimized within the limit imposed by the materials, geometric, hydrological and environmental constraint of the site</li>
+        <li>>Determine the corridor for selection of alternative alignments and propose alternative alignments</li>
+        <li>>Determine the Corridor to be covered by detailed surveys and investigations </li>
+        <li>>Supervise Preparation of Bid Documents and Cost Estimate</li>
+        <li>>Review Engineering Report, Technical Specification and Engineering Drawing</li>
+        <li>>Check if all reports are prepared in accordance with ERA manuals, review and submit required documents and reports</li>
+        <li>>Shall organize and prepare the design standards report and agree with the Client the standards to be adopted</li>
+    </template>
+    <template id="contract_engineer_role">
+        <li>Searching for project Expression of Interest and Proposals </li>
+        <li>Preparation of Company profile</li>
+        <li>Preparation of Company Brochure, Agenda and Calendar</li>
+        <li>Updating of Stadia ICT website, Facebook, Telegram Group etc.</li>
+        <li>Checking feasibility of EOI to participate</li>
+        <li>Preparation of Expression of Interest</li>
+        <li>Checking feasibility of RFP to participate</li>
+        <li>Preparation of Tender document (Methodology, Cv….)</li>
+        <li>Conducting site visit and prepare site visit report</li>
+        <li>Preparation of Bid Security</li>
+        <li>Bid Submission</li>
+        <li>Attending Bid and Financial Opening</li>
+        <li>Preparation of Professional Indemnity/Performance Security</li>
+        <li>Signing Consultancy Agreement</li>
+        <li>Keeping Records of Bids prepared, Bid results and Financial results</li>
+        <li>Preparation of CV Pool</li>
+        <li>Prepare technical specification based on technical reports and drawings.</li>
+        <li>Prepare tender document-based standards approved by the Client </li>
+        <li>Review and updating of Bill of Quantities </li>
+        <li>Verification of completeness of contractual documentation</li>
+        <li>Preparation of Cost Estimate</li>
+        <li>Preparation of Invoices for Design Projects</li>
+        <li>Liaison with other companies departments (RCMD, Design…)</li>
+        <li>Liaison with Partners and Clients of the company</li>
+        <li>Others as required</li>
+    </template>
+    <template id="senior_contract_engineer_role">
+        <li>Evaluate EOI/RFP Notice for Feasibility against consultancy company resource</li>
+        <li>Study the RFP to determine the feasibility against the company resources</li>
+        <li>Preparation of Checklist for bid preparation</li>
+        <li>Evaluate and propose staffs for bid preparation as per the requirements of RFP</li>
+        <li>Arrange the visit and follow-up</li>
+        <li>Lead, Follow-up and Coordinating activities performed by the team</li>
+        <li>Check and review prepared bid proposals</li>
+        <li>Keeping Records of Bids prepared, Bid results and Financial results</li>
+        <li>Signing Consultancy Agreement </li>
+        <li>Check and review of prepared technical specification based on technical reports and drawings.</li>
+        <li>Check and review of prepared tender document-based standards approved by the Client </li>
+        <li>Check and Review of updated Bill of Quantities </li>
+        <li>Check and Review of Cost Estimate</li>
+        <li>Verification of completeness of contractual documentation</li>
+        <li>Liaison with other company’s departments (RCMD, Design…)</li>
+        <li>Liaison with Partners and Clients of the company</li>
+        <li>Others as required</li>
+    </template>
+    <template id="administration_and_finance_head_role">
+        <li>Establish and implement administration and logistics procedures in line with organizational system requirements;</li>
+        <li>Establish and manage all procurement and logistics activities including possible management of transportation and other facilities; </li>
+        <li>Regular follow up and managing insurance, loan and leasing arrangements;</li>
+        <li>Ensure that own facilities are utilized to the optimum and reduce rental costs;</li>
+        <li>Responsible for maintaining an efficient working office environment including management of office and laboratory facilities, equipment and supplies, office health and safety plus IT and online support;</li>
+        <li>Develop and maintain asset registry and security of assets;</li>
+        <li>Issue the appropriate leaves such as annual leave, sick leave, maternity leave etc to employees as per the company rules and procedures</li>
+        <li>Assist payroll department by providing relevant employee information (e.g. leaves of absence, sick days and work schedules);</li>
+        <li>Prepares Job Descriptions and follow up the availability of it for each employee.</li>
+        <li>Further develop human resources and administration, enhancing professional development, compensation and benefits, performance evaluation, training, and recruiting in consultation with the General Manager;</li>
+        <li>Facilitate all recruitment, transfer, promotion, resignation and related processes and document all accordingly;</li>
+        <li>Maintain and update all official personnel files and records for all programme on a regular basis;</li>
+        <li>Control of salary payments to staff, including pension and income tax, reconciling the same and monitoring other operational expenses, subsistence allowances, mobile phone usage, etc. in consultation with Finance Manager;</li>
+        <li>Controls and monitors the day to day activities of subordinate staff and the attendance of all employees </li>
+        <li>Ensures the personnel record of each employee is neatly, systematically and safely handled and recorded</li>
+        <li>Checks and confirms the proper utilization of per diems, transport, telephone, electric lights, water supply expenses and allow such expenses as deemed necessary</li>
+        <li>Coordinating with the Finance Section for utility and other payments;</li>
+        <li>Follows up/approves store items purchase, delivery, and issuances from stores.</li>
+        <li>Work closely and transparently with all external partners including Finance Institutions, sub-consultants, etc.</li>
+        <li>Manage contracted services and sub-service level agreements properly;</li>
+        <li>Liaise with external adviser’s accountants, lawyers, and other advisers where appropriate;</li>
+        <li>Ensure HR Manuals and systems are updated and approved and utilized in line with the national legislation changes</li>
+        <li>Ensure legal compliance such as company trade and professional licenses;</li>
+        <li>Participating in management meetings, assisting in human resources related strategic direction; </li>
+        <li>Coordinate and lead the annual audit process, liaise with external auditors and the General Manager or delegated Management staffs; assess any changes necessary.</li>
+        <li>Provide support and advice to General Manger and Department Heads;</li>
+        <li>Regular follow up of receivables and payables and report on weekly basis.</li>
+        <li>Supervising monthly income statement (on project basis) and balance sheet </li>
+        <li>Establish and implement financial procedures in line with organizational system requirements </li>
+        <li>Timely and accurate recording of all financial transactions in line with organizational system requirements and deadlines. </li>
+        <li>Establish and prepare accurate and timely information for budget monitoring and progress reporting</li>
+        <li>Overseeing the preparation of and presentation of financial reports, operating expenditures, regular expenditures and financial forecasts</li>
+        <li>Provide financial management advice for revisions of budgets, prioritizations and preparing periodical forecasts for operational budgets</li>
+        <li>Monitoring of the petty cash and bank balances to ensure sufficient balances are always available. </li>
+        <li>Control of salary payments to staff, including pension and income tax, reconciling the same and monitoring other operational expenses, subsistence allowances, mobile phone usage, etc. </li>
+        <li>Lead Finance staff in line with good organizational practice </li>
+        <li>Management and reconciliation of the bank and cash accounts, preparation of the regular cash balances and monthly financial records to be submitted to the General Manager, </li>
+        <li>Providing timely and accurate financial management reports to the General Manager ensuring compliance with all relevant status</li>
+        <li>Certifying Expenditure in consultation with delegated respective project team leader/ respective Section or Department Head</li>
+        <li>Administration of all invoicing, and Purchase Order system,</li>
+        <li>Participating in management team meetings, assisting in finance related strategic direction and investment planning </li>
+        <li>Leading month-end and year-end financial audit processes</li>
+        <li>Coordinate and lead the annual audit process, liaise with external auditors and the General Manager or delegated Management staffs; assess any changes necessary.</li>
+        <li>Ensure Finance Manual and systems are updated and approved and utilized in line with legislation changes</li>
+        <li>Ensure legal compliance with respect to Finance Management</li>
+        <li>Other related tasks as assigned by the GM</li>
+    </template>
+
+    <template id="accountant_role">
+        <li>Prepare cheque payment vouchers after the procedures are fulfilled</li>
+        <li>Prepare cheque and submit for signatories and issue to the proper recipient</li>
+        <li>Ensure and follow-up settlements of advance payments in time</li>
+        <li>When petty cash fund reaches 25%, request replenishment and submit the vouchers with supporting documents such as receipts, invoices, PR, GRN and others</li>
+        <li>Make accounting records (coding and posting to accounting Software-Peachtree) regarding payment payroll, collections and other financial transactions</li>
+        <li>Perform payments to Inland Revenue</li>
+        <li>Prepare payroll for projects as assigned by immediate boss </li>
+        <li>Check payroll preparation for some of the projects that is prepared by other finance staff</li>
+        <li>Prepare bank reconciliations for the assigned bank accounts at the end of the month and check bank reconciliations prepared by other finance staff</li>
+        <li>Prepare VAT sales invoices with sales register machine and take out z-report daily in the absence of assigned staff</li>
+        <li>Check amounts collected against VAT sales invoices for each collection</li>
+        <li>Collect and issue cash receipt vouchers for collections from different sources other than Sales</li>
+        <li>Make deposits to bank intact and in time</li>
+        <li>Update project balances </li>
+        <li>Follow-up insurance affairs</li>
+        <li>Prepare bank draft, CPO and make bank transfer</li>
+        <li>Take assignments of others when necessary and for the absence of concerned bodies and other financial activities and assignments assigned by immediate boss</li>
+        <li>Prepare payroll for all the projects </li>
+        <li>Ensure and follow-up settlements of advance payments in time</li>
+        <li>Collect and issue cash receipt vouchers for collections from different sources other than Sales</li>
+        <li>Record collection follow up</li>
+        <li>Prepare payable analysis with proper documentation</li>
+        <li>Make accounting records (coding and posting to accounting Software-Peachtree) regarding payment payroll, collections and other financial transactions</li>
+        <li> Take assignments of others when necessary and for the absence of concerned bodies and other financial activities and assignments assigned by immediate boss Prepare payroll for HO and all projects as assigned by immediate boss</li>
+    </template>
+</odoo>
