@@ -80,7 +80,7 @@
                     <th style="width: 200px;"><t t-esc="title" /></th>
                     <th>
                         <div style="position: relative;">
-                            <span><img style="height: 60px; width: 60px;" class="s_img_border" src="/stadia/static/stadi_stamp_logo.jpg" /></span>
+                            <span><img style="height: 60px; width: 60px;" class="s_img_border" src="https://im.ge/i/FsrF5y" /></span>
                             <span class="s_t_text">Stadia Engineering Works Consultant Plc.</span>
                         </div>
                     </th>
