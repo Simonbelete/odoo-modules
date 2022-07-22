@@ -55,14 +55,15 @@ class EmployeeListReport(models.AbstractModel):
         sheet.write(max_row + 1, 8, 'Email', bold)
         sheet.write(max_row + 1, 9, 'Sub City', bold)
         sheet.write(max_row + 1, 10, 'Woreda', bold)
-        sheet.write(max_row + 1, 11, 'Tin Number', bold)
-        sheet.write(max_row + 1, 12, 'Pension Number', bold)
-        sheet.write(max_row + 1, 13, 'Bank Account Number', bold)
-        sheet.write(max_row + 1, 14, 'Gender', bold)
-        sheet.write(max_row + 1, 15, 'Marital Status', bold)
-        sheet.write(max_row + 1, 16, 'Date of Birth', bold)
-        sheet.write(max_row + 1, 17, 'Nationality', bold)
-        sheet.write(max_row + 1, 18, 'PIN Code', bold)
+        sheet.write(max_row + 1, 11, 'House Number', bold)
+        sheet.write(max_row + 1, 12, 'Tin Number', bold)
+        sheet.write(max_row + 1, 13, 'Pension Number', bold)
+        sheet.write(max_row + 1, 14, 'Bank Account Number', bold)
+        sheet.write(max_row + 1, 15, 'Gender', bold)
+        sheet.write(max_row + 1, 16, 'Marital Status', bold)
+        sheet.write(max_row + 1, 17, 'Date of Birth', bold)
+        sheet.write(max_row + 1, 18, 'Nationality', bold)
+        sheet.write(max_row + 1, 19, 'PIN Code', bold)
 
         sheet.set_column(0, 0,  5)
         sheet.set_column(1, 1,  30)
@@ -83,6 +84,7 @@ class EmployeeListReport(models.AbstractModel):
         sheet.set_column(16, 16,  20)
         sheet.set_column(17, 17,  20)
         sheet.set_column(18, 18,  20)
+        sheet.set_column(18, 19,  20)
 
         row = max_row + 2
         c = 1
@@ -92,27 +94,33 @@ class EmployeeListReport(models.AbstractModel):
             sheet.write(row, 1, employee.name)
             sheet.write(row, 2, employee.badge_id_no)
             sheet.write(row, 3, employee.department_id.name)
-            sheet.write(row, 4, employee.job_id.name)
+            if(employee.contract_id):
+                sheet.write(row, 4, employee.contract_id.work_place_id.name)
+            else:
+                sheet.write(row, 4, ' ')
+
+            sheet.write(row, 5, employee.job_id.name)
+
             if(employee.first_contract_date):
-                sheet.write(row, 5, employee.first_contract_date.strftime('%m/%d/%Y'))
+                sheet.write(row, 6, employee.first_contract_date.strftime('%m/%d/%Y'))
             else:
-                sheet.write(row, 5, '')
-            sheet.write(row, 6, employee.mobile_phone)
-            sheet.write(row, 7, employee.work_email)
-            sheet.write(row, 8, employee.sub_city_id.name)
-            sheet.write(row, 9, employee.woreda)
-            sheet.write(row, 10, employee.house_number)
-            sheet.write(row, 11, employee.tin_no)
-            sheet.write(row, 12, employee.pension_no)
-            sheet.write(row, 13, employee.bank_account_id.acc_number)
-            sheet.write(row, 14, employee.gender)
-            sheet.write(row, 15, employee.marital)
+                sheet.write(row, 6, '')
+            sheet.write(row, 7, employee.mobile_phone)
+            sheet.write(row, 8, employee.work_email)
+            sheet.write(row, 9, employee.sub_city_id.name)
+            sheet.write(row, 10, employee.woreda)
+            sheet.write(row, 11, employee.house_number)
+            sheet.write(row, 12, employee.tin_no)
+            sheet.write(row, 13, employee.pension_no)
+            sheet.write(row, 14, employee.bank_account_id.acc_number)
+            sheet.write(row, 15, employee.gender)
+            sheet.write(row, 16, employee.marital)
             if(employee.birthday):
-                sheet.write(row, 16, employee.birthday.strftime('%m/%d/%Y'))
+                sheet.write(row, 17, employee.birthday.strftime('%m/%d/%Y'))
             else:
-                sheet.write(row, 16, '')
-            sheet.write(row, 17, employee.country_id.name)
-            sheet.write(row, 18, employee.pin)
+                sheet.write(row, 17, '')
+            sheet.write(row, 18, employee.country_id.name)
+            sheet.write(row, 19, employee.pin)
             row += 1
             c += 1
             
