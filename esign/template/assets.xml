@@ -10,6 +10,7 @@
     <template id="assets_backend" name="Backend Assets" inherit_id="web.assets_backend">
         <xpath expr="//link[last()]" position="after">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf_viewer.min.css" integrity="sha512-USGasHs0SUBcT/vnWD0C6wMIvMGRf4lvvSKNbKvShfGdgT2pxHWNvClLLZwPqygPOiQ4HEIM51R/8bguqWyNvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="esign/static/src/scss/sign_builder.scss" />
         </xpath>
         <xpath expr="//script[last()]" position="after">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js" integrity="sha512-dw+7hmxlGiOvY3mCnzrPT5yoUwN/MRjVgYV7HGXqsiXnZeqsw1H9n9lsnnPu4kL2nx2bnrjFcuWK+P3lshekwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

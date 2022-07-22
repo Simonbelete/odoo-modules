@@ -3,7 +3,7 @@
 
     <t t-name="sign_builder_body">
         <h1>Sign Builder</h1>
-        <iframe src="esign/static/src/libs/pdfjs/web/viewer.html" width="100%" height="500px"></iframe>
+        <iframe src="esign/static/src/libs/pdfjs/web/viewer.html" class="o_esign_pdf_iframe"></iframe>
         <!-- <div id="container"></div> -->
     </t>
 
